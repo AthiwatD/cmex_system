@@ -9,9 +9,7 @@
             <thead>
                 <tr>
                     <th>ชื่อฟอร์ม</th>
-                    <th width="50px">View</th>
-                    <th width="50px">Edit</th>
-                    <th width="50px">Deleted</th>
+                    <th >การดำเนินการ</th>
                 </tr>
             </thead>
             <tbody>
@@ -19,9 +17,11 @@
                     foreach($forms as $form){
                         echo "<tr>";
                         echo "<td><a href='" . base_url() . "Form/form/" . $form->form_id . "'>" . $form->form_name . "</a></td>";
-                        echo "<td style='text-align: center;'><a href='" . base_url() . "Form/form/" . $form->form_id . "'><img src='" . base_url() . "../common/assets/images/document_view.png' width='32px'></a></td>";
-                        echo "<td style='text-align: center;'><a href='" . base_url() . "Form/updateForm/" . $form->form_id . "'><img src='" . base_url() . "../common/assets/images/document_edit.png' width='32px'></a></td>";
-                        echo "<td style='text-align: center;'><a href='" . base_url() . "Form/deleteFormDo/" . $form->form_id . "' onclick='confirm(\"คุณต้องการ ลบ?\")'><img src='" . base_url() . "../common/assets/images/document_delete.png' width='32px'></a></td>";
+                        echo "<td width='250'>";
+                        echo "<a href='" . base_url() . "Form/form/" . $form->form_id . "' class='btn btn-primary btn-sm'><i class='fas fa-folder'></i>View</a> ";
+                        echo "<a href='" . base_url() . "Form/updateForm/" . $form->form_id . "' class='btn btn-warning btn-sm'><i class='fas fa-pencil-alt'></i>Edit</a> ";
+                        echo "<a href='" . base_url() . "Form/deleteFormDo/" . $form->form_id . "' class='btn btn-danger btn-sm' onclick='confirm(\"คุณต้องการ ลบ?\")'><i class='fas fa-trash'></i>Delete</a> </td>";
+                        echo "</td>";
                         echo "</tr>";
                     }
                 ?>

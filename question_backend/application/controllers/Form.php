@@ -23,7 +23,7 @@ class Form extends MY_Controller {
 
         $this->data['head_title'] = "รายการแบบสำรวจ";
         $this->loadData();
-        $this->loadView(array('Form/forms_view'), array('Form/forms_script'));      
+        $this->loadViewWithScript(array('Form/forms_view'), array('Form/forms_script'));      
     }
 
     function form($form_id){
@@ -36,7 +36,7 @@ class Form extends MY_Controller {
 
         $this->data['head_title'] = "รายละเอียดแบบสำรวจ";
         $this->loadData();
-        $this->loadView(array('Form/form_view'), array());      
+        $this->loadViewWithScript(array('Form/form_view'), array());      
     }
 
     function getFormsWizard(){
@@ -58,7 +58,7 @@ class Form extends MY_Controller {
         $this->data['head_title'] = "เพิ่ม แบบสำรวจ";
         //$this->data['categories'] = $this->Category->getCategories();
         $this->loadData();
-        $this->loadView(array('Form/form_form_view'), array());      
+        $this->loadViewWithScript(array('Form/form_form_view'), array());      
     }
 
     function addFormDo(){
@@ -90,7 +90,7 @@ class Form extends MY_Controller {
         $this->data['head_title'] = "แก้ไข แบบสำรวจ";
         $this->data['form'] = $this->Form->getForm($form_id);
         $this->loadData();
-        $this->loadView(array('form/form_form_view'), array());      
+        $this->loadViewWithScript(array('form/form_form_view'), array());      
     }
     
     function updateFormDo(){

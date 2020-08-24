@@ -27,7 +27,19 @@ class MY_Controller extends CI_Controller {
         $this->data['validated'] = $this->session->validated;
     }
     
-    protected function loadView($body_views,$body_scripts){
+    protected function loadView($body_views){
+        $this->load->view('common/header', $this->data);
+        $this->load->view('common/navbar', $this->data);
+        $this->load->view('common/sidebar', $this->data);
+        $this->load->view('common/main_head', $this->data);
+        foreach($body_views as $body_view){
+            $this->load->view($body_view, $this->data);
+        }
+        $this->load->view('common/footer',$this->data);
+        $this->load->view('common/end',$this->data);
+    }
+
+    protected function loadViewWithScript($body_views,$body_scripts){
         $this->load->view('common/header', $this->data);
         $this->load->view('common/navbar', $this->data);
         $this->load->view('common/sidebar', $this->data);
