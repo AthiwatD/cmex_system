@@ -6,7 +6,7 @@ class Breadcrumb
 {
     private $breadcrumbs = array();
      private $separator = '  >  ';
-     private $start = '<div id="breadcrumb">';
+     private $start = '<div id="breadcrumb" class="float-sm-left">';
      private     $end = '</div>';
     
     public function __construct($params = array())

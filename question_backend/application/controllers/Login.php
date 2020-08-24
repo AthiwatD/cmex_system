@@ -28,11 +28,11 @@ class Login extends CI_Controller{
         // Now we verify the result
         if(!$result){
             //echo "Not Pass";
-            redirect('Login');
-            //$this->load->view("welcome_message");
+            //redirect('Login');
+            //$this->load->view("login_view");
             // If user did not validate, then show them login page again
-            //$msg = '<font color=red>Invalid username and/or password.</font><br />';
-            //$this->index($msg);
+            $msg = '<font color=red>Invalid username and/or password.</font><br />';
+            $this->index($msg);
         }else{
             //$this->load->view("welcome_message");
             // If user did validate, 

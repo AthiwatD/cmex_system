@@ -15,13 +15,10 @@ class MY_Controller extends CI_Controller {
             $this->load->helper('form');
             $this->load->helper('cookie');
             $this->load->helper('../../common/helpers/thai_date');
-
         }
     }
 
     protected function loadData(){
-
-            
         $this->data['session_username'] = $this->session->username;
         $this->data['session_name'] = $this->session->name;
         $this->data['session_position_name'] = $this->session->position_name;
@@ -30,7 +27,7 @@ class MY_Controller extends CI_Controller {
         $this->data['validated'] = $this->session->validated;
     }
     
-    protected function loadView($body_views){
+    protected function loadView($body_views,$body_scripts){
         $this->load->view('common/header', $this->data);
         $this->load->view('common/navbar', $this->data);
         $this->load->view('common/sidebar', $this->data);
@@ -39,12 +36,16 @@ class MY_Controller extends CI_Controller {
             $this->load->view($body_view, $this->data);
         }
         $this->load->view('common/footer',$this->data);
+        foreach($body_scripts as $body_script){
+            $this->load->view($body_script, $this->data);
+        }
         $this->load->view('common/end',$this->data);
     }
 
     protected function check_isvalidated(){
         if((!isset($this->session->validated)) || (!$this->session->validated)){
             $this->load->view('login_view', $this->data);
+            //redirect( base_url() . 'Login');
             return false;
         }else{
             //redirect( base_url() . 'Home');

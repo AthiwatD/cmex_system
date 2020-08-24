@@ -9,13 +9,16 @@
     }
     
     public function index(){
-        $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
+        $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');     
         $this->data['breadcrumb'] = $this->breadcrumb->output();
 
         $this->data['head_title'] = "หน้าแรก";
         $this->loadData();
         $this->loadView(array("home_view"));
+
+        //echo "TEST";
     }
+    
     
     public function do_logout(){
         $this->session->sess_destroy();

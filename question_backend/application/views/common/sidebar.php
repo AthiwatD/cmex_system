@@ -12,7 +12,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="<?php echo base_url(); ?>assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">Alexander Pierce</a>
@@ -24,35 +24,95 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+          <li class="nav-item has-treeview">
+            <a href="Home" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
-                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
-                </a>
-              </li>
-            </ul>
           </li>
+          <li class="nav-item has-treeview">
+            <a href="Report" class="nav-link">
+              <i class="nav-icon fa fa-bar-chart-o"></i>
+              <p>
+                รายงาน
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="Evaluation" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                แบบประเมิน
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="EvaluatePerson" class="nav-link">
+              <i class="nav-icon fa fa-group"></i>
+              <p>
+                พนักงานทำแบบประเมิน
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="Form" class="nav-link">
+              <i class="nav-icon fa fa-pencil-square-o"></i>
+              <p>
+                Form
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="FormDetail" class="nav-link">
+              <i class="nav-icon fa fa-pencil-square-o"></i>
+              <p>
+                Form Detail
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="Category" class="nav-link">
+              <i class="nav-icon fa fa-reorder"></i>
+              <p>
+                Category
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="QuestionGroup" class="nav-link">
+              <i class="nav-icon fas fa-question-circle"></i>
+              <p>
+                Question Group
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="Question" class="nav-link">
+              <i class="nav-icon fas fa-question"></i>
+              <p>
+                Question
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="ChoiceGroup" class="nav-link">
+              <i class="nav-icon fas fa-list-ul"></i>
+              <p>
+                Choice Group
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="Choice" class="nav-link">
+              <i class="nav-icon fas fa-list-ol"></i>
+              <p>
+                Choice
+              </p>
+            </a>
+          </li>
+          <!--
           <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -62,6 +122,7 @@
               </p>
             </a>
           </li>
+          
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
@@ -116,6 +177,7 @@
               </li>
             </ul>
           </li>
+
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
@@ -548,6 +610,7 @@
               <p>Informational</p>
             </a>
           </li>
+          -->
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

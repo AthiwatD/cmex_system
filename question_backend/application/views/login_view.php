@@ -29,6 +29,7 @@
       <p class="login-box-msg">ลงทะเบียนเข้าใช้บริการ</p>
 
       <form role="form" method="POST" action="<?php echo base_url(); ?>Login/process">
+        
         <div class="input-group mb-3">
           <input type="text" class="form-control" name="username" placeholder="รหัสพนักงาน">
           <div class="input-group-append">
@@ -52,6 +53,7 @@
           <div class="col-12">
             <button type="submit" class="btn btn-primary btn-block">เข้าสู่ระบบ</button>
           </div>
+          <div class="col-12" id="div_msg"><?php echo $msg; ?></div>
           <!-- /.col -->
         </div>
       </form>
