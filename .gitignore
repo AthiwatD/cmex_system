@@ -1,16 +1,16 @@
 .DS_Store
 
-question/application/cache/*
-!question/application/cache/index.html
+question_backend/application/cache/*
+!question_backend/application/cache/index.html
 
-question/application/logs/*
-!question/application/logs/index.html
+question_backend/application/logs/*
+!question_backend/application/logs/index.html
 
-!question/application/*/.htaccess
+!question_backend/application/*/.htaccess
 
-question/application/config/config.php
+question_backend/application/config/config.php
 
-question/application/config/database.php
+question_backend/application/config/database.php
 
 
 composer.lock

@@ -530,3 +530,11 @@ WHERE `form_id` = '2'
 ERROR - 2020-08-24 11:52:46 --> 404 Page Not Found: Form/deleteForm
 ERROR - 2020-08-24 11:52:46 --> Severity: Warning --> include(D:\xampp\htdocs\cmex_system\question_backend\application\views\errors\html\error_404.php): failed to open stream: No such file or directory D:\xampp\htdocs\cmex_system\system\core\Exceptions.php 182
 ERROR - 2020-08-24 11:52:46 --> Severity: Warning --> include(): Failed opening 'D:\xampp\htdocs\cmex_system\question_backend\application\views\errors\html\error_404.php' for inclusion (include_path='D:\xampp\php\PEAR') D:\xampp\htdocs\cmex_system\system\core\Exceptions.php 182
+ERROR - 2020-08-24 20:19:02 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'question' D:\xampp\htdocs\cmex_system\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-08-24 20:19:02 --> Unable to connect to the database
+ERROR - 2020-08-24 20:19:02 --> Severity: Notice --> Undefined property: Home::$data D:\xampp\htdocs\cmex_system\question_backend\application\core\MY_Controller.php 47
+ERROR - 2020-08-24 20:19:02 --> Severity: Notice --> Undefined variable: msg D:\xampp\htdocs\cmex_system\question_backend\application\views\login_view.php 56
+ERROR - 2020-08-24 20:19:02 --> Severity: Notice --> Undefined property: Home::$breadcrumb D:\xampp\htdocs\cmex_system\question_backend\application\controllers\Home.php 12
+ERROR - 2020-08-24 20:19:02 --> Severity: error --> Exception: Call to a member function add() on null D:\xampp\htdocs\cmex_system\question_backend\application\controllers\Home.php 12
+ERROR - 2020-08-24 20:19:02 --> Severity: Warning --> include(D:\xampp\htdocs\cmex_system\question_backend\application\views\errors\html\error_exception.php): failed to open stream: No such file or directory D:\xampp\htdocs\cmex_system\system\core\Exceptions.php 219
+ERROR - 2020-08-24 20:19:02 --> Severity: Warning --> include(): Failed opening 'D:\xampp\htdocs\cmex_system\question_backend\application\views\errors\html\error_exception.php' for inclusion (include_path='D:\xampp\php\PEAR') D:\xampp\htdocs\cmex_system\system\core\Exceptions.php 219
