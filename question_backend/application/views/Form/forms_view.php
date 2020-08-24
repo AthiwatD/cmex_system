@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-header">
     <!-- <h3 class="card-title">DataTable with default features</h3> -->
-        <a href="addForm"><button type="button" class="btn btn-success">เพิ่ม</button></a>
+        <a href="<?php echo base_url(); ?>Form/addForm"><button type="button" class="btn btn-success">เพิ่ม</button></a>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -18,10 +18,10 @@
                 <?php 
                     foreach($forms as $form){
                         echo "<tr>";
-                        echo "<td><a href='form/" . $form->form_id . "'>" . $form->form_name . "</a></td>";
-                        echo "<td style='text-align: center;'><a href='form/" . $form->form_id . "'><img src='" . base_url() . "../common/assets/images/document_view.png' width='32px'></a></td>";
-                        echo "<td style='text-align: center;'><a href='updateForm/" . $form->form_id . "'><img src='" . base_url() . "../common/assets/images/document_edit.png' width='32px'></a></td>";
-                        echo "<td style='text-align: center;'><a href='deleteFormDo/" . $form->form_id . "' onclick='confirm(\"คุณต้องการ ลบ?\")'><img src='" . base_url() . "../common/assets/images/document_delete.png' width='32px'></a></td>";
+                        echo "<td><a href='" . base_url() . "Form/form/" . $form->form_id . "'>" . $form->form_name . "</a></td>";
+                        echo "<td style='text-align: center;'><a href='" . base_url() . "Form/form/" . $form->form_id . "'><img src='" . base_url() . "../common/assets/images/document_view.png' width='32px'></a></td>";
+                        echo "<td style='text-align: center;'><a href='" . base_url() . "Form/updateForm/" . $form->form_id . "'><img src='" . base_url() . "../common/assets/images/document_edit.png' width='32px'></a></td>";
+                        echo "<td style='text-align: center;'><a href='" . base_url() . "Form/deleteFormDo/" . $form->form_id . "' onclick='confirm(\"คุณต้องการ ลบ?\")'><img src='" . base_url() . "../common/assets/images/document_delete.png' width='32px'></a></td>";
                         echo "</tr>";
                     }
                 ?>
