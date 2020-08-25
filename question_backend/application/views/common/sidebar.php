@@ -25,7 +25,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
-            <a href="Home" class="nav-link">
+            <a href="<?php echo base_url(); ?>Home" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -33,7 +33,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="Report" class="nav-link">
+            <a href="<?php echo base_url(); ?>Report" class="nav-link">
               <i class="nav-icon fa fa-bar-chart-o"></i>
               <p>
                 รายงาน
@@ -41,7 +41,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="Evaluation" class="nav-link">
+            <a href="<?php echo base_url(); ?>Evaluation" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 แบบประเมิน
@@ -49,7 +49,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="EvaluatePerson" class="nav-link">
+            <a href="<?php echo base_url(); ?>EvaluatePerson" class="nav-link">
               <i class="nav-icon fa fa-group"></i>
               <p>
                 พนักงานทำแบบประเมิน
@@ -57,7 +57,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="Form" class="nav-link">
+            <a href="<?php echo base_url(); ?>Form" class="nav-link">
               <i class="nav-icon fa fa-pencil-square-o"></i>
               <p>
                 Form
@@ -65,7 +65,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="FormDetail" class="nav-link">
+            <a href="<?php echo base_url(); ?>FormDetail" class="nav-link">
               <i class="nav-icon fa fa-pencil-square-o"></i>
               <p>
                 Form Detail
@@ -73,7 +73,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="Category" class="nav-link">
+            <a href="<?php echo base_url(); ?>Category" class="nav-link">
               <i class="nav-icon fa fa-reorder"></i>
               <p>
                 Category
@@ -81,7 +81,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="QuestionGroup" class="nav-link">
+            <a href="<?php echo base_url(); ?>QuestionGroup" class="nav-link">
               <i class="nav-icon fas fa-question-circle"></i>
               <p>
                 Question Group
@@ -89,7 +89,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="Question" class="nav-link">
+            <a href="<?php echo base_url(); ?>Question" class="nav-link">
               <i class="nav-icon fas fa-question"></i>
               <p>
                 Question
@@ -97,7 +97,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="ChoiceGroup" class="nav-link">
+            <a href="<?php echo base_url(); ?>ChoiceGroup" class="nav-link">
               <i class="nav-icon fas fa-list-ul"></i>
               <p>
                 Choice Group
@@ -105,7 +105,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="Choice" class="nav-link">
+            <a href="<?php echo base_url(); ?>Choice" class="nav-link">
               <i class="nav-icon fas fa-list-ol"></i>
               <p>
                 Choice

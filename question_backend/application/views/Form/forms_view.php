@@ -5,7 +5,7 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-        <table id="table_data" class="table table-bordered table-striped">
+        <table class="table table-bordered table-striped my_table_data">
             <thead>
                 <tr>
                     <th>ชื่อฟอร์ม</th>

@@ -10,7 +10,7 @@ class Form_model extends CI_Model {
 
         $sql = "SELECT *
                     FROM qstn_form f
-                    ORDER BY f.form_id";
+                    ORDER BY f.form_id DESC";
                     
                     
         $result = $this->db->query($sql)->result();

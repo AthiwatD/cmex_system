@@ -9,7 +9,9 @@ class MY_Controller extends CI_Controller {
         parent::__construct();
 
         //Initialization code that affects all controllers
+        $this->load->library('session');
         if($this->check_isvalidated()){
+
             $this->load->library('Breadcrumb');
             $this->load->helper('url');
             $this->load->helper('form');
@@ -56,11 +58,10 @@ class MY_Controller extends CI_Controller {
 
     protected function check_isvalidated(){
         if((!isset($this->session->validated)) || (!$this->session->validated)){
-            $this->load->view('login_view', $this->data);
-            //redirect( base_url() . 'Login');
+            redirect( base_url() . 'Login'); // Login is CI_Controller that can redirect
             return false;
         }else{
-            //redirect( base_url() . 'Home');
+            // Home is MY_Controller will redirect loop back itself don't do it here
             return true;
         }
     }

@@ -43,3 +43,5 @@
 <script src="<?php echo base_url(); ?>assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>assets/dist/js/adminlte.js"></script>
+
+<script src="<?php echo base_url(); ?>assets/js/table_data.js"></script>
