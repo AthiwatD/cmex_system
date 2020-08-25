@@ -34,12 +34,14 @@ class ChoiceGroup_model extends CI_Model {
 
     function addChoiceGroup(){
         $choice_group_name = $this->security->xss_clean($this->input->post('choice_group_name'));
+        $choice_group_name_show = $this->security->xss_clean($this->input->post('choice_group_name_show'));
         $choice_number = $this->security->xss_clean($this->input->post('choice_number'));
         $choice_name = $this->security->xss_clean($this->input->post('choice_name'));
         $choice_point = $this->security->xss_clean($this->input->post('choice_point'));
         
         $data = array(
             'choice_group_name' => $choice_group_name,
+            'choice_group_name_show' => $choice_group_name_show,
         );
         $result = $this->db->insert('qstn_choice_group', $data);
         $insert_id = $this->db->insert_id();
@@ -60,26 +62,31 @@ class ChoiceGroup_model extends CI_Model {
 
     function updateChoiceGroup(){
         $choice_group_id = $this->security->xss_clean($this->input->post('choice_group_id'));
-        $form_id = $this->security->xss_clean($this->input->post('form_id'));
-        $choice_group_number = $this->security->xss_clean($this->input->post('choice_group_number'));
         $choice_group_name = $this->security->xss_clean($this->input->post('choice_group_name'));
-        $choice_group_item = $this->security->xss_clean($this->input->post('choice_group_item'));
+        $choice_group_name_show = $this->security->xss_clean($this->input->post('choice_group_name_show'));
+
+        $choice_id= $this->security->xss_clean($this->input->post('choice_id'));
+        $choice_number = $this->security->xss_clean($this->input->post('choice_number'));
+        $choice_name = $this->security->xss_clean($this->input->post('choice_name'));
+        $choice_point = $this->security->xss_clean($this->input->post('choice_point'));
         
-        $choice_group_items = "";
-        for($i=0;$i<sizeof($choice_group_item);$i++){
-            if($i!=0){
-                $choice_group_items .= "#&#";
-            }
-            $choice_group_items .= $choice_group_item[$i];
-        }
         $data = array(
-            'choice_group_number' => $choice_group_number,
             'choice_group_name' => $choice_group_name,
-            'choice_group_items' => $choice_group_items,
-            'form_id' => $form_id,
+            'choice_group_name_show' => $choice_group_name_show,
         );
         $this->db->where('choice_group_id', $choice_group_id);
         $result = $this->db->update('qstn_choice_group', $data);
+
+        for($i=0;$i<sizeof($choice_number);$i++){
+            $data = array(
+                'choice_number' => $choice_number[$i],
+                'choice_name' => $choice_name[$i],
+                'choice_point' => $choice_point[$i],
+            );
+            $this->db->where('choice_id', $choice_id[$i]);
+            $result = $this->db->update('qstn_choice', $data);
+        }
+        
         return $result;
     }
 

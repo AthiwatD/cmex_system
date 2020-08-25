@@ -23,15 +23,15 @@
                         echo "<td>" . $form_detail->form_detail_number . "</td>";
                         echo "<td>" . $form_detail->form_detail_name . "</td>";
                         $form_detail_items = explode("#&#", $form_detail->form_detail_items);
-                        echo "<td>";
+                        echo "<td><ul>";
                         foreach($form_detail_items as $form_detail_item){
                             if($form_detail_item == ""){
-                                echo "โปรดระบุ...<br>";
+                                echo "<li>โปรดระบุ...</li>";
                             }else{
-                                echo $form_detail_item . "<br>";
+                                echo "<li>" . $form_detail_item . "</li>";
                             }
                         }
-                        echo "</td>";
+                        echo "</ul></td>";
                         echo "<td width='250'>";
                         echo "<a href='" . base_url() . "FormDetail/formDetail/" . $form_detail->form_detail_id . "' class='btn btn-primary btn-sm'><i class='fas fa-folder'></i>View</a> ";
                         echo "<a href='" . base_url() . "FormDetail/updateFormDetail/" . $form_detail->form_detail_id . "' class='btn btn-warning btn-sm'><i class='fas fa-pencil-alt'></i>Edit</a> ";

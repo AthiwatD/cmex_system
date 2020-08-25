@@ -95,29 +95,20 @@
 
     function load_choice(){
         var div_choice_list = $("#div_choice_list");
-        var node = document.createElement("div");       
-        var lbl_choice_number = document.createElement("label"); 
-        var txt_choice_id = document.createElement("input");
-        var txt_choice_number = document.createElement("input"); 
-        var lbl_choice_name = document.createElement("label"); 
-        var txt_choice_name = document.createElement("input");     
-        var lbl_choice_point = document.createElement("label");       
-        var txt_choice_point = document.createElement("input"); 
-
-        <?php
-            foreach($choice_group as $cg){
-        ?>
+        
+        var item = `<?php echo json_encode($choice_group); ?>`;
+        var items = JSON.parse(item);
+        items.forEach(function(item, index){
 
                 choice_count++;
-                div_choice_list = $("#div_choice_list");
-                node = document.createElement("div");       
-                lbl_choice_number = document.createElement("label"); 
-                txt_choice_id = document.createElement("input");
-                txt_choice_number = document.createElement("input"); 
-                lbl_choice_name = document.createElement("label"); 
-                txt_choice_name = document.createElement("input");     
-                lbl_choice_point = document.createElement("label");       
-                txt_choice_point = document.createElement("input"); 
+                var node = document.createElement("div");       
+                var lbl_choice_number = document.createElement("label"); 
+                var txt_choice_id = document.createElement("input");
+                var txt_choice_number = document.createElement("input"); 
+                var lbl_choice_name = document.createElement("label"); 
+                var txt_choice_name = document.createElement("input");     
+                var lbl_choice_point = document.createElement("label");       
+                var txt_choice_point = document.createElement("input"); 
 
             
                 $(node).attr({
@@ -128,60 +119,60 @@
                 $(txt_choice_id).attr({
                     "name" : "choice_id[]",
                     "type" : "hidden",
-                    "value" : "<?php echo $cg->choice_id; ?>",
+                    "value" : items[index].choice_id,
                     "required" : "required",
                 });
 
-                // $(lbl_choice_number).html("ลำดับ");
-                // $(txt_choice_number).attr({
-                //     "name" : "choice_number[]",
-                //     "type" : "number",
-                //     "class" : "form-control",
-                //     "value" : "<?php echo $cg->choice_number; ?>",
-                //     "required" : "required",
-                // });
+                $(lbl_choice_number).html("ลำดับ");
+                $(txt_choice_number).attr({
+                    "name" : "choice_number[]",
+                    "type" : "number",
+                    "class" : "form-control",
+                    "value" :  items[index].choice_number,
+                    "required" : "required",
+                });
 
                 
-                // $(lbl_choice_name).attr({
-                //     "class" : "form-control-label",
+                $(lbl_choice_name).attr({
+                    "class" : "form-control-label",
                             
-                // });
-                // $(lbl_choice_name).html("คำตอบ");
-                // $(txt_choice_name).attr({
-                //     "name" : "choice_name[]",
-                //     "type" : "text",
-                //     "class" : "form-control",
-                //     "value" : "<?php echo $cg->choice_name; ?>",
-                //     "required" : "required",
-                // });
+                });
+                $(lbl_choice_name).html("คำตอบ");
+                $(txt_choice_name).attr({
+                    "name" : "choice_name[]",
+                    "type" : "text",
+                    "class" : "form-control",
+                    "value" : items[index].choice_name,
+                    "required" : "required",
+                });
 
-                // $(lbl_choice_name).attr({
-                //     "class" : "form-control-label",
+                $(lbl_choice_name).attr({
+                    "class" : "form-control-label",
                             
-                // });
-                // $(lbl_choice_point).html("คะแนน");
-                // $(txt_choice_point).attr({
-                //     "name" : "choice_point[]",
-                //     "type" : "text",
-                //     "class" : "form-control",
-                //     "value" : "<?php echo $cg->choice_point; ?>",
-                //     "required" : "required",
-                // });
+                });
+                $(lbl_choice_point).html("คะแนน");
+                $(txt_choice_point).attr({
+                    "name" : "choice_point[]",
+                    "type" : "text",
+                    "class" : "form-control",
+                    "value" : items[index].choice_point,
+                    "required" : "required",
+                });
 
                 $(node).append($(txt_choice_id));
-                // $(node).append($(lbl_choice_number));
-                // $(node).append($(txt_choice_number));
+                $(node).append($(lbl_choice_number));
+                $(node).append($(txt_choice_number));
 
-                // $(node).append($(lbl_choice_name));
-                // $(node).append($(txt_choice_name));
+                $(node).append($(lbl_choice_name));
+                $(node).append($(txt_choice_name));
 
-                // $(node).append($(lbl_choice_point));
-                // $(node).append($(txt_choice_point));
+                $(node).append($(lbl_choice_point));
+                $(node).append($(txt_choice_point));
 
-                // $(div_choice_list).append($(node));
-        <?php
-            }
-        ?>
+                $(div_choice_list).append($(node));
+        
+        });
+        
 
     }
 </script>

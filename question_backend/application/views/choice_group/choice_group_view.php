@@ -23,6 +23,13 @@
                 </div>
 
                 <div class="form-group row" >
+                    <label class="col-md-3 label-control" for="document_name">ชื่อกลุ่มที่แสดง</label>
+                    <div class="col-md-9">
+                        <?php echo $choice_group[0]->choice_group_name_show; ?>
+                    </div>
+                </div>
+
+                <div class="form-group row" >
                     <label class="col-md-3 label-control" for="document_name">คำตอบ</label>
                     <div class="col-md-9">
                         <table>

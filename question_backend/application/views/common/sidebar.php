@@ -98,20 +98,13 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="<?php echo base_url(); ?>ChoiceGroup" class="nav-link">
-              <i class="nav-icon fas fa-list-ul"></i>
-              <p>
-                Choice Group
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="<?php echo base_url(); ?>Choice" class="nav-link">
               <i class="nav-icon fas fa-list-ol"></i>
               <p>
-                Choice
+                ชุดคำตอบ
               </p>
             </a>
           </li>
+
           <!--
           <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">

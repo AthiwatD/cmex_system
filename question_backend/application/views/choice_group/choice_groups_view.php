@@ -9,6 +9,7 @@
             <thead>
                 <tr>
                     <th>ชื่อกลุ่มคำตอบ</th>
+                    <th>ชื่อกลุ่มที่แสดง</th>
                     <th>ข้อ</th>
                     <th>คำตอบ</th>
                     <th>คะแนน</th>
@@ -21,13 +22,14 @@
 
                         echo "<tr>";
                         echo "<td>" . $choice_group->choice_group_name . "</td>";
+                        echo "<td>" . $choice_group->choice_group_name_show . "</td>";
                         echo "<td>" . $choice_group->choice_number . "</td>";
                         echo "<td>" . $choice_group->choice_name . "</td>";
                         echo "<td>" . $choice_group->choice_point . "</td>";
                         echo "<td width='250'>";
                         echo "<a href='" . base_url() . "ChoiceGroup/choiceGroup/" . $choice_group->choice_group_id . "' class='btn btn-primary btn-sm'><i class='fas fa-folder'></i>View</a> ";
                         echo "<a href='" . base_url() . "ChoiceGroup/updateChoiceGroup/" . $choice_group->choice_group_id . "' class='btn btn-warning btn-sm'><i class='fas fa-pencil-alt'></i>Edit</a> ";
-                        echo "<a href='" . base_url() . "ChoiceGroup/deleteChoiceGroupDo/" . $choice_group->choice_group_id . "' class='btn btn-danger btn-sm' onclick='confirm(\"คุณต้องการ ลบ?\")'><i class='fas fa-trash'></i>Delete</a> </td>";
+                        // echo "<a href='" . base_url() . "ChoiceGroup/deleteChoiceGroupDo/" . $choice_group->choice_group_id . "' class='btn btn-danger btn-sm' onclick='confirm(\"คุณต้องการ ลบ?\")'><i class='fas fa-trash'></i>Delete</a> </td>";
                         echo "</td>";
                         echo "</tr>";
                     }

@@ -41,7 +41,7 @@
                     <?php
                         if($method == "update"){
                     ?>
-                            <input type="hidden" name="choice_group_id" value="<?php echo $choice_group->choice_group_id; ?>">
+                            <input type="hidden" name="choice_group_id" value="<?php echo $choice_group[0]->choice_group_id; ?>">
                     <?php
                         }
                     ?>
@@ -53,14 +53,23 @@
                     <label for="exampleInputEmail1">ชื่อกลุ่มคำตอบ</label>
                     <input type="text" class="form-control" id="txt_choice_group_name" name="choice_group_name" placeholder="กรุณากรอกชื่อกลุ่มคำตอบ" value="<?php
                                         if($method == "update"){
-                                            if (!empty($choice_group->choice_group_name)) {
-                                                echo $choice_group->choice_group_name;
+                                            if (!empty($choice_group[0]->choice_group_name)) {
+                                                echo $choice_group[0]->choice_group_name;
                                             }
                                         }
                                     ?>" required>
                   </div>
                   
-                  
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">ชื่อกลุ่มที่แสดง</label>
+                    <input type="text" class="form-control" id="txt_choice_group_name_show" name="choice_group_name_show" placeholder="กรุณากรอกชื่อกลุ่มที่แสดง" value="<?php
+                                        if($method == "update"){
+                                            if (!empty($choice_group[0]->choice_group_name_show)) {
+                                                echo $choice_group[0]->choice_group_name_show;
+                                            }
+                                        }
+                                    ?>" required>
+                  </div>
                   
                     <div class="form-group row">
                         <label for="exampleInputPassword1">คำตอบ</label>
@@ -69,7 +78,13 @@
                     <div id="div_choice_list">
 
                     </div>
-                    <button type="button" class="btn btn-success" onclick="new_choice()">เพิ่มคำตอบ</button>
+                    <?php
+                      if($method == "add"){
+                    ?>
+                        <button type="button" class="btn btn-success" onclick="new_choice()">เพิ่มคำตอบ</button>
+                    <?php
+                      }
+                    ?>
                   </div>
 
                 <div class="card-footer">
