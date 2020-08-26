@@ -34,7 +34,7 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="<?php echo base_url(); ?>Report" class="nav-link">
-              <i class="nav-icon fa fa-bar-chart-o"></i>
+              <i class="nav-icon fas fa-poll"></i>
               <p>
                 รายงาน
               </p>
@@ -50,7 +50,7 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="<?php echo base_url(); ?>EvaluatePerson" class="nav-link">
-              <i class="nav-icon fa fa-group"></i>
+            <i class="nav-icon fas fa-users"></i>
               <p>
                 พนักงานทำแบบประเมิน
               </p>
@@ -58,7 +58,7 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="<?php echo base_url(); ?>Form" class="nav-link">
-              <i class="nav-icon fa fa-pencil-square-o"></i>
+              <i class="nav-icon fab fa-wpforms"></i>
               <p>
                 Form
               </p>
@@ -66,7 +66,7 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="<?php echo base_url(); ?>FormDetail" class="nav-link">
-              <i class="nav-icon fa fa-pencil-square-o"></i>
+              <i class="nav-icon fas fa-info"></i>
               <p>
                 Form Detail
               </p>
@@ -74,7 +74,7 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="<?php echo base_url(); ?>Category" class="nav-link">
-              <i class="nav-icon fa fa-reorder"></i>
+              <i class="nav-icon fas fa-bars"></i>
               <p>
                 Category
               </p>
