@@ -39,7 +39,7 @@ class FormDetail_model extends CI_Model {
         $form_detail_items = "";
         for($i=0;$i<sizeof($form_detail_item);$i++){
             if($i!=0){
-                $form_detail_items .= "#&#";
+                $form_detail_items .= "(.)";
             }
             $form_detail_items .= $form_detail_item[$i];
         }
@@ -64,7 +64,7 @@ class FormDetail_model extends CI_Model {
         $form_detail_items = "";
         for($i=0;$i<sizeof($form_detail_item);$i++){
             if($i!=0){
-                $form_detail_items .= "#&#";
+                $form_detail_items .= "(.)";
             }
             $form_detail_items .= $form_detail_item[$i];
         }

@@ -4,18 +4,33 @@
     <a href="index3.html" class="brand-link">
       <img src="<?php echo base_url(); ?>../common/assets/images/logo_cmex.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">ระบบแบบประเมิน</span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="<?php echo base_url(); ?>assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        <div class="image" style="padding-left: 0px;">
+          <?php
+            $img_file_path = base_url() . '../common/assets/images/person_img.png';
+          
+            if (remote_file_exists('http://excellent.med.cmu.ac.th/employee/images/person/'.$session_username.'.png')) {
+              $img_file_path = 'http://excellent.med.cmu.ac.th/employee/images/person/'.$session_username.'.png';
+            }
+            
+            
+          ?>
+          <img src="<?php echo $img_file_path; ?>" class="img-circle elevation-2" alt="User Image" style="margin-top: 10px;">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">
+            <?php echo $session_name; ?> <br>
+            <span style="font-size: 10pt;">
+              <?php echo $session_position_name; ?>
+            </span>
+          </a>
+
         </div>
       </div>
 
@@ -60,7 +75,7 @@
             <a href="<?php echo base_url(); ?>Form" class="nav-link">
               <i class="nav-icon fab fa-wpforms"></i>
               <p>
-                Form
+                ฟอร์ม
               </p>
             </a>
           </li>
@@ -68,7 +83,7 @@
             <a href="<?php echo base_url(); ?>FormDetail" class="nav-link">
               <i class="nav-icon fas fa-info"></i>
               <p>
-                Form Detail
+                รายละเอียดฟอร์ม
               </p>
             </a>
           </li>
@@ -84,7 +99,7 @@
             <a href="<?php echo base_url(); ?>QuestionGroup" class="nav-link">
               <i class="nav-icon fas fa-question-circle"></i>
               <p>
-                Question Group
+                กลุ่มคำถาม
               </p>
             </a>
           </li>
@@ -92,7 +107,7 @@
             <a href="<?php echo base_url(); ?>Question" class="nav-link">
               <i class="nav-icon fas fa-question"></i>
               <p>
-                Question
+                คำถาม
               </p>
             </a>
           </li>

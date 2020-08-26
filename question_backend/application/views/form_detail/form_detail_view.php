@@ -40,7 +40,7 @@
                     <label class="col-md-3 label-control" for="document_name">คำตอบ</label>
                     <div class="col-md-9">
                         <?php 
-                            $items = explode("#&#", $form_detail->form_detail_items);
+                            $items = explode("(.)", $form_detail->form_detail_items);
                             foreach($items as $item){
                                 if($item == ""){
                                     echo "โปรดระบุ...<br>";

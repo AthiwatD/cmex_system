@@ -22,7 +22,7 @@
                         echo "<td>" . $form_detail->form_name . "</td>";
                         echo "<td>" . $form_detail->form_detail_number . "</td>";
                         echo "<td>" . $form_detail->form_detail_name . "</td>";
-                        $form_detail_items = explode("#&#", $form_detail->form_detail_items);
+                        $form_detail_items = explode("(.)", $form_detail->form_detail_items);
                         echo "<td><ul>";
                         foreach($form_detail_items as $form_detail_item){
                             if($form_detail_item == ""){

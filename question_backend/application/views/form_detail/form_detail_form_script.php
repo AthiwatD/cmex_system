@@ -49,7 +49,7 @@
     function load_item(){
         var div_form_detail_item_list = $("#div_form_detail_item_list");
         var item = "<?php echo $form_detail->form_detail_items; ?>";
-        var items = item.split("#&#");
+        var items = item.split("(.)");
         items.forEach(function(item, index){
             var node = document.createElement("div");                 
             var txt_form_detail_item = document.createElement("input"); 
