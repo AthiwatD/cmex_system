@@ -31,7 +31,7 @@ class Form extends MY_Controller {
         $this->data['form'] = $this->Form->getForm($form_id);
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
         $this->breadcrumb->add('รายการแบบสำรวจ',   base_url().'Form/forms');  
-        $this->breadcrumb->add('รายละเอียดแบบสำรวจ',   base_url().'Form/form');      
+        $this->breadcrumb->add('รายละเอียดแบบสำรวจ',   base_url().'Form/form/' . $form_id);      
         $this->data['breadcrumb'] = $this->breadcrumb->output();
 
         $this->data['head_title'] = "รายละเอียดแบบสำรวจ";

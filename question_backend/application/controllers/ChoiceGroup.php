@@ -31,7 +31,7 @@ class ChoiceGroup extends MY_Controller {
         $this->data['choice_group'] = $this->ChoiceGroup->getChoiceGroup($choice_group_id);
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
         $this->breadcrumb->add('รายการข้อมูลกลุ่มคำตอบ',   base_url().'ChoiceGroup/choiceGroups');  
-        $this->breadcrumb->add('รายละเอียดข้อมูลกลุ่มคำตอบ',   base_url().'ChoiceGroup/choiceGroup');      
+        $this->breadcrumb->add('รายละเอียดข้อมูลกลุ่มคำตอบ',   base_url().'ChoiceGroup/choiceGroup/' . $choice_group_id);      
         $this->data['breadcrumb'] = $this->breadcrumb->output();
 
         $this->data['head_title'] = "รายละเอียดข้อมูลกลุ่มคำตอบ";

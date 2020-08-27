@@ -32,7 +32,7 @@ class FormDetail extends MY_Controller {
         $this->data['form_detail'] = $this->FormDetail->getFormDetail($form_detail_id);
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
         $this->breadcrumb->add('รายการข้อมูลแบบสำรวจ',   base_url().'FormDetail/formDetails');  
-        $this->breadcrumb->add('รายละเอียดข้อมูลแบบสำรวจ',   base_url().'FormDetail/formDetail');      
+        $this->breadcrumb->add('รายละเอียดข้อมูลแบบสำรวจ',   base_url().'FormDetail/formDetail/' . $form_detail_id);      
         $this->data['breadcrumb'] = $this->breadcrumb->output();
 
         $this->data['head_title'] = "รายละเอียดข้อมูลแบบสำรวจ";
