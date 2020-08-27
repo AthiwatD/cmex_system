@@ -32,42 +32,46 @@
             var txt_question_name = document.createElement("input"); 
             var btn_question_delete = document.createElement("img"); 
 
-            count_question_number = document.getElementsByName("txt_question_number").length + 1;
+            count_question_number++;
 
             $(node).attr({
-                "class" : "div_item combo row",
+                "class" : "div_choice combo row",
                 "name" : "div_item"
             });
 
 
-            $(lbl_question_number).html("ข้อ");
+            lbl_question_number.innerHTML = "ข้อ";
             $(lbl_question_number).attr({
-                "class" : "form-control-label",
+                "class" : "form-control-label col-1",
+                "style" : "text-align: right; vertical-align: middle;",
             });
             $(txt_question_number).attr({
-                "name" : "txt_question_number[]",
+                "name" : "question_number[]",
                 "type" : "text",
-                "class" : "form-control",
+                "class" : "form-control col-1",
                 "style" : "margin-right: 15px;",
                 "value" : count_question_number,
             });
 
-            $(lbl_question_name).html("คำถาม");
+            lbl_question_name.innerHTML = "คำถาม";
             $(lbl_question_name).attr({
-                "class" : "form-control-label",
+                "class" : "form-control-label col-1",
+                "style" : "text-align: right; vertical-align: middle;",
             });
             $(txt_question_name).attr({
-                "name" : "txt_question_name[]",
+                "name" : "question_name[]",
                 "type" : "text",
-                "class" : "form-control",
+                "class" : "form-control col-8",
             });
             
             $(btn_question_delete).attr({
-                "class" : "btn_item_delete trigger",
+                "class" : "btn_choice_delete",
                 "src" : "<?php echo base_url(); ?>../common/assets/images/close.png",
                 "onclick" : "del_question(this.parentElement)",
             });
+            $(node).append($(lbl_question_number));
             $(node).append($(txt_question_number));
+            $(node).append($(lbl_question_name));
             $(node).append($(txt_question_name));
             $(node).append($(btn_question_delete));
             $(div_question_list).append($(node));

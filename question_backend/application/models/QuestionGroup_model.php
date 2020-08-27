@@ -43,7 +43,8 @@ class QuestionGroup_model extends CI_Model {
         $choice_group_id = $this->security->xss_clean($this->input->post('choice_group_id'));
         $question_group_number = $this->security->xss_clean($this->input->post('question_group_number'));
         $question_group_name = $this->security->xss_clean($this->input->post('question_group_name'));
-        
+        $question_numbers = $this->security->xss_clean($this->input->post('question_number'));
+        $question_names = $this->security->xss_clean($this->input->post('question_name'));
         $data = array(
             'question_group_number' => $question_group_number,
             'question_group_name' => $question_group_name,
@@ -52,6 +53,18 @@ class QuestionGroup_model extends CI_Model {
             'choice_group_id' => $choice_group_id,
         );
         $result = $this->db->insert('qstn_question_group', $data);
+        $insert_id = $this->db->insert_id();
+
+        for($i=0;$i<sizeof($question_numbers);$i++){
+            $data = array(
+                'question_number' => $question_numbers[$i],
+                'question_name' => $question_names[$i],
+                'form_id' => $form_id,
+                'category_id' => $category_id,
+                'question_group_id' => $insert_id,
+            );
+            $result = $this->db->insert('qstn_question', $data);
+        }
         return $result;
     }
 

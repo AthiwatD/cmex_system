@@ -127,9 +127,9 @@
 
                     <div class="form-group row">
                         <label for="exampleInputPassword1">คำถาม</label>
-                        <div id="div_question_list">
+                    </div>
+                    <div id="div_question_list">
 
-                        </div>
                     </div>
                     <button type="button" class="btn btn-success" onclick="new_question()">เพิ่มคำถาม</button>
                   </div>

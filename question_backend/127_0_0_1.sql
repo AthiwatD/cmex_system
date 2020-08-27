@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 27, 2020 at 11:51 AM
+-- Generation Time: Aug 27, 2020 at 11:52 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `question`
 --
+CREATE DATABASE IF NOT EXISTS `question` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `question`;
 
 -- --------------------------------------------------------
 
