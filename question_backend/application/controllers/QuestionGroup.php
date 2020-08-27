@@ -7,6 +7,8 @@ class QuestionGroup extends MY_Controller {
     function __construct(){
         parent::__construct();
         $this->load->model('Form_model','Form');
+        $this->load->model('Category_model','Category');
+        $this->load->model('ChoiceGroup_model','ChoiceGroup');
         $this->load->model('QuestionGroup_model','QuestionGroup');
     }
     
@@ -44,6 +46,8 @@ class QuestionGroup extends MY_Controller {
         $this->data['error'] = $this->db->error(); 
         $this->data['method'] = "add";
         $this->data['forms'] = $this->Form->getForms();
+        $this->data['categories'] = $this->Category->getCategories();
+        $this->data['choice_groups'] = $this->ChoiceGroup->getChoiceGroupsOnly();
 
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
         $this->breadcrumb->add('รายการกลุ่มคำถาม',   base_url().'QuestionGroup/questionGroups');    
@@ -71,6 +75,8 @@ class QuestionGroup extends MY_Controller {
         $this->data['error'] = $this->db->error(); 
         $this->data['method'] = "update";
         $this->data['forms'] = $this->Form->getForms();
+        $this->data['categories'] = $this->Category->getCategories();
+        $this->data['choice_groups'] = $this->ChoiceGroup->getChoiceGroupsOnly();
 
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
         $this->breadcrumb->add('รายการกลุ่มคำถาม',   base_url().'QuestionGroup/questionGroups');    

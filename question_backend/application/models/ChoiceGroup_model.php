@@ -18,6 +18,16 @@ class ChoiceGroup_model extends CI_Model {
         return $result;
     }
 
+    function getChoiceGroupsOnly(){
+        $sql = "SELECT *
+                FROM qstn_choice_group cg
+                ORDER BY cg.choice_group_id DESC";
+                    
+        $result = $this->db->query($sql)->result();
+
+        return $result;
+    }
+
     function getChoiceGroup($choice_group_id) {
 
         $sql = "SELECT *

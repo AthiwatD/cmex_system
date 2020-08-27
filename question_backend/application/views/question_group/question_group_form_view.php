@@ -50,7 +50,7 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1">ฟอร์ม</label>
                         
-                        <select id="select_form_id" name="form_id" class="form-control" required>
+                        <select id="select_form_id" name="form_id" class="form-control" onchange="show_categories()" required>
                             <?php
                                 foreach($forms as $form){
                             ?>
@@ -69,6 +69,17 @@
                         </select>
                     </div>
 
+
+                    
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Category</label>
+                        
+                        <select id="select_category_id" name="category_id" class="form-control" required>
+                            
+                        </select>
+                    </div>
+
+                    
                   <div class="form-group">
                     <label for="exampleInputEmail1">ข้อ</label>
                     <input type="text" class="form-control" id="txt_question_group_number" name="question_group_number" placeholder="กรุณากรอกชื่อข้อ" value="<?php
@@ -81,7 +92,7 @@
                   </div>
                   
                   <div class="form-group">
-                    <label for="exampleInputPassword1">คำถาม</label>
+                    <label for="exampleInputPassword1">กลุ่มคำถาม</label>
                     <input type="text" class="form-control" id="txt_question_group_name" name="question_group_name" placeholder="กรุณากรอกคำถาม" value="<?php
                                         if($method == "update"){
                                             if (!empty($question_group->question_group_name)) {
@@ -91,14 +102,36 @@
                                     ?>" required>
                   </div>
                   
-                    <div class="form-group row">
-                        <label for="exampleInputPassword1">คำตอบ</label> *เพิ่มคำตอบเป็นช่องว่างเพื่อให้กรอกข้อมูลด้วยตัวเอง
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">กลุ่มคำตอบ</label>
                         
+                        <select id="select_choice_group_id" name="choice_group_id" class="form-control" required>
+                            <?php
+                                foreach($choice_groups as $choice_group){
+                            ?>
+                                    <option value="<?php echo $choice_group->choice_group_id; ?>"
+                                        <?php
+                                            if (!empty($question_group->choice_group_id)) {
+                                                if($question_group->choice_group_id == $choice_group->choice_group_id){
+                                                    echo " selected ";
+                                                }
+                                            }
+                                        ?>
+                                        ><?php echo $choice_group->choice_group_name; ?></option>
+                            <?php
+                                }
+                            ?>
+                        </select>
                     </div>
-                    <div id="div_question_group_item_list">
 
+
+                    <div class="form-group row">
+                        <label for="exampleInputPassword1">คำถาม</label>
+                        <div id="div_question_list">
+
+                        </div>
                     </div>
-                    <button type="button" class="btn btn-success" onclick="new_item()">เพิ่ม</button>
+                    <button type="button" class="btn btn-success" onclick="new_question()">เพิ่มคำถาม</button>
                   </div>
 
                 <div class="card-footer">
