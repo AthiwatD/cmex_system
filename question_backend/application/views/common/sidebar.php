@@ -103,7 +103,7 @@
               </p>
             </a>
           </li>
-          <!--
+          
           <li class="nav-item has-treeview">
             <a href="<?php echo base_url(); ?>Question" class="nav-link">
               <i class="nav-icon fas fa-question"></i>
@@ -112,7 +112,7 @@
               </p>
             </a>
           </li>
-          -->
+          
           <li class="nav-item has-treeview">
             <a href="<?php echo base_url(); ?>ChoiceGroup" class="nav-link">
               <i class="nav-icon fas fa-list-ol"></i>

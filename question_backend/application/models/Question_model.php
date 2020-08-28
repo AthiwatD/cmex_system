@@ -1,33 +1,31 @@
 <?php
 
-class QuestionGroup_model extends CI_Model {
+class Question_model extends CI_Model {
 
     function __construct() {
         parent::__construct();
     }
 
-    function getQuestionGroups() {
+    function getQuestionsByGroupId($question_group_id) {
 
         $sql = "SELECT *
-                FROM qstn_question_group qg
-                JOIN qstn_form f ON qg.form_id = f.form_id
-                JOIN qstn_category ct ON qg.category_id = ct.category_id
-                JOIN qstn_choice_group cg ON qg.choice_group_id = cg.choice_group_id
-                GROUP BY qg.question_group_id 
-                ORDER BY f.form_id DESC, ct.category_number ASC, qg.question_group_number ASC";
+                FROM qstn_question q
+                WHERE q.question_group_id = '" . $question_group_id . "'
+                ORDER BY q.question_number ASC";
                     
         $result = $this->db->query($sql)->result();
 
         return $result;
     }
 
-    function getQuestionGroup($question_group_id) {
+    function getQuestion($question_group_id) {
 
         $sql = "SELECT *
                 FROM qstn_question_group qg
                 JOIN qstn_form f ON qg.form_id = f.form_id
                 JOIN qstn_category ct ON qg.category_id = ct.category_id
                 JOIN qstn_choice_group cg ON qg.choice_group_id = cg.choice_group_id
+                JOIN qstn_choice c ON cg.choice_group_id = c.choice_group_id
                 WHERE qg.question_group_id = '" . $question_group_id . "'";
                     
                     
@@ -36,10 +34,10 @@ class QuestionGroup_model extends CI_Model {
         return $result;
     }
 
-    function addQuestionGroup(){
+    /*
+    function addQuestion(){
         $form_id = $this->security->xss_clean($this->input->post('form_id'));
         $category_id = $this->security->xss_clean($this->input->post('category_id'));
-        $choice_group_id = $this->security->xss_clean($this->input->post('choice_group_id'));
         $question_group_number = $this->security->xss_clean($this->input->post('question_group_number'));
         $question_group_name = $this->security->xss_clean($this->input->post('question_group_name'));
         $question_numbers = $this->security->xss_clean($this->input->post('question_number'));
@@ -49,7 +47,6 @@ class QuestionGroup_model extends CI_Model {
             'question_group_name' => $question_group_name,
             'form_id' => $form_id,
             'category_id' => $category_id,
-            'choice_group_id' => $choice_group_id,
         );
         $result = $this->db->insert('qstn_question_group', $data);
         $insert_id = $this->db->insert_id();
@@ -69,17 +66,14 @@ class QuestionGroup_model extends CI_Model {
     }
 
 
-    function updateQuestionGroup(){
+    function updateQuestion(){
         $question_group_id = $this->security->xss_clean($this->input->post('question_group_id'));
         $form_id = $this->security->xss_clean($this->input->post('form_id'));
         $category_id = $this->security->xss_clean($this->input->post('category_id'));
         $choice_group_id = $this->security->xss_clean($this->input->post('choice_group_id'));
         $question_group_number = $this->security->xss_clean($this->input->post('question_group_number'));
         $question_group_name = $this->security->xss_clean($this->input->post('question_group_name'));
-        $question_ids = $this->security->xss_clean($this->input->post('question_id'));
-        $question_numbers = $this->security->xss_clean($this->input->post('question_number'));
-        $question_names = $this->security->xss_clean($this->input->post('question_name'));
-
+        
         $data = array(
             'question_group_number' => $question_group_number,
             'question_group_name' => $question_group_name,
@@ -90,29 +84,10 @@ class QuestionGroup_model extends CI_Model {
         
         $this->db->where('question_group_id', $question_group_id);
         $result = $this->db->update('qstn_question_group', $data);
-
-        
-        for($i=0;$i<sizeof($question_numbers);$i++){
-
-            $data = array(
-                'question_number' => $question_numbers[$i],
-                'question_name' => $question_names[$i],
-                'form_id' => $form_id,
-                'category_id' => $category_id,
-                'question_group_id' => $question_group_id,
-            );
-            if ($i < sizeof($question_ids)){ 
-                $this->db->where('question_id', $question_ids[$i]);
-                $result = $this->db->update('qstn_question', $data);
-            }else{
-                $result = $this->db->insert('qstn_question', $data);
-            }
-        }
-        
         return $result;
     }
 
-    function deleteQuestionGroup($question_group_id){
+    function deleteQuestion($question_group_id){
         // $data = array(
         //     'deleted' => 1,
         // );
@@ -121,5 +96,15 @@ class QuestionGroup_model extends CI_Model {
         $result = $this->db->delete("qstn_question_group");
         return $result;
     }
-    
+    */
+
+    function deleteQuestions($question_group_id){
+        // $data = array(
+        //     'deleted' => 1,
+        // );
+        $this->db->where('question_group_id', $question_group_id);
+        //$result = $this->db->update('question_group', $data);
+        $result = $this->db->delete("qstn_question");
+        return $result;
+    }
 }

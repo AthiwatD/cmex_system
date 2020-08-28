@@ -10,6 +10,7 @@ class QuestionGroup extends MY_Controller {
         $this->load->model('Category_model','Category');
         $this->load->model('ChoiceGroup_model','ChoiceGroup');
         $this->load->model('QuestionGroup_model','QuestionGroup');
+        $this->load->model('Question_model','Question');
     }
     
     function index(){
@@ -32,6 +33,7 @@ class QuestionGroup extends MY_Controller {
     function questionGroup($question_group_id){
         $this->data['error'] = $this->db->error(); 
         $this->data['question_group'] = $this->QuestionGroup->getQuestionGroup($question_group_id);
+        $this->data['questions'] = $this->Question->getQuestionsByGroupId($question_group_id);
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
         $this->breadcrumb->add('รายการกลุ่มคำถาม',   base_url().'QuestionGroup/questionGroups');  
         $this->breadcrumb->add('รายละเอียดกลุ่มคำถาม',   base_url().'QuestionGroup/questionGroup/' . $question_group_id);      
@@ -77,6 +79,7 @@ class QuestionGroup extends MY_Controller {
         $this->data['forms'] = $this->Form->getForms();
         $this->data['categories'] = $this->Category->getCategories();
         $this->data['choice_groups'] = $this->ChoiceGroup->getChoiceGroupsOnly();
+        $this->data['questions'] = $this->Question->getQuestionsByGroupId($question_group_id);
 
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
         $this->breadcrumb->add('รายการกลุ่มคำถาม',   base_url().'QuestionGroup/questionGroups');    
@@ -103,6 +106,7 @@ class QuestionGroup extends MY_Controller {
 
     function deleteQuestionGroupDo($question_group_id){
         
+        $result = $this->Question->deleteQuestions($question_group_id);
         $result = $this->QuestionGroup->deleteQuestionGroup($question_group_id);
         
         if(!$result){
