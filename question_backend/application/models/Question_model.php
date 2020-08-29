@@ -6,27 +6,28 @@ class Question_model extends CI_Model {
         parent::__construct();
     }
 
-    function getQuestionsByGroupId($question_group_id) {
+    function getQuestions() {
 
         $sql = "SELECT *
                 FROM qstn_question q
-                WHERE q.question_group_id = '" . $question_group_id . "'
-                ORDER BY q.question_number ASC";
+                JOIN qstn_form f ON q.form_id = f.form_id
+                JOIN qstn_category ct ON q.category_id = ct.category_id
+                JOIN qstn_question_group qg ON q.question_group_id = qg.question_group_id
+                ORDER BY f.form_id DESC, q.question_number ASC";
                     
         $result = $this->db->query($sql)->result();
 
         return $result;
     }
 
-    function getQuestion($question_group_id) {
+    function getQuestion($question_id) {
 
         $sql = "SELECT *
-                FROM qstn_question_group qg
-                JOIN qstn_form f ON qg.form_id = f.form_id
-                JOIN qstn_category ct ON qg.category_id = ct.category_id
-                JOIN qstn_choice_group cg ON qg.choice_group_id = cg.choice_group_id
-                JOIN qstn_choice c ON cg.choice_group_id = c.choice_group_id
-                WHERE qg.question_group_id = '" . $question_group_id . "'";
+                FROM qstn_question q
+                JOIN qstn_form f ON q.form_id = f.form_id
+                JOIN qstn_category ct ON q.category_id = ct.category_id
+                JOIN qstn_question_group qg ON q.question_group_id = qg.question_group_id
+                WHERE q.question_id = '" . $question_id . "'";
                     
                     
         $result = $this->db->query($sql)->row();
