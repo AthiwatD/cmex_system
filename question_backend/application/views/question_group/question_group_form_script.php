@@ -1,10 +1,14 @@
 <script>
+    var method = "<?php echo $method; ?>";
     var forms = <?php echo json_encode($forms); ?>;
     // forms = JSON.parse(forms);
     var categories = <?php echo json_encode($categories); ?>;
     // categories = JSON.parse(categories);
     var choice_groups = <?php echo json_encode($choice_groups); ?>;
     // choice_groups = JSON.parse(choice_groups);
+    if(method == "update"){
+        var question_group = <?php echo json_encode($question_group); ?>;
+    }
     var count_question_number = 0;
     show_categories();
     load_question();
@@ -12,16 +16,22 @@
     function show_categories(){
         var select_form_id = document.getElementById("select_form_id");
         var form_id = select_form_id.options[select_form_id.selectedIndex].value;    
-        var select_category_id = $("#select_category_id");
+        var select_category_id = document.getElementById("select_category_id");
         var txt = "";
-        select_category_id.html("");
+        select_category_id.innerHTML = "";
         categories.forEach(function(item, index){
 
             if(categories[index].form_id == form_id){
-                txt += `<option value="` + categories[index].category_id + `">` + categories[index].category_number + ". " + categories[index].category_name + `</option>`;
+                txt += `<option value="` + categories[index].category_id + `" `;
+                if(method == "update"){
+                    if(categories[index].category_id == question_group.category_id){
+                        txt += ` selected `;
+                    }
+                }
+                txt += `>` + categories[index].category_number + ". " + categories[index].category_name + `</option>`;
             }
-            select_category_id.html(txt);
         });
+        select_category_id.innerHTML = txt;
     }
 
     function new_question(){

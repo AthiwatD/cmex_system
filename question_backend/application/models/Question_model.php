@@ -19,6 +19,19 @@ class Question_model extends CI_Model {
 
         return $result;
     }
+    function getQuestionsByGroupId($question_group_id){
+        $sql = "SELECT *
+                FROM qstn_question q
+                JOIN qstn_form f ON q.form_id = f.form_id
+                JOIN qstn_category ct ON q.category_id = ct.category_id
+                JOIN qstn_question_group qg ON q.question_group_id = qg.question_group_id
+                WHERE q.question_group_id = '" . $question_group_id . "'
+                ORDER BY q.question_number ASC";
+                    
+        $result = $this->db->query($sql)->result();
+
+        return $result;
+    }
 
     function getQuestion($question_id) {
 

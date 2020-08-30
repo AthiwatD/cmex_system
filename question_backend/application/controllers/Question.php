@@ -49,6 +49,7 @@ class Question extends MY_Controller {
         $this->data['forms'] = $this->Form->getForms();
         $this->data['categories'] = $this->Category->getCategories();
         $this->data['question_groups'] = $this->QuestionGroup->getQuestionGroups();
+        $this->data['question'] = array();
 
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
         $this->breadcrumb->add('รายการคำถาม',   base_url().'Question/questions');    
@@ -78,7 +79,7 @@ class Question extends MY_Controller {
         $this->data['forms'] = $this->Form->getForms();
         $this->data['categories'] = $this->Category->getCategories();
         $this->data['question_groups'] = $this->QuestionGroup->getQuestionGroups();
-        $this->data['question'] = $this->Question->getQuestionsByGroupId($question_id);
+        $this->data['question'] = $this->Question->getQuestion($question_id);
 
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
         $this->breadcrumb->add('รายการคำถาม',   base_url().'Question/questions');    

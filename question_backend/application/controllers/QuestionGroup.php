@@ -50,6 +50,7 @@ class QuestionGroup extends MY_Controller {
         $this->data['forms'] = $this->Form->getForms();
         $this->data['categories'] = $this->Category->getCategories();
         $this->data['choice_groups'] = $this->ChoiceGroup->getChoiceGroupsOnly();
+        $this->data['question_group'] = array();
 
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
         $this->breadcrumb->add('รายการกลุ่มคำถาม',   base_url().'QuestionGroup/questionGroups');    
@@ -79,6 +80,7 @@ class QuestionGroup extends MY_Controller {
         $this->data['forms'] = $this->Form->getForms();
         $this->data['categories'] = $this->Category->getCategories();
         $this->data['choice_groups'] = $this->ChoiceGroup->getChoiceGroupsOnly();
+        $this->data['question_group'] = $this->QuestionGroup->getQuestionGroup($question_group_id);
         $this->data['questions'] = $this->Question->getQuestionsByGroupId($question_group_id);
 
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
@@ -87,7 +89,7 @@ class QuestionGroup extends MY_Controller {
         $this->data['breadcrumb'] = $this->breadcrumb->output();
 
         $this->data['head_title'] = "แก้ไข กลุ่มคำถาม";
-        $this->data['question_group'] = $this->QuestionGroup->getQuestionGroup($question_group_id);
+        
         $this->loadData();
         $this->loadViewWithScript(array('question_group/question_group_form_view'), array('question_group/question_group_form_script'));      
     }
