@@ -7,7 +7,7 @@
     <div class="card-body">
         <div class="form-group">
             <div class="form-body">
-                <h4 class="form-section"><i class="ft-user"></i> ข้อมูลเอกสาร (Document)</h4>
+                <h4 class="form-section"><i class="ft-user"></i> ฟอร์ม</h4>
 
                 <div class="form-group row" id="div_doc_register_number">
                     <label class="col-md-3 label-control" for="doc_register_number">ID</label>
