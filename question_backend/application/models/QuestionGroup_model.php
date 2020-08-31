@@ -12,9 +12,9 @@ class QuestionGroup_model extends CI_Model {
                 FROM qstn_question_group qg
                 JOIN qstn_form f ON qg.form_id = f.form_id
                 JOIN qstn_category ct ON qg.category_id = ct.category_id
-                JOIN qstn_choice_group cg ON qg.choice_group_id = cg.choice_group_id
+                LEFT JOIN qstn_choice_group cg ON qg.choice_group_id = cg.choice_group_id
                 GROUP BY qg.question_group_id 
-                ORDER BY f.form_id DESC, ct.category_number ASC, qg.question_group_number ASC";
+                ORDER BY f.form_id DESC, CAST(ct.category_number AS UNSIGNED), ct.category_number ASC, CAST(qg.question_group_number AS UNSIGNED), qg.question_group_number ASC";
                     
         $result = $this->db->query($sql)->result();
 
@@ -27,7 +27,7 @@ class QuestionGroup_model extends CI_Model {
                 FROM qstn_question_group qg
                 JOIN qstn_form f ON qg.form_id = f.form_id
                 JOIN qstn_category ct ON qg.category_id = ct.category_id
-                JOIN qstn_choice_group cg ON qg.choice_group_id = cg.choice_group_id
+                LEFT JOIN qstn_choice_group cg ON qg.choice_group_id = cg.choice_group_id
                 WHERE qg.question_group_id = '" . $question_group_id . "'";
                     
                     

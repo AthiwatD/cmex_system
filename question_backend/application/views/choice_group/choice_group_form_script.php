@@ -97,6 +97,19 @@
         var div_choice_list = $("#div_choice_list");
         
         var item = `<?php echo json_encode($choice_group); ?>`;
+        // // preserve newlines, etc - use valid JSON
+        // item = item.replace(/\\n/g, "\\n")  
+        //                 .replace(/\\'/g, "\\'")
+        //                 .replace(/\\"/g, '\\"')
+        //                 .replace(/\\&/g, "\\&")
+        //                 .replace(/\\r/g, "\\r")
+        //                 .replace(/\\t/g, "\\t")
+        //                 .replace(/\\b/g, "\\b")
+        //                 .replace(/\\f/g, "\\f");
+        // // remove non-printable and other non-valid JSON chars
+        // item = item.replace(/[\u0000-\u0019]+/g,""); 
+
+        item = valid_json_char(item);
         var items = JSON.parse(item);
         items.forEach(function(item, index){
 

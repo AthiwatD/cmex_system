@@ -11,7 +11,7 @@ class FormDetail_model extends CI_Model {
         $sql = "SELECT *
                 FROM qstn_form_detail fd
                 JOIN qstn_form f ON fd.form_id = f.form_id
-                ORDER BY f.form_id DESC, fd.form_detail_number ASC";
+                ORDER BY f.form_id DESC, CAST(fd.form_detail_number AS UNSIGNED), fd.form_detail_number ASC";
                     
         $result = $this->db->query($sql)->result();
 

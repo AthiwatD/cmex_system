@@ -438,6 +438,8 @@
                 question_group_arr[i][j]["number"] = qg_num_arr[0].value;
                 var qg_name_arr = question_groups[j].getElementsByClassName("question_group_name");
                 question_group_arr[i][j]["name"] = qg_name_arr[0].value;
+                var qg_cg_id_arr = question_groups[j].getElementsByClassName("question_group_choice_group");
+                question_group_arr[i][j]["choice_group_id"] = qg_cg_id_arr[0].options[qg_cg_id_arr[0].selectedIndex].value;  
 
                 var div_questions = question_groups[j].getElementsByTagName("div");
                 questions = div_questions[0].getElementsByClassName("div_question");
@@ -468,11 +470,9 @@
             ourObj.question_groups = question_group_arr;
             ourObj.questions = question_arr;
             
-
             //alert(JSON.stringify(ourObj));
             var points = JSON.stringify(ourObj);
             console.log(points);
-            
             $.ajax({
                 url:'Wizard/addWizardDo',
                 method: 'POST',

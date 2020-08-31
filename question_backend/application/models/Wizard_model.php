@@ -66,11 +66,13 @@ class Wizard_model extends CI_Model {
                     foreach($points->question_groups->$key_i as $key_j => $values_j){
                         $question_group_number = $points->question_groups->$key_i->$key_j->number;
                         $question_group_name = $points->question_groups->$key_i->$key_j->name;
+                        $choice_group_id = $points->question_groups->$key_i->$key_j->choice_group_id;
                         $data = array(
                             'question_group_number' => $question_group_number,
                             'question_group_name' => $question_group_name,
                             'form_id' => $form_id,
                             'category_id' => $category_id,
+                            'choice_group_id' => $choice_group_id,
                         );
                         $result = $this->db->insert('qstn_question_group', $data);
                         $question_group_id = $this->db->insert_id();

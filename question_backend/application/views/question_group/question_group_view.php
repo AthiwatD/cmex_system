@@ -44,6 +44,14 @@
                 </div>
 
                 <div class="form-group row" >
+                    <label class="col-md-3 label-control" for="document_name">ชื่อกลุ่มคำตอบ</label>
+                    <div class="col-md-9">
+                        <?php echo $question_group->choice_group_name; ?>
+                    </div>
+                </div>
+
+
+                <div class="form-group row" >
                     <label class="col-md-3 label-control" for="document_name">คำถาม</label>
                     
                 </div>

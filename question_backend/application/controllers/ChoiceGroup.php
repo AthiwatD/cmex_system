@@ -16,7 +16,7 @@ class ChoiceGroup extends MY_Controller {
     
     function choiceGroups(){
         $this->data['error'] = $this->db->error(); 
-        $this->data['choice_groups'] = $this->ChoiceGroup->getChoiceGroups();
+        $this->data['choice_groups'] = $this->ChoiceGroup->getChoiceGroupsOnly();
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
         $this->breadcrumb->add('รายการข้อมูลกลุ่มคำตอบ',   base_url().'ChoiceGroup/choiceGroups');      
         $this->data['breadcrumb'] = $this->breadcrumb->output();

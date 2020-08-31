@@ -13,7 +13,7 @@ class Question_model extends CI_Model {
                 JOIN qstn_form f ON q.form_id = f.form_id
                 JOIN qstn_category ct ON q.category_id = ct.category_id
                 JOIN qstn_question_group qg ON q.question_group_id = qg.question_group_id
-                ORDER BY f.form_id DESC, q.question_number ASC";
+                ORDER BY f.form_id DESC, CAST(q.question_number AS UNSIGNED), q.question_number ASC";
                     
         $result = $this->db->query($sql)->result();
 
@@ -26,7 +26,7 @@ class Question_model extends CI_Model {
                 JOIN qstn_category ct ON q.category_id = ct.category_id
                 JOIN qstn_question_group qg ON q.question_group_id = qg.question_group_id
                 WHERE q.question_group_id = '" . $question_group_id . "'
-                ORDER BY q.question_number ASC";
+                ORDER BY CAST(q.question_number AS UNSIGNED), q.question_number ASC";
                     
         $result = $this->db->query($sql)->result();
 

@@ -11,7 +11,7 @@ class Category_model extends CI_Model {
         $sql = "SELECT *
                 FROM qstn_category c
                 JOIN qstn_form f ON c.form_id = f.form_id
-                ORDER BY f.form_id DESC, c.category_number ASC";
+                ORDER BY f.form_id DESC, CAST(c.category_number AS UNSIGNED), c.category_number ASC";
                     
         $result = $this->db->query($sql)->result();
 

@@ -1,11 +1,8 @@
 <script>
     var method = "<?php echo $method; ?>";
     var forms = <?php echo json_encode($forms); ?>;
-    // forms = JSON.parse(forms);
     var categories = <?php echo json_encode($categories); ?>;
-    // categories = JSON.parse(categories);
     var choice_groups = <?php echo json_encode($choice_groups); ?>;
-    // choice_groups = JSON.parse(choice_groups);
     if(method == "update"){
         var question_group = <?php echo json_encode($question_group); ?>;
     }
@@ -100,6 +97,20 @@
         if(method == "update"){
             var div_question_list = $("#div_question_list");
             var questions = `<?php echo json_encode($questions); ?>`;
+
+            // // preserve newlines, etc - use valid JSON
+            // questions = questions.replace(/\\n/g, "\\n")  
+            //             .replace(/\\'/g, "\\'")
+            //             .replace(/\\"/g, '\\"')
+            //             .replace(/\\&/g, "\\&")
+            //             .replace(/\\r/g, "\\r")
+            //             .replace(/\\t/g, "\\t")
+            //             .replace(/\\b/g, "\\b")
+            //             .replace(/\\f/g, "\\f");
+            // // remove non-printable and other non-valid JSON chars
+            // questions = questions.replace(/[\u0000-\u0019]+/g,""); 
+            questions = valid_json_char(questions);
+
             questions = JSON.parse(questions);
 
             questions.forEach(function(item, index){
@@ -151,17 +162,11 @@
                     "value" : questions[index].question_name,
                 });
                 
-                // $(btn_question_delete).attr({
-                //     "class" : "btn_choice_delete",
-                //     "src" : "<?php echo base_url(); ?>../common/assets/images/close.png",
-                //     "onclick" : "del_question(this.parentElement)",
-                // });
                 $(node).append($(txt_question_id));
                 $(node).append($(lbl_question_number));
                 $(node).append($(txt_question_number));
                 $(node).append($(lbl_question_name));
                 $(node).append($(txt_question_name));
-                // $(node).append($(btn_question_delete));
                 $(div_question_list).append($(node));
             });
         }

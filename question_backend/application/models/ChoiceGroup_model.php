@@ -11,7 +11,7 @@ class ChoiceGroup_model extends CI_Model {
         $sql = "SELECT *
                 FROM qstn_choice_group cg
                 LEFT JOIN qstn_choice c ON cg.choice_group_id = c.choice_group_id
-                ORDER BY cg.choice_group_id DESC, c.choice_number ASC";
+                ORDER BY cg.choice_group_id DESC, CAST(c.choice_number AS UNSIGNED), c.choice_number ASC";
                     
         $result = $this->db->query($sql)->result();
 
@@ -34,7 +34,7 @@ class ChoiceGroup_model extends CI_Model {
                     FROM qstn_choice_group cg
                     LEFT JOIN qstn_choice c ON cg.choice_group_id = c.choice_group_id
                     WHERE c.choice_group_id = '" . $choice_group_id . "'
-                    ORDER BY c.choice_number ASC";
+                    ORDER BY CAST(c.choice_number AS UNSIGNED), c.choice_number ASC";
                     
                     
         $result = $this->db->query($sql)->result();

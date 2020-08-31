@@ -1,11 +1,9 @@
 <script>
     var method = "<?php echo $method; ?>";
     var forms = <?php echo json_encode($forms); ?>;
-    // forms = JSON.parse(forms);
     var categories = <?php echo json_encode($categories); ?>;
-    // categories = JSON.parse(categories);
     var question_groups = <?php echo json_encode($question_groups); ?>;
-    // choice_groups = JSON.parse(choice_groups);
+
     if(method == "update"){
         var question = <?php echo json_encode($question); ?>;
     }

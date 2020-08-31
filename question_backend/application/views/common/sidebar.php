@@ -43,15 +43,7 @@
             <a href="<?php echo base_url(); ?>Home" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="<?php echo base_url(); ?>Report" class="nav-link">
-              <i class="nav-icon fas fa-poll"></i>
-              <p>
-                รายงาน
+                Home
               </p>
             </a>
           </li>
