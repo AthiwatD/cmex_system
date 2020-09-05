@@ -49,14 +49,15 @@
           </li>
 
           <li class="nav-item has-treeview">
-            <a href="<?php echo base_url(); ?>EvaluatePerson" class="nav-link">
+            <a href="<?php echo base_url(); ?>Home/do_logout" class="nav-link">
             <i class="nav-icon fas fa-users"></i>
               <p>
-                พนักงานทำแบบประเมิน
+                Log out
               </p>
             </a>
           </li>
 
+          <!--
           <li class="nav-item has-treeview">
             <a href="<?php echo base_url(); ?>Evaluation" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
@@ -126,7 +127,7 @@
             </a>
           </li>
 
-          <!--
+          
           <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>

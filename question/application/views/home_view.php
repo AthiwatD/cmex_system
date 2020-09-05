@@ -18,7 +18,7 @@
                 <?php 
                     foreach($evaluates as $evaluate){
                         echo "<tr>";
-                        echo "<td><a href='" . base_url() . "Main/" . $evaluate->evaluation_id . "'>" . $evaluate->evaluation_name . "</a></td>";
+                        echo "<td><a href='" . base_url() . "Home/form/" . $evaluate->evaluation_id . "'>" . $evaluate->evaluation_name . "</a></td>";
                         echo "<td>" . $evaluate->date_start . "</td>";
                         echo "<td>" . $evaluate->date_end . "</td>";
                         echo "<td>" . $evaluate->evaluation_by . "</td>";

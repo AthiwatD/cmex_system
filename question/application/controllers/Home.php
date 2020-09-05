@@ -8,6 +8,7 @@
         parent::__construct();
         $this->load->model('EvaluatePerson_model','EvaluatePerson');
         $this->load->model('Evaluation_model','Evaluation');
+        $this->load->model('Answer_model','Answer');
     }
     
     function index($evaluation_id = NULL){
@@ -15,7 +16,8 @@
             $this->forms();
         }
         else{
-           $this->form($evaluation_id);
+            $this->form($evaluation_id);
+            // redirect('/form/' . $evaluation_id);
         }
        
     }
@@ -32,16 +34,28 @@
     }
     
     function form($evaluation_id){
-        $this->data['evaluation'] = $this->EvaluatePerson->
+        $this->data['evaluation'] = $this->Evaluation->getEvaluation($evaluation_id);
+        $this->data['form_details'] = $this->Evaluation->getFormDetails($evaluation_id);
 
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');    
-        $this->breadcrumb->add('แบบประเมิน',   base_url().'Main/form/' . $evaluation_id);  
+        $this->breadcrumb->add('แบบประเมิน',   base_url().'Home/form/' . $evaluation_id);  
         $this->data['breadcrumb'] = $this->breadcrumb->output();
 
         $this->data['head_title'] = "หน้าหลัก";
         $this->loadData();
-        $this->loadViewWithScript(array('home_view'), array());    
+        $this->loadViewWithScript(array('form_view'), array('form_script'));    
     }
+
+    function formDo($evaluation_id){
+        $result = $this->Answer->addAnswer();
+        
+        if(!$result){
+            $this->form($evaluation_id);
+        }else{
+            $this->forms(); 
+        }
+    }
+    
 
     public function do_logout(){
         $this->session->sess_destroy();
