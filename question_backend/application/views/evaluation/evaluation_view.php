@@ -53,7 +53,13 @@
                 <div class="evaluation-group row" id="div_doc_hour">
                     <label class="col-md-3 label-control" for="document_name">ลิงก์</label>
                     <div class="col-md-9">
-                        http://excellent.med.cmu.ac.th/cmex_system/question/Home/form/<?php echo $evaluation->evaluation_id; ?>
+                        <?php echo $evaluation_link; ?>
+                    </div>
+                </div>
+                <div class="evaluation-group row" id="div_doc_hour">
+                    <label class="col-md-3 label-control" for="document_name">QR Code</label>
+                    <div class="col-md-9">
+                    <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=<?php echo $evaluation_link; ?>&choe=UTF-8" title="Link to Google.com" />
                     </div>
                 </div>
             </div>

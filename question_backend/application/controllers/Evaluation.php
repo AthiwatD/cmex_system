@@ -30,6 +30,7 @@ class Evaluation extends MY_Controller {
     function evaluation($evaluation_id){
         $this->data['error'] = $this->db->error(); 
         $this->data['evaluation'] = $this->Evaluation->getEvaluation($evaluation_id);
+        $this->data['evaluation_link'] = "http://excellent.med.cmu.ac.th/cmex_system/question/Home/form/$evaluation_id";
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
         $this->breadcrumb->add('รายการแบบประเมิน',   base_url().'Evaluation/evaluations');  
         $this->breadcrumb->add('รายละเอียดแบบประเมิน',   base_url().'Evaluation/evaluation/' . $evaluation_id);      

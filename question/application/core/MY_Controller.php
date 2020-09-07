@@ -2,22 +2,30 @@
 
 class MY_Controller extends CI_Controller {
 
-
+    
     function __construct()
     {
 
         parent::__construct();
-
+        
+        //$GLOBALS['user_link'] = $_SERVER['HTTP_REFERER'];
         //Initialization code that affects all controllers
         $this->load->library('session');
-        if($this->check_isvalidated()){
+        $this->load->helper('cookie');
+        $this->load->helper('url');
 
+        $cookie_name = "user_link";
+        $cookie_value = current_url();
+        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+
+        if($this->check_isvalidated()){
+            $this->load->library('user_agent');
             $this->load->library('Breadcrumb');
-            $this->load->helper('url');
+            
             $this->load->helper('form');
-            $this->load->helper('cookie');
             $this->load->helper('../../common/helpers/thai_date');
             $this->load->helper('../../common/helpers/remote_file_exists');
+            
         }
     }
 
@@ -59,7 +67,7 @@ class MY_Controller extends CI_Controller {
 
     protected function check_isvalidated(){
         if((!isset($this->session->validated)) || (!$this->session->validated)){
-            redirect( base_url() . 'Login'); // Login is CI_Controller that can redirect
+            redirect( base_url() . 'Login/'); // Login is CI_Controller that can redirect
             return false;
         }else{
             // Home is MY_Controller will redirect loop back itself don't do it here

@@ -34,4 +34,19 @@ class Evaluation_model extends CI_Model {
         $result = $this->db->query($sql)->result();
         return $result;            
     }
+
+    function chkEvaluation($evaluation_id){
+        $sql = "SELECT evaluate_person_id
+                FROM qstn_evaluate_person ep
+                WHERE ep.evaluation_id = '" . $evaluation_id . "'
+                AND ep.person_id = '" . $this->session->username . "' 
+                AND evaluate_time = '0000-00-00 00:00:00'"; 
+        $result = $this->db->query($sql);
+
+        if($result->num_rows()>0){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

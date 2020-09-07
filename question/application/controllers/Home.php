@@ -34,16 +34,21 @@
     }
     
     function form($evaluation_id){
-        $this->data['evaluation'] = $this->Evaluation->getEvaluation($evaluation_id);
-        $this->data['form_details'] = $this->Evaluation->getFormDetails($evaluation_id);
+        if($this->Evaluation->chkEvaluation($evaluation_id)){
+            $this->data['evaluation'] = $this->Evaluation->getEvaluation($evaluation_id);
+            $this->data['form_details'] = $this->Evaluation->getFormDetails($evaluation_id);
 
-        $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');    
-        $this->breadcrumb->add('แบบประเมิน',   base_url().'Home/form/' . $evaluation_id);  
-        $this->data['breadcrumb'] = $this->breadcrumb->output();
+            $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');    
+            $this->breadcrumb->add('แบบประเมิน',   base_url().'Home/form/' . $evaluation_id);  
+            $this->data['breadcrumb'] = $this->breadcrumb->output();
 
-        $this->data['head_title'] = "หน้าหลัก";
-        $this->loadData();
-        $this->loadViewWithScript(array('form_view'), array('form_script'));    
+            $this->data['head_title'] = "หน้าหลัก";
+            $this->loadData();
+            $this->loadViewWithScript(array('form_view'), array('form_script'));    
+        }
+        else{
+            redirect('/Home');
+        }
     }
 
     function formDo($evaluation_id){
@@ -59,7 +64,7 @@
 
     public function do_logout(){
         $this->session->sess_destroy();
-        redirect('/Login');
+        redirect('/Home');
     }
     
  }

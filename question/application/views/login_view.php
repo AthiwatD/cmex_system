@@ -29,7 +29,7 @@
       <p class="login-box-msg">ลงทะเบียนเข้าใช้บริการ</p>
 
       <form role="form" method="POST" action="<?php echo base_url(); ?>Login/process">
-        
+        <input type="hidden" name="user_link" value="<?php echo $user_link; ?>">
         <div class="input-group mb-3">
           <input type="text" class="form-control" name="username" placeholder="รหัสพนักงาน">
           <div class="input-group-append">
