@@ -20,4 +20,8 @@
             return confirm('ยืนยันการส่งแบบประเมิน');
         }
     }
+
+    function set_value_radio(input_id, txt_val){
+        document.getElementById(input_id).value = txt_val;
+    }
 </script>

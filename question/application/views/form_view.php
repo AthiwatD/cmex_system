@@ -17,23 +17,36 @@
                     <div class="evaluation-form-detail">
                         <h4 class="form-section">รายละเอียด</h4>
                         <?php
-                            foreach($form_details as $form_detail){
+                            foreach($form_details as $i => $form_detail){
+                                echo "  <input type='hidden' class='form-check-input' id='input_txt_" . $form_detail->form_detail_id . "' name='form_detail_id[" . $i . "]' value='$form_detail->form_detail_id'>";
                                 echo "<div class='form-group' id='div_form_detail_$form_detail->form_detail_id'>";
                                 echo "<p>$form_detail->form_detail_number. $form_detail->form_detail_name</p>";
                                 $items = explode("(.)", $form_detail->form_detail_items);
-                                foreach($items as $index => $item){
+                                if((sizeof($items) > 0) && ($items[0] != "")){
+                                    foreach($items as $j => $item){
+                                        echo "<div class='form-check'>";
+                                        echo "<label class='form-check-label'>";
+                                        if($item != ""){
+                                            echo "  <input type='radio' class='form-check-input' id='input_rad_" . $form_detail->form_detail_id . "_" . $j . "' name='form_detail_answer[" . $i . "]' value='$item' checked required>$item <br>";
+                                        }
+                                        else{
+                                            $input_radio_id = "input_rad_" . $form_detail->form_detail_id . "_" . $j;
+                                            echo "  <input type='radio' class='form-check-input' id='input_rad_" . $form_detail->form_detail_id . "_" . $j . "' name='form_detail_answer[" . $i . "]' value='' required>";
+                                            echo " <input type='text' class='form-control' placeholder='โปรดระบุ' onchange='set_value_radio(\"$input_radio_id\",this.value);'>";
+                                        }
+                                        echo "</label>";
+                                        echo "</div>";
+                                    }
+                                    echo "</div>";
+                                }else{
                                     echo "<div class='form-check'>";
                                     echo "<label class='form-check-label'>";
-                                    if($item != ""){
-                                        echo "  <input type='radio' class='form-check-input' id='input_rad_" . $form_detail->form_detail_id . "_" . $index . "' name='form_detail[]' required>$item <br>";
-                                    }
-                                    else{
-                                        echo " <input type='text' class='form-control' placeholder='โปรดระบุ'>";
-                                    }
+                                    $input_radio_id = "input_rad_" . $form_detail->form_detail_id . "_0";
+                                    echo "  <input type='radio' class='form-check-input' id='input_rad_" . $form_detail->form_detail_id . "_0" . "' name='form_detail_answer[" . $i . "]' value='' checked>";
+                                    echo " <input type='text' class='form-control' placeholder='โปรดระบุ' onchange='set_value_radio(\"$input_radio_id\",this.value)' required>";
                                     echo "</label>";
                                     echo "</div>";
                                 }
-                                echo "</div>";
                             }
                         ?>
                     </div>

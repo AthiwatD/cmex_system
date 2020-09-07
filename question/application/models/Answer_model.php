@@ -8,9 +8,14 @@ class Answer_model extends CI_Model {
     }
 
     function addAnswer() {
-
+        $form_detail_id = $this->security->xss_clean($this->input->post('form_detail_id'));
+        $form_detail_answer = $this->security->xss_clean($this->input->post('form_detail_answer'));    
         $choice_of_question = $this->security->xss_clean($this->input->post('choice_of_question'));
         $suggestion_detial =  $this->security->xss_clean($this->input->post('suggestion_detial'));
+
+
+        
+        // Choice         
         for($i=0;$i<sizeof($choice_of_question);$i++){
             $answers[$i] = explode("(.)",$choice_of_question[$i]);
             $data = array(
@@ -27,11 +32,21 @@ class Answer_model extends CI_Model {
             );
             $result = $this->db->insert('qstn_answer', $data);
         }
-        
-        
         //$insert_id = $this->db->insert_id();
 
+        // Form_detail
+        for($i=0;$i<sizeof($form_detail_id);$i++){
+            $data = array(
+                'form_detail_answer' => $form_detail_answer[$i],
+                'evaluation_id' => $answers[0][0],
+                'form_id' => $answers[0][1],
+                'form_detail_id' => $form_detail_id[$i],
+                'person_id' => $answers[0][9],
+            );
+            $result = $this->db->insert('qstn_form_detail_answer', $data);
+        }
         
+        // Suggestion
         $data = array(
             'suggestion_detail' => $suggestion_detial,
             'evaluation_id' => $answers[0][0],
