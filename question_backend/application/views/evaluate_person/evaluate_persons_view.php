@@ -59,13 +59,14 @@
 
                 <div class="form-group row" >
                     <div class="col-12">
-                        <table class="table table-bordered table-striped"> 
+                        <table id="table_persons" class="table table-flush table-striped table-bordered table-hover my_table_person"> 
                             <thead class="thead-light">
                                 <tr>
                                     <th>ลำดับ</th>
                                     <th>รหัสพนักงาน</th>
                                     <th>ชื่อ</th>
                                     <th>ตำแหน่ง</th>
+                                    <th>สถานะ</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -80,6 +81,15 @@
                                                 <td><?php echo $evaluate_person->person_id; ?></td>
                                                 <td ><?php echo $evaluate_person->person_fname . " " . $evaluate_person->person_lname; ?></td>
                                                 <td ><?php echo $evaluate_person->position_name; ?></td>
+                                                <td ><?php 
+                                                    if($evaluate_person->evaluate_time == "0000-00-00 00:00:00"){
+                                                        echo "<span class='text-danger'>ยังไม่ได้ประเมิน</span>"; 
+                                                    }
+                                                    else{
+                                                        echo "<span class='text-success'>$evaluate_person->evaluate_time</span>"; 
+                                                    }
+
+                                                        ?></td>
                                             </tr>
                                 <?php        
                                         }

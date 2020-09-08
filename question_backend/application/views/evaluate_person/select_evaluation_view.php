@@ -9,9 +9,11 @@
             <thead>
                 <tr>
                     <th>ชื่อแบบประเมิน</th>
+                    <th>ประเมินแล้ว</th>
                     <th>จำนวนผู้ประเมิน</th>
                     <th>เริ่ม</th>
                     <th>สิ้นสุด</th>
+
                     <!-- <th>สร้างโดย</th> -->
                     <th >การดำเนินการ</th>
                 </tr>
@@ -21,6 +23,7 @@
                     foreach($evaluations as $evaluation){
                         echo "<tr>";
                         echo "<td><a href='" . base_url() . "EvaluatePerson/evaluatePersons/" . $evaluation->evaluation_id . "'>" . $evaluation->evaluation_name . "</a></td>";
+                        echo "<td>" . $evaluation->person_not_evaluate_count . "</td>";
                         echo "<td>" . $evaluation->person_count . "</td>";
                         echo "<td>" . $evaluation->date_start . "</td>";
                         echo "<td>" . $evaluation->date_end . "</td>";

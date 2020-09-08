@@ -8,7 +8,7 @@ class EvaluatePerson_model extends CI_Model {
 
     function getEvaluations() {
 
-        $sql = "SELECT *, COUNT(ep.evaluate_person_id) as 'person_count'
+        $sql = "SELECT *, COUNT(ep.evaluate_person_id) as 'person_count', SUM(if(ep.evaluate_time != '0000-00-00 00:00:00', 1, 0)) AS 'person_not_evaluate_count'
                     FROM qstn_evaluate_person ep
                     RIGHT JOIN qstn_evaluation e ON ep.evaluation_id = e.evaluation_id
                     GROUP By e.evaluation_id
