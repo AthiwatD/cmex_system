@@ -34,6 +34,11 @@
 <script src="<?php echo base_url(); ?>assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
 
+
+
+<!-- jQuery Knob -->
+<script src="<?php echo base_url(); ?>assets/plugins/jquery-knob/jquery.knob.min.js"></script>
+
 <!-- daterangepicker -->
 <script src="<?php echo base_url(); ?>assets/plugins/moment/moment.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/daterangepicker/daterangepicker.js"></script>
@@ -43,6 +48,12 @@
 <script src="<?php echo base_url(); ?>assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>assets/dist/js/adminlte.js"></script>
+
+<!-- ChartJS -->
+<script src="<?php echo base_url(); ?>assets/plugins/chart.js/Chart.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/Chart.bundle.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/chartjs-gauge.js"></script>
+
 
 <script src="<?php echo base_url(); ?>assets/js/table_data.js"></script>
 

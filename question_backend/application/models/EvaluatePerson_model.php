@@ -20,6 +20,21 @@ class EvaluatePerson_model extends CI_Model {
         return $result;
     }
 
+    function getEvaluatePersonSummary($evaluation_id) {
+
+        $sql = "SELECT COUNT(ep.evaluate_person_id) as 'person_count', SUM(if(ep.evaluate_time != '0000-00-00 00:00:00', 1, 0)) AS 'person_evaluate_count'
+                    FROM qstn_evaluate_person ep
+                    RIGHT JOIN qstn_evaluation e ON ep.evaluation_id = e.evaluation_id
+                    WHERE ep.evaluation_id = '" . $evaluation_id . "'
+                    GROUP By e.evaluation_id
+                    ORDER BY e.evaluation_id DESC";
+                    
+                    
+        $result = $this->db->query($sql)->row();
+
+        return $result;
+    }
+
     function getEvaluatePersons($evaluation_id) {
 
         $sql = "SELECT *
