@@ -33,9 +33,14 @@
 <script src="<?php echo base_url(); ?>assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
-
-
-
+<!-- ChartJS -->
+<script src="<?php echo base_url(); ?>assets/plugins/chart.js/Chart.min.js"></script>
+<!--
+<script src="https://unpkg.com/chart.js@2.8.0/dist/Chart.bundle.js"></script>
+<script src="https://unpkg.com/chartjs-gauge@0.2.0/dist/chartjs-gauge.js"></script>
+-->
+<script src="<?php echo base_url(); ?>assets/js/Chart.bundle.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/chartjs-gauge.js"></script>
 <!-- jQuery Knob -->
 <script src="<?php echo base_url(); ?>assets/plugins/jquery-knob/jquery.knob.min.js"></script>
 
@@ -48,12 +53,6 @@
 <script src="<?php echo base_url(); ?>assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>assets/dist/js/adminlte.js"></script>
-
-<!-- ChartJS -->
-<script src="<?php echo base_url(); ?>assets/plugins/chart.js/Chart.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/js/Chart.bundle.js"></script>
-<script src="<?php echo base_url(); ?>assets/js/chartjs-gauge.js"></script>
-
 
 <script src="<?php echo base_url(); ?>assets/js/table_data.js"></script>
 
