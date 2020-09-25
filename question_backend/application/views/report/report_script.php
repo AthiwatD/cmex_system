@@ -114,6 +114,72 @@ $(function () {
     var ctx2 = document.getElementById('chart_guage_evaluate_person_percent').getContext('2d');
     window.myGauge = new Chart(ctx2, config_guage_evaluate_person_percent);
 
+
+
+
+    <?php
+        
+    ?>
+    
+    <?php
+        echo "var form_detail_answer = {};\n";
+        echo "var form_detail_count = {};\n";
+        foreach($report_form_detail_label as $index => $form_detail){
+            $report_form_detail_answer[$index] = json_encode($report_form_detail_answer[$index]);
+            echo "form_detail_answer[$index] = ". $report_form_detail_answer[$index] . ";\n";
+            $report_form_detail_count[$index] = json_encode($report_form_detail_count[$index]);
+            echo "form_detail_count[$index] = ". $report_form_detail_count[$index] . ";\n";
+
+    ?>
+            var donutData        = {
+                labels: form_detail_answer[<?php echo $index; ?>],
+                datasets: [
+                    {
+                    data: form_detail_count[<?php echo $index; ?>],
+                    backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+                    }
+                ]
+            }
+            var donutOptions     = {
+                maintainAspectRatio : false,
+                responsive : true,
+            }
+
+            setup_pie_chart($("#chart_pie_form_detail_<?php echo $index; ?>"), donutData);
+    <?php
+        }
+    ?>
+    
+    //-------------
+    //- PIE CHART -
+    //-------------
+    function setup_pie_chart(element, chartData){
+        // Get context with jQuery - using jQuery's .get() method.
+        var pieChartCanvas = $(element).get(0).getContext('2d')
+        var pieData        = donutData;
+        var pieOptions     = {
+        maintainAspectRatio : false,
+        responsive : true,
+        }
+        //Create pie or douhnut chart
+        // You can switch between pie and douhnut using the method below.
+        var pieChart = new Chart(pieChartCanvas, {
+        type: 'pie',
+        data: pieData,
+        options: pieOptions      
+        });
+    }   
+
+
+
+
+
+
+
+
+
+
+
     <?php
         $report_category_label = json_encode($report_category_label);
         echo "var category_label = ". $report_category_label . ";\n";
@@ -288,8 +354,10 @@ $(function () {
             }
         });
     }
+
     
 });
 
+    
 
 </script>

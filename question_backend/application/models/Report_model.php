@@ -24,6 +24,26 @@ class Report_model extends CI_Model {
         return $result;
     }
 
+    function report_form_detail($evaluation_id){
+        $sql = "SELECT *
+                FROM qstn_summary_detail sd
+                WHERE sd.evaluation_id = '" . $evaluation_id . "'
+                GROUP BY sd.form_detail_id, sd.form_detail_answer";
+        $result = $this->db->query($sql)->result();
+        //echo  json_encode($result);
+        return $result;
+    }
+
+    function report_from_detail_count($evaluation_id){
+        $sql = "SELECT sd.form_detail_id, SUM(sd.count_detail_answer) as 'count_all'
+                FROM qstn_summary_detail sd
+                WHERE sd.evaluation_id = '" . $evaluation_id . "'
+                GROUP BY sd.form_detail_id";
+        $result = $this->db->query($sql)->result();
+        //echo  json_encode($result);
+        return $result;
+    }
+
     function report_category($evaluation_id){
         $sql = "SELECT s.evaluation_id, e.evaluation_name, e.evaluation_by,
                     s.form_id, f.form_name,
@@ -101,6 +121,29 @@ class Report_model extends CI_Model {
     }
 
     function summary($evaluation_id){
+
+        $this->db->where('evaluation_id', $evaluation_id);
+        $result = $this->db->delete("qstn_summary_detail");
+
+        $sql = "SELECT fda.evaluation_id, fda.form_id, fda.form_detail_id, fd.form_detail_name, fda.form_detail_answer, COUNT(fda.form_detail_answer) as'count_detail_answer'
+                FROM qstn_form_detail_answer fda
+                JOIN qstn_form_detail fd ON fda.form_detail_id = fd.form_detail_id
+                WHERE fda.evaluation_id = '" . $evaluation_id . "'
+                GROUP BY fda.form_detail_id, fda.form_detail_answer";
+        $result = $this->db->query($sql)->result();
+
+        foreach($result as $row){
+            $data = array(
+                'evaluation_id' => $row->evaluation_id,
+                'form_id' => $row->form_id,
+                'form_detail_id' => $row->form_detail_id,
+                'form_detail_name' => $row->form_detail_name,
+                'form_detail_answer' => $row->form_detail_answer,
+                'count_detail_answer' => $row->count_detail_answer
+            );
+            $result2 = $this->db->insert('qstn_summary_detail', $data);
+        }
+
         $this->db->where('evaluation_id', $evaluation_id);
         $result = $this->db->delete("qstn_summary");
 

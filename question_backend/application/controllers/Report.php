@@ -9,6 +9,7 @@ class Report extends MY_Controller {
         $this->load->model('Report_model','Report');
         $this->load->model('Evaluation_model','Evaluation');
         $this->load->model('Form_model','Form');
+        $this->load->model('FormDetail_model','FormDetail');
         $this->load->model('EvaluatePerson_model','EvaluatePerson');
     }
     
@@ -30,8 +31,8 @@ class Report extends MY_Controller {
     }
 
     function report($evaluation_id){
-        $init_height = 250;
-        $row_height = 60;
+        $init_height = 200;
+        $row_height = 50;
         $this->data['error'] = $this->db->error(); 
         $this->data['evaluation'] = $this->Evaluation->getEvaluation($evaluation_id);
 
@@ -51,6 +52,40 @@ class Report extends MY_Controller {
 
 
 
+        $report_form_detail = $this->Report->report_form_detail($evaluation_id);
+
+        $report_form_detail_label = array();
+        $report_form_detail_answer = array();
+        $report_form_detail_count = array();
+        $i=0;
+        $j=0;
+        foreach($report_form_detail as $index => $rpt_fd){
+            if($index==0){
+                $i=0;
+                array_push($report_form_detail_label, $rpt_fd->form_detail_name);
+                $report_form_detail_answer[$i] = array();
+                $report_form_detail_count[$i] = array();
+            }
+            if($report_form_detail_label[$i] != $rpt_fd->form_detail_name){
+                $i++;
+                array_push($report_form_detail_label, $rpt_fd->form_detail_name);
+                $report_form_detail_answer[$i] = array();
+                $report_form_detail_count[$i] = array();
+            }
+            array_push($report_form_detail_answer[$i], $rpt_fd->form_detail_answer);
+            array_push($report_form_detail_count[$i], $rpt_fd->count_detail_answer);
+        }
+        $this->data['report_form_detail_label'] = $report_form_detail_label;
+        $this->data['report_form_detail_answer'] = $report_form_detail_answer;
+        $this->data['report_form_detail_count'] = $report_form_detail_count;
+
+
+
+
+
+
+
+
         $report_category = $this->Report->report_category($evaluation_id);
         $this->data['report_category'] = $report_category;
         $report_category_label = array();
@@ -64,8 +99,10 @@ class Report extends MY_Controller {
         $this->data['report_category_label'] = $report_category_label;
         $this->data['report_category_data'] = $report_category_data;
         $this->data['report_category_max_point'] = $report_category_max_point;
-
         $this->data['category_chart_height'] = $init_height + (sizeof($report_category_data) * $row_height);
+
+
+
 
         $report_question_group = $this->Report->report_question_group($evaluation_id);
         $this->data['report_question_group'] = $report_question_group;

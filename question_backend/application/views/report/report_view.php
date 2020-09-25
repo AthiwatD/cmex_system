@@ -49,7 +49,38 @@
 
             </div>
 
-            
+            <!-- Form Detail PIE CHART -->
+            <div class="card card-default">
+              <div class="card-header">
+                <h3 class="card-title">รายละเอียด</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </div>
+              </div>
+              <div class="card-body row" >
+                <?php   
+                    if(!empty($report_form_detail_label)){
+                        foreach($report_form_detail_label as $index => $form_detail){
+                
+                ?>
+                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 canvas-holder" style='width:100%; margin-bottom: 50px;'>
+                                <h4><?php echo $form_detail; ?></h4>
+                                <canvas id="chart_pie_form_detail_<?php echo $index; ?>" class="chart_pie" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                            </div>
+                            
+                <?php
+                        }
+                    }
+                ?>
+              
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
 
             <!-- Category BAR CHART -->
             <div class="card card-default">
@@ -65,7 +96,7 @@
                 </div>
                 <div class="card-body">
                     <div class="chart">
-                        <canvas id="category_chart" name="category_chart" style="max-height: <?php echo $category_chart_height; ?>px; max-width: 100%; max-height: 100%;"></canvas>
+                        <canvas id="category_chart" name="category_chart" style="min-height: <?php echo $category_chart_height; ?>px; max-width: 100%;"></canvas>
                     </div>
                 </div>
                 <!-- /.card-body -->
@@ -87,7 +118,7 @@
                 </div>
                 <div class="card-body">
                     <div class="chart">
-                        <canvas id="question_group_chart" name="question_group_chart" style="max-height: <?php echo $question_group_chart_height; ?>px; max-width: 100%"></canvas>
+                        <canvas id="question_group_chart" name="question_group_chart" style="min-height: <?php echo $question_group_chart_height; ?>px; max-width: 100%"></canvas>
                     </div>
                 </div>
                 <!-- /.card-body -->
@@ -112,7 +143,7 @@
                         </div>
                         <div class="card-body">
                             <div class="chart">
-                                <canvas id="question_chart_<?php echo $i; ?>" name="question_chart_<?php echo $i; ?>" style="max-height: <?php echo $question_chart_height[$i]; ?>px; max-width: 100%;"></canvas>
+                                <canvas id="question_chart_<?php echo $i; ?>" name="question_chart_<?php echo $i; ?>" style="min-height: <?php echo $question_chart_height[$i]; ?>px; max-width: 100%;"></canvas>
                             </div>
                         </div>
                         <!-- /.card-body -->
