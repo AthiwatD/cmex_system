@@ -127,6 +127,15 @@
           </li>
           
           <li class="nav-item has-treeview">
+            <a href="<?php echo base_url(); ?>ScoreCriteria" class="nav-link">
+              <i class="nav-icon fas fa-list-ol"></i>
+              <p>
+                เกณฑ์คะแนน
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item has-treeview">
             <a href="<?php echo base_url(); ?>ChoiceGroup" class="nav-link">
               <i class="nav-icon fas fa-list-ol"></i>
               <p>
@@ -134,6 +143,7 @@
               </p>
             </a>
           </li>
+
           <li class="nav-item has-treeview">
             <a href="<?php echo base_url(); ?>Home/do_logout" class="nav-link">
             <i class="nav-icon fas fa-users"></i>
