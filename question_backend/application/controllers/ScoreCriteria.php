@@ -29,7 +29,13 @@ class ScoreCriteria extends MY_Controller {
 
     function scoreCriteria($scoreCriteria_id){
         $this->data['error'] = $this->db->error(); 
-        $this->data['scoreCriteria'] = $this->ScoreCriteria->getScoreCriteria($scoreCriteria_id);
+        $scoreCriteria = $this->ScoreCriteria->getScoreCriteria($scoreCriteria_id);
+        $this->data['scoreCriteria'] = $scoreCriteria;
+        $this->data['criterias'] = explode("(.)",$scoreCriteria->criterias);
+        $this->data['min_scores'] = explode("(.)",$scoreCriteria->min_scores);
+        $this->data['max_scores'] = explode("(.)",$scoreCriteria->max_scores);
+        $this->data['meanings'] = explode("(.)",$scoreCriteria->meanings);
+        $this->data['color_codes'] = explode("(.)",$scoreCriteria->color_codes);
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
         $this->breadcrumb->add('รายการเกณฑ์คะแนน',   base_url().'ScoreCriteria/scoreCriterias');  
         $this->breadcrumb->add('รายละเอียดเกณฑ์คะแนน',   base_url().'ScoreCriteria/scoreCriteria/' . $scoreCriteria_id);      
@@ -70,9 +76,13 @@ class ScoreCriteria extends MY_Controller {
     function updateScoreCriteria($scoreCriteria_id){   
         $this->data['error'] = $this->db->error(); 
         $this->data['method'] = "update";
-        $this->data['forms'] = $this->Form->getForms();
-        $this->data['categories'] = $this->Category->getCategories();
-        $this->data['scoreCriteria'] = $this->ScoreCriteria->getScoreCriteria($scoreCriteria_id);
+        $scoreCriteria = $this->ScoreCriteria->getScoreCriteria($scoreCriteria_id);
+        $this->data['scoreCriteria'] = $scoreCriteria;
+        $this->data['criterias'] = explode("(.)",$scoreCriteria->criterias);
+        $this->data['min_scores'] = explode("(.)",$scoreCriteria->min_scores);
+        $this->data['max_scores'] = explode("(.)",$scoreCriteria->max_scores);
+        $this->data['meanings'] = explode("(.)",$scoreCriteria->meanings);
+        $this->data['color_codes'] = explode("(.)",$scoreCriteria->color_codes);
 
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
         $this->breadcrumb->add('รายการเกณฑ์คะแนน',   base_url().'ScoreCriteria/scoreCriterias');    

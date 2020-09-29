@@ -20,7 +20,7 @@ class ScoreCriteria_model extends CI_Model {
 
         $sql = "SELECT *
                 FROM qstn_score_criteria sc
-                WHERE q.score_criteria_id = '" . $score_criteria_id . "'";
+                WHERE sc.score_criteria_id = '" . $score_criteria_id . "'";
                     
                     
         $result = $this->db->query($sql)->row();

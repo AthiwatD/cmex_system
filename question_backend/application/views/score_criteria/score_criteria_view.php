@@ -22,6 +22,33 @@
                     </div>
                 </div>
 
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>เกณฑ์</th>
+                            <th>คะแนนต่ำสุด</th>
+                            <th>คะแนนสูงสุด</th>
+                            <th>ความหมาย</th>
+                            <th>รหัสสี</th>
+                        </tr>
+                    <thead>
+                    <tbody>
+                        <?php 
+                            foreach($criterias as $index => $criteria){
+                        ?>
+                        
+                                <tr>
+                                    <td><?php echo $criterias[$index]; ?></td>
+                                    <td><?php echo $min_scores[$index]; ?></td>
+                                    <td><?php echo $max_scores[$index]; ?></td>
+                                    <td><?php echo $meanings[$index]; ?></td>
+                                    <td style="background-color:<?php echo $color_codes[$index]; ?>"><?php echo $color_codes[$index]; ?></td>
+                                </tr>
+                        <?php
+                            }
+                        ?>
+                    <tbody>
+                </table>
             </div>
         </div>
        

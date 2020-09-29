@@ -48,19 +48,22 @@
 
                 <div class="card-body">
 
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">ชื่อเกณฑ์คะแนน</label>
-                    <input type="text" class="form-control" id="txt_score_criteria_name" name="score_criteria_name" placeholder="กรุณากรอกชื่อคำถาม" value="<?php
-                                        if($method == "update"){
-                                            if (!empty($scoreCriteria->score_criteria_name)) {
-                                                echo $scoreCriteria->score_criteria_name;
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">ชื่อเกณฑ์คะแนน</label>
+                        <input type="text" class="form-control" id="txt_score_criteria_name" name="score_criteria_name" placeholder="กรุณากรอกชื่อคำถาม" value="<?php
+                                            if($method == "update"){
+                                                if (!empty($scoreCriteria->score_criteria_name)) {
+                                                    echo $scoreCriteria->score_criteria_name;
+                                                }
                                             }
-                                        }
-                                    ?>" required>
-                  </div>
+                                        ?>" required>
+                    </div>
 
-    
-
+                    <div class="form-group" id="div_score_criterias">
+                        
+                    </div>
+                    <button type="button" class="btn btn-success" onclick="new_item()">เพิ่มเกณฑ์</button>
+                </div>
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">บันทึก</button>
                 </div>
