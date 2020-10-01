@@ -164,20 +164,23 @@ class Report extends MY_Controller {
         $this->loadViewWithScript(array('report/report_view'), array('report/report_script'));      
     }
 
-    function reportGuage(){
+    public function reportGuage(){
         $this->data['error'] = $this->db->error(); 
         $evaluation_id = $this->input->post('evaluation_id');
         $this->data['evaluation_id'] = $evaluation_id;
         $this->data['evaluation'] = $this->Evaluation->getEvaluation($evaluation_id);
 
+        $this->data['scoreCriterias'] = $this->ScoreCriteria->getScoreCriterias();
+
         $score_criteria_id = $this->input->post('score_criteria_id');
         $scoreCriteria = $this->ScoreCriteria->getScoreCriteria($score_criteria_id);
-        $this->data['scoreCriteria'] = $scoreCriteria;
-        $this->data['criterias'] = explode("(.)",$scoreCriteria->criterias);
-        $this->data['min_scores'] = explode("(.)",$scoreCriteria->min_scores);
-        $this->data['max_scores'] = explode("(.)",$scoreCriteria->max_scores);
-        $this->data['meanings'] = explode("(.)",$scoreCriteria->meanings);
-        $this->data['color_codes'] = explode("(.)",$scoreCriteria->color_codes);
+            $this->data['scoreCriteria'] = $scoreCriteria;
+            $this->data['criterias'] = $scoreCriteria->criterias;
+            $this->data['min_scores'] = $scoreCriteria->min_scores;
+            $this->data['max_scores'] = $scoreCriteria->max_scores;
+            $this->data['meanings'] = $scoreCriteria->meanings;
+            $this->data['color_codes'] = $scoreCriteria->color_codes;
+
 
         $evaluate_person_summary = $this->EvaluatePerson->getEvaluatePersonSummary($evaluation_id);
         $this->data['person_count'] = $evaluate_person_summary->person_count;
@@ -242,9 +245,6 @@ class Report extends MY_Controller {
         $this->data['report_category_label'] = $report_category_label;
         $this->data['report_category_data'] = $report_category_data;
         $this->data['report_category_max_point'] = $report_category_max_point;
-        $this->data['category_chart_height'] = $init_height + (sizeof($report_category_data) * $row_height);
-
-
 
 
         $report_question_group = $this->Report->report_question_group($evaluation_id);
@@ -257,7 +257,6 @@ class Report extends MY_Controller {
         }
         $this->data['report_question_group_label'] = $report_question_group_label;
         $this->data['report_question_group_data'] = $report_question_group_data;
-        $this->data['question_group_chart_height'] = $init_height + (sizeof($report_question_group_data) * $row_height);
 
 
         $report_question = $this->Report->report_question($evaluation_id);
@@ -275,7 +274,6 @@ class Report extends MY_Controller {
                 $report_question_data[$i] = array();
             }
             if($rpt_q->question_group_id != $old_group){
-                $question_chart_height[$i]  = $init_height + (sizeof($report_question_data[$i]) * $row_height);
                 $i++;
                 //$j=0;
                 $old_group = $rpt_q->question_group_id;
@@ -285,11 +283,8 @@ class Report extends MY_Controller {
             array_push($report_question_label[$i], $rpt_q->question_group_number . "." . $rpt_q->question_number . " " . $rpt_q->question_name);
             array_push($report_question_data[$i], round(($rpt_q->average_point*100)/$rpt_q->max_choice_point,2));
         }
-        $question_chart_height[$i]  = $init_height + (sizeof($report_question_data[$i]) * $row_height);
         $this->data['report_question_label'] = $report_question_label;
         $this->data['report_question_data'] = $report_question_data;
-        $this->data['question_chart_height'] = $question_chart_height;
-
 
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
         $this->breadcrumb->add('รายการแบบประเมิน',   base_url().'Report/reports');  

@@ -2,7 +2,7 @@
     <form role="form" class="needs-validation" method="POST" action="<?php echo base_url() . 'Report/reportGuage/'; ?>">
         <input type="hidden" name="evaluation_id" value="<?php echo $evaluation_id; ?>">    
         <div class="form-group row col-12" style="margin: 10px"> 
-            <select name="score_criteria_id col-sm-10 col-md-10 col-lg-10 col-xl-10" class="" >
+            <select name="score_criteria_id" class=" col-sm-10 col-md-10 col-lg-10 col-xl-10" >
                 <?php
                     foreach($scoreCriterias as $score_criteria){
                 ?>
@@ -11,7 +11,7 @@
                     }
                 ?>
             </select>
-            <button type="button" class="btn btn-info">รายงานเกจ</button>
+            <button type="submit" class="btn btn-info">รายงานเกจ</button>
         </div>
     </form>
     
