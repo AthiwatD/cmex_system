@@ -22,7 +22,7 @@
                         echo "<td width='250'>";
                         echo "<a href='" . base_url() . "Form/form/" . $form->form_id . "' class='btn btn-primary btn-sm'><i class='fas fa-folder'></i>View</a> ";
                         echo "<a href='" . base_url() . "Form/updateForm/" . $form->form_id . "' class='btn btn-warning btn-sm'><i class='fas fa-pencil-alt'></i>Edit</a> ";
-                        echo "<a href='" . base_url() . "Form/deleteFormDo/" . $form->form_id . "' class='btn btn-danger btn-sm' onclick='confirm(\"คุณต้องการ ลบ?\")'><i class='fas fa-trash'></i>Delete</a> </td>";
+                        echo "<a href='" . base_url() . "Form/deleteFormDo/" . $form->form_id . "' class='btn btn-danger btn-sm' onclick='confirm(\"คุณต้องการ ลบ?\")'><i class='fas fa-trash'></i>Delete</a>";
                         echo "</td>";
                         echo "</tr>";
                     }
