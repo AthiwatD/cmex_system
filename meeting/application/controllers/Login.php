@@ -53,11 +53,9 @@ class Login extends CI_Controller{
             //echo "Passed";
             if(!empty($user_link)){
                 setcookie("user_link", "", time() - 3600);
-                header("location:" .  $user_link);
-                // redirect($user_link);
+                redirect($user_link);
             }else{
-                // redirect('Home');
-                header("location:" .  base_url() . 'Home/');
+                redirect('Home');
             }
         }
           

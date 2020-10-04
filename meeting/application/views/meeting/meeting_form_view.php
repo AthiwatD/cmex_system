@@ -57,7 +57,11 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">กลุ่ม</label>
-                        <input type="hidden" id="hdn_board_name" name="board_name" value="">
+                        <input type="hidden" id="hdn_board_name" name="board_name" value="<?php
+                                            if (($method == "update") && (!empty($meeting->board_name)) ){
+                                                    echo $meeting->board_name;
+                                            }
+                                        ?>">
                         <select class="form-control" id="select_board" name="board_id" onchange="get_board_persons()" required>
                             <option disabled selected>โปรดเลือกกลุ่ม</option>
                             <?php
@@ -108,30 +112,76 @@
 
                   <div class="form-group">
                     <label for="exampleInputEmail1">ประชุม วันที่-เวลา *</label>
-                    <input type="datetime-local" class="form-control" id="txt_meeting_datetime" name="meeting_datetime" placeholder="กรุณากรอกเวลาประชุม" value="<?php
-                                        if($method == "update"){
-                                            echo $meeting->meeting_datetime;
-                                        }
-                                    ?>" required>
+                    <div class="row">
+                        <input type="date" class="form-control col-6" id="txt_meeting_date" name="meeting_date" placeholder="กรุณากรอกวันประชุม" value="<?php
+                                            if($method == "update"){
+                                                echo date("Y-m-d", strtotime($meeting->meeting_datetime));
+                                            }
+                                        ?>" required>
+
+                        <input type="time" class="form-control col-6" id="txt_meeting_time" name="meeting_time" placeholder="กรุณากรอกเวลาประชุม" value="<?php
+                                            if($method == "update"){
+                                                echo date("H:i:s", strtotime($meeting->meeting_datetime));
+                                            }
+                                        ?>" required>
+                    </div>
                   </div>
 
                   <div class="form-group">
                     <label for="exampleInputEmail1">รับรองเอกสารได้ถึง วันที่-เวลา </label>
-                    <input type="datetime-local" class="form-control" id="txt_meeting_datetime" name="approve_expire_datetime" placeholder="กรุณากรอกเวลาiy[iv'gvdlki" value="<?php
-                                        if($method == "update"){
-                                            echo $meeting->approve_expire_datetime;
-                                        }
-                                    ?>">
+                    <div class="row">
+                        <input type="date" class="form-control col-6" id="txt_approve_expire_date" name="approve_expire_datetime" placeholder="กรุณากรอกวันรับรองเอกสารสิ้นสุด" value="<?php
+                                            if($method == "update"){
+                                                echo date("Y-m-d", strtotime($meeting->approve_expire_datetime));
+                                            }
+                                        ?>" >
+
+                        <input type="time" class="form-control col-6" id="txt_approve_expire_time" name="approve_expire_time" placeholder="กรุณากรอกเวลารับรองเอกสารสิ้นสุด" value="<?php
+                                            if($method == "update"){
+                                                echo date("H:i:s", strtotime($meeting->approve_expire_datetime));
+                                            }
+                                        ?>" >
+                    </div>
+
                   </div>
 
 
                     <div class="form-group row">
-                        <label class="label-control" for="upl_files"> ไฟล์เอกสาร *
-                        </label>
-                            <input name="upl_files" id="upl_files" type="file" class="inputFile form-control" 
-                                accept="video/*, image/* ,audio/*, application/pdf, .xlsx, .xls, .csv,  .doc, .docx, .ppt, .pttx, text/plain, .zip, .rar" 
-                                multiple required/>
-                        
+                        <label class="label-control" for="upl_files"> ไฟล์เอกสาร *</label>
+                        <input name="upl_files[]" id="upl_files" type="file" class="inputFile form-control" 
+                                            accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps" multiple required/>
+                        <?php
+                            if($method == "update"){
+                        ?>
+                                <div class="form-group">
+                                    <table id="table_files" class="table table-flush table-striped table-bordered table-hover col-12">
+                                        <thead>
+                                            <tr>
+                                                <th>ชื่อไฟล์</th>
+                                                <th>การดำเนินการ</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            <?php 
+                                                foreach($files as $index => $file){
+                                            ?>
+                                                    <tr>
+                                                        <td><?php echo $file->file_name; ?></td>
+                                                        <td>
+                                                            <a href='<?php echo $file->file_path; ?>' class='btn btn-primary btn-sm' target="_blank"><i class='fas fa-folder'></i>View</a>
+                                                            <a href='<?php echo base_url(); ?>Meeting/deleteFileDo/<?php echo $meeting_id; ?>/<?php echo $file->file_id; ?>' class='btn btn-danger btn-sm' onclick='return confirm("คุณต้องการ ลบ?")'><i class='fas fa-trash'></i>Delete</a>
+                                                        </td>
+                                                    </tr>
+                                            <?php        
+                                                }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                <div>
+                        <?php
+                            }
+                        ?>
                     </div>
 
 
@@ -146,7 +196,19 @@
                                 </tr>
                             </thead>
                             <tbody id="table_body_persons">
-                                
+                                <?php
+                                    if($method == "update"){
+                                        foreach($meeting_persons as $index => $meeting_person){
+                                ?>
+                                            <tr>
+                                                <td><?php echo $meeting_person->person_name; ?></td>
+                                                <td><?php echo $meeting_person->position_name; ?></td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                <?php
+                                        }
+                                    }
+                                ?>
                             </tbody>
                         </table>
                         <button type="button" class="btn btn-success" onclick="new_person()">เพิ่มคนรับรายงาน</button>

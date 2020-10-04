@@ -23,15 +23,15 @@ class Login_model extends CI_Model {
                 JOIN tb_person p ON u.NUM_OT = p.NUM_OT
                 JOIN tb_position ps ON u.PP = ps.position_code
                 JOIN tb_nward w ON u.ward_code = w.ward_code
-                WHERE U.NUM_OT = '" . $username . "' 
-                AND U.Upass = '" . $password . "' ";
+                WHERE u.NUM_OT = '" . $username . "' 
+                AND u.Upass = '" . $password . "' ";
         //echo $sql;
-        $result = $this->db->query($sql)->row();
+        $row = $this->db->query($sql)->row();
         
 
 
         // Let's check if there are any results
-        if ($result) {
+        if ($row) {
 
             $_SESSION['username'] = $username;
             $_SESSION['name'] = $row->Fname . " " . $row->Lname;
