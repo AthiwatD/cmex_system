@@ -79,14 +79,16 @@ class Approve extends CI_Controller{
         $result = $this->Approve->approve($final_files_data,$meeting_id, $meeting_person_id);
 
         if($result){
-            $this->approve($meeting_id, $meeting_person_id); 
+            header("Location: " . base_url() . "Approve/approve/" . $meeting_id . "/" . $meeting_person_id );
+            // $this->approve($meeting_id, $meeting_person_id); 
         }
     }
 
     function updateWatchedDo($meeting_id, $meeting_person_id){
         $result = $this->Approve->updateWatched($meeting_person_id);
         if($result){
-            $this->approve($meeting_id, $meeting_person_id); 
+            // $this->approve($meeting_id, $meeting_person_id); 
+            header("Location: " . base_url() . "Approve/approve/" . $meeting_id . "/" . $meeting_person_id );
         }
     }
 
