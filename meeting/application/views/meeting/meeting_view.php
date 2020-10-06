@@ -24,6 +24,7 @@
                               }
                           ?>
                       </p>
+                      <h3><?php echo $head_title; ?></h3>
                     </div>
                   </div>
               </div>
@@ -124,7 +125,9 @@
                                                     if($meeting_person->watched_datetime == "0000-00-00 00:00:00"){
                                                         echo "ยังไม่ได้เปิด";
                                                     }else{
-                                                        echo $meeting_person->watched_datetime; 
+                                                        $date = explode(" ", $meeting_person->watched_datetime);
+                                                        $date = convert_to_thai_date($date[0]);
+                                                        echo $date . " เวลา " . date("H:i:s", strtotime($meeting_person->watched_datetime)); 
                                                     }        
                                                 ?>
                                                         
@@ -134,7 +137,9 @@
                                                     if($meeting_person->approved_datetime == "0000-00-00 00:00:00"){
                                                         echo "ยังไม่ได้รับรอง";
                                                     }else{
-                                                        echo $meeting_person->approved_datetime; 
+                                                        $date = explode(" ", $meeting_person->approved_datetime);
+                                                        $date = convert_to_thai_date($date[0]);
+                                                        echo $date . " เวลา " . date("H:i:s", strtotime($meeting_person->approved_datetime)); 
                                                     }        
                                                 ?>
                                                         

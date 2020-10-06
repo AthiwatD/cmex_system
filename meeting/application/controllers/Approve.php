@@ -7,7 +7,9 @@ class Approve extends CI_Controller{
     function __construct(){
         parent::__construct();
         $this->load->library('user_agent');
+
         $this->load->helper('cookie');
+        $this->load->helper('../../common/helpers/thai_date');
         $this->load->model('Approve_model','Approve');
         $this->load->model('Meeting_model','Meeting');
         $this->load->model('MeetingPerson_model','MeetingPerson');
@@ -19,22 +21,34 @@ class Approve extends CI_Controller{
         $this->load->library('upload', $config);
     }
     
-    function approve($meeting_id, $meeting_person_id){
+    function approve($meeting_id, $meeting_person_id, $msg = NULL){
+        $this->data['msg'] = $msg;
         $this->data['meeting_id'] = $meeting_id;
         $this->data['meeting_person_id'] = $meeting_person_id;
-        $this->data['meeting'] = $this->Meeting->getMeeting($meeting_id);
-        $meeting_person = $this->MeetingPerson->getMeetingPerson($meeting_person_id);
-        $this->data['meeting_person'] = $meeting_person;
-        $this->data['files'] = $this->File->getMeetingPersonFiles($meeting_id, $meeting_person_id);
+        $meeting = $this->Meeting->getMeeting($meeting_id);
+        date_default_timezone_set('Asia/Bangkok');
+        $now = date('Y-m-d H:i:s', time());
+        if(($meeting->approve_expire_datetime != "0000-00-00 00:00:00") && ($now <= $meeting->approve_expire_datetime)){
+            $this->data['meeting'] = $meeting;
+            $meeting_person = $this->MeetingPerson->getMeetingPerson($meeting_person_id);
+            $this->data['meeting_person'] = $meeting_person;
+            $this->data['meeting_files'] = $this->File->getMeetingFiles($meeting_id);
+            $this->data['files'] = $this->File->getMeetingPersonFiles($meeting_id, $meeting_person_id);
 
-        $this->data['head_title'] = "ระบบยืนยันรายงานการประชุม";
+            $this->data['head_title'] = "ระบบยืนยันรายงานการประชุม";
 
-        $this->load->view('common/header', $this->data);
-        $this->load->view('approve/approve_view', $this->data);
-        $this->load->view('common/footer',$this->data);
+            $this->load->view('common/header', $this->data);
+            $this->load->view('approve/approve_view', $this->data);
+            $this->load->view('common/footer',$this->data);
 
-        if($meeting_person->watched_datetime == "0000-00-00 00:00:00"){
-            $this->updateWatchedDo($meeting_id, $meeting_person_id);
+            if($meeting_person->watched_datetime == "0000-00-00 00:00:00"){
+                $this->updateWatchedDo($meeting_id, $meeting_person_id);
+            }
+        }
+        else{
+            $this->load->view('common/header', $this->data);
+            $this->load->view('approve/approve_expire_view', $this->data);
+            $this->load->view('common/footer',$this->data);
         }
     }
 
@@ -58,7 +72,7 @@ class Approve extends CI_Controller{
                 
                 // $config['file_name'] = $user_file['name'];
                 $config['upload_path']   = './uploads/'; 
-                $config['allowed_types'] = 'gif|jpg|png|doc|docx|xls|xlsx|ppt|pptx|pdf|txt|csv'; 
+                $config['allowed_types'] = 'gif|jpg|jpeg|png|doc|docx|xls|xlsx|ppt|pptx|pdf|txt|csv'; 
                 $config['max_size']      = 256000; 
                 $config['upload_path'] = './uploads/';
                 $config['max_width'] = '4096';
@@ -78,18 +92,20 @@ class Approve extends CI_Controller{
         }
         $result = $this->Approve->approve($final_files_data,$meeting_id, $meeting_person_id);
 
-        if($result){
-            header("Location: " . base_url() . "Approve/approve/" . $meeting_id . "/" . $meeting_person_id );
+        //if($result){
+            // header("Location: " . base_url() . "Approve/approve/" . $meeting_id . "/" . $meeting_person_id );
             // $this->approve($meeting_id, $meeting_person_id); 
-        }
+            redirect( base_url() . "Approve/approve/" . $meeting_id . "/" . $meeting_person_id . "รับรองการประชุมสำเร็จ");
+        //}
     }
 
     function updateWatchedDo($meeting_id, $meeting_person_id){
         $result = $this->Approve->updateWatched($meeting_person_id);
-        if($result){
+        //if($result){
             // $this->approve($meeting_id, $meeting_person_id); 
-            header("Location: " . base_url() . "Approve/approve/" . $meeting_id . "/" . $meeting_person_id );
-        }
+            // header("Location: " . base_url() . "Approve/approve/" . $meeting_id . "/" . $meeting_person_id );
+            redirect( base_url() . "Approve/approve/" . $meeting_id . "/" . $meeting_person_id);
+        //}
     }
 
     function deleteFileDo($meeting_id, $meeting_person_id, $file_id){

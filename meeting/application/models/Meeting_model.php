@@ -15,6 +15,15 @@ class Meeting_model extends CI_Model {
         return $result;
     }
 
+    function getBoardMeetings($board_id){
+        $sql = "SELECT *
+                FROM met_meeting m
+                WHERE m.board_id = '" . $board_id . "'
+                ORDER BY m.meeting_datetime DESC";
+        $result = $this->db->query($sql)->result();
+        return $result;
+    }
+
     function getMeeting($meeting_id) {
 
         $sql = "SELECT *

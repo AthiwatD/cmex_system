@@ -6,13 +6,15 @@
  class Meeting extends MY_Controller{
     public function __construct(){
         parent::__construct();
+
+        $this->load->helper('../../common/helpers/thai_date');
         $this->load->model('Meeting_model','Meeting');
         $this->load->model('MeetingPerson_model','MeetingPerson');
         $this->load->model('Board_model','Board');
         $this->load->model('File_model','File');
 
         $config['upload_path']   = './uploads/'; 
-        $config['allowed_types'] = 'gif|jpg|png|doc|docx|xls|xlsx|pdf'; 
+        $config['allowed_types'] = 'gif|jpg|jpeg|png|doc|docx|xls|xlsx|ppt|pptx|pdf|txt|csv'; 
         $config['max_size']      = 256000; 
         $this->load->library('upload', $config);
 
@@ -41,6 +43,19 @@
         $this->loadViewWithScript(array('meeting/meetings_view'), array());    
     }
     
+    function boardMeetings($board_id){
+        $meetings = $this->Meeting->getBoardMeetings($board_id);;
+        $this->data['meetings'] = $meetings;
+        $board = $this->Board->getBoard($board_id);
+        $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');     
+        $this->breadcrumb->add('การประชุม',   base_url().'Meeting/meetings/');  
+        $this->breadcrumb->add('การประชุมของกลุ่ม',   base_url().'Meeting/boardMeetings/'.$board_id);  
+        $this->data['breadcrumb'] = $this->breadcrumb->output();
+
+        $this->data['head_title'] = "การประชุมของกลุ่ม " . $board->board_name;
+        $this->loadData();
+        $this->loadViewWithScript(array('meeting/board_meetings_view'), array());    
+    }
     function meeting($meeting_id){
         $this->data['meeting_id'] = $meeting_id;
         $this->data['meeting'] = $this->Meeting->getMeeting($meeting_id);
@@ -182,7 +197,7 @@
                 
                 // $config['file_name'] = $user_file['name'];
                 $config['upload_path']   = './uploads/'; 
-                $config['allowed_types'] = 'gif|jpg|png|doc|docx|xls|xlsx|ppt|pptx|pdf|txt|csv'; 
+                $config['allowed_types'] = 'gif|jpg|jpeg|png|doc|docx|xls|xlsx|ppt|pptx|pdf|txt|csv'; 
                 $config['max_size']      = 256000; 
                 $config['upload_path'] = './uploads/';
                 $config['max_width'] = '4096';
@@ -235,5 +250,51 @@
     function getBoardPersonsService($board_id){
         echo json_encode($this->Meeting->getBoardPersons($board_id));
     }
+
+
+    function meetingSendToPersons($meeting_id){
+            
+            $meeting = $this->Meeting->getMeeting($meeting_id);
+            $meeting_persons = $this->MeetingPerson->getMeetingPersons($meeting_id);
+            $meeting_persons_link = array();
+            // $filenames = array(); 
+            $this->data['meeting_id'] = $meeting_id;
+            $this->data['meeting'] = $this->Meeting->getMeeting($meeting_id);
+            $meeting_persons = $this->MeetingPerson->getMeetingPersons($meeting_id);
+
+            $this->data['meeting_persons'] = $meeting_persons;
+            
+            foreach($meeting_persons as $index => $mp){
+                $meeting_person_link = base_url() . "Approve/approve/" . $meeting_id . '/' . $mp->meeting_person_id;
+                array_push($meeting_persons_link, $meeting_person_link);
+            }
+
+            // foreach($meeting_persons as $index => $mp){
+            //     $meeting_person_link = base_url() . "Approve/approve/" . $meeting_id . '/' . $mp->meeting_person_id;
+            //     $filename = "qr/" . $mp->meeting_person_id . '.png';
+            //     $width = $height = 300;
+            //     $url = 'https://chart.googleapis.com/chart?';
+            //     $chs = 'chs=300x300';
+            //     $cht = 'cht=qr';
+            //     $choe = 'choe=UTF-8';
+            //     $chl = 'chl='. urlencode($meeting_person_link);
+
+            //     $qstring = $url ."&". $chs ."&". $cht ."&". $chl ."&". $choe;     
+            //     $url = urlencode($meeting_person_link);
+            //     $qr  = file_get_contents("http://chart.googleapis.com/chart?chs={$width}x{$height}&cht=qr&chl=$url&choe=UTF-8");
+            //     file_put_contents($filename, $qr);
+            //     array_push($meeting_persons_link, $meeting_person_link);
+            //     array_push($filenames, $filename);
+            // }
+
+            $this->data['meeting_persons_link'] = $meeting_persons_link;
+            // $this->data['filenames'] = $filenames;
+            $this->data['head_title'] = "รายงานการประชุม";
+            $this->loadData();
+            $this->load->view('common/header', $this->data);
+            $this->load->view('meeting/meeting_send_to_persons_view', $this->data);
+
+    }
+
  }
  ?>

@@ -24,6 +24,7 @@
                               }
                           ?>
                       </p>
+                      <h3><?php echo $head_title; ?></h3>
                     </div>
                   </div>
               </div>
@@ -54,14 +55,18 @@
                   <div class="form-group">
                     <label for="exampleInputEmail1">ประชุม วันที่-เวลา</label>
                     <?php
-                        echo $meeting->meeting_datetime;
+                        $date = explode(" ", $meeting->meeting_datetime);
+                        $date = convert_to_thai_date_full($date[0]);
+                        echo $date . " เวลา " . date("H:i:s", strtotime($meeting->meeting_datetime)); 
                     ?>
                   </div>
 
                   <div class="form-group">
                     <label for="exampleInputEmail1">รับรองเอกสารได้ถึง วันที่-เวลา </label>
                     <?php
-                        echo $meeting->approve_expire_datetime;
+                        $date = explode(" ", $meeting->approve_expire_datetime);
+                        $date = convert_to_thai_date_full($date[0]);
+                        echo $date . " เวลา " . date("H:i:s", strtotime($meeting->approve_expire_datetime)); 
                     ?>
 
                   </div>
@@ -88,7 +93,9 @@
                         if($meeting_person->watched_datetime == "0000-00-00 00:00:00"){
                             echo "ยังไม่ได้เปิด";
                         }else{
-                            echo $meeting_person->watched_datetime; 
+                            $date = explode(" ", $meeting_person->watched_datetime);
+                            $date = convert_to_thai_date_full($date[0]);
+                            echo $date . " เวลา " . date("H:i:s", strtotime($meeting_person->watched_datetime)); 
                         }        
                     ?>
                   </div>
@@ -99,7 +106,9 @@
                         if($meeting_person->approved_datetime == "0000-00-00 00:00:00"){
                             echo "ยังไม่ได้รับรอง";
                         }else{
-                            echo $meeting_person->approved_datetime; 
+                            $date = explode(" ", $meeting_person->approved_datetime);
+                            $date = convert_to_thai_date_full($date[0]);
+                            echo $date . " เวลา " . date("H:i:s", strtotime($meeting_person->approved_datetime)); 
                         }        
                     ?>
                   </div>
@@ -142,7 +151,10 @@
                         <div>
                        
                     </div>
-
+                    <div class="form-group">
+                        <label for="exampleInputEmail1"> Link</label><br>
+                        <?php echo $meeting_person_link; ?>
+                    </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1"> QR Code</label><br>
                         <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=<?php echo $meeting_person_link; ?>&choe=UTF-8" alt="<?php echo $meeting_person->person_name; ?>" />

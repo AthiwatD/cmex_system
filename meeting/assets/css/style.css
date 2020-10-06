@@ -1,3 +1,7 @@
+section.approve{
+    font-family: 'TH SarabunPSK';
+}
+
 .td_data_center{
     text-align: center;
     
@@ -36,3 +40,8 @@
 .evaluation_header{
     text-align: center;
 }
+
+table {
+    width: 100%;
+    table-layout: fixed;
+  }

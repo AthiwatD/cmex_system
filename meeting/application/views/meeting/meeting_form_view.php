@@ -149,7 +149,7 @@
                     <div class="form-group row">
                         <label class="label-control" for="upl_files"> ไฟล์เอกสาร *</label>
                         <input name="upl_files[]" id="upl_files" type="file" class="inputFile form-control" 
-                                            accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps" multiple required/>
+                                            accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps" multiple />
                         <?php
                             if($method == "update"){
                         ?>
