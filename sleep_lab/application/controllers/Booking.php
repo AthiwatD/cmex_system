@@ -11,7 +11,7 @@ class Booking extends MY_Controller {
     }
     
     function index(){
-        $this->Bookings();
+        $this->bookings();
        
     }
     
@@ -22,9 +22,25 @@ class Booking extends MY_Controller {
         $this->breadcrumb->add('รายการนัดหมาย',   base_url().'Booking/bookings');      
         $this->data['breadcrumb'] = $this->breadcrumb->output();
 
-        $this->data['head_title'] = "รายการ Booking";
+        $doctors = unserialize (DOCTORS);
+        $operation_rooms = unserialize (OPERATION_ROOMS);
+        $test_types = unserialize (TEST_TYPES);
+        $appointment_froms = unserialize (APPOINTMENT_FROMS);
+        $change_reasons = unserialize (CHANGE_REASONS);
+        $channels = unserialize (CHANNELS);
+        $symtoms = unserialize (SYMTOMS);
+
+        $this->data['doctors'] = $doctors;
+        $this->data['operation_rooms'] = $operation_rooms;
+        $this->data['test_types'] = $test_types;
+        $this->data['appointment_froms'] = $appointment_froms;
+        $this->data['change_reasons'] = $change_reasons;
+        $this->data['channels'] = $channels;
+        $this->data['symtoms'] = $symtoms;
+
+        $this->data['head_title'] = "รายการนัดหมาย";
         $this->loadData();
-        $this->loadViewWithScript(array('booking/bookings_view'), array());      
+        $this->loadViewWithScript(array('booking/bookings_view'), array('booking/bookings_script'));      
     }
 
     function booking($booking_id){

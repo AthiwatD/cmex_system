@@ -9,9 +9,8 @@ class Booking_model extends CI_Model {
     function getBookings() {
 
         $sql = "SELECT *
-                FROM sdc_booking c
-                JOIN sdc_form f ON c.form_id = f.form_id
-                ORDER BY f.form_id DESC, CAST(c.booking_number AS UNSIGNED), c.booking_number ASC";
+                FROM sdc_booking b
+                WHERE b.booking_date >= DATE(NOW() - INTERVAL 2 MONTH)";
                     
         $result = $this->db->query($sql)->result();
 

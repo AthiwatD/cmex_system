@@ -35,6 +35,12 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
+  <!-- fullCalendar -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/fullcalendar/main.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/fullcalendar-daygrid/main.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/fullcalendar-timegrid/main.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/fullcalendar-bootstrap/main.min.css">
+  
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
