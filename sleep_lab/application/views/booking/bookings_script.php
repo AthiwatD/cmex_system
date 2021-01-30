@@ -34,10 +34,19 @@
         echo 'var test_types = ', js_array($test_types), ';';
         echo 'var appointment_froms = ', js_array($appointment_froms), ';';
         echo 'var change_reasons = ', js_array($change_reasons), ';';
-        echo 'var change_reasons = ', js_array($change_reasons), ';';
+        echo 'var channels = ', js_array($channels), ';';
         echo 'var symtoms = ', js_array($symtoms), ';';
 
     ?>
+
+        autocomplete(document.getElementById("txt_doctor"), doctors);
+        // autocomplete(document.getElementById("txt_operation_room"), operation_rooms);
+        // autocomplete(document.getElementById("txt_test_type"), test_types);
+        // autocomplete(document.getElementById("txt_appointment_from"), appointment_froms);
+        // autocomplete(document.getElementById("txt_change_reason"), change_reasons);
+        // autocomplete(document.getElementById("txt_channel"), channels);
+        // autocomplete(document.getElementById("txt_symtom"), symtoms);
+
 
   $(function () {
 

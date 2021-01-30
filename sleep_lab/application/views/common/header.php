@@ -42,6 +42,7 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/fullcalendar-bootstrap/main.min.css">
   
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/autocomplete.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">

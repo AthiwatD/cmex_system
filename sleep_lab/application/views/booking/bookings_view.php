@@ -104,11 +104,19 @@
                             </tr>
                             <tr>
                                 <td><label>แพทย์</label></td>
-                                <td><input type="text" class="form-control" id="txt_doctor" name="doctor" placeholder="แพทย์"></td>
+                                <td>
+                                    <div class="autocomplete">
+                                        <input id="txt_doctor" type="text" class="form-control " name="doctor" placeholder="แพทย์">
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td><label>ห้อง</label></td>
-                                <td><input type="text" class="form-control" id="txt_operation_room" name="operation_room" placeholder="ห้อง"></td>
+                                <td>
+                                    <div class="autocomplete">
+                                        <input type="text" class="form-control" id="txt_operation_room" name="operation_room" placeholder="ห้อง">
+                                    </div>    
+                                </td>
                             </tr>
                             <tr>
                                 <td><label>ส่งจาก</label></td>
