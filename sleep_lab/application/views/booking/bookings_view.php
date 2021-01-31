@@ -12,7 +12,7 @@
                 </div>
                 <div class="card-body">
                   <!-- the events -->
-                  <!-- <div id="external-events">
+                  <div id="external-events">
                     <div class="external-event bg-success">Lunch</div>
                     <div class="external-event bg-warning">Go home</div>
                     <div class="external-event bg-info">Do homework</div>
@@ -24,32 +24,9 @@
                         remove after drop
                       </label>
                     </div>
-                  </div> -->
-
-                    <!-- <div class="input-group">
-                        <label>ชื่อ</label>
-                        <input type="text" class="form-control" id="txt_fname" name="fname" placeholder="ชื่อ">
-                    </div>
-                    <div class="input-group">
-                        <label>นามสกุล</label>
-                        <input type="text" class="form-control" id="txt_lname" name="lname" placeholder="นามสกุล">
-                    </div>
-                    <div class="input-group">
-                        <label>HN</label>
-                        <input type="text" class="form-control" id="txt_hn" name="hn" placeholder="HN">
-                    </div>
-                    <div class="input-group">
-                        <label>วันเกิด</label>
-                        <input type="date" class="form-control" id="txt_birth_date" name="birth_date" placeholder="วันเกิด">
-                    </div>
-                    <div class="input-group">
-                        <label>โทรศัพท์ 1</label>
-                        <input type="text" class="form-control" id="txt_tel_1" name="tel_1" placeholder="โทรศัพท์ 1">
-                    </div>
-                    <div class="input-group">
-                        <label>โทรศัพท์ 2</label>
-                        <input type="text" class="form-control" id="txt_tel_2" name="tel_2" placeholder="โทรศัพท์ 2">
-                    </div> -->
+                  </div>
+                  <br><br>
+                    
 
                     <table>
                         <tbody>
@@ -120,18 +97,24 @@
                             </tr>
                             <tr>
                                 <td><label>ส่งจาก</label></td>
-                                <td><input type="text" class="form-control" id="txt_appointment_from" name="appointment_from" placeholder="ส่งจาก"></td>
+                                <td>
+                                    <div class="autocomplete">
+                                        <input type="text" class="form-control" id="txt_appointment_from" name="appointment_from" placeholder="ส่งจาก">
+                                    </div>  
+                                </td>
                             </tr>
                             <tr>
                                 <td><label>รู้จาก</label></td>
-                                <td><input type="text" class="form-control" id="txt_tel_1" name="tel_1" placeholder="โทรศัพท์ 1"></td>
-                            </tr>
-                            <tr>
-                                <td><label>โทร 2</label></td>
-                                <td><input type="text" class="form-control" id="txt_tel_2" name="tel_2" placeholder="โทรศัพท์ 2"></td>
+                                <td>
+                                    <div class="autocomplete">
+                                        <input type="text" class="form-control" id="txt_channel" name="channel" placeholder="รู้จักผ่านทาง">
+                                    </div>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
+                    <br>
+                    <button type="button" class="form-control btn btn-success">บันทึก</button>
                   <!-- /input-group -->
                 </div>
               </div>

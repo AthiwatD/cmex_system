@@ -40,11 +40,14 @@
     ?>
 
         autocomplete(document.getElementById("txt_doctor"), doctors);
-        // autocomplete(document.getElementById("txt_operation_room"), operation_rooms);
+        autocomplete(document.getElementById("txt_operation_room"), operation_rooms);
+        autocomplete(document.getElementById("txt_appointment_from"), appointment_froms);
+        autocomplete(document.getElementById("txt_channel"), channels);
+
         // autocomplete(document.getElementById("txt_test_type"), test_types);
-        // autocomplete(document.getElementById("txt_appointment_from"), appointment_froms);
+        
         // autocomplete(document.getElementById("txt_change_reason"), change_reasons);
-        // autocomplete(document.getElementById("txt_channel"), channels);
+        
         // autocomplete(document.getElementById("txt_symtom"), symtoms);
 
 
@@ -112,7 +115,8 @@
       header    : {
         left  : 'prev,next today',
         center: 'title',
-        right : 'dayGridMonth,timeGridWeek,timeGridDay'
+        // right : 'dayGridMonth,timeGridWeek,timeGridDay'
+        right : 'dayGridMonth'
       },
       'themeSystem': 'bootstrap',
       //Random default events

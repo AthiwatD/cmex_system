@@ -6,8 +6,8 @@ class Booking extends MY_Controller {
     
     function __construct(){
         parent::__construct();
-        $this->load->model('Form_model','Form');
-        $this->load->model('Booking_model','Booking');
+        // $this->load->model('Form_model','Form');
+        // $this->load->model('Booking_model','Booking');
     }
     
     function index(){
@@ -17,7 +17,7 @@ class Booking extends MY_Controller {
     
     function bookings(){
         $this->data['error'] = $this->db->error(); 
-        $this->data['bookings'] = $this->Booking->getBookings();
+        // $this->data['bookings'] = $this->Booking->getBookings();
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
         $this->breadcrumb->add('รายการนัดหมาย',   base_url().'Booking/bookings');      
         $this->data['breadcrumb'] = $this->breadcrumb->output();
