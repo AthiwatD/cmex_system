@@ -4,7 +4,7 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-4">
             <div class="sticky-top mb-3">
               <div class="card">
                 <div class="card-header">
@@ -13,6 +13,7 @@
                 <div class="card-body">
                   <!-- the events -->
                   <div id="external-events">
+                      <!--  
                     <div class="external-event bg-success">Lunch</div>
                     <div class="external-event bg-warning">Go home</div>
                     <div class="external-event bg-info">Do homework</div>
@@ -24,10 +25,10 @@
                         remove after drop
                       </label>
                     </div>
+-->
                   </div>
-                  <br><br>
                     
-
+                  <form role="form" class="needs-validation" method="POST" action="<?php echo base_url(); ?>Booking/save">
                     <table>
                         <tbody>
                                     <input type="hidden" class="form-control" id="txt_patient_id" name="patient_id" value="">
@@ -55,20 +56,20 @@
                                 <td><label>โทร 2</label></td>
                                 <td><input type="text" class="form-control" id="txt_tel_2" name="tel_2" placeholder="โทรศัพท์ 2"></td>
                             </tr>
+                        <!--
                         </tbody>
                     </table>
                     <br>
-                    <button type="button" class="form-control btn btn-success">บันทึก</button>
+                    <button type="button" class="form-control btn btn-success" onclick="save()">บันทึก</button>
                 </div>
-                <!-- /.card-body -->
               </div>
-              <!-- /.card -->
               <div class="card">
                 <div class="card-header">
                   <h3 class="card-title">ข้อมูลการนัด</h3>
                 </div>
                 <div class="card-body">
                 <table>
+-->
                         <tbody>
                                     <input type="hidden" class="form-control" id="txt_booking_id" name="booking_id" value="">
                             <tr>
@@ -114,14 +115,15 @@
                         </tbody>
                     </table>
                     <br>
-                    <button type="button" class="form-control btn btn-success">บันทึก</button>
+                        <button type="submit" class="form-control btn btn-success" >บันทึก</button>
                   <!-- /input-group -->
+                    </form>
                 </div>
               </div>
             </div>
           </div>
           <!-- /.col -->
-          <div class="col-md-9">
+          <div class="col-md-8">
             <div class="card card-primary">
               <div class="card-body p-0">
                 <!-- THE CALENDAR -->

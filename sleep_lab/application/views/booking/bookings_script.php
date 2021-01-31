@@ -50,6 +50,68 @@
         
         // autocomplete(document.getElementById("txt_symtom"), symtoms);
 
+    function save(){
+        var patient_id = document.getElementById("txt_patient_id").value;
+
+        if(patient_id == ""){
+            if(confirm("คุณต้องการ เพิ่มข้อมูลการนัดใหม่")){
+                addBooking();
+            }
+        }
+        else{
+            if(confirm("คุณต้องการ แก้ไขข้อมูลการนัด")){
+                updateBooking();
+            }
+        }
+    }
+
+    function addBooking(){
+
+        var username = "<?php echo $session_username; ?>";
+        var fname = document.getElementById("txt_fname").value;
+        var lname = document.getElementById("txt_lname").value;
+        var hn = document.getElementById("txt_hn").value;
+        var birth_date = document.getElementById("txt_birth_date").value;
+        var tel_1 = document.getElementById("txt_tel_1").value;
+        var tel_2 = document.getElementById("txt_tel_2").value;
+
+        var receiving_date = document.getElementById("txt_receiving_date").value;
+        var booking_date = document.getElementById("txt_booking_date").value;
+        var doctor = document.getElementById("txt_doctor").value;
+        var operation_room = document.getElementById("txt_operation_room").value;
+        var appointment_from = document.getElementById("txt_appointment_from").value;
+        var channel = document.getElementById("txt_channel").value;
+
+        var points = {
+                        "username":username,
+                        "fname":fname,
+                        "lname":lname,
+                        "hn":hn,
+                        "birth_date":birth_date,
+                        "tel_1":tel_1,
+                        "tel_2":tel_2,
+                    };
+        //console.log(JSON.stringify(points));
+        points = JSON.stringify(points);
+        $.ajax({
+            // url:'http://hosweb.med.cmu.ac.th/gateway/fu/move/clinic',
+            url:'<?php echo base_url(); ?>Booking/addPatientService',
+            method: 'POST',
+            body: JSON.stringify({
+                ready: 'ready'
+            }),
+            data: points,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'JSON',
+            success: function(response){
+                console.log(response);
+                // getPatients();
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                alert("Status: " + textStatus + '\nError: ' + errorThrown + '\nFunction: addBooking');
+            },
+        });
+    }
 
   $(function () {
 
@@ -124,48 +186,12 @@
         {
           title          : 'All Day Event',
           start          : new Date(y, m, 1),
+          allDay         : true,
+          url            : 'http://google.com/',
           backgroundColor: '#f56954', //red
           borderColor    : '#f56954', //red
-          allDay         : true
+          
         },
-        {
-          title          : 'Long Event',
-          start          : new Date(y, m, d - 5),
-          end            : new Date(y, m, d - 2),
-          backgroundColor: '#f39c12', //yellow
-          borderColor    : '#f39c12' //yellow
-        },
-        {
-          title          : 'Meeting',
-          start          : new Date(y, m, d, 10, 30),
-          allDay         : false,
-          backgroundColor: '#0073b7', //Blue
-          borderColor    : '#0073b7' //Blue
-        },
-        {
-          title          : 'Lunch',
-          start          : new Date(y, m, d, 12, 0),
-          end            : new Date(y, m, d, 14, 0),
-          allDay         : false,
-          backgroundColor: '#00c0ef', //Info (aqua)
-          borderColor    : '#00c0ef' //Info (aqua)
-        },
-        {
-          title          : 'Birthday Party',
-          start          : new Date(y, m, d + 1, 19, 0),
-          end            : new Date(y, m, d + 1, 22, 30),
-          allDay         : false,
-          backgroundColor: '#00a65a', //Success (green)
-          borderColor    : '#00a65a' //Success (green)
-        },
-        {
-          title          : 'Click for Google',
-          start          : new Date(y, m, 28),
-          end            : new Date(y, m, 29),
-          url            : 'http://google.com/',
-          backgroundColor: '#3c8dbc', //Primary (light-blue)
-          borderColor    : '#3c8dbc' //Primary (light-blue)
-        }
       ],
       editable  : true,
       droppable : true, // this allows things to be dropped onto the calendar !!!
@@ -219,5 +245,8 @@
       //Remove event from text input
       $('#new-event').val('')
     })
-  })
+  });
+
+    
+
 </script>

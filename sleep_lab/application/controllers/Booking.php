@@ -7,7 +7,7 @@ class Booking extends MY_Controller {
     function __construct(){
         parent::__construct();
         // $this->load->model('Form_model','Form');
-        // $this->load->model('Booking_model','Booking');
+        $this->load->model('Booking_model','Booking');
     }
     
     function index(){
@@ -17,7 +17,7 @@ class Booking extends MY_Controller {
     
     function bookings(){
         $this->data['error'] = $this->db->error(); 
-        // $this->data['bookings'] = $this->Booking->getBookings();
+        $this->data['bookings'] = $this->Booking->getBookings();
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
         $this->breadcrumb->add('รายการนัดหมาย',   base_url().'Booking/bookings');      
         $this->data['breadcrumb'] = $this->breadcrumb->output();
@@ -43,6 +43,28 @@ class Booking extends MY_Controller {
         $this->loadViewWithScript(array('booking/bookings_view'), array('booking/bookings_script'));      
     }
 
+    function save(){
+        $patient_id = $this->input->post('patient_id');
+        if($patient_id == ""){
+            $this->addBookingDo();
+        }
+        else{
+            $this->updateBookingDo();
+        }
+    }
+
+    function addBookingDo(){
+        
+        $result = $this->Booking->addBooking();
+        $this->addBooking();
+        // if(!$result){
+        //     $this->addBooking();
+        // }else{
+        //     $this->Bookings(); 
+        // }
+    }
+
+    /*
     function booking($booking_id){
         $this->data['error'] = $this->db->error(); 
         $this->data['booking'] = $this->Booking->getBooking($booking_id);
@@ -71,16 +93,7 @@ class Booking extends MY_Controller {
         $this->loadViewWithScript(array('booking/booking_form_view'), array());      
     }
 
-    function addBookingDo(){
-        
-        $result = $this->Booking->addBooking();
-        
-        if(!$result){
-            $this->addBooking();
-        }else{
-            $this->Bookings(); 
-        }
-    }
+    
 
     function updateBooking($booking_id){   
         $this->data['error'] = $this->db->error(); 
@@ -121,4 +134,5 @@ class Booking extends MY_Controller {
             $this->Bookings(); 
         }
     }
+    */
 }

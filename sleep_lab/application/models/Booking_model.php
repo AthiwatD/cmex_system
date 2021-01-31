@@ -31,16 +31,52 @@ class Booking_model extends CI_Model {
     }
 
     function addBooking(){
-        $form_id = $this->security->xss_clean($this->input->post('form_id'));
-        $booking_number = $this->security->xss_clean($this->input->post('booking_number'));
-        $booking_name = $this->security->xss_clean($this->input->post('booking_name'));
-        
+        $username = $this->session->username;
+        $create_time = date("Y-m-d h:i:s");
+
+        $fname = $this->security->xss_clean($this->input->post('fname'));
+        $lname = $this->security->xss_clean($this->input->post('lname'));
+        $hn = $this->security->xss_clean($this->input->post('hn'));
+        $birth_date = $this->security->xss_clean($this->input->post('birth_date'));
+        $tel_1 = $this->security->xss_clean($this->input->post('tel_1'));
+        $tel_2 = $this->security->xss_clean($this->input->post('tel_2'));
+
         $data = array(
-            'booking_number' => $booking_number,
-            'booking_name' => $booking_name,
-            'form_id' => $form_id,
+            'fname' => $fname,
+            'lname' => $lname,
+            'hn' => $hn,
+            'birth_date' => $birth_date,
+            'tel_1' => $tel_1,
+            'tel_2' => $tel_2,
+            'create_by' => $username,
+            'create_time' => $create_time,
         );
-        $result = $this->db->insert('sdc_booking', $data);
+        $result = $this->db->insert('sdc_patient', $data);
+        if($result){
+            $patient_id = $this->db->insert_id();
+            $receiving_date = $this->security->xss_clean($this->input->post('receiving_date'));
+            $booking_date = $this->security->xss_clean($this->input->post('booking_date'));
+            $doctor = $this->security->xss_clean($this->input->post('doctor'));
+            $operation_room = $this->security->xss_clean($this->input->post('operation_room'));
+            $appointment_from = $this->security->xss_clean($this->input->post('appointment_from'));
+            $channel = $this->security->xss_clean($this->input->post('channel'));
+
+            $data = array(
+                'patient_id' => $patient_id,
+                'receiving_date' => $receiving_date,
+                'booking_date' => $booking_date,
+                'doctor' => $doctor,
+                'operation_room' => $operation_room,
+                'appointment_from' => $appointment_from,
+                'channel' => $channel,
+                'create_by' => $username,
+                'create_time' => $create_time,
+            );
+            $result = $this->db->insert('sdc_booking', $data);
+        }
+
+        
+
         return $result;
     }
 
