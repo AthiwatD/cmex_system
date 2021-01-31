@@ -8,35 +8,35 @@ question_backend/application/logs/*
 
 !question_backend/application/*/.htaccess
 
-question_backend/application/config/config.php
+!question_backend/application/config/config.php
 
-question_backend/application/config/database.php
+!question_backend/application/config/database.php
 
 
 question/application/cache/*
 question/application/logs/*
-question/application/config/config.php
-question/application/config/database.php
+!question/application/config/config.php
+!question/application/config/database.php
 
 meeting/application/cache/*
 meeting/application/logs/*
-meeting/application/config/config.php
-meeting/application/config/database.php
+!meeting/application/config/config.php
+!meeting/application/config/database.php
 
 employee/application/cache/*
 employee/application/logs/*
-employee/application/config/config.php
-employee/application/config/database.php
+!employee/application/config/config.php
+!employee/application/config/database.php
 
 salary/application/cache/*
 salary/application/logs/*
-salary/application/config/config.php
-salary/application/config/database.php
+!salary/application/config/config.php
+!salary/application/config/database.php
 
 sleep_lab/application/cache/*
 sleep_lab/application/logs/*
-sleep_lab/application/config/config.php
-sleep_lab/application/config/database.php
+!sleep_lab/application/config/config.php
+!sleep_lab/application/config/database.php
 
 
 
