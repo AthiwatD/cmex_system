@@ -32,6 +32,7 @@ class Booking_model extends CI_Model {
 
     function addBooking(){
         $username = $this->session->username;
+        date_default_timezone_set('Asia/Bangkok');
         $create_time = date("Y-m-d h:i:s");
 
         $fname = $this->security->xss_clean($this->input->post('fname'));

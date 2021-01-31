@@ -46,11 +46,12 @@ class Booking extends MY_Controller {
     function save(){
         $patient_id = $this->input->post('patient_id');
         if($patient_id == ""){
-            $this->addBookingDo();
+            $result = $this->Booking->addBooking();
         }
         else{
-            $this->updateBookingDo();
+            $result = $this->Booking->updateBookingDo();
         }
+        $this->bookings();
     }
 
     function addBookingDo(){
