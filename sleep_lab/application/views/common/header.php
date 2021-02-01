@@ -44,5 +44,5 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/autocomplete.css">
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed sidebar-collapse"> <!-- sidebar-mini layout-fixed -->
 <div class="wrapper">

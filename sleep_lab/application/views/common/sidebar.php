@@ -66,6 +66,14 @@
             </a>
           </li>
 
+          <li class="nav-item has-treeview">
+            <a href="<?php echo base_url(); ?>Moving" class="nav-link">
+            <i class="nav-icon fas fa-calendar"></i>
+              <p>
+                เลื่อนนัด
+              </p>
+            </a>
+          </li>
 <!--
           <li class="nav-item has-treeview">
             <a href="<?php echo base_url(); ?>Evaluation" class="nav-link">

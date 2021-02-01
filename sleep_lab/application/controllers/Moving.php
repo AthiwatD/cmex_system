@@ -2,25 +2,25 @@
 /* Author: Jorge Torres
  * Description: Login controller class
  */
-class Booking extends MY_Controller {
+class Moving extends MY_Controller {
     
     function __construct(){
         parent::__construct();
         // $this->load->model('Form_model','Form');
-        $this->load->model('Booking_model','Booking');
+        $this->load->model('Moving_model','Moving');
     }
     
     function index(){
-        $this->bookings();
+        $this->movings();
        
     }
     
-    function bookings(){
+    function movings(){
         $this->data['error'] = $this->db->error(); 
-        $this->data['bookings'] = $this->Booking->getBookings();
-        $this->data['none_bookings'] = $this->Booking->getNoneBookings();
+        $this->data['movings'] = $this->Moving->getMovings();
+        $this->data['none_movings'] = $this->Moving->getNoneMovings();
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
-        $this->breadcrumb->add('รายการนัดหมาย',   base_url().'Booking/bookings');      
+        $this->breadcrumb->add('รายการนัดหมาย',   base_url().'Moving/movings');      
         $this->data['breadcrumb'] = $this->breadcrumb->output();
 
         $doctors = unserialize (DOCTORS);
@@ -46,104 +46,104 @@ class Booking extends MY_Controller {
 
         $this->data['head_title'] = "รายการนัดหมาย";
         $this->loadData();
-        $this->loadViewWithScript(array('booking/bookings_view'), array('booking/bookings_script'));      
+        $this->loadViewWithScript(array('moving/movings_view'), array('moving/movings_script'));      
     }
 
     function save(){
         $patient_id = $this->input->post('patient_id');
         if($patient_id == ""){
-            $result = $this->Booking->addBooking();
+            $result = $this->Moving->addMoving();
         }
         else{
-            $result = $this->Booking->updateBooking();
+            $result = $this->Moving->updateMoving();
         }
-        $this->bookings();
+        $this->movings();
     }
 
-    function addBookingDo(){
+    function addMovingDo(){
         
-        $result = $this->Booking->addBooking();
-        $this->bookings();
+        $result = $this->Moving->addMoving();
+        $this->movings();
     }
 
-    function updateBookingDo(){
+    function updateMovingDo(){
         
-        $result = $this->Booking->updateBooking();
-        $this->bookings();
+        $result = $this->Moving->updateMoving();
+        $this->movings();
     }
 
-    function getBookingService($booking_id){
-        $booked = $this->Booking->getBooking($booking_id);
+    function getMovingService($moving_id){
+        $booked = $this->Moving->getMoving($moving_id);
         echo json_encode($booked);
     }
     /*
-    function booking($booking_id){
+    function moving($moving_id){
         $this->data['error'] = $this->db->error(); 
-        $this->data['booking'] = $this->Booking->getBooking($booking_id);
+        $this->data['moving'] = $this->Moving->getMoving($moving_id);
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
-        $this->breadcrumb->add('รายการ Booking',   base_url().'Booking/bookings');  
-        $this->breadcrumb->add('รายละเอียด Booking',   base_url().'Booking/booking/' . $booking_id);      
+        $this->breadcrumb->add('รายการ Moving',   base_url().'Moving/movings');  
+        $this->breadcrumb->add('รายละเอียด Moving',   base_url().'Moving/moving/' . $moving_id);      
         $this->data['breadcrumb'] = $this->breadcrumb->output();
 
-        $this->data['head_title'] = "รายละเอียด Booking";
+        $this->data['head_title'] = "รายละเอียด Moving";
         $this->loadData();
-        $this->loadViewWithScript(array('booking/booking_view'), array());      
+        $this->loadViewWithScript(array('moving/moving_view'), array());      
     }
 
-    function addBooking(){   
+    function addMoving(){   
         $this->data['error'] = $this->db->error(); 
         $this->data['method'] = "add";
         $this->data['forms'] = $this->Form->getForms();
 
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
-        $this->breadcrumb->add('รายการ Booking',   base_url().'Booking/bookings');    
-        $this->breadcrumb->add('เพิ่ม Booking',   base_url().'Booking/addBooking');      
+        $this->breadcrumb->add('รายการ Moving',   base_url().'Moving/movings');    
+        $this->breadcrumb->add('เพิ่ม Moving',   base_url().'Moving/addMoving');      
         $this->data['breadcrumb'] = $this->breadcrumb->output();
 
-        $this->data['head_title'] = "เพิ่ม Booking";
+        $this->data['head_title'] = "เพิ่ม Moving";
         $this->loadData();
-        $this->loadViewWithScript(array('booking/booking_form_view'), array());      
+        $this->loadViewWithScript(array('moving/moving_form_view'), array());      
     }
 
     
 
-    function updateBooking($booking_id){   
+    function updateMoving($moving_id){   
         $this->data['error'] = $this->db->error(); 
         $this->data['method'] = "update";
         $this->data['forms'] = $this->Form->getForms();
 
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
-        $this->breadcrumb->add('รายการ Booking',   base_url().'Booking/Bookings');    
-        $this->breadcrumb->add('แก้ไข Booking',   base_url().'Booking/updateBooking/' . $booking_id);      
+        $this->breadcrumb->add('รายการ Moving',   base_url().'Moving/Movings');    
+        $this->breadcrumb->add('แก้ไข Moving',   base_url().'Moving/updateMoving/' . $moving_id);      
         $this->data['breadcrumb'] = $this->breadcrumb->output();
 
-        $this->data['head_title'] = "แก้ไข Booking";
-        $this->data['booking'] = $this->Booking->getBooking($booking_id);
+        $this->data['head_title'] = "แก้ไข Moving";
+        $this->data['moving'] = $this->Moving->getMoving($moving_id);
         $this->loadData();
-        $this->loadViewWithScript(array('booking/booking_form_view'), array());      
+        $this->loadViewWithScript(array('moving/moving_form_view'), array());      
     }
     
-    function updateBookingDo(){
+    function updateMovingDo(){
         
-        $result = $this->Booking->updateBooking();
+        $result = $this->Moving->updateMoving();
         //echo $result;
         if(!$result){
-            //$this->addBooking();
-            $this->Bookings(); 
+            //$this->addMoving();
+            $this->Movings(); 
         }else{
-            $this->Bookings(); 
+            $this->Movings(); 
         }
     }
 
-    function deleteBookingDo($booking_id){
+    function deleteMovingDo($moving_id){
         
-        $result = $this->Booking->deleteBooking($booking_id);
+        $result = $this->Moving->deleteMoving($moving_id);
         
         if(!$result){
-            //$this->addBooking();
-            $this->Bookings(); 
+            //$this->addMoving();
+            $this->Movings(); 
         }else{
-            $this->Bookings(); 
+            $this->Movings(); 
         }
     }
     */

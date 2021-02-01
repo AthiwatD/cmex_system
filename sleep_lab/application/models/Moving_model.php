@@ -1,17 +1,17 @@
 <?php
 
-class Booking_model extends CI_Model {
+class Moving_model extends CI_Model {
 
     function __construct() {
         parent::__construct();
     }
 
-    function getBookings() {
+    function getMovings() {
 
         $sql = "SELECT *
-                FROM sdc_booking b
+                FROM sdc_moving b
                 JOIN sdc_patient p ON b.patient_id = p.patient_id
-                WHERE b.booking_date >= DATE(NOW() - INTERVAL 3 MONTH)
+                WHERE b.moving_date >= DATE(NOW() - INTERVAL 3 MONTH)
                 AND b.changed = 0
                 AND b.deleted = 0";
                     
@@ -20,12 +20,12 @@ class Booking_model extends CI_Model {
         return $result;
     }
 
-    function getNoneBookings() {
+    function getNoneMovings() {
 
         $sql = "SELECT *
-                FROM sdc_booking b
+                FROM sdc_moving b
                 JOIN sdc_patient p ON b.patient_id = p.patient_id
-                WHERE (b.booking_date = '0000-00-00'
+                WHERE (b.moving_date = '0000-00-00'
                 OR b.operation_room LIKE '')
                 AND b.changed = 0
                 AND b.deleted = 0";
@@ -35,12 +35,12 @@ class Booking_model extends CI_Model {
         return $result;
     }
 
-    function getBooking($booking_id) {
+    function getMoving($moving_id) {
 
         $sql = "SELECT *
-                    FROM sdc_booking b
+                    FROM sdc_moving b
                     JOIN sdc_patient p ON b.patient_id = p.patient_id
-                    WHERE b.booking_id = '" . $booking_id . "'";
+                    WHERE b.moving_id = '" . $moving_id . "'";
                     
                     
         $result = $this->db->query($sql)->row();
@@ -48,7 +48,7 @@ class Booking_model extends CI_Model {
         return $result;
     }
 
-    function addBooking(){
+    function addMoving(){
         $username = $this->session->username;
         date_default_timezone_set('Asia/Bangkok');
         $create_time = date("Y-m-d h:i:s");
@@ -76,7 +76,7 @@ class Booking_model extends CI_Model {
 
             $patient_id = $this->db->insert_id();
             $receiving_date = $this->security->xss_clean($this->input->post('receiving_date'));
-            $booking_date = $this->security->xss_clean($this->input->post('booking_date'));
+            $moving_date = $this->security->xss_clean($this->input->post('moving_date'));
             $doctor = $this->security->xss_clean($this->input->post('doctor'));
             $test_type = $this->security->xss_clean($this->input->post('test_type'));
             $operation_room = $this->security->xss_clean($this->input->post('operation_room'));
@@ -85,8 +85,8 @@ class Booking_model extends CI_Model {
             $note = $this->security->xss_clean($this->input->post('note'));
 
             $sql = "SELECT *
-                    FROM sdc_booking
-                    WHERE booking_date = '" . $booking_date . "'
+                    FROM sdc_moving
+                    WHERE moving_date = '" . $moving_date . "'
                     AND operation_room = '" . $operation_room . "'";
             $query = $this->db->query($sql);
             $result = $query->result();
@@ -94,7 +94,7 @@ class Booking_model extends CI_Model {
                 $data = array(
                     'patient_id' => $patient_id,
                     'receiving_date' => $receiving_date,
-                    'booking_date' => $booking_date,
+                    'moving_date' => $moving_date,
                     'doctor' => $doctor,
                     'test_type' => $test_type,
                     'operation_room' => $operation_room,
@@ -106,7 +106,7 @@ class Booking_model extends CI_Model {
                     'create_time' => $create_time,
                     'deleted' => 0,
                 );
-                $result = $this->db->insert('sdc_booking', $data);
+                $result = $this->db->insert('sdc_moving', $data);
             }
             else{
                 $data = array(
@@ -122,7 +122,7 @@ class Booking_model extends CI_Model {
                     'create_time' => $create_time,
                     'deleted' => 0,
                 );
-                $result = $this->db->insert('sdc_booking', $data);
+                $result = $this->db->insert('sdc_moving', $data);
             }
             
             return $result;
@@ -135,7 +135,7 @@ class Booking_model extends CI_Model {
     }
 
 
-    function updateBooking(){
+    function updateMoving(){
         $username = $this->session->username;
         date_default_timezone_set('Asia/Bangkok');
         $update_time = date("Y-m-d h:i:s");
@@ -162,9 +162,9 @@ class Booking_model extends CI_Model {
         $result = $this->db->update('sdc_patient', $data);
 
         if($result){
-            $booking_id = $this->security->xss_clean($this->input->post('booking_id'));
+            $moving_id = $this->security->xss_clean($this->input->post('moving_id'));
             $receiving_date = $this->security->xss_clean($this->input->post('receiving_date'));
-            $booking_date = $this->security->xss_clean($this->input->post('booking_date'));
+            $moving_date = $this->security->xss_clean($this->input->post('moving_date'));
             $doctor = $this->security->xss_clean($this->input->post('doctor'));
             $test_type = $this->security->xss_clean($this->input->post('test_type'));
             $operation_room = $this->security->xss_clean($this->input->post('operation_room'));
@@ -173,15 +173,15 @@ class Booking_model extends CI_Model {
             $note = $this->security->xss_clean($this->input->post('note'));
 
             $sql = "SELECT *
-                    FROM sdc_booking
-                    WHERE booking_date = '" . $booking_date . "'
+                    FROM sdc_moving
+                    WHERE moving_date = '" . $moving_date . "'
                     AND operation_room = '" . $operation_room . "'";
             $query = $this->db->query($sql);
             $result = $query->result();
             if($query->num_rows() == 0){
                 $data = array(
                     'receiving_date' => $receiving_date,
-                    'booking_date' => $booking_date,
+                    'moving_date' => $moving_date,
                     'doctor' => $doctor,
                     'test_type' => $test_type,
                     'operation_room' => $operation_room,
@@ -191,8 +191,8 @@ class Booking_model extends CI_Model {
                     'update_by' => $username,
                     'update_time' => $update_time,
                 );
-                $this->db->where('booking_id', $booking_id);
-                $result = $this->db->update('sdc_booking', $data);
+                $this->db->where('moving_id', $moving_id);
+                $result = $this->db->update('sdc_moving', $data);
             }
             else{
                 $data = array(
@@ -205,8 +205,8 @@ class Booking_model extends CI_Model {
                     'update_by' => $username,
                     'update_time' => $update_time,
                 );
-                $this->db->where('booking_id', $booking_id);
-                $result = $this->db->update('sdc_booking', $data);
+                $this->db->where('moving_id', $moving_id);
+                $result = $this->db->update('sdc_moving', $data);
             }
             
             return $result;
@@ -215,13 +215,13 @@ class Booking_model extends CI_Model {
         return $result;
     }
 
-    function deleteBooking($booking_id){
+    function deleteMoving($moving_id){
         // $data = array(
         //     'deleted' => 1,
         // );
-        $this->db->where('booking_id', $booking_id);
-        //$result = $this->db->update('booking', $data);
-        $result = $this->db->delete("sdc_booking");
+        $this->db->where('moving_id', $moving_id);
+        //$result = $this->db->update('moving', $data);
+        $result = $this->db->delete("sdc_moving");
         return $result;
     }
 }
