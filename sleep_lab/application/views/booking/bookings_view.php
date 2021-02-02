@@ -73,7 +73,6 @@
                 <div class="card-body">
                 <table>
 -->
-                        <tbody>
                                     <input type="hidden" class="form-control" id="txt_booking_id" name="booking_id" value="">
                             <tr>
                                 <td><label>วันรับ</label></td>
