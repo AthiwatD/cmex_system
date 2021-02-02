@@ -216,12 +216,12 @@ class Booking_model extends CI_Model {
     }
 
     function deleteBooking($booking_id){
-        // $data = array(
-        //     'deleted' => 1,
-        // );
+        $data = array(
+            'deleted' => 1,
+        );
         $this->db->where('booking_id', $booking_id);
-        //$result = $this->db->update('booking', $data);
-        $result = $this->db->delete("sdc_booking");
+        $result = $this->db->update('sdc_booking', $data);
+        // $result = $this->db->delete("sdc_booking");
         return $result;
     }
 }
