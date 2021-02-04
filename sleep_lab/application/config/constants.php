@@ -95,7 +95,7 @@ define ("CHANGE_REASONS", serialize (array ("economics", "illness/accident", "no
 define ("CHANNELS", serialize (array ("ป้าย", "สื่อออนไลน์ (เฟสบุ๊ค เว็บไซต์)", "เพื่อน/ญาติ แนะนำ", "แพทย์ส่งตรวจ")));
 define ("SYMTOMS", serialize (array ("DM", "HT", "DLP", "CAD", "DCM", "Stroke", "Asthma", "COPD", "AR", "Dementia", "CKD")));
 define ("ACTIVE_USERS", serialize (array ("61018", "59007", "63027", "60025")));
-
+define ("PRIORITY_USERS", serialize (array ("61018", "59007")));
 // define ("FRUITS", serialize (array ("apple", "cherry", "banana"))); 
 // $my_fruits = unserialize (FRUITS);
 // $fruits = json_decode (FRUITS); var_dump($fruits);

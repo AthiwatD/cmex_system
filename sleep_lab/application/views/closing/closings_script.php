@@ -21,125 +21,29 @@
             $temp = array_map('js_str', $array);
             return '[' . implode(',', $temp) . ']';
         }
-        // $this->data['doctors'] = $doctors;
-        // $this->data['operation_rooms'] = $operation_rooms;
-        // $this->data['test_types'] = $test_types;
-        // $this->data['appointment_froms'] = $appointment_froms;
-        // $this->data['change_reasons'] = $change_reasons;
-        // $this->data['channels'] = $channels;
-        // $this->data['symtoms'] = $symtoms;
-
-        echo 'var doctors = ', js_array($doctors), ';';
-        echo 'var test_types = ', js_array($test_types), ';';
+        
         echo 'var operation_rooms = ', js_array($operation_rooms), ';';
         echo 'var operation_room_colors = ', js_array($operation_room_colors), ';';
-        echo 'var test_types = ', js_array($test_types), ';';
-        echo 'var appointment_froms = ', js_array($appointment_froms), ';';
-        echo 'var change_reasons = ', js_array($change_reasons), ';';
-        echo 'var channels = ', js_array($channels), ';';
-        echo 'var symtoms = ', js_array($symtoms), ';';
 
     ?>
 
-        autocomplete(document.getElementById("txt_doctor"), doctors);
-        autocomplete(document.getElementById("txt_test_type"), test_types);
         autocomplete(document.getElementById("txt_operation_room"), operation_rooms);
-        autocomplete(document.getElementById("txt_appointment_from"), appointment_froms);
-        autocomplete(document.getElementById("txt_channel"), channels);
 
-        // autocomplete(document.getElementById("txt_test_type"), test_types);
-        
-        // autocomplete(document.getElementById("txt_change_reason"), change_reasons);
-        
-        // autocomplete(document.getElementById("txt_symtom"), symtoms);
+    
 
-    function save(){
-        var patient_id = document.getElementById("txt_patient_id").value;
-
-        if(patient_id == ""){
-            if(confirm("คุณต้องการ เพิ่มข้อมูลการนัดใหม่")){
-                addBooking();
-            }
-        }
-        else{
-            if(confirm("คุณต้องการ แก้ไขข้อมูลการนัด")){
-                updateBooking();
-            }
-        }
-    }
-
-    // function addBooking(){
-
-    //     var username = "<?php echo $session_username; ?>";
-    //     var fname = document.getElementById("txt_fname").value;
-    //     var lname = document.getElementById("txt_lname").value;
-    //     var hn = document.getElementById("txt_hn").value;
-    //     var birth_date = document.getElementById("txt_birth_date").value;
-    //     var tel_1 = document.getElementById("txt_tel_1").value;
-    //     var tel_2 = document.getElementById("txt_tel_2").value;
-
-    //     var receiving_date = document.getElementById("txt_receiving_date").value;
-    //     var booking_date = document.getElementById("txt_booking_date").value;
-    //     var doctor = document.getElementById("txt_doctor").value;
-    //     var operation_room = document.getElementById("txt_operation_room").value;
-    //     var appointment_from = document.getElementById("txt_appointment_from").value;
-    //     var channel = document.getElementById("txt_channel").value;
-
-    //     var points = {
-    //                     "username":username,
-    //                     "fname":fname,
-    //                     "lname":lname,
-    //                     "hn":hn,
-    //                     "birth_date":birth_date,
-    //                     "tel_1":tel_1,
-    //                     "tel_2":tel_2,
-    //                 };
-    //     //console.log(JSON.stringify(points));
-    //     points = JSON.stringify(points);
-    //     $.ajax({
-    //         // url:'http://hosweb.med.cmu.ac.th/gateway/fu/move/clinic',
-    //         url:'<?php echo base_url(); ?>Booking/addPatientService',
-    //         method: 'POST',
-    //         body: JSON.stringify({
-    //             ready: 'ready'
-    //         }),
-    //         data: points,
-    //         contentType: "application/json; charset=utf-8",
-    //         dataType: 'JSON',
-    //         success: function(response){
-    //             console.log(response);
-    //             // getPatients();
-    //         },
-    //         error: function (xhr, textStatus, errorThrown) {
-    //             alert("Status: " + textStatus + '\nError: ' + errorThrown + '\nFunction: addBooking');
-    //         },
-    //     });
-    // }
-
-    function clear_patient(){
-        $("#txt_patient_id").val("");
-        $("#txt_fname").val("");
-        $("#txt_lname").val("");
-        $("#txt_hn").val("");
-        $("#txt_birth_date").val("");
-        $("#txt_tel_1").val("");
-        $("#txt_tel_2").val("");
-        $("#txt_booking_id").val("");
-        $("#txt_receiving_date").val("");
-        $("#txt_booking_date").val("");
-        $("#txt_doctor").val("");
-        $("#txt_test_type").val("");
+    function clear_closing(){
+        $("#txt_closing_id").val("");
+        $("#txt_closing_id_2").val("");
+        $("#txt_closing_date").val("");
         $("#txt_operation_room").val("");
-        $("#txt_appointment_from").val("");
-        $("#txt_channel").val("");
         $("#txt_note").val("");
     }
+ 
+    function getClosingService(closing_id){
 
-    function getBookingService(booking_id){
-        points = JSON.stringify(booking_id);
+        points = JSON.stringify(closing_id);
         $.ajax({
-            // url:'http://hosweb.med.cmu.ac.th/gateway/fu/move/clinic',
-            url:'<?php echo base_url(); ?>Booking/getBookingService/' + booking_id,
+            url:'<?php echo base_url(); ?>Closing/getClosingService/' + closing_id,
             method: 'POST',
             body: JSON.stringify({
                 ready: 'ready'
@@ -150,55 +54,44 @@
             success: function(response){
                 console.log(response);
                 obj = response;
-                $("#txt_patient_id").val(obj.patient_id);
-                $("#txt_fname").val(obj.fname);
-                $("#txt_lname").val(obj.lname);
-                $("#txt_hn").val(obj.hn);
-                $("#txt_birth_date").val(obj.birth_date);
-                $("#txt_tel_1").val(obj.tel_1);
-                $("#txt_tel_2").val(obj.tel_2);
-                $("#txt_receiving_date").val(obj.receiving_date);
-                $("#txt_booking_id").val(obj.booking_id);
-                $("#txt_booking_date").val(obj.booking_date);
-                $("#txt_doctor").val(obj.doctor);
-                $("#txt_test_type").val(obj.test_type);
+                $("#txt_closing_id").val(obj.booking_id);
+                $("#txt_closing_id_2").val(obj.booking_id);
+                $("#txt_closing_date").val(obj.booking_date);
                 $("#txt_operation_room").val(obj.operation_room);
-                $("#txt_appointment_from").val(obj.appointment_from);
-                $("#txt_channel").val(obj.channel);
                 $("#txt_note").val(obj.note);
             },
             error: function (xhr, textStatus, errorThrown) {
-                alert("Status: " + textStatus + '\nError: ' + errorThrown + '\nFunction: getBookingService');
+                alert("Status: " + textStatus + '\nError: ' + errorThrown + '\nFunction: getClosingService');
             },
         });
     }
 
-    function getClosingService(closing_id){
+    // function delClosingService(){
+    //     if(confirm("คุณต้องการลบ ใช่ หรือ ไม่")){
+    //         var closing_id = $("#txt_closing_id").val();
+    //         if(closing_id != ""){
+    //             points = JSON.stringify(closing_id);
+    //             $.ajax({
+    //                 url:'<?php echo base_url(); ?>Closing/deleteClosingService/' + closing_id,
+    //                 method: 'POST',
+    //                 body: JSON.stringify({
+    //                     ready: 'ready'
+    //                 }),
+    //                 data: points,
+    //                 contentType: "application/json; charset=utf-8",
+    //                 dataType: 'JSON',
+    //                 success: function(response){
+    //                     console.log(response);
+    //                     clear_closing();
+    //                 },
+    //                 error: function (xhr, textStatus, errorThrown) {
+    //                     alert("Status: " + textStatus + '\nError: ' + errorThrown + '\nFunction: delClosingService');
+    //                 },
+    //             });
+    //         }
+    //     }
+    // }
 
-      points = JSON.stringify(closing_id);
-      $.ajax({
-          url:'<?php echo base_url(); ?>Closing/getClosingService/' + closing_id,
-          method: 'POST',
-          body: JSON.stringify({
-              ready: 'ready'
-          }),
-          data: points,
-          contentType: "application/json; charset=utf-8",
-          dataType: 'JSON',
-          success: function(response){
-              console.log(response);
-              obj = response;
-              // $("#txt_closing_id").val(obj.booking_id);
-              // $("#txt_closing_id_2").val(obj.booking_id);
-              $("#txt_booking_date").val(obj.booking_date);
-              $("#txt_operation_room").val(obj.operation_room);
-              $("#txt_note").val(obj.note);
-          },
-          error: function (xhr, textStatus, errorThrown) {
-              alert("Status: " + textStatus + '\nError: ' + errorThrown + '\nFunction: getClosingService');
-          },
-      });
-    }
 
   $(function () {
 
@@ -282,7 +175,6 @@
                         $txt .= "title : '" . $booking->operation_room . " " . $booking->fname . "',"; 
                         $txt .= "start : new Date(" . $year . "," . $month . "," . $day . "),";
                         $txt .= "allDay : true,";     
-                        $txt .= "url : 'javascript:getBookingService(" . $booking->booking_id . ");',";      
                         $txt .= "backgroundColor : '" . $operation_room_colors[$booking->operation_room] . "',";  
                         $txt .= "borderColor : '" . $operation_room_colors[$booking->operation_room] . "',";  
                         $txt .= "},";  
