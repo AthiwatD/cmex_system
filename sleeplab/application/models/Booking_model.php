@@ -13,7 +13,8 @@ class Booking_model extends CI_Model {
                 JOIN sdc_patient p ON b.patient_id = p.patient_id
                 WHERE b.booking_date >= DATE(NOW() - INTERVAL 3 MONTH)
                 AND b.changed = 0
-                AND b.deleted = 0";
+                AND b.deleted = 0
+                AND p.deleted = 0";
                     
         $result = $this->db->query($sql)->result();
 
@@ -25,10 +26,11 @@ class Booking_model extends CI_Model {
         $sql = "SELECT *
                 FROM sdc_booking b
                 JOIN sdc_patient p ON b.patient_id = p.patient_id
-                WHERE (b.booking_date = '0000-00-00'
-                OR b.operation_room LIKE '')
+                WHERE (b.booking_date IS NULL OR
+                b.operation_room IS NULL OR  b.operation_room = '')
                 AND b.changed = 0
-                AND b.deleted = 0";
+                AND b.deleted = 0
+                AND p.deleted = 0";
                     
         $result = $this->db->query($sql)->result();
 
@@ -69,6 +71,7 @@ class Booking_model extends CI_Model {
             'tel_2' => $tel_2,
             'create_by' => $username,
             'create_time' => $create_time,
+            'deleted' => 0,
         );
         $result = $this->db->insert('sdc_patient', $data);
 
@@ -215,12 +218,16 @@ class Booking_model extends CI_Model {
         return $result;
     }
 
-    function deleteBooking($booking_id){
+    function deletePatientBooking(){
+        $patient_id = $this->security->xss_clean($this->input->post('patient_id'));
         $data = array(
             'deleted' => 1,
         );
-        $this->db->where('booking_id', $booking_id);
+        $this->db->where('patient_id', $patient_id);
         $result = $this->db->update('sdc_booking', $data);
+        
+        $this->db->where('patient_id', $patient_id);
+        $result = $this->db->update('sdc_patient', $data);
         // $result = $this->db->delete("sdc_booking");
         return $result;
     }

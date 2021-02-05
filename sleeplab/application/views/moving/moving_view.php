@@ -77,15 +77,15 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td><label>วันนัดใหม่ *</label></td>
-                                <td><input type="date" class="form-control" id="txt_booking_date_new" name="booking_date_new" placeholder="วันนัดใหม่" required></td>
+                                <td><label>วันนัดใหม่</label></td>
+                                <td><input type="date" class="form-control" id="txt_booking_date_new" name="booking_date_new" placeholder="วันนัดใหม่" ></td>
                             </tr>
 
                             <tr>
-                                <td><label>ห้อง *</label></td>
+                                <td><label>ห้อง</label></td>
                                 <td>
                                     <div class="autocomplete">
-                                        <input type="text" class="form-control" id="txt_operation_room_new" name="operation_room_new" placeholder="ห้อง" required>
+                                        <input type="text" class="form-control" id="txt_operation_room_new" name="operation_room_new" placeholder="ห้อง">
                                     </div>    
                                 </td>
                             </tr>

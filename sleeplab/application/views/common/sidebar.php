@@ -48,14 +48,14 @@
             </a>
           </li>
 
-          <li class="nav-item has-treeview">
+          <!-- <li class="nav-item has-treeview">
             <a href="<?php echo base_url(); ?>Report" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 รายงาน
               </p>
             </a>
-          </li>
+          </li> -->
           
           <li class="nav-item has-treeview">
             <a href="<?php echo base_url(); ?>Booking" class="nav-link">
@@ -68,7 +68,7 @@
 
           <li class="nav-item has-treeview">
             <a href="<?php echo base_url(); ?>Moving" class="nav-link">
-            <i class="nav-icon fas fa-calendar"></i>
+            <i class="nav-icon fas fa-share-square"></i>
               <p>
                 เลื่อนนัด
               </p>
@@ -77,7 +77,7 @@
 
           <li class="nav-item has-treeview">
             <a href="<?php echo base_url(); ?>Closing" class="nav-link">
-            <i class="nav-icon fas fa-calendar"></i>
+            <i class="nav-icon fas fa-ban"></i>
               <p>
                 งดรับนัด
               </p>

@@ -136,6 +136,10 @@
                         <button type="submit" class="form-control btn btn-success" >บันทึก</button>
                   <!-- /input-group -->
                     </form>
+                    <form role="form" class="needs-validation" method="POST" action="<?php echo base_url(); ?>Booking/deletePatientBookingDo">
+                        <input type="hidden" class="form-control" id="txt_patient_id_2" name="patient_id" value="">
+                        <button type="submit" class="form-control btn btn-danger" onclick='return confirm("คุณต้องการลบ ใช่ หรือ ไม่")'>ลบ</button>
+                    </form>
                 </div>
               </div>
             </div>
@@ -156,7 +160,7 @@
         <!-- /.row -->
         <div class="row">
             <div class="col-12">
-                <h4>คนไข้ยังไม่ได้นัดเวลา</h4>
+                <h4>คนไข้ที่ยังไม่ได้นัดนอนโรงพยาบาล</h4>
                 <table class="table table-flush table-striped table-bordered table-hover my_table_data">
                     <thead>
                         <tr>

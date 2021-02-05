@@ -118,6 +118,7 @@
 
     function clear_patient(){
         $("#txt_patient_id").val("");
+        $("#txt_patient_id_2").val("");
         $("#txt_fname").val("");
         $("#txt_lname").val("");
         $("#txt_hn").val("");
@@ -151,6 +152,7 @@
                 console.log(response);
                 obj = response;
                 $("#txt_patient_id").val(obj.patient_id);
+                $("#txt_patient_id_2").val(obj.patient_id);
                 $("#txt_fname").val(obj.fname);
                 $("#txt_lname").val(obj.lname);
                 $("#txt_hn").val(obj.hn);
@@ -273,7 +275,7 @@
             <?php
                 $txt = "";
                 foreach($bookings as $booking){
-                    if(($booking->booking_date) && ($booking->operation_room)){
+                    if((!empty($booking->booking_date)) && (!empty($booking->operation_room))){
                         $tmp = explode("-", $booking->booking_date);
                         $year = $tmp[0];
                         $month = $tmp[1] - 1;

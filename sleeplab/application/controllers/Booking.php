@@ -74,6 +74,11 @@ class Booking extends MY_Controller {
         $this->bookings();
     }
 
+    function deletePatientBookingDo(){
+        $result = $this->Booking->deletePatientBooking();
+        $this->bookings();
+    }
+
     function getBookingService($booking_id){
         $booked = $this->Booking->getBooking($booking_id);
         echo json_encode($booked);

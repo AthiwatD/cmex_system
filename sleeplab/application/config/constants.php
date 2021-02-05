@@ -87,15 +87,16 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 defined('PROJECT_NAME')      OR define("PROJECT_NAME", "ระบบจองคิวตรวจการนอนหลับ");
 # define constant, serialize array 
 define ("DOCTORS", serialize (array ("ธีรกร ธีรกิตติกุล", "นันทพร ตียพันธ์")));
-define ("OPERATION_ROOMS", serialize (array ("621", "622", "623")));
-define ("OPERATION_ROOM_COLORS", serialize (array ("#00c0ef", "#0073ef", "#0033b7")));
+define ("OPERATION_ROOMS", serialize (array ("621", "622", "623", "A")));
+define ("OPERATION_ROOM_COLORS", serialize (array ("#00c0ef", "#0073ef", "#0033b7","#FCE205")));
 define ("TEST_TYPES", serialize (array ("PSG-split night", "PSG-full night", "PSG-PAP titration", "WatchPAT admit", "Home sleep WatchPAT", "Multiple Sleep Latency Test", "Maintenance of Wakefulness Test")));
-define ("APPOINTMENT_FROMS", serialize (array ("OPD GMC", "OPD CMEx", "OPD ศรีพัฒน์", "OPD no.21", "OPD มหาราชนครเชียงใหม่", "คลินิก")));
-define ("CHANGE_REASONS", serialize (array ("economics", "illness/accident", "no caregiver", "ติดธุระ/ประชุม", "ไม่สะดวกการเดินทาง เดินทางต่างประเทศ/ต่างจังหวัด", "ไม่ให้ความร่วมมือ", "ห้องตรวจไม่ว่าง", "เครื่องชำรุด", "Covid-19","เสียชีวิต")));
+define ("APPOINTMENT_FROMS", serialize (array ("OPD GMC", "OPD CMEx", "OPD ศรีพัฒน์", "OPD no.21", "OPD มหาราชนครเชียงใหม่","IPD ศรีพัฒน์", "IPD มหาราชนครเชียงใหม่", "คลินิก")));
+define ("CHANGE_REASONS", serialize (array ("ขอตรวจเร็วขึ้น", "economics", "illness/accident", "no caregiver", "ติดธุระ/ประชุม", "ไม่สะดวกการเดินทาง เดินทางต่างประเทศ/ต่างจังหวัด", "ไม่ให้ความร่วมมือ", "ห้องตรวจไม่ว่าง", "เครื่องชำรุด", "Covid-19","เสียชีวิต")));
 define ("CHANNELS", serialize (array ("ป้าย", "สื่อออนไลน์ (เฟสบุ๊ค เว็บไซต์)", "เพื่อน/ญาติ แนะนำ", "แพทย์ส่งตรวจ")));
 define ("SYMTOMS", serialize (array ("DM", "HT", "DLP", "CAD", "DCM", "Stroke", "Asthma", "COPD", "AR", "Dementia", "CKD")));
-define ("ACTIVE_USERS", serialize (array ("61018", "59007", "63027", "60025")));
+define ("ACTIVE_USERS", serialize (array ("61018", "59007", "63027", "60025", "60054", "60055")));
 define ("PRIORITY_USERS", serialize (array ("61018", "59007")));
+
 // define ("FRUITS", serialize (array ("apple", "cherry", "banana"))); 
 // $my_fruits = unserialize (FRUITS);
 // $fruits = json_decode (FRUITS); var_dump($fruits);

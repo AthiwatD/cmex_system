@@ -30,14 +30,7 @@ class Moving_model extends CI_Model {
         $note_new = $this->security->xss_clean($this->input->post('note_new'));
 
 
-        
-        $sql = "SELECT *
-                    FROM sdc_booking
-                    WHERE booking_date = '" . $booking_date_new . "'
-                    AND operation_room = '" . $operation_room_new . "'";
-        $query = $this->db->query($sql);
-        $result = $query->result();
-        if($query->num_rows() == 0){
+        if($changed == 2){ // Cancel
             $data = array(
                 'changed' => $changed,
                 'change_reason' => $change_reason,
@@ -46,25 +39,44 @@ class Moving_model extends CI_Model {
             );
             $this->db->where('booking_id', $booking_id);
             $result = $this->db->update('sdc_booking', $data);
-
-            $data = array(
-                'patient_id' => $patient_id,
-                'receiving_date' => $receiving_date,
-                'booking_date' => $booking_date_new,
-                'doctor' => $doctor,
-                'test_type' => $test_type,
-                'operation_room' => $operation_room_new,
-                'appointment_from' => $appointment_from,
-                'channel' => $channel,
-                'note' => $note_new,
-                'changed' => 0,
-                'create_by' => $username,
-                'create_time' => $create_time_new,
-                'deleted' => 0,
-            );
-            $result = $this->db->insert('sdc_booking', $data);
         }
+        elseif($changed == 1){ // Move
+            $sql = "SELECT *
+                        FROM sdc_booking
+                        WHERE booking_date = '" . $booking_date_new . "'
+                        AND operation_room = '" . $operation_room_new . "'";
+            $query = $this->db->query($sql);
+            $result = $query->result();
+            if($query->num_rows() == 0){
+                $data = array(
+                    'changed' => $changed,
+                    'change_reason' => $change_reason,
+                    'update_by' => $username,
+                    'update_time' => $update_time,
+                );
+                $this->db->where('booking_id', $booking_id);
+                $result = $this->db->update('sdc_booking', $data);
             
+
+                
+                $data = array(
+                    'patient_id' => $patient_id,
+                    'receiving_date' => $receiving_date,
+                    'booking_date' => $booking_date_new,
+                    'doctor' => $doctor,
+                    'test_type' => $test_type,
+                    'operation_room' => $operation_room_new,
+                    'appointment_from' => $appointment_from,
+                    'channel' => $channel,
+                    'note' => $note_new,
+                    'changed' => 0,
+                    'create_by' => $username,
+                    'create_time' => $create_time_new,
+                    'deleted' => 0,
+                );
+                $result = $this->db->insert('sdc_booking', $data);
+            }
+        }  
         return $result;
     }
 

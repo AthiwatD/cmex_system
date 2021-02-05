@@ -1305,3 +1305,785 @@ INFO - 2021-02-05 09:51:25 --> File loaded: D:\xampp\htdocs\cmex_system\sleep_la
 INFO - 2021-02-05 09:51:25 --> File loaded: D:\xampp\htdocs\cmex_system\sleep_lab\application\views\common/end.php
 INFO - 2021-02-05 09:51:25 --> Final output sent to browser
 DEBUG - 2021-02-05 09:51:25 --> Total execution time: 0.3365
+INFO - 2021-02-05 04:13:25 --> Config Class Initialized
+INFO - 2021-02-05 04:13:25 --> Hooks Class Initialized
+DEBUG - 2021-02-05 04:13:25 --> UTF-8 Support Enabled
+INFO - 2021-02-05 04:13:25 --> Utf8 Class Initialized
+INFO - 2021-02-05 04:13:25 --> URI Class Initialized
+DEBUG - 2021-02-05 04:13:25 --> No URI present. Default controller set.
+INFO - 2021-02-05 04:13:25 --> Router Class Initialized
+INFO - 2021-02-05 04:13:25 --> Output Class Initialized
+INFO - 2021-02-05 04:13:25 --> Security Class Initialized
+DEBUG - 2021-02-05 04:13:25 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-02-05 04:13:25 --> Input Class Initialized
+INFO - 2021-02-05 04:13:25 --> Language Class Initialized
+INFO - 2021-02-05 04:13:25 --> Loader Class Initialized
+INFO - 2021-02-05 04:13:25 --> Helper loaded: html_helper
+INFO - 2021-02-05 04:13:25 --> Helper loaded: url_helper
+INFO - 2021-02-05 04:13:25 --> Helper loaded: form_helper
+INFO - 2021-02-05 04:13:25 --> Helper loaded: file_helper
+DEBUG - 2021-02-05 04:13:25 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-02-05 04:13:25 --> Session: Class initialized using 'files' driver.
+INFO - 2021-02-05 04:13:25 --> Database Driver Class Initialized
+DEBUG - 2021-02-05 04:13:25 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 04:13:25 --> Form Validation Class Initialized
+INFO - 2021-02-05 04:13:25 --> Controller Class Initialized
+DEBUG - 2021-02-05 04:13:25 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 04:13:25 --> Helper loaded: cookie_helper
+INFO - 2021-02-05 04:13:25 --> Helper loaded: ../../common/helpers/thai_date_helper
+INFO - 2021-02-05 04:13:25 --> Helper loaded: ../../common/helpers/remote_file_exists_helper
+INFO - 2021-02-05 04:13:25 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/header.php
+INFO - 2021-02-05 04:13:25 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/navbar.php
+INFO - 2021-02-05 04:13:25 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/sidebar.php
+INFO - 2021-02-05 04:13:25 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/main_head.php
+INFO - 2021-02-05 04:13:25 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\home_view.php
+INFO - 2021-02-05 04:13:25 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/footer.php
+INFO - 2021-02-05 04:13:25 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/end.php
+INFO - 2021-02-05 04:13:25 --> Final output sent to browser
+DEBUG - 2021-02-05 04:13:25 --> Total execution time: 0.2769
+INFO - 2021-02-05 04:13:27 --> Config Class Initialized
+INFO - 2021-02-05 04:13:27 --> Hooks Class Initialized
+DEBUG - 2021-02-05 04:13:27 --> UTF-8 Support Enabled
+INFO - 2021-02-05 04:13:27 --> Utf8 Class Initialized
+INFO - 2021-02-05 04:13:27 --> URI Class Initialized
+INFO - 2021-02-05 04:13:27 --> Router Class Initialized
+INFO - 2021-02-05 04:13:27 --> Output Class Initialized
+INFO - 2021-02-05 04:13:27 --> Security Class Initialized
+DEBUG - 2021-02-05 04:13:27 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-02-05 04:13:27 --> Input Class Initialized
+INFO - 2021-02-05 04:13:27 --> Language Class Initialized
+INFO - 2021-02-05 04:13:27 --> Loader Class Initialized
+INFO - 2021-02-05 04:13:27 --> Helper loaded: html_helper
+INFO - 2021-02-05 04:13:27 --> Helper loaded: url_helper
+INFO - 2021-02-05 04:13:27 --> Helper loaded: form_helper
+INFO - 2021-02-05 04:13:27 --> Helper loaded: file_helper
+DEBUG - 2021-02-05 04:13:27 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-02-05 04:13:27 --> Session: Class initialized using 'files' driver.
+INFO - 2021-02-05 04:13:27 --> Database Driver Class Initialized
+DEBUG - 2021-02-05 04:13:27 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 04:13:27 --> Form Validation Class Initialized
+INFO - 2021-02-05 04:13:27 --> Controller Class Initialized
+DEBUG - 2021-02-05 04:13:27 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 04:13:27 --> Helper loaded: cookie_helper
+INFO - 2021-02-05 04:13:27 --> Helper loaded: ../../common/helpers/thai_date_helper
+INFO - 2021-02-05 04:13:27 --> Helper loaded: ../../common/helpers/remote_file_exists_helper
+INFO - 2021-02-05 04:13:27 --> Model "Booking_model" initialized
+INFO - 2021-02-05 04:13:27 --> Model "Closing_model" initialized
+INFO - 2021-02-05 04:13:27 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/header.php
+INFO - 2021-02-05 04:13:27 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/navbar.php
+INFO - 2021-02-05 04:13:27 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/sidebar.php
+INFO - 2021-02-05 04:13:27 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/main_head.php
+INFO - 2021-02-05 04:13:27 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\booking/bookings_view.php
+INFO - 2021-02-05 04:13:27 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/footer.php
+INFO - 2021-02-05 04:13:27 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\booking/bookings_script.php
+INFO - 2021-02-05 04:13:27 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/end.php
+INFO - 2021-02-05 04:13:27 --> Final output sent to browser
+DEBUG - 2021-02-05 04:13:27 --> Total execution time: 0.2869
+INFO - 2021-02-05 04:14:37 --> Config Class Initialized
+INFO - 2021-02-05 04:14:37 --> Hooks Class Initialized
+DEBUG - 2021-02-05 04:14:37 --> UTF-8 Support Enabled
+INFO - 2021-02-05 04:14:37 --> Utf8 Class Initialized
+INFO - 2021-02-05 04:14:37 --> URI Class Initialized
+INFO - 2021-02-05 04:14:37 --> Router Class Initialized
+INFO - 2021-02-05 04:14:37 --> Output Class Initialized
+INFO - 2021-02-05 04:14:37 --> Security Class Initialized
+DEBUG - 2021-02-05 04:14:37 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-02-05 04:14:37 --> Input Class Initialized
+INFO - 2021-02-05 04:14:37 --> Language Class Initialized
+INFO - 2021-02-05 04:14:37 --> Loader Class Initialized
+INFO - 2021-02-05 04:14:37 --> Helper loaded: html_helper
+INFO - 2021-02-05 04:14:37 --> Helper loaded: url_helper
+INFO - 2021-02-05 04:14:37 --> Helper loaded: form_helper
+INFO - 2021-02-05 04:14:37 --> Helper loaded: file_helper
+DEBUG - 2021-02-05 04:14:37 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-02-05 04:14:37 --> Session: Class initialized using 'files' driver.
+INFO - 2021-02-05 04:14:37 --> Database Driver Class Initialized
+DEBUG - 2021-02-05 04:14:37 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 04:14:37 --> Form Validation Class Initialized
+INFO - 2021-02-05 04:14:37 --> Controller Class Initialized
+DEBUG - 2021-02-05 04:14:37 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 04:14:37 --> Helper loaded: cookie_helper
+INFO - 2021-02-05 04:14:37 --> Helper loaded: ../../common/helpers/thai_date_helper
+INFO - 2021-02-05 04:14:37 --> Helper loaded: ../../common/helpers/remote_file_exists_helper
+INFO - 2021-02-05 04:14:37 --> Model "Booking_model" initialized
+INFO - 2021-02-05 04:14:37 --> Model "Closing_model" initialized
+INFO - 2021-02-05 04:14:37 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/header.php
+INFO - 2021-02-05 04:14:37 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/navbar.php
+INFO - 2021-02-05 04:14:37 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/sidebar.php
+INFO - 2021-02-05 04:14:37 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/main_head.php
+INFO - 2021-02-05 04:14:37 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\booking/bookings_view.php
+INFO - 2021-02-05 04:14:37 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/footer.php
+INFO - 2021-02-05 04:14:37 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\booking/bookings_script.php
+INFO - 2021-02-05 04:14:37 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/end.php
+INFO - 2021-02-05 04:14:37 --> Final output sent to browser
+DEBUG - 2021-02-05 04:14:37 --> Total execution time: 0.3010
+INFO - 2021-02-05 04:14:53 --> Config Class Initialized
+INFO - 2021-02-05 04:14:53 --> Hooks Class Initialized
+DEBUG - 2021-02-05 04:14:53 --> UTF-8 Support Enabled
+INFO - 2021-02-05 04:14:53 --> Utf8 Class Initialized
+INFO - 2021-02-05 04:14:53 --> URI Class Initialized
+INFO - 2021-02-05 04:14:53 --> Router Class Initialized
+INFO - 2021-02-05 04:14:53 --> Output Class Initialized
+INFO - 2021-02-05 04:14:53 --> Security Class Initialized
+DEBUG - 2021-02-05 04:14:53 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-02-05 04:14:53 --> Input Class Initialized
+INFO - 2021-02-05 04:14:53 --> Language Class Initialized
+INFO - 2021-02-05 04:14:53 --> Loader Class Initialized
+INFO - 2021-02-05 04:14:53 --> Helper loaded: html_helper
+INFO - 2021-02-05 04:14:53 --> Helper loaded: url_helper
+INFO - 2021-02-05 04:14:53 --> Helper loaded: form_helper
+INFO - 2021-02-05 04:14:53 --> Helper loaded: file_helper
+DEBUG - 2021-02-05 04:14:53 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-02-05 04:14:53 --> Session: Class initialized using 'files' driver.
+INFO - 2021-02-05 04:14:53 --> Database Driver Class Initialized
+DEBUG - 2021-02-05 04:14:53 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 04:14:53 --> Form Validation Class Initialized
+INFO - 2021-02-05 04:14:53 --> Controller Class Initialized
+DEBUG - 2021-02-05 04:14:53 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 04:14:53 --> Helper loaded: cookie_helper
+INFO - 2021-02-05 04:14:53 --> Helper loaded: ../../common/helpers/thai_date_helper
+INFO - 2021-02-05 04:14:53 --> Helper loaded: ../../common/helpers/remote_file_exists_helper
+INFO - 2021-02-05 04:14:53 --> Model "Booking_model" initialized
+INFO - 2021-02-05 04:14:54 --> Model "Closing_model" initialized
+INFO - 2021-02-05 10:14:54 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/header.php
+INFO - 2021-02-05 10:14:54 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/navbar.php
+INFO - 2021-02-05 10:14:54 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/sidebar.php
+INFO - 2021-02-05 10:14:54 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/main_head.php
+INFO - 2021-02-05 10:14:54 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\booking/bookings_view.php
+INFO - 2021-02-05 10:14:54 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/footer.php
+INFO - 2021-02-05 10:14:54 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\booking/bookings_script.php
+INFO - 2021-02-05 10:14:54 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/end.php
+INFO - 2021-02-05 10:14:54 --> Final output sent to browser
+DEBUG - 2021-02-05 10:14:54 --> Total execution time: 0.3782
+INFO - 2021-02-05 05:56:34 --> Config Class Initialized
+INFO - 2021-02-05 05:56:34 --> Hooks Class Initialized
+DEBUG - 2021-02-05 05:56:34 --> UTF-8 Support Enabled
+INFO - 2021-02-05 05:56:34 --> Utf8 Class Initialized
+INFO - 2021-02-05 05:56:34 --> URI Class Initialized
+INFO - 2021-02-05 05:56:34 --> Router Class Initialized
+INFO - 2021-02-05 05:56:34 --> Output Class Initialized
+INFO - 2021-02-05 05:56:34 --> Security Class Initialized
+DEBUG - 2021-02-05 05:56:34 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-02-05 05:56:34 --> Input Class Initialized
+INFO - 2021-02-05 05:56:34 --> Language Class Initialized
+INFO - 2021-02-05 05:56:34 --> Loader Class Initialized
+INFO - 2021-02-05 05:56:34 --> Helper loaded: html_helper
+INFO - 2021-02-05 05:56:34 --> Helper loaded: url_helper
+INFO - 2021-02-05 05:56:34 --> Helper loaded: form_helper
+INFO - 2021-02-05 05:56:34 --> Helper loaded: file_helper
+DEBUG - 2021-02-05 05:56:34 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-02-05 05:56:34 --> Session: Class initialized using 'files' driver.
+INFO - 2021-02-05 05:56:34 --> Database Driver Class Initialized
+DEBUG - 2021-02-05 05:56:34 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:56:34 --> Form Validation Class Initialized
+INFO - 2021-02-05 05:56:34 --> Controller Class Initialized
+DEBUG - 2021-02-05 05:56:34 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:56:34 --> Helper loaded: cookie_helper
+INFO - 2021-02-05 05:56:34 --> Helper loaded: ../../common/helpers/thai_date_helper
+INFO - 2021-02-05 05:56:34 --> Helper loaded: ../../common/helpers/remote_file_exists_helper
+INFO - 2021-02-05 05:56:34 --> Model "Booking_model" initialized
+INFO - 2021-02-05 05:56:34 --> Model "Closing_model" initialized
+INFO - 2021-02-05 11:56:34 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/header.php
+INFO - 2021-02-05 11:56:34 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/navbar.php
+INFO - 2021-02-05 11:56:34 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/sidebar.php
+INFO - 2021-02-05 11:56:34 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/main_head.php
+INFO - 2021-02-05 11:56:34 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\booking/bookings_view.php
+INFO - 2021-02-05 11:56:34 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/footer.php
+INFO - 2021-02-05 11:56:34 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\booking/bookings_script.php
+INFO - 2021-02-05 11:56:34 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/end.php
+INFO - 2021-02-05 11:56:34 --> Final output sent to browser
+DEBUG - 2021-02-05 11:56:34 --> Total execution time: 0.4536
+INFO - 2021-02-05 05:57:22 --> Config Class Initialized
+INFO - 2021-02-05 05:57:22 --> Hooks Class Initialized
+DEBUG - 2021-02-05 05:57:22 --> UTF-8 Support Enabled
+INFO - 2021-02-05 05:57:22 --> Utf8 Class Initialized
+INFO - 2021-02-05 05:57:22 --> URI Class Initialized
+INFO - 2021-02-05 05:57:22 --> Router Class Initialized
+INFO - 2021-02-05 05:57:22 --> Output Class Initialized
+INFO - 2021-02-05 05:57:22 --> Security Class Initialized
+DEBUG - 2021-02-05 05:57:22 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-02-05 05:57:22 --> Input Class Initialized
+INFO - 2021-02-05 05:57:22 --> Language Class Initialized
+INFO - 2021-02-05 05:57:22 --> Loader Class Initialized
+INFO - 2021-02-05 05:57:22 --> Helper loaded: html_helper
+INFO - 2021-02-05 05:57:22 --> Helper loaded: url_helper
+INFO - 2021-02-05 05:57:22 --> Helper loaded: form_helper
+INFO - 2021-02-05 05:57:22 --> Helper loaded: file_helper
+DEBUG - 2021-02-05 05:57:22 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-02-05 05:57:22 --> Session: Class initialized using 'files' driver.
+INFO - 2021-02-05 05:57:22 --> Database Driver Class Initialized
+DEBUG - 2021-02-05 05:57:22 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:57:22 --> Form Validation Class Initialized
+INFO - 2021-02-05 05:57:22 --> Controller Class Initialized
+DEBUG - 2021-02-05 05:57:22 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:57:22 --> Helper loaded: cookie_helper
+INFO - 2021-02-05 05:57:22 --> Helper loaded: ../../common/helpers/thai_date_helper
+INFO - 2021-02-05 05:57:22 --> Helper loaded: ../../common/helpers/remote_file_exists_helper
+INFO - 2021-02-05 05:57:22 --> Model "Booking_model" initialized
+INFO - 2021-02-05 05:57:22 --> Model "Closing_model" initialized
+INFO - 2021-02-05 11:57:22 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/header.php
+INFO - 2021-02-05 11:57:22 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/navbar.php
+INFO - 2021-02-05 11:57:22 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/sidebar.php
+INFO - 2021-02-05 11:57:23 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/main_head.php
+INFO - 2021-02-05 11:57:23 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\booking/bookings_view.php
+INFO - 2021-02-05 11:57:23 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/footer.php
+INFO - 2021-02-05 11:57:23 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\booking/bookings_script.php
+INFO - 2021-02-05 11:57:23 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/end.php
+INFO - 2021-02-05 11:57:23 --> Final output sent to browser
+DEBUG - 2021-02-05 11:57:23 --> Total execution time: 0.4200
+INFO - 2021-02-05 05:57:28 --> Config Class Initialized
+INFO - 2021-02-05 05:57:28 --> Hooks Class Initialized
+DEBUG - 2021-02-05 05:57:28 --> UTF-8 Support Enabled
+INFO - 2021-02-05 05:57:28 --> Utf8 Class Initialized
+INFO - 2021-02-05 05:57:28 --> URI Class Initialized
+INFO - 2021-02-05 05:57:28 --> Router Class Initialized
+INFO - 2021-02-05 05:57:28 --> Output Class Initialized
+INFO - 2021-02-05 05:57:28 --> Security Class Initialized
+DEBUG - 2021-02-05 05:57:28 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-02-05 05:57:28 --> Input Class Initialized
+INFO - 2021-02-05 05:57:28 --> Language Class Initialized
+INFO - 2021-02-05 05:57:28 --> Loader Class Initialized
+INFO - 2021-02-05 05:57:28 --> Helper loaded: html_helper
+INFO - 2021-02-05 05:57:28 --> Helper loaded: url_helper
+INFO - 2021-02-05 05:57:28 --> Helper loaded: form_helper
+INFO - 2021-02-05 05:57:28 --> Helper loaded: file_helper
+DEBUG - 2021-02-05 05:57:28 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-02-05 05:57:28 --> Session: Class initialized using 'files' driver.
+INFO - 2021-02-05 05:57:28 --> Database Driver Class Initialized
+DEBUG - 2021-02-05 05:57:28 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:57:28 --> Form Validation Class Initialized
+INFO - 2021-02-05 05:57:28 --> Controller Class Initialized
+DEBUG - 2021-02-05 05:57:28 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:57:28 --> Helper loaded: cookie_helper
+INFO - 2021-02-05 05:57:28 --> Helper loaded: ../../common/helpers/thai_date_helper
+INFO - 2021-02-05 05:57:28 --> Helper loaded: ../../common/helpers/remote_file_exists_helper
+INFO - 2021-02-05 05:57:28 --> Model "Booking_model" initialized
+INFO - 2021-02-05 05:57:28 --> Model "Closing_model" initialized
+INFO - 2021-02-05 05:57:28 --> Final output sent to browser
+DEBUG - 2021-02-05 05:57:28 --> Total execution time: 0.2304
+INFO - 2021-02-05 05:57:39 --> Config Class Initialized
+INFO - 2021-02-05 05:57:39 --> Hooks Class Initialized
+DEBUG - 2021-02-05 05:57:39 --> UTF-8 Support Enabled
+INFO - 2021-02-05 05:57:39 --> Utf8 Class Initialized
+INFO - 2021-02-05 05:57:39 --> URI Class Initialized
+INFO - 2021-02-05 05:57:39 --> Router Class Initialized
+INFO - 2021-02-05 05:57:39 --> Output Class Initialized
+INFO - 2021-02-05 05:57:40 --> Security Class Initialized
+DEBUG - 2021-02-05 05:57:40 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-02-05 05:57:40 --> Input Class Initialized
+INFO - 2021-02-05 05:57:40 --> Language Class Initialized
+INFO - 2021-02-05 05:57:40 --> Loader Class Initialized
+INFO - 2021-02-05 05:57:40 --> Helper loaded: html_helper
+INFO - 2021-02-05 05:57:40 --> Helper loaded: url_helper
+INFO - 2021-02-05 05:57:40 --> Helper loaded: form_helper
+INFO - 2021-02-05 05:57:40 --> Helper loaded: file_helper
+DEBUG - 2021-02-05 05:57:40 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-02-05 05:57:40 --> Session: Class initialized using 'files' driver.
+INFO - 2021-02-05 05:57:40 --> Database Driver Class Initialized
+DEBUG - 2021-02-05 05:57:40 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:57:40 --> Form Validation Class Initialized
+INFO - 2021-02-05 05:57:40 --> Controller Class Initialized
+DEBUG - 2021-02-05 05:57:40 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:57:40 --> Helper loaded: cookie_helper
+INFO - 2021-02-05 05:57:40 --> Helper loaded: ../../common/helpers/thai_date_helper
+INFO - 2021-02-05 05:57:40 --> Helper loaded: ../../common/helpers/remote_file_exists_helper
+INFO - 2021-02-05 05:57:40 --> Model "Booking_model" initialized
+INFO - 2021-02-05 05:57:40 --> Model "Closing_model" initialized
+INFO - 2021-02-05 11:57:40 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/header.php
+INFO - 2021-02-05 11:57:40 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/navbar.php
+INFO - 2021-02-05 11:57:40 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/sidebar.php
+INFO - 2021-02-05 11:57:40 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/main_head.php
+INFO - 2021-02-05 11:57:40 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\booking/bookings_view.php
+INFO - 2021-02-05 11:57:40 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/footer.php
+INFO - 2021-02-05 11:57:40 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\booking/bookings_script.php
+INFO - 2021-02-05 11:57:40 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/end.php
+INFO - 2021-02-05 11:57:40 --> Final output sent to browser
+DEBUG - 2021-02-05 11:57:40 --> Total execution time: 0.3893
+INFO - 2021-02-05 05:57:45 --> Config Class Initialized
+INFO - 2021-02-05 05:57:45 --> Hooks Class Initialized
+DEBUG - 2021-02-05 05:57:45 --> UTF-8 Support Enabled
+INFO - 2021-02-05 05:57:45 --> Utf8 Class Initialized
+INFO - 2021-02-05 05:57:45 --> URI Class Initialized
+INFO - 2021-02-05 05:57:45 --> Router Class Initialized
+INFO - 2021-02-05 05:57:45 --> Output Class Initialized
+INFO - 2021-02-05 05:57:45 --> Security Class Initialized
+DEBUG - 2021-02-05 05:57:45 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-02-05 05:57:45 --> Input Class Initialized
+INFO - 2021-02-05 05:57:45 --> Language Class Initialized
+INFO - 2021-02-05 05:57:45 --> Loader Class Initialized
+INFO - 2021-02-05 05:57:45 --> Helper loaded: html_helper
+INFO - 2021-02-05 05:57:45 --> Helper loaded: url_helper
+INFO - 2021-02-05 05:57:45 --> Helper loaded: form_helper
+INFO - 2021-02-05 05:57:45 --> Helper loaded: file_helper
+DEBUG - 2021-02-05 05:57:45 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-02-05 05:57:45 --> Session: Class initialized using 'files' driver.
+INFO - 2021-02-05 05:57:45 --> Database Driver Class Initialized
+DEBUG - 2021-02-05 05:57:45 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:57:45 --> Form Validation Class Initialized
+INFO - 2021-02-05 05:57:45 --> Controller Class Initialized
+DEBUG - 2021-02-05 05:57:45 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:57:45 --> Helper loaded: cookie_helper
+INFO - 2021-02-05 05:57:45 --> Helper loaded: ../../common/helpers/thai_date_helper
+INFO - 2021-02-05 05:57:45 --> Helper loaded: ../../common/helpers/remote_file_exists_helper
+INFO - 2021-02-05 05:57:45 --> Model "Booking_model" initialized
+INFO - 2021-02-05 05:57:45 --> Model "Closing_model" initialized
+INFO - 2021-02-05 05:57:45 --> Final output sent to browser
+DEBUG - 2021-02-05 05:57:45 --> Total execution time: 0.2320
+INFO - 2021-02-05 05:57:55 --> Config Class Initialized
+INFO - 2021-02-05 05:57:55 --> Hooks Class Initialized
+DEBUG - 2021-02-05 05:57:55 --> UTF-8 Support Enabled
+INFO - 2021-02-05 05:57:55 --> Utf8 Class Initialized
+INFO - 2021-02-05 05:57:55 --> URI Class Initialized
+INFO - 2021-02-05 05:57:55 --> Router Class Initialized
+INFO - 2021-02-05 05:57:55 --> Output Class Initialized
+INFO - 2021-02-05 05:57:55 --> Security Class Initialized
+DEBUG - 2021-02-05 05:57:55 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-02-05 05:57:55 --> Input Class Initialized
+INFO - 2021-02-05 05:57:55 --> Language Class Initialized
+INFO - 2021-02-05 05:57:55 --> Loader Class Initialized
+INFO - 2021-02-05 05:57:55 --> Helper loaded: html_helper
+INFO - 2021-02-05 05:57:55 --> Helper loaded: url_helper
+INFO - 2021-02-05 05:57:55 --> Helper loaded: form_helper
+INFO - 2021-02-05 05:57:55 --> Helper loaded: file_helper
+DEBUG - 2021-02-05 05:57:55 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-02-05 05:57:55 --> Session: Class initialized using 'files' driver.
+INFO - 2021-02-05 05:57:55 --> Database Driver Class Initialized
+DEBUG - 2021-02-05 05:57:55 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:57:55 --> Form Validation Class Initialized
+INFO - 2021-02-05 05:57:55 --> Controller Class Initialized
+DEBUG - 2021-02-05 05:57:55 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:57:55 --> Helper loaded: cookie_helper
+INFO - 2021-02-05 05:57:55 --> Helper loaded: ../../common/helpers/thai_date_helper
+INFO - 2021-02-05 05:57:55 --> Helper loaded: ../../common/helpers/remote_file_exists_helper
+INFO - 2021-02-05 05:57:55 --> Model "Booking_model" initialized
+INFO - 2021-02-05 05:57:55 --> Model "Closing_model" initialized
+INFO - 2021-02-05 11:57:55 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/header.php
+INFO - 2021-02-05 11:57:55 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/navbar.php
+INFO - 2021-02-05 11:57:55 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/sidebar.php
+INFO - 2021-02-05 11:57:55 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/main_head.php
+INFO - 2021-02-05 11:57:55 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\booking/bookings_view.php
+INFO - 2021-02-05 11:57:55 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/footer.php
+INFO - 2021-02-05 11:57:55 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\booking/bookings_script.php
+INFO - 2021-02-05 11:57:55 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/end.php
+INFO - 2021-02-05 11:57:55 --> Final output sent to browser
+DEBUG - 2021-02-05 11:57:55 --> Total execution time: 0.4001
+INFO - 2021-02-05 05:58:06 --> Config Class Initialized
+INFO - 2021-02-05 05:58:06 --> Hooks Class Initialized
+DEBUG - 2021-02-05 05:58:06 --> UTF-8 Support Enabled
+INFO - 2021-02-05 05:58:06 --> Utf8 Class Initialized
+INFO - 2021-02-05 05:58:06 --> URI Class Initialized
+INFO - 2021-02-05 05:58:06 --> Router Class Initialized
+INFO - 2021-02-05 05:58:06 --> Output Class Initialized
+INFO - 2021-02-05 05:58:06 --> Security Class Initialized
+DEBUG - 2021-02-05 05:58:06 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-02-05 05:58:06 --> Input Class Initialized
+INFO - 2021-02-05 05:58:06 --> Language Class Initialized
+INFO - 2021-02-05 05:58:06 --> Loader Class Initialized
+INFO - 2021-02-05 05:58:06 --> Helper loaded: html_helper
+INFO - 2021-02-05 05:58:06 --> Helper loaded: url_helper
+INFO - 2021-02-05 05:58:06 --> Helper loaded: form_helper
+INFO - 2021-02-05 05:58:06 --> Helper loaded: file_helper
+DEBUG - 2021-02-05 05:58:06 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-02-05 05:58:06 --> Session: Class initialized using 'files' driver.
+INFO - 2021-02-05 05:58:06 --> Database Driver Class Initialized
+DEBUG - 2021-02-05 05:58:06 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:58:06 --> Form Validation Class Initialized
+INFO - 2021-02-05 05:58:06 --> Controller Class Initialized
+DEBUG - 2021-02-05 05:58:06 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:58:06 --> Helper loaded: cookie_helper
+INFO - 2021-02-05 05:58:06 --> Helper loaded: ../../common/helpers/thai_date_helper
+INFO - 2021-02-05 05:58:06 --> Helper loaded: ../../common/helpers/remote_file_exists_helper
+INFO - 2021-02-05 05:58:06 --> Model "Booking_model" initialized
+INFO - 2021-02-05 05:58:06 --> Model "Closing_model" initialized
+INFO - 2021-02-05 05:58:06 --> Final output sent to browser
+DEBUG - 2021-02-05 05:58:06 --> Total execution time: 0.2273
+INFO - 2021-02-05 05:58:16 --> Config Class Initialized
+INFO - 2021-02-05 05:58:16 --> Hooks Class Initialized
+DEBUG - 2021-02-05 05:58:16 --> UTF-8 Support Enabled
+INFO - 2021-02-05 05:58:16 --> Utf8 Class Initialized
+INFO - 2021-02-05 05:58:16 --> URI Class Initialized
+INFO - 2021-02-05 05:58:16 --> Router Class Initialized
+INFO - 2021-02-05 05:58:16 --> Output Class Initialized
+INFO - 2021-02-05 05:58:16 --> Security Class Initialized
+DEBUG - 2021-02-05 05:58:16 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-02-05 05:58:16 --> Input Class Initialized
+INFO - 2021-02-05 05:58:16 --> Language Class Initialized
+INFO - 2021-02-05 05:58:16 --> Loader Class Initialized
+INFO - 2021-02-05 05:58:16 --> Helper loaded: html_helper
+INFO - 2021-02-05 05:58:16 --> Helper loaded: url_helper
+INFO - 2021-02-05 05:58:16 --> Helper loaded: form_helper
+INFO - 2021-02-05 05:58:16 --> Helper loaded: file_helper
+DEBUG - 2021-02-05 05:58:16 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-02-05 05:58:16 --> Session: Class initialized using 'files' driver.
+INFO - 2021-02-05 05:58:16 --> Database Driver Class Initialized
+DEBUG - 2021-02-05 05:58:16 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:58:16 --> Form Validation Class Initialized
+INFO - 2021-02-05 05:58:16 --> Controller Class Initialized
+DEBUG - 2021-02-05 05:58:16 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:58:16 --> Helper loaded: cookie_helper
+INFO - 2021-02-05 05:58:16 --> Helper loaded: ../../common/helpers/thai_date_helper
+INFO - 2021-02-05 05:58:16 --> Helper loaded: ../../common/helpers/remote_file_exists_helper
+INFO - 2021-02-05 05:58:16 --> Model "Booking_model" initialized
+INFO - 2021-02-05 05:58:16 --> Model "Closing_model" initialized
+INFO - 2021-02-05 05:58:16 --> Final output sent to browser
+DEBUG - 2021-02-05 05:58:16 --> Total execution time: 0.2253
+INFO - 2021-02-05 05:58:23 --> Config Class Initialized
+INFO - 2021-02-05 05:58:23 --> Hooks Class Initialized
+DEBUG - 2021-02-05 05:58:23 --> UTF-8 Support Enabled
+INFO - 2021-02-05 05:58:23 --> Utf8 Class Initialized
+INFO - 2021-02-05 05:58:23 --> URI Class Initialized
+INFO - 2021-02-05 05:58:23 --> Router Class Initialized
+INFO - 2021-02-05 05:58:23 --> Output Class Initialized
+INFO - 2021-02-05 05:58:23 --> Security Class Initialized
+DEBUG - 2021-02-05 05:58:23 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-02-05 05:58:23 --> Input Class Initialized
+INFO - 2021-02-05 05:58:23 --> Language Class Initialized
+INFO - 2021-02-05 05:58:23 --> Loader Class Initialized
+INFO - 2021-02-05 05:58:23 --> Helper loaded: html_helper
+INFO - 2021-02-05 05:58:23 --> Helper loaded: url_helper
+INFO - 2021-02-05 05:58:23 --> Helper loaded: form_helper
+INFO - 2021-02-05 05:58:23 --> Helper loaded: file_helper
+DEBUG - 2021-02-05 05:58:23 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-02-05 05:58:23 --> Session: Class initialized using 'files' driver.
+INFO - 2021-02-05 05:58:23 --> Database Driver Class Initialized
+DEBUG - 2021-02-05 05:58:23 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:58:23 --> Form Validation Class Initialized
+INFO - 2021-02-05 05:58:23 --> Controller Class Initialized
+DEBUG - 2021-02-05 05:58:23 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:58:23 --> Helper loaded: cookie_helper
+INFO - 2021-02-05 05:58:23 --> Helper loaded: ../../common/helpers/thai_date_helper
+INFO - 2021-02-05 05:58:23 --> Helper loaded: ../../common/helpers/remote_file_exists_helper
+INFO - 2021-02-05 05:58:23 --> Model "Booking_model" initialized
+INFO - 2021-02-05 05:58:23 --> Model "Closing_model" initialized
+INFO - 2021-02-05 11:58:23 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/header.php
+INFO - 2021-02-05 11:58:23 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/navbar.php
+INFO - 2021-02-05 11:58:23 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/sidebar.php
+INFO - 2021-02-05 11:58:23 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/main_head.php
+INFO - 2021-02-05 11:58:23 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\booking/bookings_view.php
+INFO - 2021-02-05 11:58:23 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/footer.php
+INFO - 2021-02-05 11:58:23 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\booking/bookings_script.php
+INFO - 2021-02-05 11:58:23 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/end.php
+INFO - 2021-02-05 11:58:23 --> Final output sent to browser
+DEBUG - 2021-02-05 11:58:23 --> Total execution time: 0.4427
+INFO - 2021-02-05 05:58:31 --> Config Class Initialized
+INFO - 2021-02-05 05:58:31 --> Hooks Class Initialized
+DEBUG - 2021-02-05 05:58:31 --> UTF-8 Support Enabled
+INFO - 2021-02-05 05:58:31 --> Utf8 Class Initialized
+INFO - 2021-02-05 05:58:31 --> URI Class Initialized
+INFO - 2021-02-05 05:58:31 --> Router Class Initialized
+INFO - 2021-02-05 05:58:31 --> Output Class Initialized
+INFO - 2021-02-05 05:58:31 --> Security Class Initialized
+DEBUG - 2021-02-05 05:58:31 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-02-05 05:58:31 --> Input Class Initialized
+INFO - 2021-02-05 05:58:31 --> Language Class Initialized
+INFO - 2021-02-05 05:58:31 --> Loader Class Initialized
+INFO - 2021-02-05 05:58:31 --> Helper loaded: html_helper
+INFO - 2021-02-05 05:58:31 --> Helper loaded: url_helper
+INFO - 2021-02-05 05:58:31 --> Helper loaded: form_helper
+INFO - 2021-02-05 05:58:31 --> Helper loaded: file_helper
+DEBUG - 2021-02-05 05:58:31 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-02-05 05:58:31 --> Session: Class initialized using 'files' driver.
+INFO - 2021-02-05 05:58:31 --> Database Driver Class Initialized
+DEBUG - 2021-02-05 05:58:32 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:58:32 --> Form Validation Class Initialized
+INFO - 2021-02-05 05:58:32 --> Controller Class Initialized
+DEBUG - 2021-02-05 05:58:32 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:58:32 --> Helper loaded: cookie_helper
+INFO - 2021-02-05 05:58:32 --> Helper loaded: ../../common/helpers/thai_date_helper
+INFO - 2021-02-05 05:58:32 --> Helper loaded: ../../common/helpers/remote_file_exists_helper
+INFO - 2021-02-05 05:58:32 --> Model "Closing_model" initialized
+INFO - 2021-02-05 05:58:32 --> Model "Booking_model" initialized
+INFO - 2021-02-05 05:58:32 --> Model "Moving_model" initialized
+INFO - 2021-02-05 05:58:32 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/header.php
+INFO - 2021-02-05 05:58:32 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/navbar.php
+INFO - 2021-02-05 05:58:32 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/sidebar.php
+INFO - 2021-02-05 05:58:32 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/main_head.php
+INFO - 2021-02-05 05:58:32 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\moving/moving_view.php
+INFO - 2021-02-05 05:58:32 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/footer.php
+INFO - 2021-02-05 05:58:32 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\moving/moving_script.php
+INFO - 2021-02-05 05:58:32 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/end.php
+INFO - 2021-02-05 05:58:32 --> Final output sent to browser
+DEBUG - 2021-02-05 05:58:32 --> Total execution time: 0.3224
+INFO - 2021-02-05 05:58:33 --> Config Class Initialized
+INFO - 2021-02-05 05:58:33 --> Hooks Class Initialized
+DEBUG - 2021-02-05 05:58:33 --> UTF-8 Support Enabled
+INFO - 2021-02-05 05:58:33 --> Utf8 Class Initialized
+INFO - 2021-02-05 05:58:33 --> URI Class Initialized
+INFO - 2021-02-05 05:58:33 --> Router Class Initialized
+INFO - 2021-02-05 05:58:33 --> Output Class Initialized
+INFO - 2021-02-05 05:58:33 --> Security Class Initialized
+DEBUG - 2021-02-05 05:58:33 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-02-05 05:58:33 --> Input Class Initialized
+INFO - 2021-02-05 05:58:33 --> Language Class Initialized
+INFO - 2021-02-05 05:58:33 --> Loader Class Initialized
+INFO - 2021-02-05 05:58:33 --> Helper loaded: html_helper
+INFO - 2021-02-05 05:58:33 --> Helper loaded: url_helper
+INFO - 2021-02-05 05:58:33 --> Helper loaded: form_helper
+INFO - 2021-02-05 05:58:33 --> Helper loaded: file_helper
+DEBUG - 2021-02-05 05:58:33 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-02-05 05:58:33 --> Session: Class initialized using 'files' driver.
+INFO - 2021-02-05 05:58:33 --> Database Driver Class Initialized
+DEBUG - 2021-02-05 05:58:33 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:58:33 --> Form Validation Class Initialized
+INFO - 2021-02-05 05:58:33 --> Controller Class Initialized
+DEBUG - 2021-02-05 05:58:33 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:58:33 --> Helper loaded: cookie_helper
+INFO - 2021-02-05 05:58:33 --> Helper loaded: ../../common/helpers/thai_date_helper
+INFO - 2021-02-05 05:58:33 --> Helper loaded: ../../common/helpers/remote_file_exists_helper
+INFO - 2021-02-05 05:58:33 --> Model "Booking_model" initialized
+INFO - 2021-02-05 05:58:33 --> Model "Closing_model" initialized
+INFO - 2021-02-05 05:58:33 --> Final output sent to browser
+DEBUG - 2021-02-05 05:58:33 --> Total execution time: 0.2298
+INFO - 2021-02-05 05:58:34 --> Config Class Initialized
+INFO - 2021-02-05 05:58:34 --> Hooks Class Initialized
+DEBUG - 2021-02-05 05:58:34 --> UTF-8 Support Enabled
+INFO - 2021-02-05 05:58:34 --> Utf8 Class Initialized
+INFO - 2021-02-05 05:58:34 --> URI Class Initialized
+INFO - 2021-02-05 05:58:34 --> Router Class Initialized
+INFO - 2021-02-05 05:58:34 --> Output Class Initialized
+INFO - 2021-02-05 05:58:34 --> Security Class Initialized
+DEBUG - 2021-02-05 05:58:34 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-02-05 05:58:34 --> Input Class Initialized
+INFO - 2021-02-05 05:58:34 --> Language Class Initialized
+INFO - 2021-02-05 05:58:34 --> Loader Class Initialized
+INFO - 2021-02-05 05:58:34 --> Helper loaded: html_helper
+INFO - 2021-02-05 05:58:34 --> Helper loaded: url_helper
+INFO - 2021-02-05 05:58:34 --> Helper loaded: form_helper
+INFO - 2021-02-05 05:58:34 --> Helper loaded: file_helper
+DEBUG - 2021-02-05 05:58:34 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-02-05 05:58:34 --> Session: Class initialized using 'files' driver.
+INFO - 2021-02-05 05:58:34 --> Database Driver Class Initialized
+DEBUG - 2021-02-05 05:58:34 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:58:34 --> Form Validation Class Initialized
+INFO - 2021-02-05 05:58:34 --> Controller Class Initialized
+DEBUG - 2021-02-05 05:58:34 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:58:34 --> Helper loaded: cookie_helper
+INFO - 2021-02-05 05:58:34 --> Helper loaded: ../../common/helpers/thai_date_helper
+INFO - 2021-02-05 05:58:34 --> Helper loaded: ../../common/helpers/remote_file_exists_helper
+INFO - 2021-02-05 05:58:34 --> Model "Booking_model" initialized
+INFO - 2021-02-05 05:58:34 --> Model "Closing_model" initialized
+INFO - 2021-02-05 05:58:34 --> Final output sent to browser
+DEBUG - 2021-02-05 05:58:34 --> Total execution time: 0.2300
+INFO - 2021-02-05 05:58:43 --> Config Class Initialized
+INFO - 2021-02-05 05:58:43 --> Hooks Class Initialized
+DEBUG - 2021-02-05 05:58:43 --> UTF-8 Support Enabled
+INFO - 2021-02-05 05:58:43 --> Utf8 Class Initialized
+INFO - 2021-02-05 05:58:43 --> URI Class Initialized
+INFO - 2021-02-05 05:58:43 --> Router Class Initialized
+INFO - 2021-02-05 05:58:43 --> Output Class Initialized
+INFO - 2021-02-05 05:58:43 --> Security Class Initialized
+DEBUG - 2021-02-05 05:58:43 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-02-05 05:58:43 --> Input Class Initialized
+INFO - 2021-02-05 05:58:43 --> Language Class Initialized
+INFO - 2021-02-05 05:58:43 --> Loader Class Initialized
+INFO - 2021-02-05 05:58:43 --> Helper loaded: html_helper
+INFO - 2021-02-05 05:58:43 --> Helper loaded: url_helper
+INFO - 2021-02-05 05:58:43 --> Helper loaded: form_helper
+INFO - 2021-02-05 05:58:43 --> Helper loaded: file_helper
+DEBUG - 2021-02-05 05:58:43 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-02-05 05:58:43 --> Session: Class initialized using 'files' driver.
+INFO - 2021-02-05 05:58:43 --> Database Driver Class Initialized
+DEBUG - 2021-02-05 05:58:43 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:58:43 --> Form Validation Class Initialized
+INFO - 2021-02-05 05:58:43 --> Controller Class Initialized
+DEBUG - 2021-02-05 05:58:43 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:58:43 --> Helper loaded: cookie_helper
+INFO - 2021-02-05 05:58:43 --> Helper loaded: ../../common/helpers/thai_date_helper
+INFO - 2021-02-05 05:58:43 --> Helper loaded: ../../common/helpers/remote_file_exists_helper
+INFO - 2021-02-05 05:58:43 --> Model "Closing_model" initialized
+INFO - 2021-02-05 05:58:43 --> Model "Booking_model" initialized
+INFO - 2021-02-05 05:58:43 --> Model "Moving_model" initialized
+INFO - 2021-02-05 11:58:44 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/header.php
+INFO - 2021-02-05 11:58:44 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/navbar.php
+INFO - 2021-02-05 11:58:44 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/sidebar.php
+INFO - 2021-02-05 11:58:44 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/main_head.php
+INFO - 2021-02-05 11:58:44 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\moving/moving_view.php
+INFO - 2021-02-05 11:58:44 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/footer.php
+INFO - 2021-02-05 11:58:44 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\moving/moving_script.php
+INFO - 2021-02-05 11:58:44 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/end.php
+INFO - 2021-02-05 11:58:44 --> Final output sent to browser
+DEBUG - 2021-02-05 11:58:44 --> Total execution time: 0.4090
+INFO - 2021-02-05 05:58:46 --> Config Class Initialized
+INFO - 2021-02-05 05:58:46 --> Hooks Class Initialized
+DEBUG - 2021-02-05 05:58:46 --> UTF-8 Support Enabled
+INFO - 2021-02-05 05:58:46 --> Utf8 Class Initialized
+INFO - 2021-02-05 05:58:46 --> URI Class Initialized
+INFO - 2021-02-05 05:58:46 --> Router Class Initialized
+INFO - 2021-02-05 05:58:46 --> Output Class Initialized
+INFO - 2021-02-05 05:58:46 --> Security Class Initialized
+DEBUG - 2021-02-05 05:58:46 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-02-05 05:58:46 --> Input Class Initialized
+INFO - 2021-02-05 05:58:46 --> Language Class Initialized
+INFO - 2021-02-05 05:58:46 --> Loader Class Initialized
+INFO - 2021-02-05 05:58:46 --> Helper loaded: html_helper
+INFO - 2021-02-05 05:58:46 --> Helper loaded: url_helper
+INFO - 2021-02-05 05:58:46 --> Helper loaded: form_helper
+INFO - 2021-02-05 05:58:46 --> Helper loaded: file_helper
+DEBUG - 2021-02-05 05:58:46 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-02-05 05:58:46 --> Session: Class initialized using 'files' driver.
+INFO - 2021-02-05 05:58:46 --> Database Driver Class Initialized
+DEBUG - 2021-02-05 05:58:46 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:58:46 --> Form Validation Class Initialized
+INFO - 2021-02-05 05:58:46 --> Controller Class Initialized
+DEBUG - 2021-02-05 05:58:46 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:58:46 --> Helper loaded: cookie_helper
+INFO - 2021-02-05 05:58:46 --> Helper loaded: ../../common/helpers/thai_date_helper
+INFO - 2021-02-05 05:58:46 --> Helper loaded: ../../common/helpers/remote_file_exists_helper
+INFO - 2021-02-05 05:58:46 --> Model "Booking_model" initialized
+INFO - 2021-02-05 05:58:46 --> Model "Closing_model" initialized
+INFO - 2021-02-05 05:58:46 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/header.php
+INFO - 2021-02-05 05:58:46 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/navbar.php
+INFO - 2021-02-05 05:58:46 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/sidebar.php
+INFO - 2021-02-05 05:58:46 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/main_head.php
+INFO - 2021-02-05 05:58:46 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\booking/bookings_view.php
+INFO - 2021-02-05 05:58:46 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/footer.php
+INFO - 2021-02-05 05:58:46 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\booking/bookings_script.php
+INFO - 2021-02-05 05:58:46 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/end.php
+INFO - 2021-02-05 05:58:46 --> Final output sent to browser
+DEBUG - 2021-02-05 05:58:46 --> Total execution time: 0.3105
+INFO - 2021-02-05 05:58:50 --> Config Class Initialized
+INFO - 2021-02-05 05:58:50 --> Hooks Class Initialized
+DEBUG - 2021-02-05 05:58:50 --> UTF-8 Support Enabled
+INFO - 2021-02-05 05:58:50 --> Utf8 Class Initialized
+INFO - 2021-02-05 05:58:50 --> URI Class Initialized
+INFO - 2021-02-05 05:58:50 --> Router Class Initialized
+INFO - 2021-02-05 05:58:50 --> Output Class Initialized
+INFO - 2021-02-05 05:58:50 --> Security Class Initialized
+DEBUG - 2021-02-05 05:58:50 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-02-05 05:58:50 --> Input Class Initialized
+INFO - 2021-02-05 05:58:50 --> Language Class Initialized
+INFO - 2021-02-05 05:58:50 --> Loader Class Initialized
+INFO - 2021-02-05 05:58:50 --> Helper loaded: html_helper
+INFO - 2021-02-05 05:58:50 --> Helper loaded: url_helper
+INFO - 2021-02-05 05:58:50 --> Helper loaded: form_helper
+INFO - 2021-02-05 05:58:50 --> Helper loaded: file_helper
+DEBUG - 2021-02-05 05:58:50 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-02-05 05:58:50 --> Session: Class initialized using 'files' driver.
+INFO - 2021-02-05 05:58:50 --> Database Driver Class Initialized
+DEBUG - 2021-02-05 05:58:50 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:58:50 --> Form Validation Class Initialized
+INFO - 2021-02-05 05:58:50 --> Controller Class Initialized
+DEBUG - 2021-02-05 05:58:50 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:58:50 --> Helper loaded: cookie_helper
+INFO - 2021-02-05 05:58:50 --> Helper loaded: ../../common/helpers/thai_date_helper
+INFO - 2021-02-05 05:58:50 --> Helper loaded: ../../common/helpers/remote_file_exists_helper
+INFO - 2021-02-05 05:58:50 --> Model "Closing_model" initialized
+INFO - 2021-02-05 05:58:50 --> Model "Booking_model" initialized
+INFO - 2021-02-05 05:58:50 --> Model "Moving_model" initialized
+INFO - 2021-02-05 05:58:50 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/header.php
+INFO - 2021-02-05 05:58:50 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/navbar.php
+INFO - 2021-02-05 05:58:50 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/sidebar.php
+INFO - 2021-02-05 05:58:50 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/main_head.php
+INFO - 2021-02-05 05:58:50 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\moving/moving_view.php
+INFO - 2021-02-05 05:58:50 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/footer.php
+INFO - 2021-02-05 05:58:50 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\moving/moving_script.php
+INFO - 2021-02-05 05:58:50 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/end.php
+INFO - 2021-02-05 05:58:50 --> Final output sent to browser
+DEBUG - 2021-02-05 05:58:50 --> Total execution time: 0.3252
+INFO - 2021-02-05 05:58:53 --> Config Class Initialized
+INFO - 2021-02-05 05:58:53 --> Hooks Class Initialized
+DEBUG - 2021-02-05 05:58:53 --> UTF-8 Support Enabled
+INFO - 2021-02-05 05:58:53 --> Utf8 Class Initialized
+INFO - 2021-02-05 05:58:53 --> URI Class Initialized
+INFO - 2021-02-05 05:58:53 --> Router Class Initialized
+INFO - 2021-02-05 05:58:53 --> Output Class Initialized
+INFO - 2021-02-05 05:58:53 --> Security Class Initialized
+DEBUG - 2021-02-05 05:58:53 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-02-05 05:58:53 --> Input Class Initialized
+INFO - 2021-02-05 05:58:53 --> Language Class Initialized
+INFO - 2021-02-05 05:58:53 --> Loader Class Initialized
+INFO - 2021-02-05 05:58:53 --> Helper loaded: html_helper
+INFO - 2021-02-05 05:58:53 --> Helper loaded: url_helper
+INFO - 2021-02-05 05:58:53 --> Helper loaded: form_helper
+INFO - 2021-02-05 05:58:53 --> Helper loaded: file_helper
+DEBUG - 2021-02-05 05:58:53 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-02-05 05:58:53 --> Session: Class initialized using 'files' driver.
+INFO - 2021-02-05 05:58:53 --> Database Driver Class Initialized
+DEBUG - 2021-02-05 05:58:53 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:58:53 --> Form Validation Class Initialized
+INFO - 2021-02-05 05:58:53 --> Controller Class Initialized
+DEBUG - 2021-02-05 05:58:53 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:58:53 --> Helper loaded: cookie_helper
+INFO - 2021-02-05 05:58:53 --> Helper loaded: ../../common/helpers/thai_date_helper
+INFO - 2021-02-05 05:58:53 --> Helper loaded: ../../common/helpers/remote_file_exists_helper
+INFO - 2021-02-05 05:58:53 --> Model "Booking_model" initialized
+INFO - 2021-02-05 05:58:53 --> Model "Closing_model" initialized
+INFO - 2021-02-05 05:58:53 --> Final output sent to browser
+DEBUG - 2021-02-05 05:58:53 --> Total execution time: 0.2374
+INFO - 2021-02-05 05:59:03 --> Config Class Initialized
+INFO - 2021-02-05 05:59:03 --> Hooks Class Initialized
+DEBUG - 2021-02-05 05:59:03 --> UTF-8 Support Enabled
+INFO - 2021-02-05 05:59:03 --> Utf8 Class Initialized
+INFO - 2021-02-05 05:59:03 --> URI Class Initialized
+INFO - 2021-02-05 05:59:03 --> Router Class Initialized
+INFO - 2021-02-05 05:59:03 --> Output Class Initialized
+INFO - 2021-02-05 05:59:03 --> Security Class Initialized
+DEBUG - 2021-02-05 05:59:03 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-02-05 05:59:03 --> Input Class Initialized
+INFO - 2021-02-05 05:59:03 --> Language Class Initialized
+INFO - 2021-02-05 05:59:03 --> Loader Class Initialized
+INFO - 2021-02-05 05:59:03 --> Helper loaded: html_helper
+INFO - 2021-02-05 05:59:03 --> Helper loaded: url_helper
+INFO - 2021-02-05 05:59:03 --> Helper loaded: form_helper
+INFO - 2021-02-05 05:59:03 --> Helper loaded: file_helper
+DEBUG - 2021-02-05 05:59:03 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-02-05 05:59:03 --> Session: Class initialized using 'files' driver.
+INFO - 2021-02-05 05:59:03 --> Database Driver Class Initialized
+DEBUG - 2021-02-05 05:59:03 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:59:03 --> Form Validation Class Initialized
+INFO - 2021-02-05 05:59:03 --> Controller Class Initialized
+DEBUG - 2021-02-05 05:59:03 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:59:03 --> Helper loaded: cookie_helper
+INFO - 2021-02-05 05:59:03 --> Helper loaded: ../../common/helpers/thai_date_helper
+INFO - 2021-02-05 05:59:03 --> Helper loaded: ../../common/helpers/remote_file_exists_helper
+INFO - 2021-02-05 05:59:03 --> Model "Closing_model" initialized
+INFO - 2021-02-05 05:59:03 --> Model "Booking_model" initialized
+INFO - 2021-02-05 05:59:03 --> Model "Moving_model" initialized
+INFO - 2021-02-05 11:59:03 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/header.php
+INFO - 2021-02-05 11:59:03 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/navbar.php
+INFO - 2021-02-05 11:59:03 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/sidebar.php
+INFO - 2021-02-05 11:59:03 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/main_head.php
+INFO - 2021-02-05 11:59:03 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\moving/moving_view.php
+INFO - 2021-02-05 11:59:03 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/footer.php
+INFO - 2021-02-05 11:59:03 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\moving/moving_script.php
+INFO - 2021-02-05 11:59:03 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/end.php
+INFO - 2021-02-05 11:59:03 --> Final output sent to browser
+DEBUG - 2021-02-05 11:59:03 --> Total execution time: 0.3646
+INFO - 2021-02-05 05:59:07 --> Config Class Initialized
+INFO - 2021-02-05 05:59:07 --> Hooks Class Initialized
+DEBUG - 2021-02-05 05:59:07 --> UTF-8 Support Enabled
+INFO - 2021-02-05 05:59:07 --> Utf8 Class Initialized
+INFO - 2021-02-05 05:59:07 --> URI Class Initialized
+INFO - 2021-02-05 05:59:07 --> Router Class Initialized
+INFO - 2021-02-05 05:59:07 --> Output Class Initialized
+INFO - 2021-02-05 05:59:07 --> Security Class Initialized
+DEBUG - 2021-02-05 05:59:07 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-02-05 05:59:07 --> Input Class Initialized
+INFO - 2021-02-05 05:59:07 --> Language Class Initialized
+INFO - 2021-02-05 05:59:07 --> Loader Class Initialized
+INFO - 2021-02-05 05:59:07 --> Helper loaded: html_helper
+INFO - 2021-02-05 05:59:07 --> Helper loaded: url_helper
+INFO - 2021-02-05 05:59:07 --> Helper loaded: form_helper
+INFO - 2021-02-05 05:59:07 --> Helper loaded: file_helper
+DEBUG - 2021-02-05 05:59:07 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-02-05 05:59:07 --> Session: Class initialized using 'files' driver.
+INFO - 2021-02-05 05:59:07 --> Database Driver Class Initialized
+DEBUG - 2021-02-05 05:59:07 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:59:07 --> Form Validation Class Initialized
+INFO - 2021-02-05 05:59:07 --> Controller Class Initialized
+DEBUG - 2021-02-05 05:59:07 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-02-05 05:59:07 --> Helper loaded: cookie_helper
+INFO - 2021-02-05 05:59:07 --> Helper loaded: ../../common/helpers/thai_date_helper
+INFO - 2021-02-05 05:59:07 --> Helper loaded: ../../common/helpers/remote_file_exists_helper
+INFO - 2021-02-05 05:59:07 --> Model "Booking_model" initialized
+INFO - 2021-02-05 05:59:07 --> Model "Closing_model" initialized
+INFO - 2021-02-05 05:59:07 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/header.php
+INFO - 2021-02-05 05:59:07 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/navbar.php
+INFO - 2021-02-05 05:59:07 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/sidebar.php
+INFO - 2021-02-05 05:59:07 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/main_head.php
+INFO - 2021-02-05 05:59:07 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\booking/bookings_view.php
+INFO - 2021-02-05 05:59:07 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/footer.php
+INFO - 2021-02-05 05:59:07 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\booking/bookings_script.php
+INFO - 2021-02-05 05:59:07 --> File loaded: D:\xampp\htdocs\cmex_system\sleeplab\application\views\common/end.php
+INFO - 2021-02-05 05:59:07 --> Final output sent to browser
+DEBUG - 2021-02-05 05:59:07 --> Total execution time: 0.3235
