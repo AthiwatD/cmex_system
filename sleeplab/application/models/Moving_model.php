@@ -42,9 +42,11 @@ class Moving_model extends CI_Model {
         }
         elseif($changed == 1){ // Move
             $sql = "SELECT *
-                        FROM sdc_booking
-                        WHERE booking_date = '" . $booking_date_new . "'
-                        AND operation_room = '" . $operation_room_new . "'";
+                    FROM sdc_booking
+                    WHERE booking_date = '" . $booking_date . "'
+                    AND operation_room = '" . $operation_room . "' 
+                    AND changed = 0
+                    AND deleted = 0";
             $query = $this->db->query($sql);
             $result = $query->result();
             if($query->num_rows() == 0){

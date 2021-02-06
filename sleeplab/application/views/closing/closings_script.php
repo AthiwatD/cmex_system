@@ -175,8 +175,14 @@
                         $txt .= "title : '" . $booking->operation_room . " " . $booking->fname . "',"; 
                         $txt .= "start : new Date(" . $year . "," . $month . "," . $day . "),";
                         $txt .= "allDay : true,";     
-                        $txt .= "backgroundColor : '" . $operation_room_colors[$booking->operation_room] . "',";  
-                        $txt .= "borderColor : '" . $operation_room_colors[$booking->operation_room] . "',";  
+                        if(!empty($operation_room_colors[$booking->operation_room])) {
+                          $txt .= "backgroundColor : '" . $operation_room_colors[$booking->operation_room] . "',";  
+                          $txt .= "borderColor : '" . $operation_room_colors[$booking->operation_room] . "',";  
+                        }
+                        else{
+                          $txt .= "backgroundColor : '#5555FF',";  
+                          $txt .= "borderColor : '#5555FF',"; 
+                        }
                         $txt .= "},";  
                     }
                 }

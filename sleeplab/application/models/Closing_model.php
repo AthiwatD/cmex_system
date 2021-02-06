@@ -48,10 +48,11 @@ class Closing_model extends CI_Model {
         $note = $this->security->xss_clean($this->input->post('note'));
 
         $sql = "SELECT *
-                FROM sdc_booking
-                WHERE booking_date = '" . $closing_date . "' 
-                AND operation_room = '" . $operation_room . "' 
-                AND deleted = 0;";
+                    FROM sdc_booking
+                    WHERE booking_date = '" . $booking_date . "'
+                    AND operation_room = '" . $operation_room . "' 
+                    AND changed = 0
+                    AND deleted = 0";
         $query = $this->db->query($sql);
         $result = $query->result();
         if($query->num_rows() == 0){
@@ -98,9 +99,10 @@ class Closing_model extends CI_Model {
 
             $sql = "SELECT *
                     FROM sdc_booking
-                    WHERE booking_date = '" . $closing_date . "'
-                    AND operation_room = '" . $operation_room . "'
-                    AND deleted = 0;";
+                    WHERE booking_date = '" . $booking_date . "'
+                    AND operation_room = '" . $operation_room . "' 
+                    AND changed = 0
+                    AND deleted = 0";
             $query = $this->db->query($sql);
             $result = $query->result();
             if($query->num_rows() == 0){

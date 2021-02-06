@@ -90,7 +90,9 @@ class Booking_model extends CI_Model {
             $sql = "SELECT *
                     FROM sdc_booking
                     WHERE booking_date = '" . $booking_date . "'
-                    AND operation_room = '" . $operation_room . "'";
+                    AND operation_room = '" . $operation_room . "' 
+                    AND changed = 0
+                    AND deleted = 0";
             $query = $this->db->query($sql);
             $result = $query->result();
             if($query->num_rows() == 0){
@@ -178,7 +180,9 @@ class Booking_model extends CI_Model {
             $sql = "SELECT *
                     FROM sdc_booking
                     WHERE booking_date = '" . $booking_date . "'
-                    AND operation_room = '" . $operation_room . "'";
+                    AND operation_room = '" . $operation_room . "'
+                    AND changed = 0
+                    AND deleted = 0";
             $query = $this->db->query($sql);
             $result = $query->result();
             if($query->num_rows() == 0){
@@ -225,7 +229,7 @@ class Booking_model extends CI_Model {
         );
         $this->db->where('patient_id', $patient_id);
         $result = $this->db->update('sdc_booking', $data);
-        
+
         $this->db->where('patient_id', $patient_id);
         $result = $this->db->update('sdc_patient', $data);
         // $result = $this->db->delete("sdc_booking");
