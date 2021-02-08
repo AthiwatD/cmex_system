@@ -18,7 +18,7 @@ class Moving_model extends CI_Model {
         $booking_date = $this->security->xss_clean($this->input->post('booking_date'));
         $doctor = $this->security->xss_clean($this->input->post('doctor'));
         $test_type = $this->security->xss_clean($this->input->post('test_type'));
-        $operation_room = $this->security->xss_clean($this->input->post('operation_room'));
+        $operation_room = trim($this->security->xss_clean($this->input->post('operation_room')));
         $appointment_from = $this->security->xss_clean($this->input->post('appointment_from'));
         $channel = $this->security->xss_clean($this->input->post('channel'));
 
@@ -26,7 +26,7 @@ class Moving_model extends CI_Model {
         $change_reason = $this->security->xss_clean($this->input->post('change_reason'));
        
         $booking_date_new = $this->security->xss_clean($this->input->post('booking_date_new'));
-        $operation_room_new = $this->security->xss_clean($this->input->post('operation_room_new'));
+        $operation_room_new = trim($this->security->xss_clean($this->input->post('operation_room_new')));
         $note_new = $this->security->xss_clean($this->input->post('note_new'));
 
 
