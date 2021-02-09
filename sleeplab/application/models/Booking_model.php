@@ -21,13 +21,25 @@ class Booking_model extends CI_Model {
         return $result;
     }
 
+    // function getBooking($booking_id) {
+
+    //     $sql = "SELECT *
+    //             FROM sdc_booking b
+    //             JOIN sdc_patient p ON b.patient_id = p.patient_id
+    //             WHERE b.booking = '" . $booking_id . "'"; 
+                    
+    //     $result = $this->db->query($sql)->row();
+
+    //     return $result;
+    // }
+
     function getNoneBookings() {
 
         $sql = "SELECT *
                 FROM sdc_booking b
                 JOIN sdc_patient p ON b.patient_id = p.patient_id
-                WHERE (b.booking_date IS NULL OR
-                b.operation_room IS NULL OR  b.operation_room = '')
+                WHERE (b.booking_date IS NULL OR b.booking_date = '0000-00-00' 
+                OR b.operation_room IS NULL OR  b.operation_room = '')
                 AND b.changed = 0
                 AND b.deleted = 0
                 AND p.deleted = 0";

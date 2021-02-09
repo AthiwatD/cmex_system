@@ -88,7 +88,7 @@ defined('PROJECT_NAME')      OR define("PROJECT_NAME", "ระบบจองค
 # define constant, serialize array 
 define ("DOCTORS", serialize (array ("ธีรกร ธีรกิตติกุล", "นันทพร ตียพันธ์")));
 define ("OPERATION_ROOMS", serialize (array ("621", "622", "623", "A")));
-define ("OPERATION_ROOM_COLORS", serialize (array ("#00c0ef", "#0073ef", "#0033b7","#FCE205")));
+define ("OPERATION_ROOM_COLORS", serialize (array ("#00c0ef", "#0073ef", "#0033b7","#FDC12A")));
 define ("TEST_TYPES", serialize (array ("PSG-split night", "PSG-full night", "PSG-PAP titration", "WatchPAT admit", "Home sleep WatchPAT", "Multiple Sleep Latency Test", "Maintenance of Wakefulness Test")));
 define ("APPOINTMENT_FROMS", serialize (array ("OPD GMC", "OPD CMEx", "OPD ศรีพัฒน์", "OPD no.21", "OPD มหาราชนครเชียงใหม่","IPD ศรีพัฒน์", "IPD มหาราชนครเชียงใหม่", "คลินิก")));
 define ("CHANGE_REASONS", serialize (array ("ขอตรวจเร็วขึ้น", "economics", "illness/accident", "no caregiver", "ติดธุระ/ประชุม", "ไม่สะดวกการเดินทาง เดินทางต่างประเทศ/ต่างจังหวัด", "ไม่ให้ความร่วมมือ", "ห้องตรวจไม่ว่าง", "เครื่องชำรุด", "Covid-19","เสียชีวิต")));

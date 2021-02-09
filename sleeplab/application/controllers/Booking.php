@@ -51,6 +51,46 @@ class Booking extends MY_Controller {
         $this->loadViewWithScript(array('booking/bookings_view'), array('booking/bookings_script'));      
     }
 
+    function bookingSearching($booking_id){
+        $this->data['error'] = $this->db->error(); 
+        $this->data['searching'] = $this->Booking->getBooking($booking_id);
+        $this->data['bookings'] = $this->Booking->getBookings();
+        $this->data['closings'] = $this->Closing->getClosings();
+        $this->data['none_bookings'] = $this->Booking->getNoneBookings();
+        $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
+        $this->breadcrumb->add('รายการนัดหมาย',   base_url().'Booking/bookings');      
+        $this->data['breadcrumb'] = $this->breadcrumb->output();
+
+        $doctors = unserialize (DOCTORS);
+        $operation_rooms = unserialize (OPERATION_ROOMS);
+        $tmp_operation_room_colors  = unserialize (OPERATION_ROOM_COLORS);
+        foreach($operation_rooms as $index => $operation_room){
+            $operation_room_colors[$operation_room] = $tmp_operation_room_colors[$index];
+        }
+        $test_types = unserialize (TEST_TYPES);
+        $appointment_froms = unserialize (APPOINTMENT_FROMS);
+        $change_reasons = unserialize (CHANGE_REASONS);
+        $channels = unserialize (CHANNELS);
+        $symtoms = unserialize (SYMTOMS);
+
+        $this->data['doctors'] = $doctors;
+        $this->data['operation_rooms'] = $operation_rooms;
+        $this->data['operation_room_colors'] = $operation_room_colors;
+        $this->data['test_types'] = $test_types;
+        $this->data['appointment_froms'] = $appointment_froms;
+        $this->data['change_reasons'] = $change_reasons;
+        $this->data['channels'] = $channels;
+        $this->data['symtoms'] = $symtoms;
+
+        $this->data['head_title'] = "รายการนัดหมาย";
+        $this->loadData();
+        $this->load->view('common/header', $this->data);
+        $this->load->view('booking/bookings_view', $this->data);
+        $this->load->view('common/footer',$this->data);
+        $this->load->view('booking/bookings_script', $this->data);
+        $this->load->view('common/end',$this->data);
+    }
+
     function save(){
         $patient_id = $this->input->post('patient_id');
         if($patient_id == ""){
@@ -83,6 +123,13 @@ class Booking extends MY_Controller {
         $booked = $this->Booking->getBooking($booking_id);
         echo json_encode($booked);
     }
+
+    function getSearchingService($booking_id){
+        $booked = $this->Booking->getBooking($booking_id);
+        echo json_encode($booked);
+    }
+
+    
     /*
     function booking($booking_id){
         $this->data['error'] = $this->db->error(); 

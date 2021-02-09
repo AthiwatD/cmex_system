@@ -59,3 +59,5 @@
 <script src="<?php echo base_url(); ?>../common/js/valid_json_char.js"></script>
 <!-- autocomplete -->
 <script src="<?php echo base_url(); ?>assets/js/autocomplete.js"></script>
+<!-- Iframe -->
+<script src="<?php echo base_url(); ?>assets/js/load_iframe.js"></script>

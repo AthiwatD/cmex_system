@@ -53,6 +53,8 @@
         
         // autocomplete(document.getElementById("txt_symtom"), symtoms);
 
+    check_searching();
+
     function save(){
         var patient_id = document.getElementById("txt_patient_id").value;
 
@@ -66,6 +68,32 @@
                 updateBooking();
             }
         }
+    }
+
+    function check_searching(){
+      <?php 
+        if(!empty($searching)){
+      ?>
+          $("#txt_patient_id").val("<?php echo $searching->patient_id; ?>");
+          $("#txt_patient_id_2").val("<?php echo $searching->patient_id; ?>");
+          $("#txt_fname").val("<?php echo $searching->fname; ?>");
+          $("#txt_lname").val("<?php echo $searching->lname; ?>");
+          $("#txt_hn").val("<?php echo $searching->hn; ?>");
+          $("#txt_birth_date").val("<?php echo $searching->birth_date; ?>");
+          $("#txt_tel_1").val("<?php echo $searching->tel_1; ?>");
+          $("#txt_tel_2").val("<?php echo $searching->tel_2; ?>");
+          $("#txt_booking_id").val("<?php echo $searching->booking_id; ?>");
+          $("#txt_receiving_date").val("<?php echo $searching->receiving_date; ?>");
+          $("#txt_booking_date").val("<?php echo $searching->booking_date; ?>");
+          $("#txt_doctor").val("<?php echo $searching->doctor; ?>");
+          $("#txt_test_type").val("<?php echo $searching->test_type; ?>");
+          $("#txt_operation_room").val("<?php echo $searching->operation_room; ?>");
+          $("#txt_appointment_from").val("<?php echo $searching->appointment_from; ?>");
+          $("#txt_channel").val("<?php echo $searching->channel; ?>");
+          $("#txt_note").val("<?php echo $searching->note; ?>");
+      <?php
+        }
+      ?>
     }
 
     // function addBooking(){
@@ -313,8 +341,8 @@
                         $txt .= "start : new Date(" . $year . "," . $month . "," . $day . "),";
                         $txt .= "allDay : true,";     
                         $txt .= "url : 'javascript:getClosingService(" . $closing->booking_id . ");',";      
-                        $txt .= "backgroundColor : '#FF2222',";  
-                        $txt .= "borderColor : '#FF2222',";  
+                        $txt .= "backgroundColor : '#FF5555',";  
+                        $txt .= "borderColor : '#FF5555',";  
                         $txt .= "},";  
                     }
                 }

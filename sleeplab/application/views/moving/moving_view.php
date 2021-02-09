@@ -3,6 +3,52 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+
+      <!--
+      <div class="row">
+          <div class="col-12">
+            <div class="sticky-top mb-3">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">ค้นหาคนไข้
+                  </h4>
+                  <div class="row">
+                    <input type="text" class="form-control" id="txt_search" name="search" placeholder="ค้นหา ชื่อ นามสกุล หรือ hn">
+                    <button type="button" class="btn btn-info" onclick="search_patient()">ค้นหา</button>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <table class="table table-flush table-striped table-bordered table-hover my_table_data">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>ชื่อ-สกุล</th>
+                            <th>hn</th>
+                            <th>โทร</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            foreach($searchings as $searching){
+                        ?>
+                                <tr>
+                                    <td><a href="#" onclick="getBookingService(<?php echo $searching->booking_id; ?>)"><?php echo $searching->patient_id; ?></a></td>
+                                    <td><a href="#" onclick="getBookingService(<?php echo $searching->booking_id; ?>)"><?php echo $searching->fname . " " . $nbooking->lname; ?></a></td>
+                                    <td><a href="#" onclick="getBookingService(<?php echo $searching->booking_id; ?>)"><?php echo $searching->hn; ?></a></td>
+                                    <td><a href="#" onclick="getBookingService(<?php echo $searching->booking_id; ?>)"><?php echo $searching->tel_1; ?></a></td>
+                                </tr>
+                        <?php
+                            }
+                        ?>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+        -->
+
         <div class="row">
           <div class="col-md-4">
             <div class="sticky-top mb-3">

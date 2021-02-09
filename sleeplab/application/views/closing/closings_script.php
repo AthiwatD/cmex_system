@@ -201,8 +201,8 @@
                         $txt .= "start : new Date(" . $year . "," . $month . "," . $day . "),";
                         $txt .= "allDay : true,";     
                         $txt .= "url : 'javascript:getClosingService(" . $closing->booking_id . ");',";      
-                        $txt .= "backgroundColor : '#FF2222',";  
-                        $txt .= "borderColor : '#FF2222',";  
+                        $txt .= "backgroundColor : '#FF5555',";  
+                        $txt .= "borderColor : '#FF5555',";  
                         $txt .= "},";  
                     }
                 }
