@@ -129,7 +129,12 @@
                                     <input type="text" class="form-control" id="txt_note" name="note" placeholder="หมายเหตุ">
                                 </td>
                             </tr>
-
+                            <tr>
+                                <td><label>ขอเจ้าหน้าที่ 2 คน</label></td>
+                                <td>
+                                    <input type="checkbox" class="form-control" id="chk_two_staff" name="two_staff" value="1" placeholder="เจ้าหน้าที่ 2 คน">
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <br>

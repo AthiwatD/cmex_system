@@ -25,10 +25,13 @@ class Moving_model extends CI_Model {
         $changed = $this->security->xss_clean($this->input->post('changed'));
         $change_reason = $this->security->xss_clean($this->input->post('change_reason'));
        
+        $two_staff = $this->security->xss_clean($this->input->post('two_staff'));
+
         $booking_date_new = $this->security->xss_clean($this->input->post('booking_date_new'));
         $operation_room_new = trim($this->security->xss_clean($this->input->post('operation_room_new')));
         $note_new = $this->security->xss_clean($this->input->post('note_new'));
 
+        
 
         if($changed == 2){ // Cancel
             $data = array(
@@ -43,8 +46,8 @@ class Moving_model extends CI_Model {
         elseif($changed == 1){ // Move
             $sql = "SELECT *
                     FROM sdc_booking
-                    WHERE booking_date = '" . $booking_date . "'
-                    AND operation_room = '" . $operation_room . "' 
+                    WHERE booking_date = '" . $booking_date_new . "'
+                    AND operation_room = '" . $operation_room_new . "' 
                     AND changed = 0
                     AND deleted = 0";
             $query = $this->db->query($sql);
@@ -71,6 +74,7 @@ class Moving_model extends CI_Model {
                     'appointment_from' => $appointment_from,
                     'channel' => $channel,
                     'note' => $note_new,
+                    'two_staff' => $two_staff,
                     'changed' => 0,
                     'create_by' => $username,
                     'create_time' => $create_time_new,

@@ -76,58 +76,23 @@
           $("#txt_appointment_from").val("<?php echo $searching->appointment_from; ?>");
           $("#txt_channel").val("<?php echo $searching->channel; ?>");
           $("#txt_note").val("<?php echo $searching->note; ?>");
+          <?php
+            if($searching->two_staff == true){
+          ?>
+              $("#txt_two_staff").val("1");
+          <?php
+            }
+            else{
+          ?>
+              $("#txt_two_staff").val("0");
+          <?php
+            }
+          ?>
+
       <?php
         }
       ?>
     }
-
-    // function addBooking(){
-
-    //     var username = "<?php echo $session_username; ?>";
-    //     var fname = document.getElementById("txt_fname").value;
-    //     var lname = document.getElementById("txt_lname").value;
-    //     var hn = document.getElementById("txt_hn").value;
-    //     var birth_date = document.getElementById("txt_birth_date").value;
-    //     var tel_1 = document.getElementById("txt_tel_1").value;
-    //     var tel_2 = document.getElementById("txt_tel_2").value;
-
-    //     var receiving_date = document.getElementById("txt_receiving_date").value;
-    //     var booking_date = document.getElementById("txt_booking_date").value;
-    //     var doctor = document.getElementById("txt_doctor").value;
-    //     var operation_room = document.getElementById("txt_operation_room").value;
-    //     var appointment_from = document.getElementById("txt_appointment_from").value;
-    //     var channel = document.getElementById("txt_channel").value;
-
-    //     var points = {
-    //                     "username":username,
-    //                     "fname":fname,
-    //                     "lname":lname,
-    //                     "hn":hn,
-    //                     "birth_date":birth_date,
-    //                     "tel_1":tel_1,
-    //                     "tel_2":tel_2,
-    //                 };
-    //     //console.log(JSON.stringify(points));
-    //     points = JSON.stringify(points);
-    //     $.ajax({
-    //         // url:'http://hosweb.med.cmu.ac.th/gateway/fu/move/clinic',
-    //         url:'<?php echo base_url(); ?>Booking/addPatientService',
-    //         method: 'POST',
-    //         body: JSON.stringify({
-    //             ready: 'ready'
-    //         }),
-    //         data: points,
-    //         contentType: "application/json; charset=utf-8",
-    //         dataType: 'JSON',
-    //         success: function(response){
-    //             console.log(response);
-    //             // getPatients();
-    //         },
-    //         error: function (xhr, textStatus, errorThrown) {
-    //             alert("Status: " + textStatus + '\nError: ' + errorThrown + '\nFunction: addBooking');
-    //         },
-    //     });
-    // }
 
     function clear_patient(){
         $("#txt_patient_id").val("");
@@ -146,6 +111,7 @@
         $("#txt_appointment_from").val("");
         $("#txt_channel").val("");
         $("#txt_note").val("");
+        $("#txt_two_staff").val("0");
     }
 
     function getBookingService(booking_id){
@@ -179,6 +145,7 @@
                 $("#txt_appointment_from").val(obj.appointment_from);
                 $("#txt_channel").val(obj.channel);
                 $("#txt_note").val(obj.note);
+                $("#txt_two_staff").val(obj.two_staff);
             },
             error: function (xhr, textStatus, errorThrown) {
                 alert("Status: " + textStatus + '\nError: ' + errorThrown + '\nFunction: getBookingService');
@@ -292,7 +259,12 @@
                         $month = $tmp[1] - 1;
                         $day = $tmp[2];
                         $txt .= "{";
-                        $txt .= "title : '" . $booking->operation_room . " " . $booking->fname . "',"; 
+                        $txt .= "title : '";
+                        if($booking->two_staff){
+                          $txt .= "*";
+                        }
+                        $txt .= $booking->operation_room . " " . $booking->fname; 
+                        $txt .= "',"; 
                         $txt .= "start : new Date(" . $year . "," . $month . "," . $day . "),";
                         $txt .= "allDay : true,";     
                         $txt .= "url : 'javascript:getBookingService(" . $booking->booking_id . ");',";      

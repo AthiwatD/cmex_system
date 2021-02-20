@@ -1,17 +1,25 @@
 <?php
 
-class Booking_model extends CI_Model {
+class Report_model extends CI_Model {
 
     function __construct() {
         parent::__construct();
     }
 
-    function getBookings() {
-
+    function reportByDoctor() {
+        $doctor = $this->security->xss_clean($this->input->post('doctor'));
+        $start_date = $this->security->xss_clean($this->input->post('start_date'));
+        $end_date = $this->security->xss_clean($this->input->post('end_date'));
+            
+        if(empty($doctor)){
+            $doctor = "%";
+        }
         $sql = "SELECT *
                 FROM sdc_booking b
                 JOIN sdc_patient p ON b.patient_id = p.patient_id
-                WHERE b.booking_date >= DATE(NOW() - INTERVAL 3 MONTH)
+                WHERE b.doctor LIKE '" . $doctor . "'
+                AND b.booking_date >= '" . $start_date . "'
+                AND b.booking_date <= '" . $end_date . "'
                 AND b.changed = 0
                 AND b.deleted = 0
                 AND p.deleted = 0";
@@ -21,7 +29,7 @@ class Booking_model extends CI_Model {
         return $result;
     }
 
-    // function getBooking($booking_id) {
+    // function getReport($booking_id) {
 
     //     $sql = "SELECT *
     //             FROM sdc_booking b
@@ -33,7 +41,7 @@ class Booking_model extends CI_Model {
     //     return $result;
     // }
 
-    function getNoneBookings() {
+    function getNoneReports() {
 
         $sql = "SELECT *
                 FROM sdc_booking b
@@ -49,7 +57,7 @@ class Booking_model extends CI_Model {
         return $result;
     }
 
-    function getBooking($booking_id) {
+    function getReport($booking_id) {
 
         $sql = "SELECT *
                     FROM sdc_booking b
@@ -62,7 +70,7 @@ class Booking_model extends CI_Model {
         return $result;
     }
 
-    function addBooking(){
+    function addReport(){
         $username = $this->session->username;
         date_default_timezone_set('Asia/Bangkok');
         $create_time = date("Y-m-d h:i:s");
@@ -98,7 +106,6 @@ class Booking_model extends CI_Model {
             $appointment_from = $this->security->xss_clean($this->input->post('appointment_from'));
             $channel = $this->security->xss_clean($this->input->post('channel'));
             $note = $this->security->xss_clean($this->input->post('note'));
-            $two_staff = $this->security->xss_clean($this->input->post('two_staff'));
 
             $sql = "SELECT *
                     FROM sdc_booking
@@ -119,7 +126,6 @@ class Booking_model extends CI_Model {
                     'appointment_from' => $appointment_from,
                     'channel' => $channel,
                     'note' => $note,
-                    'two_staff' => $two_staff,
                     'changed' => 0,
                     'create_by' => $username,
                     'create_time' => $create_time,
@@ -136,7 +142,6 @@ class Booking_model extends CI_Model {
                     'appointment_from' => $appointment_from,
                     'channel' => $channel,
                     'note' => $note,
-                    'two_staff' => $two_staff,
                     'changed' => 0,
                     'create_by' => $username,
                     'create_time' => $create_time,
@@ -155,7 +160,7 @@ class Booking_model extends CI_Model {
     }
 
 
-    function updateBooking(){
+    function updateReport(){
         $username = $this->session->username;
         date_default_timezone_set('Asia/Bangkok');
         $update_time = date("Y-m-d h:i:s");
@@ -191,7 +196,6 @@ class Booking_model extends CI_Model {
             $appointment_from = $this->security->xss_clean($this->input->post('appointment_from'));
             $channel = $this->security->xss_clean($this->input->post('channel'));
             $note = $this->security->xss_clean($this->input->post('note'));
-            $two_staff = $this->security->xss_clean($this->input->post('two_staff'));
 
             $sql = "SELECT *
                     FROM sdc_booking
@@ -211,7 +215,6 @@ class Booking_model extends CI_Model {
                     'appointment_from' => $appointment_from,
                     'channel' => $channel,
                     'note' => $note,
-                    'two_staff' => $two_staff,
                     'update_by' => $username,
                     'update_time' => $update_time,
                 );
@@ -226,7 +229,6 @@ class Booking_model extends CI_Model {
                     'appointment_from' => $appointment_from,
                     'channel' => $channel,
                     'note' => $note,
-                    'two_staff' => $two_staff,
                     'update_by' => $username,
                     'update_time' => $update_time,
                 );
@@ -240,7 +242,7 @@ class Booking_model extends CI_Model {
         return $result;
     }
 
-    function deletePatientBooking(){
+    function deletePatientReport(){
         $patient_id = $this->security->xss_clean($this->input->post('patient_id'));
         $data = array(
             'deleted' => 1,

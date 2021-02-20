@@ -17,6 +17,7 @@ class MY_Controller extends CI_Controller {
             $this->load->helper('form');
             $this->load->helper('cookie');
             $this->load->helper('../../common/helpers/thai_date');
+            $this->load->helper('../../common/helpers/cal_age');
             $this->load->helper('../../common/helpers/remote_file_exists');
         }
     }

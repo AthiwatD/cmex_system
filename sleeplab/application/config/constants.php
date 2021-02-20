@@ -87,6 +87,8 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 defined('PROJECT_NAME')      OR define("PROJECT_NAME", "ระบบจองคิวตรวจการนอนหลับ");
 # define constant, serialize array 
 define ("DOCTORS", serialize (array ("ธีรกร ธีรกิตติกุล", "นันทพร ตียพันธ์")));
+define ("DOCTOR_USERS", serialize (array ("user136", "user160")));
+define ("DOCTOR_COLORS", serialize (array ("#FF8357", "#4CB817")));
 define ("OPERATION_ROOMS", serialize (array ("621", "622", "623", "A")));
 define ("OPERATION_ROOM_COLORS", serialize (array ("#00c0ef", "#0073ef", "#0033b7","#FDC12A")));
 define ("TEST_TYPES", serialize (array ("PSG-split night", "PSG-full night", "PSG-PAP titration", "WatchPAT admit", "Home sleep WatchPAT", "Multiple Sleep Latency Test", "Maintenance of Wakefulness Test")));
@@ -94,9 +96,16 @@ define ("APPOINTMENT_FROMS", serialize (array ("OPD GMC", "OPD CMEx", "OPD ศ�
 define ("CHANGE_REASONS", serialize (array ("ขอตรวจเร็วขึ้น", "economics", "illness/accident", "no caregiver", "ติดธุระ/ประชุม", "ไม่สะดวกการเดินทาง เดินทางต่างประเทศ/ต่างจังหวัด", "ไม่ให้ความร่วมมือ", "ห้องตรวจไม่ว่าง", "เครื่องชำรุด", "Covid-19","เสียชีวิต")));
 define ("CHANNELS", serialize (array ("ป้าย", "สื่อออนไลน์ (เฟสบุ๊ค เว็บไซต์)", "เพื่อน/ญาติ แนะนำ", "แพทย์ส่งตรวจ")));
 define ("SYMTOMS", serialize (array ("DM", "HT", "DLP", "CAD", "DCM", "Stroke", "Asthma", "COPD", "AR", "Dementia", "CKD")));
-define ("ACTIVE_USERS", serialize (array ("61018", "59007", "63027", "60025", "60054", "60055")));
+define ("ACTIVE_USERS", serialize (array ("61018", "59007", "63027", "60025", "60054", "60055","64023")));
 define ("PRIORITY_USERS", serialize (array ("61018", "59007")));
 
+define ("PRIORITY_USERS", serialize (array ("61018", "59007")));
+define ("TIME_PERIOD", serialize (array ("8.00-16.00", "16.00-20.00","18.00-20.00", "20.00-08.00")));
+define ("JOB_BY_TIME_PERIOD", serialize (array (
+                                            array("นัดหมาย/ประสานงาน", "ธุรการ/งานแม่บ้าน"), // "8.00-16.00",
+                                            array("Screening", "Downloading SD Card", "CPAP Compliant", "trouble shooting", "D/C", "เบิกจ่ายอุปกรณ์", "เก็บเอกสาร"), // "16.00-20.00",
+                                            array("นัดหมาย/ประสานงาน", "ธุรการ/งานแม่บ้าน"), // "18.00-20.00", 
+                                            "20.00-08.00")));
 // define ("FRUITS", serialize (array ("apple", "cherry", "banana"))); 
 // $my_fruits = unserialize (FRUITS);
 // $fruits = json_decode (FRUITS); var_dump($fruits);

@@ -38,7 +38,7 @@
                                             <td><a href="#" ><?php echo $booking->booking_date; ?></a></td>
                                             <td><a href="#" ><?php echo $booking->operation_room; ?></a></td>
                                             <td><a href="#" onclick="goBookingService(<?php echo $booking->booking_id; ?>)"><button class="btn btn-primary form-control" type="button"><i class="nav-icon fas fa-calendar"></i></button></a></td>
-                                            <td><a href="#" onclick="goMovingService(<?php echo $booking->booking_id; ?>)"><button class="btn btn-warning form-control" type="button"><i class="nav-icon fas fa-share-square"></i></a></td>
+                                            <td><a href="#" onclick="goMovingService(<?php echo $booking->booking_id; ?>)"><button class="btn btn-warning form-control" type="button"><i class="nav-icon fas fa-share-square"></i></button></a></td>
 
                                         </tr>
                                 <?php

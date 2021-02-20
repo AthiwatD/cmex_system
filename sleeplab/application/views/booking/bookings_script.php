@@ -21,14 +21,7 @@
             $temp = array_map('js_str', $array);
             return '[' . implode(',', $temp) . ']';
         }
-        // $this->data['doctors'] = $doctors;
-        // $this->data['operation_rooms'] = $operation_rooms;
-        // $this->data['test_types'] = $test_types;
-        // $this->data['appointment_froms'] = $appointment_froms;
-        // $this->data['change_reasons'] = $change_reasons;
-        // $this->data['channels'] = $channels;
-        // $this->data['symtoms'] = $symtoms;
-
+        
         echo 'var doctors = ', js_array($doctors), ';';
         echo 'var test_types = ', js_array($test_types), ';';
         echo 'var operation_rooms = ', js_array($operation_rooms), ';';
@@ -91,6 +84,21 @@
           $("#txt_appointment_from").val("<?php echo $searching->appointment_from; ?>");
           $("#txt_channel").val("<?php echo $searching->channel; ?>");
           $("#txt_note").val("<?php echo $searching->note; ?>");
+          $("#chk_two_staff").val("<?php echo $searching->two_staff; ?>");
+          <?php
+            if($searching->two_staff == true){
+          ?>
+              $("#chk_two_staff").prop('checked', true);
+          <?php
+            }
+            else{
+          ?>
+                  $("#chk_two_staff").prop('checked', false);
+          <?php
+            }
+          ?>
+
+          
       <?php
         }
       ?>
@@ -162,6 +170,7 @@
         $("#txt_appointment_from").val("");
         $("#txt_channel").val("");
         $("#txt_note").val("");
+        $("#chk_two_staff").prop('checked', false);
     }
 
     function getBookingService(booking_id){
@@ -196,6 +205,12 @@
                 $("#txt_appointment_from").val(obj.appointment_from);
                 $("#txt_channel").val(obj.channel);
                 $("#txt_note").val(obj.note);
+                if(obj.two_staff == true){
+                  $("#chk_two_staff").prop('checked', true);
+                }
+                else{
+                  $("#chk_two_staff").prop('checked', false);
+                }
             },
             error: function (xhr, textStatus, errorThrown) {
                 alert("Status: " + textStatus + '\nError: ' + errorThrown + '\nFunction: getBookingService');
@@ -309,7 +324,12 @@
                         $month = $tmp[1] - 1;
                         $day = $tmp[2];
                         $txt .= "{";
-                        $txt .= "title : '" . $booking->operation_room . " " . $booking->fname . "',"; 
+                        $txt .= "title : '";
+                        if($booking->two_staff){
+                          $txt .= "*";
+                        }
+                        $txt .= $booking->operation_room . " " . $booking->fname; 
+                        $txt .= "',"; 
                         $txt .= "start : new Date(" . $year . "," . $month . "," . $day . "),";
                         $txt .= "allDay : true,";     
                         $txt .= "url : 'javascript:getBookingService(" . $booking->booking_id . ");',";     
