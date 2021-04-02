@@ -49,15 +49,6 @@
           </li>
 
           <li class="nav-item has-treeview">
-            <a href="<?php echo base_url(); ?>Report" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                รายงาน
-              </p>
-            </a>
-          </li>
-          
-          <li class="nav-item has-treeview">
             <a href="<?php echo base_url(); ?>Booking" class="nav-link">
             <i class="nav-icon fas fa-calendar"></i>
               <p>
@@ -75,6 +66,25 @@
             </a>
           </li>
 
+          <li class="nav-item has-treeview">
+            <a href="<?php echo base_url(); ?>Report" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                รายงาน
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item has-treeview">
+            <a href="<?php echo base_url(); ?>Kpi" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                KPI
+              </p>
+            </a>
+          </li>
+
+          
           <li class="nav-item has-treeview">
             <a href="<?php echo base_url(); ?>Closing" class="nav-link">
             <i class="nav-icon fas fa-ban"></i>

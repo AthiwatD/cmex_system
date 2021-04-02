@@ -99,24 +99,40 @@ class Booking extends MY_Controller {
         else{
             $result = $this->Booking->updateBooking();
         }
-        $this->bookings();
+        $this->data['error'] = $this->db->error(); 
+        
+        $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
+        $this->breadcrumb->add('รายการนัดหมาย',   base_url().'Booking/bookings');      
+        $this->data['breadcrumb'] = $this->breadcrumb->output();
+
+        $this->data['head_title'] = "รายการนัดหมาย";
+        $this->loadData();
+        $this->loadViewWithScript(array('booking/booking_success_view'), array());     
     }
 
     function addBookingDo(){
         
         $result = $this->Booking->addBooking();
-        $this->bookings();
+        
     }
 
     function updateBookingDo(){
         
         $result = $this->Booking->updateBooking();
-        $this->bookings();
+          
     }
 
     function deletePatientBookingDo(){
         $result = $this->Booking->deletePatientBooking();
-        $this->bookings();
+        $this->data['error'] = $this->db->error(); 
+        
+        $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
+        $this->breadcrumb->add('รายการนัดหมาย',   base_url().'Booking/bookings');      
+        $this->data['breadcrumb'] = $this->breadcrumb->output();
+
+        $this->data['head_title'] = "รายการนัดหมาย";
+        $this->loadData();
+        $this->loadViewWithScript(array('booking/booking_success_view'), array());      
     }
 
     function getBookingService($booking_id){

@@ -85,26 +85,58 @@
                             <tr>
                                 <td><label>แพทย์</label></td>
                                 <td>
-                                    <div class="autocomplete">
+                                    <!-- <div class="autocomplete">
                                         <input id="txt_doctor" type="text" class="form-control " name="doctor" placeholder="แพทย์">
-                                    </div>
+                                    </div> -->
+                                    <select class="form-control" id="sel_doctor" name="doctor">
+                                        <option value="">เลือกแพทย์</option> 
+                                        <?php
+                                            foreach($doctors as $doctor){
+                                        ?>
+                                                <option value="<?php echo $doctor; ?>"><?php echo $doctor; ?></option>                                        
+                                        <?php
+                                            }
+                                        ?>
+                                    </select>
                                 </td>
                             </tr>
                             <tr>
                                 <td><label>Test</label></td>
                                 <td>
-                                    <div class="autocomplete">
+                                    <!-- <div class="autocomplete">
                                         <input id="txt_test_type" type="text" class="form-control " name="test_type" placeholder="Test Type">
-                                    </div>
+                                    </div> -->
+
+                                    <select class="form-control" id="sel_test_type" name="test_type">
+                                        <option value="">เลือกTest</option> 
+                                        <?php
+                                            foreach($test_types as $tt){
+                                        ?>
+                                                <option value="<?php echo $tt; ?>"><?php echo $tt; ?></option>                                        
+                                        <?php
+                                            }
+                                        ?>
+                                    </select>
+
                                 </td>
                             </tr>
 
                             <tr>
                                 <td><label>ห้อง</label></td>
                                 <td>
-                                    <div class="autocomplete">
+                                    <!-- <div class="autocomplete">
                                         <input type="text" class="form-control" id="txt_operation_room" name="operation_room" placeholder="ห้อง">
-                                    </div>    
+                                    </div>     -->
+                                    <select class="form-control" id="sel_operation_room" name="operation_room">
+                                        <option value="">เลือกห้องตรวจ</option> 
+                                        <?php
+                                            foreach($operation_rooms as $or){
+                                        ?>
+                                                <option value="<?php echo $or; ?>"><?php echo $or; ?></option>                                        
+                                        <?php
+                                            }
+                                        ?>
+                                    </select>
                                 </td>
                             </tr>
                             <tr>

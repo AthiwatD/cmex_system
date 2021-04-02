@@ -19,9 +19,19 @@
                             <tr>
                                 <td><label>แพทย์</label></td>
                                 <td>
-                                    <div class="autocomplete">
+                                    <!-- <div class="autocomplete">
                                         <input id="txt_report_by_doctor_doctor" type="text" class="form-control " name="doctor" placeholder="แพทย์">
-                                    </div>
+                                    </div> -->
+                                    <select class="form-control" id="sel_doctor" name="doctor">
+                                        <option value="%">เลือกแพทย์ทั้งหมด</option> 
+                                        <?php
+                                            foreach($doctors as $doctor){
+                                        ?>
+                                                <option value="<?php echo $doctor; ?>"><?php echo $doctor; ?></option>                                        
+                                        <?php
+                                            }
+                                        ?>
+                                    </select>
                                 </td>
                             </tr>
                        

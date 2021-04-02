@@ -1,51 +1,148 @@
 <?php
 
-class Report_model extends CI_Model {
+class Kpi_model extends CI_Model {
 
     function __construct() {
         parent::__construct();
     }
 
-    function reportByDoctor() {
-        $doctor = $this->security->xss_clean($this->input->post('doctor'));
-        $start_date = $this->security->xss_clean($this->input->post('start_date'));
-        $end_date = $this->security->xss_clean($this->input->post('end_date'));
+    function patient_waiting_time_to_admit($start_date, $end_date) {
             
-        if(empty($doctor)){
-            $doctor = "%";
-        }
-        $sql = "SELECT *
+        $sql = "SELECT COUNT(b.patient_id) as 'patient_count', AVG(DATEDIFF(b.booking_date, b.receiving_date)) as 'waiting_time_to_admit'
                 FROM sdc_booking b
                 JOIN sdc_patient p ON b.patient_id = p.patient_id
-                WHERE b.doctor LIKE '" . $doctor . "'
-                AND b.booking_date >= '" . $start_date . "'
-                AND b.booking_date <= '" . $end_date . "'
-                AND b.operation_room != 'A' 
-                AND b.changed = 0
+                WHERE b.receiving_date >= '" . $start_date . "'
+                AND b.receiving_date <= '" . $end_date . "'
+                AND b.receiving_date != '0000-00-00'
+                AND b.booking_date != '0000-00-00'
                 AND b.deleted = 0
-                AND p.deleted = 0
-                ORDER BY b.booking_date ASC";
+                GROUP BY 'patient_count'";
+                    
+        $result = $this->db->query($sql)->row();
+
+        return $result;
+    }
+
+    function patient_admit_within_days($start_date, $end_date, $days) {
+            
+        $sql = "SELECT COUNT(b.patient_id) as 'patient_count'
+                FROM sdc_booking b
+                JOIN sdc_patient p ON b.patient_id = p.patient_id
+                WHERE b.receiving_date >= '" . $start_date . "'
+                AND b.receiving_date <= '" . $end_date . "'
+                AND DATEDIFF(b.booking_date, b.receiving_date) <= '" .  $days . "'
+                AND b.receiving_date != '0000-00-00'
+                AND b.booking_date != '0000-00-00'
+                AND b.deleted = 0
+                GROUP BY 'patient_count'";
+                    
+        $result = $this->db->query($sql)->row();
+
+        return $result;
+    }
+
+    function patient_changed($start_date, $end_date) {
+            
+        $sql = "SELECT COUNT(b.patient_id) as 'patient_count'
+                FROM sdc_booking b
+                WHERE b.booking_date >= '" . $start_date . "'
+                AND b.booking_date <= '" . $end_date . "'
+                AND	b.changed != 0
+                AND b.booking_date != '0000-00-00'
+                AND b.deleted = 0
+                GROUP BY 'patient_count'";
+                    
+        $result = $this->db->query($sql)->row();
+
+        return $result;
+    }
+    
+
+    function patient_all_booking($start_date, $end_date) {
+        $sql = "SELECT COUNT(b.booking_id) as 'booking_count'
+                FROM sdc_booking b
+                WHERE b.booking_date >= '" . $start_date . "'
+                AND b.booking_date <= '" . $end_date . "'
+                AND b.receiving_date != '0000-00-00'
+                AND b.booking_date != '0000-00-00'
+                AND b.deleted = 0
+                GROUP BY 'booking_count'";
+                    
+        $result = $this->db->query($sql)->row();
+
+        return $result;
+    }
+
+    function patient_change_reasons($start_date, $end_date){
+        $sql = "SELECT b.change_reason, COUNT(b.booking_id) as 'booking_count'
+                FROM sdc_booking b
+                WHERE b.booking_date >= '" . $start_date . "'
+                AND b.booking_date <= '" . $end_date . "'
+                AND b.changed != 0
+                AND b.booking_date != '0000-00-00'
+                AND b.deleted = 0
+                GROUP BY b.change_reason
+                ORDER BY COUNT(b.booking_id) DESC";
                     
         $result = $this->db->query($sql)->result();
 
         return $result;
     }
 
-    
-
-    // function getReport($booking_id) {
-
-    //     $sql = "SELECT *
-    //             FROM sdc_booking b
-    //             JOIN sdc_patient p ON b.patient_id = p.patient_id
-    //             WHERE b.booking = '" . $booking_id . "'"; 
+    function patient_return($start_date, $end_date){
+        $sql = "SELECT COUNT(d.booking_count) as 'return_count'
+                FROM (SELECT COUNT(b.booking_id) as 'booking_count'
+                        FROM sdc_booking b
+                        WHERE b.booking_date >= '" . $start_date . "'
+                        AND b.booking_date <= '" . $end_date . "'
+                        AND b.booking_date != '0000-00-00'
+                        AND b.deleted = 0
+                        GROUP BY b.patient_id
+                        ORDER BY COUNT(b.booking_id) DESC) d
+                WHERE d.booking_count > 1
+                ";
                     
-    //     $result = $this->db->query($sql)->row();
+        $result = $this->db->query($sql)->row();
 
-    //     return $result;
-    // }
+        return $result;
+    }
 
-    function getNoneReports() {
+
+    function changed_because_instrument($start_date, $end_date){
+        
+        $sql = "SELECT COUNT(b.booking_id) as 'booking_count'
+                        FROM sdc_booking b
+                        WHERE b.booking_date >= '" . $start_date . "'
+                        AND b.booking_date <= '" . $end_date . "'
+                        AND b.change_reason LIKE 'เครื่องชำรุด' 
+                        AND b.changed != 0
+                        AND b.booking_date != '0000-00-00'
+                        AND b.deleted = 0
+                ";
+                    
+        $result = $this->db->query($sql)->row();
+
+        return $result;
+    }
+
+    function patient_pap_titration($start_date, $end_date){
+        
+        $sql = "SELECT COUNT(b.booking_id) as 'booking_count'
+                FROM sdc_booking b
+                WHERE b.booking_date >= '" . $start_date . "'
+                AND b.booking_date <= '" . $end_date . "'
+                AND b.test_type LIKE 'PSG-PAP titration' 
+                AND b.changed = 0
+                AND b.booking_date != '0000-00-00'
+                AND b.deleted = 0
+                ";
+                    
+        $result = $this->db->query($sql)->row();
+
+        return $result;
+    }
+
+    function getNoneKpis() {
 
         $sql = "SELECT *
                 FROM sdc_booking b
@@ -62,7 +159,7 @@ class Report_model extends CI_Model {
         return $result;
     }
 
-    function getReport($booking_id) {
+    function getKpi($booking_id) {
 
         $sql = "SELECT *
                     FROM sdc_booking b
@@ -75,7 +172,7 @@ class Report_model extends CI_Model {
         return $result;
     }
 
-    function addReport(){
+    function addKpi(){
         $username = $this->session->username;
         date_default_timezone_set('Asia/Bangkok');
         $create_time = date("Y-m-d h:i:s");
@@ -165,7 +262,7 @@ class Report_model extends CI_Model {
     }
 
 
-    function updateReport(){
+    function updateKpi(){
         $username = $this->session->username;
         date_default_timezone_set('Asia/Bangkok');
         $update_time = date("Y-m-d h:i:s");
@@ -247,7 +344,7 @@ class Report_model extends CI_Model {
         return $result;
     }
 
-    function deletePatientReport(){
+    function deletePatientKpi(){
         $patient_id = $this->security->xss_clean($this->input->post('patient_id'));
         $data = array(
             'deleted' => 1,

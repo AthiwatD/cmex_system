@@ -51,26 +51,28 @@
                             </tr>
 
                                     <input type="hidden" class="form-control" id="txt_booking_id" name="booking_id" value="">
+                                    <input type="hidden" class="form-control" id="txt_booking_date_old" name="booking_date_old" value="">
                                     <input type="hidden" class="form-control" id="txt_receiving_date" name="receiving_date" placeholder="วันรับ">
                                     <input type="hidden" class="form-control" id="txt_doctor" name="doctor" placeholder="แพทย์">
                                     <input type="hidden" class="form-control" id="txt_test_type" name="test_type" placeholder="Test Type">
                                     <input type="hidden" class="form-control" id="txt_appointment_from" name="appointment_from" placeholder="ส่งจาก">
                                     <input type="hidden" class="form-control" id="txt_channel" name="channel" placeholder="รู้จักผ่านทาง">
                                     <input type="hidden" class="form-control" id="txt_two_staff" name="two_staff" value="0">
+                                    <input type="hidden" class="form-control" id="txt_change_type" name="changed" value="1" placeholder="ย้าย/ยกเลิก/เลื่อนนัด">
                         
                             <tr>
                                 <td><label>วันนัดเดิม</label></td>
                                 <td><input type="date" class="form-control" id="txt_booking_date" name="booking_date" placeholder="วันนัดเดิม" disabled></td>
                             </tr>
-                            <tr>
-                                <td><label>ดำเนินการ *</label></td>
+                            <!-- <tr>
+                                <td><label>ดำเนินการ </label></td>
                                 <td>
-                                    <select class="form-control" id="sel_change_type" name="changed" required>
-                                        <option value="1" selected>ย้าย</option>
+                                    <select class="form-control" id="sel_change_type" name="changed" dusabled required>
+                                        <option value="1" selected>ย้าย / ยกเลิก / เลื่อนนัด</option>
                                         <option value="2">ยกเลิก</option>
                                     </select>
                                 </td>
-                            </tr>
+                            </tr> -->
                             <tr>
                                 <td><label>เหตุผล *</label></td>
                                 <td>

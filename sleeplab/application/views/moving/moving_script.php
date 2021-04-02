@@ -139,6 +139,7 @@
                 $("#txt_receiving_date").val(obj.receiving_date);
                 $("#txt_booking_id").val(obj.booking_id);
                 $("#txt_booking_date").val(obj.booking_date);
+                $("#txt_booking_date_old").val(obj.booking_date);
                 $("#txt_doctor").val(obj.doctor);
                 $("#txt_test_type").val(obj.test_type);
                 $("#txt_operation_room").val(obj.operation_room);

@@ -64,9 +64,13 @@ class Report extends MY_Controller {
         }
 
         $doctor = $this->security->xss_clean($this->input->post('doctor'));
+        
         $start_date = $this->security->xss_clean($this->input->post('start_date'));
         $end_date = $this->security->xss_clean($this->input->post('end_date'));
         
+        // if($doctor == "%"){
+        //     $doctor = "ทั้งหมด";
+        // }
         $this->data['doctor'] = $doctor;
         $this->data['doctors'] = $doctors;
         $this->data['doctor_colors'] = $doctor_colors;
@@ -88,5 +92,47 @@ class Report extends MY_Controller {
         $this->loadViewWithScript(array('report/report_by_doctor_view'), array('report/report_by_doctor_script'));      
     }
 
-    
+    function reportByDoctorExcel(){
+        
+
+        $doctors = unserialize (DOCTORS);
+        $tmp_doctor_colors  = unserialize (DOCTOR_COLORS);
+        foreach($doctors as $index => $doctor){
+            $doctor_colors[$doctor] = $tmp_doctor_colors[$index];
+        }
+
+        $operation_rooms = unserialize (OPERATION_ROOMS);
+        $tmp_operation_room_colors  = unserialize (OPERATION_ROOM_COLORS);
+        foreach($operation_rooms as $index => $operation_room){
+            $operation_room_colors[$operation_room] = $tmp_operation_room_colors[$index];
+        }
+
+        $doctor = $this->security->xss_clean($this->input->post('doctor'));
+        
+        $start_date = $this->security->xss_clean($this->input->post('start_date'));
+        $end_date = $this->security->xss_clean($this->input->post('end_date'));
+        
+        // if($doctor == "%"){
+        //     $doctor = "ทั้งหมด";
+        // }
+        $this->data['doctor'] = $doctor;
+        $this->data['doctors'] = $doctors;
+        $this->data['doctor_colors'] = $doctor_colors;
+        $this->data['operation_rooms'] = $operation_rooms;
+        $this->data['operation_room_colors'] = $operation_room_colors;
+        $this->data['start_date'] = $start_date;
+        $this->data['end_date'] = $end_date;
+
+        $this->data['error'] = $this->db->error(); 
+        $this->data['bookings'] = $this->Report->reportByDoctor();
+
+        $this->data['file_name'] = "report_" . $start_date . "_to_" . $end_date;
+        $this->data['head_title'] = "รายงานแยกตามแพทย์";
+        $this->loadData();
+        // $this->load->view('common/header_excel',$this->data);
+        $this->load->view('report/report_by_doctor_excel',$this->data);
+        // $this->load->view('report/report_test',$this->data);
+
+    }
+
 }

@@ -99,7 +99,6 @@ define ("SYMTOMS", serialize (array ("DM", "HT", "DLP", "CAD", "DCM", "Stroke", 
 define ("ACTIVE_USERS", serialize (array ("61018", "59007", "63027", "60025", "60054", "60055","64023")));
 define ("PRIORITY_USERS", serialize (array ("61018", "59007")));
 
-define ("PRIORITY_USERS", serialize (array ("61018", "59007")));
 define ("TIME_PERIOD", serialize (array ("8.00-16.00", "16.00-20.00","18.00-20.00", "20.00-08.00")));
 define ("JOB_BY_TIME_PERIOD", serialize (array (
                                             array("นัดหมาย/ประสานงาน", "ธุรการ/งานแม่บ้าน"), // "8.00-16.00",

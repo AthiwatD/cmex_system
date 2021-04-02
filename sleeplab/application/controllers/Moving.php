@@ -77,7 +77,15 @@ class Moving extends MY_Controller {
 
     function updateMovingDo(){
         $result = $this->Moving->updateMoving();
-        $this->moving();
+        
+        $this->data['error'] = $this->db->error(); 
+        
+        $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
+        $this->breadcrumb->add('ย้ายรายการนัดหมาย',   base_url().'Moving/moving');      
+        $this->data['breadcrumb'] = $this->breadcrumb->output();
+
+        $this->data['head_title'] = "ย้ายรายการนัดหมาย";
+        $this->loadViewWithScript(array('moving/moving_success_view'), array());      
     }
 
 

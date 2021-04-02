@@ -34,9 +34,9 @@
 
     ?>
 
-        autocomplete(document.getElementById("txt_doctor"), doctors);
-        autocomplete(document.getElementById("txt_test_type"), test_types);
-        autocomplete(document.getElementById("txt_operation_room"), operation_rooms);
+        // autocomplete(document.getElementById("txt_doctor"), doctors);
+        // autocomplete(document.getElementById("txt_test_type"), test_types);
+        // autocomplete(document.getElementById("txt_operation_room"), operation_rooms);
         autocomplete(document.getElementById("txt_appointment_from"), appointment_froms);
         autocomplete(document.getElementById("txt_channel"), channels);
 
@@ -78,9 +78,9 @@
           $("#txt_booking_id").val("<?php echo $searching->booking_id; ?>");
           $("#txt_receiving_date").val("<?php echo $searching->receiving_date; ?>");
           $("#txt_booking_date").val("<?php echo $searching->booking_date; ?>");
-          $("#txt_doctor").val("<?php echo $searching->doctor; ?>");
-          $("#txt_test_type").val("<?php echo $searching->test_type; ?>");
-          $("#txt_operation_room").val("<?php echo $searching->operation_room; ?>");
+          $("#sel_doctor").val("<?php echo $searching->doctor; ?>");
+          $("#sel_test_type").val("<?php echo $searching->test_type; ?>");
+          $("#sel_operation_room").val("<?php echo $searching->operation_room; ?>");
           $("#txt_appointment_from").val("<?php echo $searching->appointment_from; ?>");
           $("#txt_channel").val("<?php echo $searching->channel; ?>");
           $("#txt_note").val("<?php echo $searching->note; ?>");
@@ -164,9 +164,9 @@
         $("#txt_booking_id").val("");
         $("#txt_receiving_date").val("");
         $("#txt_booking_date").val("");
-        $("#txt_doctor").val("");
-        $("#txt_test_type").val("");
-        $("#txt_operation_room").val("");
+        $("#sel_doctor").val("");
+        $("#sel_test_type").val("");
+        $("#sel_operation_room").val("");
         $("#txt_appointment_from").val("");
         $("#txt_channel").val("");
         $("#txt_note").val("");
@@ -199,9 +199,9 @@
                 $("#txt_receiving_date").val(obj.receiving_date);
                 $("#txt_booking_id").val(obj.booking_id);
                 $("#txt_booking_date").val(obj.booking_date);
-                $("#txt_doctor").val(obj.doctor);
-                $("#txt_test_type").val(obj.test_type);
-                $("#txt_operation_room").val(obj.operation_room);
+                $("#sel_doctor").val(obj.doctor);
+                $("#sel_test_type").val(obj.test_type);
+                $("#sel_operation_room").val(obj.operation_room);
                 $("#txt_appointment_from").val(obj.appointment_from);
                 $("#txt_channel").val(obj.channel);
                 $("#txt_note").val(obj.note);
@@ -236,7 +236,7 @@
               // $("#txt_closing_id").val(obj.booking_id);
               // $("#txt_closing_id_2").val(obj.booking_id);
               $("#txt_booking_date").val(obj.booking_date);
-              $("#txt_operation_room").val(obj.operation_room);
+              $("#sel_operation_room").val(obj.operation_room);
               $("#txt_note").val(obj.note);
           },
           error: function (xhr, textStatus, errorThrown) {

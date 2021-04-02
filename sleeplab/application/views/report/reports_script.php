@@ -23,7 +23,7 @@
 
     ?>
 
-        autocomplete(document.getElementById("txt_report_by_doctor_doctor"), doctors);
+        // autocomplete(document.getElementById("txt_report_by_doctor_doctor"), doctors);
         // autocomplete(document.getElementById("txt_test_type"), test_types);
         // autocomplete(document.getElementById("txt_operation_room"), operation_rooms);
         // autocomplete(document.getElementById("txt_appointment_from"), appointment_froms);
