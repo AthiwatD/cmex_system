@@ -144,6 +144,7 @@
                 }
             }
         }
+        
         $result = $this->Meeting->addMeeting($final_files_data);
         
         if(!$result){
