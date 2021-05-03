@@ -1,7 +1,6 @@
-.td_data_center{
-    text-align: center;
-    
-}
+
+/*[ton][19/04/2564][start std css]*/
+.td_data_center{ text-align: center; }
 
 .btn_item_delete {
     width: 24px;
@@ -12,10 +11,7 @@
 
 .combo { position: relative; }
 .combo .trigger { position: absolute; right: 5px; top: 7px }
-
-.div_item{
-    margin-bottom: 10px;
-}
+.div_item{ margin-bottom: 10px; }
 
 .div_choice{
     border-style: ridge;
@@ -34,15 +30,12 @@
 }
 
 canvas .chart_guage{
--moz-user-select: none;
--webkit-user-select: none;
--ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
-/*[ton][05/04/2564][add constants]*/
-.autocomplete .width100p{
-    width:100%;
-}
+.autocomplete .width100p{ width:100%; } /*[ton][05/04/2564][add constants]*/
 
 div .add_publish_dt{
     text-align: right;
@@ -52,4 +45,86 @@ div .add_publish_dt{
 p .publishDtError{
     font-weight: bold;
     font-size:16px;
+}
+/*[ton][19/04/2564][end std css]*/
+
+p .publish_hd_status{
+    color:green;
+    margin-top:8px;
+}
+
+table {
+    width: 100%;
+    /*table-layout: fixed;*/ /*[ton][23/04/2564][comment fixed out > fix case size table media screen 1600 and 1920]*/
+}
+
+
+/*[ton][03/05/2564][add css form view detail]*/
+@media (min-width: 768px) {
+    div.view_detail {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    div.view_detail {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    div.view_detail {
+        width: 1200px;
+    }
+}
+
+@media (min-width: 768px) {
+    div.form_recruit {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    div.form_recruit {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    div.form_recruit {
+        width: 1200px;
+    }
+}
+
+.form-check-input{
+    width:20px !important;
+    height:20px !important;
+}
+
+.m_t5_l10{
+    margin:5px 0 0 10px;
+}
+
+.text-al-l{
+    text-align:left;
+}
+
+.text-al-r{
+    text-align:right;
+}
+
+.text-al-c{
+    text-align:center;
+}
+
+.ml5{
+    margin-left:5px;
+}
+
+.pl50_pr50{
+    padding:0 50px 0 50px;
+}
+
+.pl30_pr30{
+    padding:0 30px 0 30px;
 }

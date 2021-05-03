@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>ระบบรับรองเอกสารการประชุม | Log in</title>
+  <title>ระบบประกาศรับสมัครงาน | Log in</title>
+
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
@@ -21,12 +22,13 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <b>ระบบรับรองเอกสารการประชุม</b> Log in
+    <b>ระบบประกาศรับสมัครงาน</b>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">ลงทะเบียนเข้าใช้บริการ</p>
+      <!-- <p class="login-box-msg">ลงทะเบียนเข้าใช้บริการ</p> -->
+      <p class="login-box-msg"></p>
 
       <form role="form" method="POST" action="<?php echo base_url(); ?>Login/process">
         <input type="hidden" name="user_link" value="<?php echo $user_link; ?>">
@@ -35,7 +37,6 @@
           <div class="input-group-append">
             <div class="input-group-text">
             <ion-icon name="person-circle-outline"></ion-icon>
-
               <span class="fas fa-user"></span>
             </div>
           </div>

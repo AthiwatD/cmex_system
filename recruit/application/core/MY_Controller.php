@@ -2,12 +2,10 @@
 
 class MY_Controller extends CI_Controller {
 
-    function __construct()
-    {
+    function __construct(){
         parent::__construct();
         //$GLOBALS['user_link'] = $_SERVER['HTTP_REFERER'];
         //Initialization code that affects all controllers
-        
         $this->load->library('session');
         $this->load->helper('cookie');
         $this->load->helper('url');
@@ -16,13 +14,25 @@ class MY_Controller extends CI_Controller {
         $cookie_value = current_url();
         setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
 
-        if($this->check_isvalidated()){
+        if($this->check_isvalidated()){        // [Back Recruit]
             $this->load->library('user_agent');
             $this->load->library('Breadcrumb');
             $this->load->helper('form');
             $this->load->helper('../../common/helpers/thai_date');
             $this->load->helper('../../common/helpers/remote_file_exists');
+            $this->load->helper('../../common/helpers/money_format');         // [ton][22/04/2564][add helper of project recruit]
+            $this->data['system']="backend";
+        }else if(!$this->check_isvalidated()){ // [ton][24/04/2564][add control Frontend Recruit]
+            $this->load->model('Recruit_model','RecruitModel');
+            $this->load->library('user_agent');
+            $this->load->library('Breadcrumb');
+            $this->load->helper('form');
+            $this->load->helper('../../common/helpers/thai_date');
+            $this->load->helper('../../common/helpers/remote_file_exists');
+            $this->load->helper('../../common/helpers/money_format');
+            $this->data['system']="frontend";
         }
+
     }
 
     protected function loadData(){
@@ -30,6 +40,7 @@ class MY_Controller extends CI_Controller {
         $this->data['session_name'] = $this->session->name;
         $this->data['session_position_name'] = $this->session->position_name;
         $this->data['validated'] = $this->session->validated;
+        // $this->data['session_numot']=$this->session->NUM_OT;
     }
     
     protected function loadView($body_views){
@@ -59,14 +70,28 @@ class MY_Controller extends CI_Controller {
         $this->load->view('common/end',$this->data);
     }
 
+    // [ton][24/04/2564][Add function front_loadViewWithScript()][Frontend Recruit]
+    protected function front_loadViewWithScript($body_views,$body_scripts){
+        $this->load->view('common/header', $this->data);
+        $this->load->view('common/main_head', $this->data);
+        foreach($body_views as $body_view){
+            $this->load->view($body_view, $this->data);
+        }
+
+        $this->load->view('common/footer',$this->data);
+        foreach($body_scripts as $body_script){
+            $this->load->view($body_script, $this->data);
+        }
+
+        $this->load->view('common/end',$this->data);
+    }
+
     protected function check_isvalidated(){
-        if((!isset($this->session->validated)) || (!$this->session->validated)){
-            
-            redirect( base_url() . 'Login/'); // Login is CI_Controller that can redirect
+        if((!isset($this->session->validated)) || (!$this->session->validated)){    // Login is CI_Controller that can redirect
+            // redirect( base_url() . 'Login/');                                    // [ton][24/04/2564][commnet out for add frontend]
             // header("location: " .  base_url() . 'Login/');
             return false;
-        }else{
-            // Home is MY_Controller will redirect loop back itself don't do it here
+        }else{                                                                      // Home is MY_Controller will redirect loop back itself don't do it here
             return true;
         }
     }

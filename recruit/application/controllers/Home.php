@@ -5,23 +5,28 @@
 
         public function __construct(){
             parent::__construct();
-            // $this->load->model('Recruit_model','Recruit');
+            $this->load->model('Recruit_model','RecruitModel');
         }
         
         function index(){
-            $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');     
+            if($this->check_isvalidated()) $this->breadcrumb->add('หน้าหลัก', base_url());
+            if($this->check_isvalidated()) $this->breadcrumb->add('ประกาศรับสมัคร',   base_url().'Recruit/recruits');
+            
+            $this->data['method']="view";
             $this->data['breadcrumb'] = $this->breadcrumb->output();
-            $this->data['head_title'] = "ตำแหน่งที่เปิดรับสมัครงาน";
+            $this->data['recruits']=$this->RecruitModel->getRecruitHds();
+            $this->data['head_title'] = "ประกาศรับสมัคร";
+
             $this->loadData();
-            $this->loadViewWithScript(array('recruit/recruit_views'),array());
-            // $this->loadViewWithScript(array('recruit/recruit_form_view'),array());
-            // $this->loadViewWithScript(array('home_view'), array());
+            if($this->check_isvalidated()) $this->loadViewWithScript(array('recruit/recruits_view'),array());
+            else if(!$this->check_isvalidated()) $this->front_loadViewWithScript(array('recruit/recruits_view'),array());
         }
 
 
         public function do_logout(){
             $this->session->sess_destroy();
-            redirect('/Home');
+            $url=base_url(); //[ton][24/04/2564][create and use $url]
+            redirect($url);
             // header("location:" .  base_url() . 'Home/');
         }
         

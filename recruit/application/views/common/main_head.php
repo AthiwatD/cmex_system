@@ -1,13 +1,23 @@
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+<div class="content-wrapper" <?php if($system=="frontend") echo "style='margin-left:0px !important'"; ?> >
+  <?php //echo "system : ".$system; ?>
+  <?php //echo "method : ".$method; ?>
+    <!--  Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
-        <div class="row mb-2">
+        <div class="row mb-2"><br><br>
           <div class="col-12">
-            <h1 class="m-0 text-dark"><?php echo $head_title; ?></h1>
-          </div><!-- /.col -->
-          <br><br>
+            <div class="row">
+              <div class="col-6"><h1 class="m-0 text-dark"><?php echo $head_title; ?></h1></div>
+              <div class="col-6" style="text-align: right;">
+                <?php if($system=="frontend"){ ?>
+                  <?php if($method=="view"){ ?>
+                  <a href="<?php echo base_url(); ?>Login"> <span class="badge badge-pill badge-info"><i class="nav-icon fas fa-user"></i> Login</span></a>
+                  <!-- <button type="button" class="btn btn-primary btn-sm"><i class="nav-icon fas fa-user"></i> Login</button> -->
+                <?php }} ?>
+              </div>
+            </div>
+          </div><br><br><!-- /.col -->
           <div class="col-12">
             <?php echo $breadcrumb; ?>
             <!--<ol class="breadcrumb float-sm-right">

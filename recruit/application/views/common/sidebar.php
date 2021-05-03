@@ -4,7 +4,7 @@
     <a href="<?php echo base_url(); ?>" class="brand-link">
       <img src="<?php echo base_url(); ?>../common/assets/images/logo_cmex.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light" style="font-size: 16px;">ระบบประกาศรับสมัครงาน</span>
+      <span class="brand-text font-weight-light" style="font-size: 16px;">ระบบประกาศรับสมัคร</span>
     </a>
 
     <!-- Sidebar -->
@@ -14,12 +14,9 @@
         <div class="image" style="padding-left: 0px;">
           <?php
             $img_file_path = base_url() . '../common/assets/images/person_img.png';
-          
             if (remote_file_exists('http://excellent.med.cmu.ac.th/employee/images/person/'.$session_username.'.png')) {
               $img_file_path = 'http://excellent.med.cmu.ac.th/employee/images/person/'.$session_username.'.png';
             }
-            
-            
           ?>
           <img src="<?php echo $img_file_path; ?>" class="img-circle elevation-2" alt="User Image" style="margin-top: 10px;">
         </div>
@@ -30,7 +27,6 @@
               <?php echo $session_position_name; ?>
             </span>
           </a>
-
         </div>
       </div>
 
@@ -41,7 +37,7 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
             <a href="<?php echo base_url(); ?>Home" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-globe"></i>
               <p>
                 <!-- Home -->
                 หน้าแรก
@@ -51,9 +47,9 @@
 
           <li class="nav-item has-treeview">
             <a href="<?php echo base_url(); ?>" class="nav-link">
-            <i class="nav-icon fas fa-users"></i>
+            <i class="nav-icon fas fa-sticky-note"></i>
               <p>
-                ประกาศรับสมัครงาน
+                ประกาศรับสมัคร
               </p>
             </a>
           </li>
@@ -61,7 +57,7 @@
         
           <li class="nav-item has-treeview">
             <a href="<?php echo base_url(); ?>Home/do_logout" class="nav-link">
-            <i class="nav-icon fas fa-users"></i>
+            <i class="nav-icon fas fa-power-off"></i>
               <p>
                 ออกจากระบบ
               </p>

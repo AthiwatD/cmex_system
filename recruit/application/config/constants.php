@@ -89,4 +89,5 @@ define ("AUTHENTICATIONS", serialize (array ("ไม่มี", "token before", 
 define ("SATISFY_CATEGORIES", serialize (array ("ไม่มี", "N", "NDetail", "P", "PDetail", "Doctor", "Nurse", "all", "return"))); 
 define ("CATEGORIES", serialize (array ("ไม่มี", "สิ่งแวดล้อมในการบริการ", "พฤติกรรมบริการ", "ระบบบริการ", "ภาพรวม")));
 
-define ("PUBLISH_STATUSES", serialize (array ("ผลการสอบคัดเลือก","ผลการสอบข้อเขียน","ผลการสอบปฏิบัติ","ผลการสอบสอบสัมภาษณ์","เลื่อนประกาศผลการสอบคัดเลือกเป็น ","เลื่อนประกาศรายชื่อผู้มีสิทธิสอบคัดเลือกเป็น "))); // [ton][05/04/2564][add constants publish status]
+// [ton][05/04/2564][add constants publish status]
+define ("PUBLISH_STATUSES", serialize (array ("ผลการสอบคัดเลือก","ผลการสอบข้อเขียน","ผลการสอบปฏิบัติ","ผลการสอบสอบสัมภาษณ์","เลื่อนประกาศผลการสอบคัดเลือกเป็น วันที่ ","เลื่อนประกาศรายชื่อผู้มีสิทธิสอบคัดเลือกเป็น วันที่ "))); 

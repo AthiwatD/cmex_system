@@ -214,3 +214,34 @@ function convert_to_two_digit($month){
     }
     return $month;
 }
+
+// [ton][20/04/2564][add function convert date]
+function convert_std_format_datetime($datetime){
+    $exp=explode(" ",$datetime);
+    $expl=explode("-",$exp[0]);
+    return $expl[0]."-".$expl[1]."-".$expl[2]." ".date("H:i", strtotime($exp[1]));
+}
+
+function convert_std_format_thai_datetime_one($datetime){
+    $exp=explode(" ",$datetime);
+    $expl=explode("-",$exp[0]);
+    return (doubleval($expl[0]) + 543)."-".$expl[1]."-".$expl[2]." ".date("H:i", strtotime($exp[1]));
+}
+
+function convert_std_format_thai_datetime_two($datetime){
+    $exp=explode(" ",$datetime);
+    $expl=explode("-",$exp[0]);
+    return $expl[2]."/".$expl[1]."/".(doubleval($expl[0]) + 543)." ".date("H:i", strtotime($exp[1]));
+}
+
+function convert_std_format_thai_datetime_frontend_one($datetime){
+    $exp=explode(" ",$datetime);
+    $expl=explode("-",$exp[0]);
+    return $expl[2]."/".$expl[1]."/".(doubleval($expl[0]) + 543);
+}
+
+function convert_std_format_thai_datetime_frontend_two($datetime){
+    $exp=explode(" ",$datetime);
+    $expl=explode("-",$exp[0]);
+    return (doubleval($expl[0]) + 543)."-".$expl[1]."-".$expl[2];
+}
