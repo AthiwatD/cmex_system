@@ -242,8 +242,16 @@ class Booking_model extends CI_Model {
 
     function deletePatientBooking(){
         $patient_id = $this->security->xss_clean($this->input->post('patient_id'));
+
+		$username = $this->session->username;
+        date_default_timezone_set('Asia/Bangkok');
+        $update_time = date("Y-m-d h:i:s");
+
         $data = array(
+			'update_by' => $username,
+			'update_time' => $update_time,
             'deleted' => 1,
+			
         );
         $this->db->where('patient_id', $patient_id);
         $result = $this->db->update('sdc_booking', $data);
@@ -253,4 +261,28 @@ class Booking_model extends CI_Model {
         // $result = $this->db->delete("sdc_booking");
         return $result;
     }
+
+	function deleteOldAvailableBooking(){
+		$username = $this->session->username;
+		date_default_timezone_set('Asia/Bangkok');
+		$update_time = date("Y-m-d h:i:s");
+
+		$data = array(
+			'update_by' => $username,
+			'update_time' => $update_time,
+			'deleted' => 1,
+		);
+		$condition = array(
+			'receiving_date' => '0000-00-00',
+			'operation_room' => 'A',
+			'booking_date <' => date("Y-m-d")
+		);
+		$this->db->where($condition);
+		$result = $this->db->update('sdc_booking', $data);
+
+		$this->db->where($condition);
+		$result = $this->db->update('sdc_patient', $data);
+		// $result = $this->db->delete("sdc_booking");
+		return $result;
+	}
 }

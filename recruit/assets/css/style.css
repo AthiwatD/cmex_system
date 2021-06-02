@@ -1,0 +1,59 @@
+
+/*[ton][19/04/2564][start std css]*/
+.td_data_center{ text-align: center; }
+
+.btn_item_delete {
+    width: 24px;
+    height: 24px;
+    opacity: 1;
+    z-index: 100;
+}
+
+.combo { position: relative; }
+.combo .trigger { position: absolute; right: 5px; top: 7px }
+.div_item{ margin-bottom: 10px; }
+
+.div_choice{
+    border-style: ridge;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.btn_choice_delete {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    opacity: 1;
+    z-index: 100;
+    right: -12px;
+    top: -12px;
+}
+
+canvas .chart_guage{
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.autocomplete .width100p{ width:100%; } /*[ton][05/04/2564][add constants]*/
+
+div .add_publish_dt{
+    text-align: right;
+    padding-bottom:5px;
+}
+
+p .publishDtError{
+    font-weight: bold;
+    font-size:16px;
+}
+/*[ton][19/04/2564][end std css]*/
+
+p .publish_hd_status{
+    color:green;
+    margin-top:8px;
+}
+
+table {
+    width: 100%;
+    /*table-layout: fixed;*/ /*[ton][23/04/2564][comment fixed out > fix case size table media screen 1600 and 1920]*/
+}

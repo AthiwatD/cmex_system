@@ -116,6 +116,7 @@
 
     function getBookingService(booking_id){
         points = JSON.stringify(booking_id);
+				console.log(booking_id + " " + points);
         $.ajax({
             // url:'http://hosweb.med.cmu.ac.th/gateway/fu/move/clinic',
             url:'<?php echo base_url(); ?>Booking/getBookingService/' + booking_id,

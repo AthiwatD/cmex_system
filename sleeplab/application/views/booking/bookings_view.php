@@ -195,6 +195,12 @@
           <!-- /.col -->
         </div>
         <!-- /.row -->
+		<div class="form-group">
+			<a href="<?php echo base_url(); ?>Booking/deleteOldAvailableBookingDo">
+				<button type="button" class="btn btn-warning" onclick='return confirm("คุณต้องการลบ Available ย้อนหลัง ใช่ หรือ ไม่")'>ลบ Available ย้อนหลัง</button>
+			</a>
+		</div>
+		
         <div class="row">
             <div class="col-12">
                 <h4>คนไข้ที่ยังไม่ได้นัดนอนโรงพยาบาล</h4>
