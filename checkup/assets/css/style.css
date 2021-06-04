@@ -45,3 +45,46 @@ table {
     width: 100%;
     table-layout: fixed;
   }
+
+  /*input[type=checkbox]*/
+
+.big-checkbox {
+    /* Double-sized Checkboxes */
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    border: 1px solid #1e5180;
+}
+
+.big-checkbox-label {
+    margin-left: 50px;
+    padding-top: 10px;
+}
+
+.div-checkbox {
+    margin-bottom: 10px;
+}
+
+.sidenav{
+    width: 400px;
+}
+
+.show_block{
+    display: block;
+}
+
+.show_none{
+    display: none;
+}
+
+/* Textarea Full width */
+.full-width
+{
+  width:100%;
+}
+.textarea-wrapper
+{
+  border:0px solid #999999;
+  margin:5px 0;
+  padding:3px;
+}
