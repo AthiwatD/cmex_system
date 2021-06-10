@@ -5,7 +5,7 @@
                     <a class="nav-link active" id="custom-tabs-four-history-tab" data-toggle="pill" href="#custom-tabs-four-history" role="tab" aria-controls="custom-tabs-four-history" aria-selected="false">ประวัติสุขภาพ</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" id="custom-tabs-four-exam-tab" data-toggle="pill" href="#custom-tabs-four-exam" role="tab" aria-controls="custom-tabs-four-exam" aria-selected="false">การตรวจร่างกาย</a>
+                    <a class="nav-link" id="custom-tabs-four-exam-tab" data-toggle="pill" href="#custom-tabs-four-exam" role="tab" aria-controls="custom-tabs-four-exam" aria-selected="false">การตรวจสัญญาณชีพ</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" id="custom-tabs-four-exam_result-tab" data-toggle="pill" href="#custom-tabs-four-exam_result" role="tab" aria-controls="custom-tabs-four-exam_result" aria-selected="false">ผลการตรวจร่างกาย</a>

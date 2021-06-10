@@ -2,60 +2,87 @@
 	<div class="card card-body row col-12" style="margin-left:0px; margin-right: 0px;">
 		<h3 style="margin-top: 10px">การตรวจสัญญาณชีพ (Vital signs)</h3>
 		<div class="mt-4">
-			
-			<div class="form-group form-inline">
-				<label class="from-control-label form-check-label big-checkbox-label" >น้ำหนัก (กิโลกรัม)
-					<input type="number" class="form-control input_data" id="exam_weight" 
-					value="" alt="น้ำหนัก (กิโลกรัม)">
-				</label>
-			</div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th width="30%">รายการ</th>
+						<th width="70%">ระบุ</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- 1 -->
+					<tr>
+						<td style="vertical-align: middle; border-top: 0px solid #dee2e6;">
+							น้ำหนัก (กิโลกรัม)
+						</td>
+						<td style=" vertical-align: middle; border-top: 0px solid #dee2e6;">
+							<input type="number" class="form-control input_data" id="exam_1" alt="น้ำหนัก (กิโลกรัม)">
+						</td>
+					</tr>
 
-			<div class="form-group form-inline">
-				<label class="from-control-label form-check-label big-checkbox-label" >ส่วนสูง (เซนติเมตร)
-					<input type="number" class="form-control input_data" id="exam_weight" 
-					value="" alt="ส่วนสูง (เซนติเมตร)">
-				</label>
-			</div>
+					<!-- 2 -->
+					<tr>
+						<td style="vertical-align: middle; border-top: 0px solid #dee2e6;">
+							ส่วนสูง (เซนติเมตร)
+						</td>
+						<td style="vertical-align: middle; border-top: 0px solid #dee2e6;">
+							<input type="number" class="form-control input_data" id="exam_2" alt="ส่วนสูง (เซนติเมตร)">
+						</td>
+					</tr>
 
-			<div class="form-group form-inline">
-				<label class="from-control-label form-check-label big-checkbox-label" >ดัชนีมวลกาย (BMI)
-					<input type="number" class="form-control input_data" id="exam_weight" 
-					value="" alt="ดัชนีมวลกาย (BMI)">
-				</label>
-			
-				<label class="from-control-label form-check-label big-checkbox-label" >อยู่ในเกณฑ์
-					<input type="text" class="form-control input_data" id="exam_weight" 
-					value="" alt="อยู่ในเกณฑ์">
-				</label>
-			</div>
+					<!-- 3 -->
+					<tr>
+						<td style="vertical-align: middle; border-top: 0px solid #dee2e6;">
+							ความดันโลหิต (มิลลิเมตร/ปรอท) : บน
+						</td>
+						<td style="vertical-align: middle; border-top: 0px solid #dee2e6;">
+							<input type="number" class="form-control input_data" id="exam_3" alt="ความดันโลหิต (มิลลิเมตร/ปรอท) : บน">
+						</td>
+					</tr>
 
-			<div class="form-group form-inline">
-				<label class="from-control-label form-check-label big-checkbox-label" >ความดันโลหิต (มิลลิเมตร/ปรอท)
-					<input type="number" class="form-control input_data" id="exam_weight" 
-					value="" alt="ความดันโลหิต (มิลลิเมตร/ปรอท)">
-				</label>
-			</div>
+					<!-- 4 -->
+					<tr>
+						<td style="vertical-align: middle; border-top: 0px solid #dee2e6;">
+							ความดันโลหิต (มิลลิเมตร/ปรอท) : ล่าง
+						</td>
+						<td style="vertical-align: middle; border-top: 0px solid #dee2e6;">
+							<input type="number" class="form-control input_data" id="exam_4" alt="ความดันโลหิต (มิลลิเมตร/ปรอท) : ล่าง">
+						</td>
+					</tr>
 
-			<div class="form-group form-inline">
-				<label class="from-control-label form-check-label big-checkbox-label" >ชีพจร (ครั้ง/นาที)
-					<input type="number" class="form-control input_data" id="exam_weight" 
-					value="" alt="ชีพจร (ครั้ง/นาที)">
-				</label>
-			</div>
+					<!-- 5 -->
+					<tr>
+						<td style="vertical-align: middle; border-top: 0px solid #dee2e6;">
+							ชีพจร (ครั้ง/นาที)
+						</td>
+						<td style="vertical-align: middle; border-top: 0px solid #dee2e6;">
+							<input type="number" class="form-control input_data" id="exam_5" alt="ชีพจร (ครั้ง/นาที)">
+						</td>
+					</tr>
 
-			<div class="form-group form-inline">
-				<label class="from-control-label form-check-label big-checkbox-label" >อัตราการหายใจ (ครั้ง/นาที)
-					<input type="number" class="form-control input_data" id="exam_weight" 
-					value="" alt="อัตราการหายใจ (ครั้ง/นาที)">
-				</label>
-			</div>
+					<!-- 6 -->
+					<tr>
+						<td style="vertical-align: middle; border-top: 0px solid #dee2e6;">
+							อัตราการหายใจ (ครั้ง/นาที)
+						</td>
+						<td style="vertical-align: middle; border-top: 0px solid #dee2e6;">
+							<input type="number" class="form-control input_data" id="exam_6" alt="อัตราการหายใจ (ครั้ง/นาที)">
+						</td>
+					</tr>
 
-			<div class="form-group form-inline">
-				<label class="from-control-label form-check-label big-checkbox-label" >อุณหภูมิ (องศาเซลเซียส)
-					<input type="number" class="form-control input_data" id="exam_weight" 
-					value="" alt="อุณหภูมิ (องศาเซลเซียส)">
-				</label>
-			</div>
+					<!-- 7 -->
+					<tr>
+						<td style="vertical-align: middle; border-top: 0px solid #dee2e6;">
+							อุณหภูมิ (องศาเซลเซียส)
+						</td>
+						<td style="vertical-align: middle; border-top: 0px solid #dee2e6;">
+							<input type="number" class="form-control input_data" id="exam_7" alt="อุณหภูมิ (องศาเซลเซียส)">
+						</td>
+					</tr>
+
+				</tbody>
+			</table>
+
 		</div>
 
 		<div class="mt-4">

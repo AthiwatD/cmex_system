@@ -52,12 +52,12 @@ table {
     /* Double-sized Checkboxes */
     width: 30px;
     height: 30px;
-    margin-left: 10px;
+    margin-left: 0px;
     border: 1px solid #1e5180;
 }
 
 .big-checkbox-label {
-    margin-left: 50px;
+    margin-left: 0px;
     padding-top: 10px;
 }
 
