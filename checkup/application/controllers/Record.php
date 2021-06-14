@@ -9,6 +9,8 @@
 
         $this->load->helper('../../common/helpers/thai_date');
         // $this->load->model('Record_model','Record');
+
+		$this->load->model('Lab_model','Lab');
         $this->load->model('File_model','File');
 
         $config['upload_path']   = './uploads/'; 
@@ -25,6 +27,7 @@
     function records($checkup_id){
 
 		$this->data['checkup_id'] = $checkup_id;
+		$this->data['labs'] = $this->Lab->getLabs();
 		// $records = $this->Record->getRecords($checkup_id);
 		// $this->data['records'] = $records;
 		// $this->data['med_historys'] = json_decode($records->medical_history);
@@ -127,26 +130,11 @@
         $this->loadViewWithScript(array('record/record_form_view'), array('record/record_form_script'));      
 
     }
-    
-    function updateRecordDo(){
-        $result = $this->Record->updateRecord();
-        if(!$result){
-            $this->records(); 
-        }else{
-            $this->records(); 
-        }
-    }
 
-    function deleteRecordDo($record_id){
-        
-        $result = $this->Record->deleteRecord($record_id);
-        
-        if(!$result){
-            $this->records(); 
-        }else{
-            $this->records(); 
-        }
-    }
 
+	function serviceGetLabMeaning($lab_id, $value){
+		$lab_meaning = $this->Lab->getLabMeaning($lab_id, $value);
+		echo json_encode($lab_meaning);
+	}
  }
  ?>

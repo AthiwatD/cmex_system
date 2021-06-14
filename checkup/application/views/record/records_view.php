@@ -7,6 +7,9 @@
                   <li class="nav-item">
                     <a class="nav-link" id="custom-tabs-four-exam-tab" data-toggle="pill" href="#custom-tabs-four-exam" role="tab" aria-controls="custom-tabs-four-exam" aria-selected="false">การตรวจสัญญาณชีพ</a>
                   </li>
+									<li class="nav-item">
+                    <a class="nav-link" id="custom-tabs-four-input_lab-tab" data-toggle="pill" href="#custom-tabs-four-input_lab" role="tab" aria-controls="custom-tabs-four-input_lab" aria-selected="false">กรอกผล Labs</a>
+                  </li>
                   <li class="nav-item">
                     <a class="nav-link" id="custom-tabs-four-exam_result-tab" data-toggle="pill" href="#custom-tabs-four-exam_result" role="tab" aria-controls="custom-tabs-four-exam_result" aria-selected="false">ผลการตรวจร่างกาย</a>
                   </li>
@@ -29,6 +32,7 @@
 									<?php
 										include "history_tab_view.php";
 										include "exam_tab_view.php";
+										include "input_lab_tab_view.php";
 										include "exam_result_tab_view.php";
 										include "exam_lab_tab_view.php";
 										include "exam_xray_tab_view.php";
