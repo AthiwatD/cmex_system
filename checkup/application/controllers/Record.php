@@ -42,7 +42,7 @@
 
         $this->data['head_title'] = "ประวัติสุขภาพ";
         $this->loadData();
-        $this->loadViewWithScript(array('record/records_view'), array('record/records_script'));    
+        $this->loadViewWithScript(array('record/records_view'), array('record/records_script','common/record_script'));    
     }
 
 	
@@ -127,7 +127,7 @@
 
         $this->data['head_title'] = "แก้ไข การตรวจสุขภาพ";
         $this->loadData();
-        $this->loadViewWithScript(array('record/record_form_view'), array('record/record_form_script'));      
+        $this->loadViewWithScript(array('record/record_form_view'), array('record/record_form_script','common/record_script'));      
 
     }
 
@@ -136,5 +136,17 @@
 		$lab_meaning = $this->Lab->getLabMeaning($lab_id, $value);
 		echo json_encode($lab_meaning);
 	}
+
+	function serviceUpdateTab($checkup_id, $tab_id){
+		$data = $this->input->post();
+		// echo json_decode($data);
+		$data = json_decode($data);
+		$checkup_id = $data->checkup_id;
+		$tab_id = $data->tab_id;
+		$input_data = $data->data;
+		//$result = $this->Record->updateTab($checkup_id,$tab_id,$input_data);
+		echo json_encode($data);
+	}
+
  }
  ?>

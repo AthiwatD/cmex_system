@@ -1,7 +1,8 @@
-<div class="tab-pane fade active show" id="custom-tabs-four-history" role="tabpanel" aria-labelledby="custom-tabs-four-history-tab">
+<div class="tab-pane fade active show history_tab" id="history_tab" role="tabpanel" aria-labelledby="custom-tabs-four-history-tab">
 	<div class="card card-body row col-12" style="margin-left:0px; margin-right: 0px;">
 		<h3 style="margin-top: 10px">โรคประจำตัว (Current medical problem)</h3>
 		<div class="mt-4">
+			<!-- <input type="hidden" class="input_data" name="checkup_id" id="history_tab" value="<?php echo $checkup_id; ?>"> -->
 			<table class="table">
 				<thead>
 					<tr>
@@ -1158,7 +1159,7 @@
 
 		<div class="mt-4">
 			<div class="">
-				<button type="button" class="form-control btn btn-success">บันทึก</button>
+				<button type="button" class="form-control btn btn-success" onclick="save_tab_data('history_tab')">บันทึก</button>
 			</div>
 		</div>
 	</div>

@@ -72,6 +72,31 @@ class Record_model extends CI_Model {
         return $result;
     }
 
+	function updateTab($checkup_id,$tab_id,$input_data){
+		// $data = array(
+        //     'pid' => $pid,
+        //     'txn' => $txn,
+        //     'hn' => $hn,
+        //     'title_name' => $title_name,
+        //     'first_name' => $first_name,
+        //     'last_name' => $last_name,
+        //     'sex' => $sex,
+		// 	'birthdate' => $birthdate,
+        //     'age' => $age,
+        //     'tel' => $tel,
+        //     'address' => $address,
+        //     'zip_code' => $zip_code,
+        //     'allergic' => $allergic,
+        //     'package_id' => $package_id,
+		// 	'location_id' => $location_id,
+        //     'record_date' => $record_date,
+        //     'create_by' => $create_by,
+        //     'create_time' => $create_time,
+        //     'deleted' => 0,
+        // );
+	}
+
+
     function addRecord(){
         
 		$txn = $this->security->xss_clean($this->input->post('txn'));
