@@ -1,4 +1,4 @@
-<div class="tab-pane fade" id="custom-tabs-four-suggest" role="tabpanel" aria-labelledby="custom-tabs-four-suggest-tab">
+<div class="tab-pane fade" id="suggest_tab" role="tabpanel" aria-labelledby="custom-tabs-four-suggest-tab">
 	<div class="card card-body row col-12" style="margin-left:0px; margin-right: 0px;">
 		<h3 style="margin-top: 10px">คำแนะนำ</h3>
 		<div class="mt-4">
@@ -13,7 +13,7 @@
 
 		<div class="mt-4">
 			<div class="">
-				<button type="button" class="form-control btn btn-success">บันทึก</button>
+				<button type="button" class="form-control btn btn-success" onclick="save_tab_data('suggest_tab')">บันทึก</button>
 			</div>
 		</div>
 

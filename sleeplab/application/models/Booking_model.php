@@ -285,4 +285,33 @@ class Booking_model extends CI_Model {
 		// $result = $this->db->delete("sdc_booking");
 		return $result;
 	}
+
+	function deleteNoDataBooking(){
+		$username = $this->session->username;
+		date_default_timezone_set('Asia/Bangkok');
+		$update_time = date("Y-m-d h:i:s");
+
+		$data = array(
+			'update_by' => $username,
+			'update_time' => $update_time,
+			'deleted' => 1,
+		);
+		$condition = array(
+			'receiving_date' => '0000-00-00',
+			'booking_date' => '0000-00-00',
+		);
+		$this->db->where($condition);
+		$result = $this->db->update('sdc_booking', $data);
+
+		
+		$condition = array(
+			'fname' => '',
+			'lname' => '',
+			'hn' => '',
+		);
+		$this->db->where($condition);
+		$result = $this->db->update('sdc_patient', $data);
+		// $result = $this->db->delete("sdc_booking");
+		return $result;
+	}
 }

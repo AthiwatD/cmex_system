@@ -195,9 +195,12 @@
           <!-- /.col -->
         </div>
         <!-- /.row -->
-		<div class="form-group">
+		<div class="form-group form-inline">
 			<a href="<?php echo base_url(); ?>Booking/deleteOldAvailableBookingDo">
 				<button type="button" class="btn btn-warning" onclick='return confirm("คุณต้องการลบ Available ย้อนหลัง ใช่ หรือ ไม่")'>ลบ Available ย้อนหลัง</button>
+			</a>
+			<a href="<?php echo base_url(); ?>Booking/deleteNoDataBookingDo">
+				<button type="button" class="btn btn-info" onclick='return confirm("คุณต้องการลบรายการคนไข้ที่ไม่มีข้อมูล ใช่ หรือ ไม่")'>ลบ คนไข้ที่ไม่มีข้อมูล</button>
 			</a>
 		</div>
 		

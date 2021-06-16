@@ -8,7 +8,7 @@
         parent::__construct();
 
         $this->load->helper('../../common/helpers/thai_date');
-        // $this->load->model('Record_model','Record');
+        $this->load->model('Record_model','Record');
 
 		$this->load->model('Lab_model','Lab');
         $this->load->model('File_model','File');
@@ -28,15 +28,17 @@
 
 		$this->data['checkup_id'] = $checkup_id;
 		$this->data['labs'] = $this->Lab->getLabs();
-		// $records = $this->Record->getRecords($checkup_id);
-		// $this->data['records'] = $records;
-		// $this->data['med_historys'] = json_decode($records->medical_history);
-		// $this->data['examinations'] = json_decode($records->examination);
-		// $this->data['exam_results'] = json_decode($records->exam_result);
-		// $this->data['lab_results'] = json_decode($records->lab_results);
-		// $this->data['xray_results'] = json_decode($records->xray_results);
-		// $this->data['ekg_results'] = json_decode($records->ekg_results);
-		// $this->data['summary_results'] = json_decode($records->summary_results);
+		$records = $this->Record->getRecords($checkup_id);
+		$this->data['records'] = $records;
+		// print_r($records);
+		$this->data['history_tab'] = $records[0]->history_tab;
+		// $this->data['exam_tab'] = $records->exam_tab;
+		// $this->data['input_lab_tab'] = $records->input_lab_tab;
+		// $this->data['exam_result_tab'] = $records->exam_result_tab;
+		// $this->data['exam_lab_tab'] = $records->exam_lab_tab;
+		// $this->data['exam_xray_tab'] = $records->exam_xray_tab;
+		// $this->data['exam_ekg_tab'] = $records->exam_ekg_tab;
+		// $this->data['suggest_tab'] = $records->suggest_tab;
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');     
         $this->data['breadcrumb'] = $this->breadcrumb->output();
 
@@ -45,93 +47,6 @@
         $this->loadViewWithScript(array('record/records_view'), array('record/records_script','common/record_script'));    
     }
 
-	
-    function recordsLocation($location_id, $record_date = NULL){
-		if($record_date == NULL){
-        	$this->data['records'] = $this->Record->getRecordsLocationDate($location_id, date("Y-m-d", time()));
-		}
-		else{
-			$this->data['records'] = $this->Record->getRecordsLocationDate($location_id, $record_date);
-		}
-
-        $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');     
-        $this->breadcrumb->add('การตรวจสุขภาพ',   base_url().'Record/records/'. $record_date);  
-        $this->data['breadcrumb'] = $this->breadcrumb->output();
-
-        $this->data['head_title'] = "การตรวจสุขภาพ";
-        $this->loadData();
-        $this->loadViewWithScript(array('record/records_view'), array());    
-	}
-
-    function record($record_id){
-        $this->data['record_id'] = $record_id;
-        $this->data['record'] = $this->Record->getRecord($record_id);
-        $this->data['record_persons'] = $this->RecordPerson->getRecordPersons($record_id);
-        $this->data['record_persons_with_files'] = $this->RecordPerson->getRecordPersonsWithFiles($record_id);
-        $this->data['files'] = $this->File->getRecordFiles($record_id);
-
-        $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');    
-        $this->breadcrumb->add('การตรวจสุขภาพ',   base_url().'Record/records/');  
-        $this->breadcrumb->add('รายละเอียดการตรวจสุขภาพ',   base_url().'Record/record/' . $record_id);  
-        $this->data['breadcrumb'] = $this->breadcrumb->output();
-
-        $this->data['head_title'] = "รายละเอียดการตรวจสุขภาพ";
-        $this->loadData();
-        $this->loadViewWithScript(array('record/record_view'), array());    
-    }
-    
-
-    function addRecord(){   
-        $this->data['error'] = $this->db->error(); 
-        $this->data['method'] = "add";
-        $this->data['packages'] = $this->Package->getPackages();
-		$this->data['locations'] = $this->Location->getLocations();
-
-        $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
-        $this->breadcrumb->add('การตรวจสุขภาพ',   base_url().'Record/records');    
-        $this->breadcrumb->add('เพิ่ม การตรวจสุขภาพ',   base_url().'Record/addRecord');      
-        $this->data['breadcrumb'] = $this->breadcrumb->output();
-
-        $this->data['head_title'] = "เพิ่ม การตรวจสุขภาพ";
-        $this->loadData();
-        $this->loadViewWithScript(array('record/record_form_view'), array('record/record_form_script'));      
-    }
-
-    function addRecordDo(){
-        
-        $result = $this->Record->addRecord();
-
-        if(!$result){
-            $this->addRecord();
-        }else{
-            $this->records();
-            
-        }
-        
-    }
-
-    function updateRecord($record_id){   
-        $this->data['error'] = $this->db->error(); 
-        $this->data['method'] = "update";
-
-		$this->data['packages'] = $this->Package->getPackages();
-		$this->data['locations'] = $this->Location->getLocations();
-
-        $this->data['record_id'] = $record_id;
-        $this->data['record'] = $this->Record->getRecord($record_id);
-
-        $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
-        $this->breadcrumb->add('การตรวจสุขภาพ',   base_url().'Record/records');    
-        $this->breadcrumb->add('แก้ไข การตรวจสุขภาพ',   base_url().'Record/updateRecord/' . $record_id);      
-        $this->data['breadcrumb'] = $this->breadcrumb->output();
-
-        $this->data['head_title'] = "แก้ไข การตรวจสุขภาพ";
-        $this->loadData();
-        $this->loadViewWithScript(array('record/record_form_view'), array('record/record_form_script','common/record_script'));      
-
-    }
-
-
 	function serviceGetLabMeaning($lab_id, $value){
 		$lab_meaning = $this->Lab->getLabMeaning($lab_id, $value);
 		echo json_encode($lab_meaning);
@@ -139,13 +54,11 @@
 
 	function serviceUpdateTab($checkup_id, $tab_id){
 		$data = $this->input->post();
-		// echo json_decode($data);
-		$data = json_decode($data);
-		$checkup_id = $data->checkup_id;
-		$tab_id = $data->tab_id;
-		$input_data = $data->data;
-		//$result = $this->Record->updateTab($checkup_id,$tab_id,$input_data);
-		echo json_encode($data);
+		$checkup_id = $data['checkup_id'];
+		$tab_id = $data['tab_id'];
+		$input_data = $data['data'];
+		$result = $this->Record->updateTab($checkup_id,$tab_id,$input_data);
+		echo json_encode($result);
 	}
 
  }
