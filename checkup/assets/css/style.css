@@ -88,3 +88,7 @@ table {
   margin:5px 0;
   padding:3px;
 }
+
+.textarea_white_space {
+	white-space: pre;
+}

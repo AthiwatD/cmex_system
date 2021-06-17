@@ -5,7 +5,7 @@
 			
 			<div class="form-group form-inline " style="display: block;">
 				<div class="textarea-wrapper">
-					<textarea class="full-width input_data" rows="10" cols="" alt="ผลการตรวจเอกซเรย์ทรวงอก (Chest PA)"></textarea>
+					<textarea id="exam_xray_detail" class="full-width textarea_white_space input_data" rows="10" cols="" alt="ผลการตรวจเอกซเรย์ทรวงอก (Chest PA)"></textarea>
 				</div>
 			</div>
 	

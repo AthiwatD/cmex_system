@@ -6,7 +6,7 @@
 
 			<div class="form-group form-inline " style="display: block;">
 				<div class="textarea-wrapper">
-					<textarea class="full-width input_data" rows="10" cols="" alt="ผลการตรวจคลื่นไฟฟ้าหัวใจ (Electrocardiography)"></textarea>
+					<textarea id="exam_ekg_detail" class="full-width textarea_white_space input_data" rows="10" cols="" alt="ผลการตรวจคลื่นไฟฟ้าหัวใจ (Electrocardiography)"></textarea>
 				</div>
 			</div>
 	

@@ -1,11 +1,12 @@
 <div class="tab-pane fade " id="exam_lab_tab" role="tabpanel" aria-labelledby="custom-tabs-four-exam_lab-tab">
 	<div class="card card-body row col-12" style="margin-left:0px; margin-right: 0px;">
 		<h3 style="margin-top: 10px">ผลการตรวจทางห้องปฏิบัติการ (Laboratory Result)</h3>
+		<button type="button" class="form-control btn btn-info" onclick="load_lab_result()">ข้อมูลการแปรผล Lab</button>
 		<div class="mt-4">
 			
 			<div class="form-group form-inline " style="display: block;">
 				<div class="textarea-wrapper">
-					<textarea class="full-width input_data" rows="10" cols="" alt="ผลการตรวจทางห้องปฏิบัติการ (Laboratory Result)"></textarea>
+					<textarea id="exam_lab_detail" class="full-width textarea_white_space input_data" rows="10" cols="" alt="ผลการตรวจทางห้องปฏิบัติการ (Laboratory Result)"></textarea>
 				</div>
 			</div>
 	

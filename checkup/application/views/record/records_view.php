@@ -41,14 +41,4 @@
 										include "records_end_view.php";
 									?>
 
-                  
-
-								<!--
-                  
-                  
-                  
-				  
-				  
-				   -->
-
                 

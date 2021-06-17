@@ -26,35 +26,33 @@
 									<?php echo $labs[$i]->lab_name; ?>
 								</td>
 								<td style=" vertical-align: middle; border-top: 0px solid #dee2e6;">
-									<!-- <div class="btn-group btn-group-toggle" data-toggle="buttons"> -->
-										<?php
-											if(!empty($labs[$i]->low_result)){
-										?>
-												<label class="radio-inline btn btn-warning"><input type="radio" id="lab_<?php echo $i; ?>_low" name="lab_<?php echo $i; ?>" onclick="load_lab_meaning('<?php echo $labs[$i]->lab_meaning_id; ?>','low','lab_<?php echo $i; ?>_result')">ต่ำ</label>
-										<?php
-											}
-										?>
+									<?php
+										if(!empty($labs[$i]->low_result)){
+									?>
+											<label class="radio-inline btn btn-warning"><input type="radio" id="lab_<?php echo $i; ?>_low" class="input_data" name="lab_<?php echo $i; ?>" onclick="load_lab_meaning('<?php echo $labs[$i]->lab_meaning_id; ?>','low','lab_<?php echo $i; ?>_result')">ต่ำ</label>
+									<?php
+										}
+									?>
 
-										<label class="radio-inline btn btn-success"><input type="radio" id="lab_<?php echo $i; ?>_normal" name="lab_<?php echo $i; ?>" onclick="load_lab_meaning('<?php echo $labs[$i]->lab_meaning_id; ?>','normal','lab_<?php echo $i; ?>_result')" checked>ปกติ</label>
-										<?php
-											if(!empty($labs[$i]->abnormal_result)){
-										?>
-											<label class="radio-inline btn btn-danger"><input type="radio" id="lab_<?php echo $i; ?>_abnormal" name="lab_<?php echo $i; ?>" onclick="load_lab_meaning('<?php echo $labs[$i]->lab_meaning_id; ?>','abnormal','lab_<?php echo $i; ?>_result')">ผิดปกติ</label>
-										<?php
-											}
-										?>
-										<?php
-											if(!empty($labs[$i]->high_result)){
-										?>
-												<label class="radio-inline btn btn-warning"><input type="radio" id="lab_<?php echo $i; ?>_high" name="lab_<?php echo $i; ?>" onclick="load_lab_meaning('<?php echo $labs[$i]->lab_meaning_id; ?>','high','lab_<?php echo $i; ?>_result')">สูง</label>
-										<?php
-											}
-										?>
-									<!-- </div> -->
+										<label class="radio-inline btn btn-success"><input type="radio" id="lab_<?php echo $i; ?>_normal" class="input_data" name="lab_<?php echo $i; ?>" onclick="load_lab_meaning('<?php echo $labs[$i]->lab_meaning_id; ?>','normal','lab_<?php echo $i; ?>_result')" checked>ปกติ</label>
+									<?php
+										if(!empty($labs[$i]->abnormal_result)){
+									?>
+											<label class="radio-inline btn btn-danger"><input type="radio" id="lab_<?php echo $i; ?>_abnormal" class="input_data"  name="lab_<?php echo $i; ?>" onclick="load_lab_meaning('<?php echo $labs[$i]->lab_meaning_id; ?>','abnormal','lab_<?php echo $i; ?>_result')">ผิดปกติ</label>
+									<?php
+										}
+									?>
+									<?php
+										if(!empty($labs[$i]->high_result)){
+									?>
+											<label class="radio-inline btn btn-warning"><input type="radio" id="lab_<?php echo $i; ?>_high" class="input_data" name="lab_<?php echo $i; ?>" onclick="load_lab_meaning('<?php echo $labs[$i]->lab_meaning_id; ?>','high','lab_<?php echo $i; ?>_result')">สูง</label>
+									<?php
+										}
+									?>
 								</td>
-								<td style=" vertical-align: middle; border-top: 0px solid #dee2e6;">
+								<td style="vertical-align: middle; border-top: 0px solid #dee2e6;">
 									<!-- <input type="text" class="form-control input_data" id="lab_<?php echo $i; ?>_result" alt="<?php echo $labs[$i]->lab_name; ?>"> -->
-									<textarea class="form-control input_data" id="lab_<?php echo $i; ?>_result" alt="<?php echo $labs[$i]->lab_name; ?>"></textarea>
+									<textarea class="form-control input_data" id="lab_<?php echo $i; ?>_result" placeholder="<?php echo $labs[$i]->lab_name; ?>"></textarea>
 								</td>
 							</tr>
 					<?php

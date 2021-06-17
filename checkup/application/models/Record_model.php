@@ -14,16 +14,13 @@ class Record_model extends CI_Model {
         return $result;
 	}
 
-    function getRecord($record_id) {
-
-        $sql = "SELECT *
-                FROM chkup_record c
-				JOIN chkup_package p ON c.package_id = p.package_id
-				JOIN chkup_location l ON c.location_id = l.location_id
-                WHERE c.record_id = '" . $record_id . "'";
+	function getLabResult($checkup_id){
+		$sql = "SELECT r.input_lab_tab
+                FROM chkup_record r
+                WHERE r.checkup_id = '" . $checkup_id . "'";
         $result = $this->db->query($sql)->row();
         return $result;
-    }
+	}
 
 	function updateTab($checkup_id,$tab_id,$input_data){
 
@@ -31,19 +28,21 @@ class Record_model extends CI_Model {
         date_default_timezone_set('Asia/Bangkok');
 		$create_time = date('Y-m-d H:i:s', time());
 
+		
 		$update_by = $create_by;
 		$update_time = $create_time;
 
+		$new_data = json_encode($input_data, JSON_UNESCAPED_UNICODE);
 		$data = array(
             'checkup_id' => $checkup_id,
-            $tab_id => json_encode($input_data),
+            $tab_id => $new_data,
             'create_by' => $create_by,
             'create_time' => $create_time,
             'deleted' => 0,
         );
         
 		$sql = $this->db->insert_string('chkup_record', $data) . " ON DUPLICATE KEY UPDATE 
-																	" . $tab_id  . " = '" . json_encode($input_data) ."', 
+																	" . $tab_id  . " = '" . $new_data ."', 
 																	update_by = '" . $update_by ."', 
 																	update_time = '" . $update_time . "'";
 		$result = $this->db->query($sql);
