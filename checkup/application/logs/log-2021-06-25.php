@@ -363,3 +363,39 @@ INFO - 2021-06-25 04:06:31 --> File loaded: D:\xampp\htdocs\cmex_system\checkup\
 INFO - 2021-06-25 04:06:31 --> File loaded: D:\xampp\htdocs\cmex_system\checkup\application\views\common/end.php
 INFO - 2021-06-25 04:06:31 --> Final output sent to browser
 DEBUG - 2021-06-25 04:06:31 --> Total execution time: 0.2721
+INFO - 2021-06-25 04:10:13 --> Config Class Initialized
+INFO - 2021-06-25 04:10:13 --> Hooks Class Initialized
+DEBUG - 2021-06-25 04:10:13 --> UTF-8 Support Enabled
+INFO - 2021-06-25 04:10:13 --> Utf8 Class Initialized
+INFO - 2021-06-25 04:10:13 --> URI Class Initialized
+INFO - 2021-06-25 04:10:13 --> Router Class Initialized
+INFO - 2021-06-25 04:10:13 --> Output Class Initialized
+INFO - 2021-06-25 04:10:13 --> Security Class Initialized
+DEBUG - 2021-06-25 04:10:13 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-06-25 04:10:13 --> Input Class Initialized
+INFO - 2021-06-25 04:10:13 --> Language Class Initialized
+INFO - 2021-06-25 04:10:13 --> Loader Class Initialized
+INFO - 2021-06-25 04:10:13 --> Helper loaded: html_helper
+INFO - 2021-06-25 04:10:13 --> Helper loaded: url_helper
+INFO - 2021-06-25 04:10:13 --> Helper loaded: form_helper
+INFO - 2021-06-25 04:10:13 --> Helper loaded: file_helper
+INFO - 2021-06-25 04:10:13 --> Session: Class initialized using 'files' driver.
+INFO - 2021-06-25 04:10:13 --> Database Driver Class Initialized
+DEBUG - 2021-06-25 04:10:13 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-06-25 04:10:13 --> Form Validation Class Initialized
+INFO - 2021-06-25 04:10:13 --> Controller Class Initialized
+DEBUG - 2021-06-25 04:10:13 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-06-25 04:10:13 --> Helper loaded: ../../common/helpers/thai_date_helper
+INFO - 2021-06-25 04:10:13 --> Helper loaded: ../../common/helpers/remote_file_exists_helper
+INFO - 2021-06-25 04:10:13 --> Model "Checkup_model" initialized
+INFO - 2021-06-25 04:10:13 --> Model "Package_model" initialized
+INFO - 2021-06-25 04:10:13 --> Model "Location_model" initialized
+INFO - 2021-06-25 04:10:13 --> File loaded: D:\xampp\htdocs\cmex_system\checkup\application\views\common/header.php
+INFO - 2021-06-25 04:10:13 --> File loaded: D:\xampp\htdocs\cmex_system\checkup\application\views\common/navbar.php
+INFO - 2021-06-25 04:10:13 --> File loaded: D:\xampp\htdocs\cmex_system\checkup\application\views\common/sidebar.php
+INFO - 2021-06-25 04:10:13 --> File loaded: D:\xampp\htdocs\cmex_system\checkup\application\views\common/main_head.php
+INFO - 2021-06-25 04:10:13 --> File loaded: D:\xampp\htdocs\cmex_system\checkup\application\views\checkup/checkups_view.php
+INFO - 2021-06-25 04:10:13 --> File loaded: D:\xampp\htdocs\cmex_system\checkup\application\views\common/footer.php
+INFO - 2021-06-25 04:10:13 --> File loaded: D:\xampp\htdocs\cmex_system\checkup\application\views\common/end.php
+INFO - 2021-06-25 04:10:13 --> Final output sent to browser
+DEBUG - 2021-06-25 04:10:13 --> Total execution time: 0.0393
