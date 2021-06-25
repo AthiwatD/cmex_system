@@ -14,13 +14,13 @@
 					<!-- 1 -->
 					<tr>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
-							<div class="form-group form-inline">
+							<div class="form-group form-inline" >
 								<div class="form-check div-checkbox" >
 									<label class="form-control-label form-check-label big-checkbox-label" >
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
 											id="history_problem_1" 
 											value="โรคเบาหวาน (diabetes)" 
-											alt="โรคเบาหวาน (diabetes)">
+											placeholder="โรคเบาหวาน (diabetes)">
 												โรคเบาหวาน (diabetes)
 									</label>
 								</div>
@@ -28,7 +28,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="history_problem_detail_1" alt="ระบุ">
+								<input type="text" class="form-control input_data" id="history_problem_detail_1" placeholder="โรคเบาหวาน (diabetes)">
 							</div>
 						</td>
 					</tr>
@@ -42,7 +42,7 @@
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
 										id="history_problem_2" 
 										value="โรคความดันโลหิตสูง (hypertension)" 
-										alt="โรคความดันโลหิตสูง (hypertension)">
+										placeholder="โรคความดันโลหิตสูง (hypertension)">
 											โรคความดันโลหิตสูง (hypertension)
 									</label>
 								</div>
@@ -50,7 +50,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="history_problem_detail_2" alt="ระบุ">
+								<input type="text" class="form-control input_data" id="history_problem_detail_2" placeholder="โรคความดันโลหิตสูง (hypertension)">
 							</div>
 						</td>
 					</tr>
@@ -64,7 +64,7 @@
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
 										id="history_problem_3" 
 										value="โรคไขมันในเลือดสูง (dyslipidemia)" 
-										alt="โรคไขมันในเลือดสูง (dyslipidemia)">
+										placeholder="โรคไขมันในเลือดสูง (dyslipidemia)">
 											โรคไขมันในเลือดสูง (dyslipidemia)
 									</label>
 								</div>
@@ -72,7 +72,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="history_problem_detail_3" alt="ระบุ">
+								<input type="text" class="form-control input_data" id="history_problem_detail_3" placeholder="โรคไขมันในเลือดสูง (dyslipidemia)">
 							</div>
 						</td>
 					</tr>
@@ -86,7 +86,7 @@
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
 										id="history_problem_4" 
 										value="โรคภูมิแพ้ (allergy)" 
-										alt="โรคภูมิแพ้ (allergy)">
+										placeholder="โรคภูมิแพ้ (allergy)">
 										โรคภูมิแพ้ (allergy)
 									</label>
 								</div>
@@ -94,7 +94,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="history_problem_detail_4" alt="ระบุ">
+								<input type="text" class="form-control input_data" id="history_problem_detail_4" placeholder="โรคภูมิแพ้ (allergy)">
 							</div>
 						</td>
 					</tr>
@@ -108,7 +108,7 @@
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
 										id="history_problem_5" 
 										value="โรคต่อมลูกหมากโต (prostatic enlargment)" 
-										alt="โรคต่อมลูกหมากโต (prostatic enlargment)">
+										placeholder="โรคต่อมลูกหมากโต (prostatic enlargment)">
 										โรคต่อมลูกหมากโต (prostatic enlargment)
 									</label>
 								</div>
@@ -116,7 +116,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="history_problem_detail_5" alt="ระบุ">
+								<input type="text" class="form-control input_data" id="history_problem_detail_5" placeholder="โรคต่อมลูกหมากโต (prostatic enlargment)">
 							</div>
 						</td>
 					</tr>
@@ -130,7 +130,7 @@
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
 										id="history_problem_6" 
 										value="โรคเอสแอลอี (SLE)" 
-										alt="โรคเอสแอลอี (SLE)">
+										placeholder="โรคเอสแอลอี (SLE)">
 										โรคเอสแอลอี (SLE)
 									</label>
 								</div>
@@ -138,7 +138,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="history_problem_detail_6" alt="ระบุ">
+								<input type="text" class="form-control input_data" id="history_problem_detail_6" placeholder="โรคเอสแอลอี (SLE)">
 							</div>
 						</td>
 					</tr>
@@ -152,7 +152,7 @@
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
 										id="history_problem_7" 
 										value="โรคเอสแอลอี (SLE)" 
-										alt="โรคเอสแอลอี (SLE)">
+										placeholder="โรคเอสแอลอี (SLE)">
 										โรคเอสแอลอี (SLE)
 									</label>
 								</div>
@@ -160,7 +160,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="history_problem_detail_7" alt="ระบุ">
+								<input type="text" class="form-control input_data" id="history_problem_detail_7" placeholder="โรคเอสแอลอี (SLE)">
 							</div>
 						</td>
 					</tr>
@@ -174,7 +174,7 @@
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
 										id="history_problem_8" 
 										value="โรคหัวใจและหลอดเลือด (cardiovascular disease)" 
-										alt="โรคหัวใจและหลอดเลือด (cardiovascular disease)">
+										placeholder="โรคหัวใจและหลอดเลือด (cardiovascular disease)">
 										โรคหัวใจและหลอดเลือด (cardiovascular disease)
 									</label>
 								</div>
@@ -182,7 +182,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="history_problem_detail_8" alt="ระบุ">
+								<input type="text" class="form-control input_data" id="history_problem_detail_8" placeholder="โรคหัวใจและหลอดเลือด (cardiovascular disease)">
 							</div>
 						</td>
 					</tr>
@@ -196,7 +196,7 @@
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
 										id="history_problem_9" 
 										value="โรคไต (kidney disease)" 
-										alt="โรคไต (kidney disease)">
+										placeholder="โรคไต (kidney disease)">
 										โรคไต (kidney disease)
 									</label>
 								</div>
@@ -204,7 +204,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="history_problem_detail_9" alt="ระบุ">
+								<input type="text" class="form-control input_data" id="history_problem_detail_9" placeholder="โรคไต (kidney disease)">
 							</div>
 						</td>
 					</tr>
@@ -218,7 +218,7 @@
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
 										id="history_problem_10" 
 										value="โรคทางระบบประสาทและสมอง (neurologic and brain disease)" 
-										alt="โรคทางระบบประสาทและสมอง (neurologic and brain disease)">
+										placeholder="โรคทางระบบประสาทและสมอง (neurologic and brain disease)">
 										โรคทางระบบประสาทและสมอง (neurologic and brain disease)
 									</label>
 								</div>
@@ -226,7 +226,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="history_problem_detail_10" alt="ระบุ">
+								<input type="text" class="form-control input_data" id="history_problem_detail_10" placeholder="โรคทางระบบประสาทและสมอง (neurologic and brain disease)">
 							</div>
 						</td>
 					</tr>
@@ -240,7 +240,7 @@
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
 										id="history_problem_11" 
 										value="โรคเลือด (hematologic disease)" 
-										alt="โรคเลือด (hematologic disease)">
+										placeholder="โรคเลือด (hematologic disease)">
 										โรคเลือด (hematologic disease)
 									</label>
 								</div>
@@ -248,7 +248,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="history_problem_detail_11" alt="ระบุ">
+								<input type="text" class="form-control input_data" id="history_problem_detail_11" placeholder="โรคเลือด (hematologic disease)">
 							</div>
 						</td>
 					</tr>
@@ -262,7 +262,7 @@
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
 										id="history_problem_12" 
 										value="โรคระบบทางเดินหายใจ (respiratory disease)" 
-										alt="โรคระบบทางเดินหายใจ (respiratory disease)">
+										placeholder="โรคระบบทางเดินหายใจ (respiratory disease)">
 										โรคระบบทางเดินหายใจ (respiratory disease)
 									</label>
 								</div>
@@ -270,7 +270,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="history_problem_detail_12" alt="ระบุ">
+								<input type="text" class="form-control input_data" id="history_problem_detail_12" placeholder="โรคระบบทางเดินหายใจ (respiratory disease)">
 							</div>
 						</td>
 					</tr>
@@ -284,7 +284,7 @@
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
 										id="history_problem_13" 
 										value="โรคมะเร็ง (cancer)" 
-										alt="โรคมะเร็ง (cancer)">
+										placeholder="โรคมะเร็ง (cancer)">
 										โรคมะเร็ง (cancer)
 									</label>
 								</div>
@@ -292,7 +292,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="history_problem_detail_13" alt="ระบุ">
+								<input type="text" class="form-control input_data" id="history_problem_detail_13" placeholder="โรคมะเร็ง (cancer)">
 							</div>
 						</td>
 					</tr>
@@ -306,7 +306,7 @@
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
 										id="history_problem_14" 
 										value="โรคระบบทางเดินอาหาร (gastrointestinal diseases)" 
-										alt="โรคระบบทางเดินอาหาร (gastrointestinal diseases)">
+										placeholder="โรคระบบทางเดินอาหาร (gastrointestinal diseases)">
 										โรคระบบทางเดินอาหาร (gastrointestinal diseases)
 									</label>
 								</div>
@@ -314,7 +314,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="history_problem_detail_14" alt="ระบุ">
+								<input type="text" class="form-control input_data" id="history_problem_detail_14" placeholder="โรคระบบทางเดินอาหาร (gastrointestinal diseases)">
 							</div>
 						</td>
 					</tr>
@@ -328,7 +328,7 @@
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
 										id="history_problem_15" 
 										value="โรคทางจิตเวช (psychetic disease)" 
-										alt="โรคทางจิตเวช (psychetic disease)">
+										placeholder="โรคทางจิตเวช (psychetic disease)">
 										โรคทางจิตเวช (psychetic disease)
 									</label>
 								</div>
@@ -336,7 +336,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="history_problem_detail_15" alt="ระบุ">
+								<input type="text" class="form-control input_data" id="history_problem_detail_15" placeholder="โรคทางจิตเวช (psychetic disease)">
 							</div>
 						</td>
 					</tr>
@@ -350,7 +350,7 @@
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
 										id="history_problem_16" 
 										value="โรคทางต่อมไร้ท่อ (endocrine disease)" 
-										alt="โรคทางต่อมไร้ท่อ (endocrine disease)">
+										placeholder="โรคทางต่อมไร้ท่อ (endocrine disease)">
 										โรคทางต่อมไร้ท่อ (endocrine disease)
 									</label>
 								</div>
@@ -358,7 +358,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="history_problem_detail_16" alt="ระบุ">
+								<input type="text" class="form-control input_data" id="history_problem_detail_16" placeholder="โรคทางต่อมไร้ท่อ (endocrine disease)">
 							</div>
 						</td>
 					</tr>
@@ -372,7 +372,7 @@
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
 										id="history_problem_17" 
 										value="โรคกระดูกและข้อ (joint skeleton muscular disease)" 
-										alt="โรคกระดูกและข้อ (joint skeleton muscular disease)">
+										placeholder="โรคกระดูกและข้อ (joint skeleton muscular disease)">
 										โรคกระดูกและข้อ (joint skeleton muscular disease)
 									</label>
 								</div>
@@ -380,7 +380,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="history_problem_detail_17" alt="ระบุ">
+								<input type="text" class="form-control input_data" id="history_problem_detail_17" placeholder="โรคกระดูกและข้อ (joint skeleton muscular disease)">
 							</div>
 						</td>
 					</tr>
@@ -394,7 +394,7 @@
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
 										id="history_problem_18" 
 										value="โรคตับ (liver disease)" 
-										alt="โรคตับ (liver disease)">
+										placeholder="โรคตับ (liver disease)">
 										โรคตับ (liver disease)
 									</label>
 								</div>
@@ -402,7 +402,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="history_problem_detail_18" alt="ระบุ">
+								<input type="text" class="form-control input_data" id="history_problem_detail_18" placeholder="โรคตับ (liver disease)">
 							</div>
 						</td>
 					</tr>
@@ -416,7 +416,7 @@
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
 										id="history_problem_19" 
 										value="โรคผิวหนัง (skin disease)" 
-										alt="โรคผิวหนัง (skin disease)">
+										placeholder="โรคผิวหนัง (skin disease)">
 										โรคผิวหนัง (skin disease)
 									</label>
 								</div>
@@ -424,7 +424,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="history_problem_detail_19" alt="ระบุ">
+								<input type="text" class="form-control input_data" id="history_problem_detail_19" placeholder="โรคผิวหนัง (skin disease)">
 							</div>
 						</td>
 					</tr>
@@ -438,7 +438,7 @@
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
 										id="history_problem_20" 
 										value="โรคติดเชื้อเรื้อรัง (chronic infectious disease)" 
-										alt="โรคติดเชื้อเรื้อรัง (chronic infectious disease)">
+										placeholder="โรคติดเชื้อเรื้อรัง (chronic infectious disease)">
 										โรคติดเชื้อเรื้อรัง (chronic infectious disease)
 									</label>
 								</div>
@@ -446,7 +446,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="history_problem_detail_20" alt="ระบุ">
+								<input type="text" class="form-control input_data" id="history_problem_detail_20" placeholder="โรคติดเชื้อเรื้อรัง (chronic infectious disease)">
 							</div>
 						</td>
 					</tr>
@@ -460,7 +460,7 @@
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
 										id="history_problem_101" 
 										value="อื่นๆ" 
-										alt="อื่นๆ">
+										placeholder="อื่นๆ">
 										อื่นๆ
 									</label>
 								</div>
@@ -468,7 +468,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="history_problem_detail_101" alt="ระบุ">
+								<input type="text" class="form-control input_data" id="history_problem_detail_101" placeholder="อื่นๆ">
 							</div>
 						</td>
 					</tr>
@@ -498,7 +498,7 @@
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
 											id="allergy_1" 
 											value="ปฏิเสธ (no)" 
-											alt="ปฏิเสธ (no)">
+											placeholder="ปฏิเสธ (no)">
 											ปฏิเสธ (no)
 									</label>
 								</div>
@@ -506,7 +506,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="allergy_detail_1" alt="ระบุ">
+								<input type="text" class="form-control input_data" id="allergy_detail_1" placeholder="ปฏิเสธ (no)">
 							</div>
 						</td>
 					</tr>
@@ -520,7 +520,7 @@
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
 											id="allergy_2" 
 											value="แพ้ยา (drug allergy)" 
-											alt="แพ้ยา (drug allergy)">
+											placeholder="แพ้ยา (drug allergy)">
 											แพ้ยา (drug allergy)
 									</label>
 								</div>
@@ -528,7 +528,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="allergy_detail_2" alt="ระบุ">
+								<input type="text" class="form-control input_data" id="allergy_detail_2" placeholder="แพ้ยา (drug allergy)">
 							</div>
 						</td>
 					</tr>
@@ -542,7 +542,7 @@
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
 											id="allergy_3" 
 											value="แพ้อื่นๆ (other allergy)" 
-											alt="แพ้อื่นๆ (other allergy)">
+											placeholder="แพ้อื่นๆ (other allergy)">
 											แพ้อื่นๆ (other allergy)
 									</label>
 								</div>
@@ -550,7 +550,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="allergy_detail_3" alt="ระบุ">
+								<input type="text" class="form-control input_data" id="allergy_detail_3" placeholder="แพ้อื่นๆ (other allergy)">
 							</div>
 						</td>
 					</tr>
@@ -580,7 +580,7 @@
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
 											id="operation_1" 
 											value="ปฏิเสธ (no)" 
-											alt="ปฏิเสธ (no)">
+											placeholder="ปฏิเสธ (no)">
 											ปฏิเสธ (no)
 									</label>
 								</div>
@@ -588,7 +588,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="operation_detail_1" alt="ระบุ">
+								<input type="text" class="form-control input_data" id="operation_detail_1" placeholder="ปฏิเสธ (no)">
 							</div>
 						</td>
 					</tr>
@@ -602,7 +602,7 @@
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
 											id="operation_2" 
 											value="มี (yes)" 
-											alt="มี (yes)">
+											placeholder="มี (yes)">
 											มี (yes)
 									</label>
 								</div>
@@ -610,7 +610,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="operation_detail_2" alt="ระบุ">
+								<input type="text" class="form-control input_data" id="operation_detail_2" placeholder="มี (yes)">
 							</div>
 						</td>
 					</tr>
@@ -641,7 +641,7 @@
 											name="mens"
 											id="mens_1" 
 											value="ประจำเดือนครั้งล่าสุด (LMP)" 
-											alt="ประจำเดือนครั้งล่าสุด (LMP)">
+											placeholder="ประจำเดือนครั้งล่าสุด (LMP)">
 											ประจำเดือนครั้งล่าสุด (LMP)
 									</label>
 								</div>
@@ -649,7 +649,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" name="mens_detail" id="mens_detail_1" alt="ระบุ">
+								<input type="text" class="form-control input_data" name="mens_detail" id="mens_detail_1" placeholder="ประจำเดือนครั้งล่าสุด (LMP)">
 							</div>
 						</td>
 					</tr>
@@ -664,7 +664,7 @@
 											name="mens"
 											id="mens_2" 
 											value="หมดประจำเดือน (menopause)" 
-											alt="หมดประจำเดือน (menopause)">
+											placeholder="หมดประจำเดือน (menopause)">
 											หมดประจำเดือน (menopause)
 									</label>
 								</div>
@@ -672,7 +672,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" name="mens_detail" id="mens_detail_2" alt="ระบุ">
+								<input type="text" class="form-control input_data" name="mens_detail" id="mens_detail_2" placeholder="หมดประจำเดือน (menopause)">
 							</div>
 						</td>
 					</tr>
@@ -705,7 +705,7 @@
 											name="alcohol"
 											id="alcohol_1" 
 											value="ปฏิเสธ (no)" 
-											alt="ปฏิเสธ (no)">
+											placeholder="ปฏิเสธ (no)">
 											ปฏิเสธ (no)
 									</label>
 								</div>
@@ -713,7 +713,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" name="alcohol_detail" id="alcohol_detail_1" alt="ระบุ">
+								<input type="text" class="form-control input_data" name="alcohol_detail" id="alcohol_detail_1" placeholder="ปฏิเสธ (no)">
 							</div>
 						</td>
 					</tr>
@@ -728,7 +728,7 @@
 											name="alcohol"
 											id="alcohol_2" 
 											value="เคยใช้แต่หยุดมาแล้ว" 
-											alt="เคยใช้แต่หยุดมาแล้ว">
+											placeholder="เคยใช้แต่หยุดมาแล้ว">
 											เคยใช้แต่หยุดมาแล้ว
 									</label>
 								</div>
@@ -736,7 +736,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" name="alcohol_detail" id="alcohol_detail_2" alt="ระบุ">
+								<input type="text" class="form-control input_data" name="alcohol_detail" id="alcohol_detail_2" placeholder="เคยใช้แต่หยุดมาแล้ว">
 							</div>
 						</td>
 					</tr>
@@ -751,7 +751,7 @@
 											name="alcohol"
 											id="alcohol_3" 
 											value="ดื่มทุกวัน" 
-											alt="ดื่มทุกวัน">
+											placeholder="ดื่มทุกวัน">
 											ดื่มทุกวัน
 									</label>
 								</div>
@@ -759,7 +759,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" name="alcohol_detail" id="alcohol_detail_3" alt="ระบุ">
+								<input type="text" class="form-control input_data" name="alcohol_detail" id="alcohol_detail_3" placeholder="ดื่มทุกวัน">
 							</div>
 						</td>
 					</tr>
@@ -774,7 +774,7 @@
 											name="alcohol"
 											id="alcohol_4" 
 											value="2-3 ครั้งต่อสัปดาห์" 
-											alt="2-3 ครั้งต่อสัปดาห์">
+											placeholder="2-3 ครั้งต่อสัปดาห์">
 											2-3 ครั้งต่อสัปดาห์
 									</label>
 								</div>
@@ -782,7 +782,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" name="alcohol_detail" id="alcohol_detail_4" alt="ระบุ">
+								<input type="text" class="form-control input_data" name="alcohol_detail" id="alcohol_detail_4" placeholder="2-3 ครั้งต่อสัปดาห์">
 							</div>
 						</td>
 					</tr>
@@ -797,7 +797,7 @@
 											name="alcohol"
 											id="alcohol_5" 
 											value="สัปดาห์ละครั้ง" 
-											alt="สัปดาห์ละครั้ง">
+											placeholder="สัปดาห์ละครั้ง">
 											สัปดาห์ละครั้ง
 									</label>
 								</div>
@@ -805,7 +805,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" name="alcohol_detail" id="alcohol_detail_5" alt="ระบุ">
+								<input type="text" class="form-control input_data" name="alcohol_detail" id="alcohol_detail_5" placeholder="สัปดาห์ละครั้ง">
 							</div>
 						</td>
 					</tr>
@@ -820,7 +820,7 @@
 											name="alcohol"
 											id="alcohol_6" 
 											value="2 ครั้งต่อเดือน" 
-											alt="2 ครั้งต่อเดือน">
+											placeholder="2 ครั้งต่อเดือน">
 											2 ครั้งต่อเดือน
 									</label>
 								</div>
@@ -828,7 +828,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" name="alcohol_detail" id="alcohol_detail_6" alt="ระบุ">
+								<input type="text" class="form-control input_data" name="alcohol_detail" id="alcohol_detail_6" placeholder="2 ครั้งต่อเดือน">
 							</div>
 						</td>
 					</tr>
@@ -843,7 +843,7 @@
 											name="alcohol"
 											id="alcohol_7" 
 											value="ตามเทศกาล" 
-											alt="ตามเทศกาล">
+											placeholder="ตามเทศกาล">
 											ตามเทศกาล
 									</label>
 								</div>
@@ -851,7 +851,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" name="alcohol_detail" id="alcohol_detail_7" alt="ระบุ">
+								<input type="text" class="form-control input_data" name="alcohol_detail" id="alcohol_detail_7" placeholder="ตามเทศกาล">
 							</div>
 						</td>
 					</tr>
@@ -866,7 +866,7 @@
 											name="alcohol"
 											id="alcohol_101" 
 											value="อื่นๆ (other)" 
-											alt="อื่นๆ (other)">
+											placeholder="อื่นๆ (other)">
 											อื่นๆ (other)
 									</label>
 								</div>
@@ -874,7 +874,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" name="alcohol_detail" id="alcohol_detail_101" alt="ระบุ">
+								<input type="text" class="form-control input_data" name="alcohol_detail" id="alcohol_detail_101" placeholder="อื่นๆ (other)">
 							</div>
 						</td>
 					</tr>
@@ -904,7 +904,7 @@
 											name="smoke"
 											id="smoke_1" 
 											value="ปฏิเสธ (no)" 
-											alt="ปฏิเสธ (no)">
+											placeholder="ปฏิเสธ (no)">
 											ปฏิเสธ (no)
 									</label>
 								</div>
@@ -912,7 +912,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" name="smoke_detail" id="smoke_detail_1" alt="ระบุ">
+								<input type="text" class="form-control input_data" name="smoke_detail" id="smoke_detail_1" placeholder="ปฏิเสธ (no)">
 							</div>
 						</td>
 					</tr>
@@ -927,7 +927,7 @@
 											name="smoke"
 											id="smoke_2" 
 											value="เคยใช้แต่หยุดมาแล้ว (เดือน/ปี)" 
-											alt="เคยใช้แต่หยุดมาแล้ว (เดือน/ปี)">
+											placeholder="เคยใช้แต่หยุดมาแล้ว (เดือน/ปี)">
 											เคยใช้แต่หยุดมาแล้ว (เดือน/ปี)
 									</label>
 								</div>
@@ -935,7 +935,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" name="smoke_detail" id="smoke_detail_2" alt="ระบุ">
+								<input type="text" class="form-control input_data" name="smoke_detail" id="smoke_detail_2" placeholder="เคยใช้แต่หยุดมาแล้ว (เดือน/ปี)">
 							</div>
 						</td>
 					</tr>
@@ -950,7 +950,7 @@
 											name="smoke"
 											id="smoke_3" 
 											value="มากกว่า 1 ซองต่อวัน (more than 1 pack per day)" 
-											alt="มากกว่า 1 ซองต่อวัน (more than 1 pack per day)">
+											placeholder="มากกว่า 1 ซองต่อวัน (more than 1 pack per day)">
 											มากกว่า 1 ซองต่อวัน (more than 1 pack per day)
 									</label>
 								</div>
@@ -958,7 +958,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" name="smoke_detail" id="smoke_detail_3" alt="ระบุ">
+								<input type="text" class="form-control input_data" name="smoke_detail" id="smoke_detail_3" placeholder="มากกว่า 1 ซองต่อวัน (more than 1 pack per day)">
 							</div>
 						</td>
 					</tr>
@@ -973,7 +973,7 @@
 											name="smoke"
 											id="smoke_4" 
 											value="ครึ่งซองขึ้นไปแต่ไม่เกินหนึ่งซองต่อวัน (half to one pack per day)" 
-											alt="ครึ่งซองขึ้นไปแต่ไม่เกินหนึ่งซองต่อวัน (half to one pack per day)">
+											placeholder="ครึ่งซองขึ้นไปแต่ไม่เกินหนึ่งซองต่อวัน (half to one pack per day)">
 											ครึ่งซองขึ้นไปแต่ไม่เกินหนึ่งซองต่อวัน (half to one pack per day)
 									</label>
 								</div>
@@ -981,7 +981,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" name="smoke_detail" id="smoke_detail_4" alt="ระบุ">
+								<input type="text" class="form-control input_data" name="smoke_detail" id="smoke_detail_4" placeholder="ครึ่งซองขึ้นไปแต่ไม่เกินหนึ่งซองต่อวัน (half to one pack per day)">
 							</div>
 						</td>
 					</tr>
@@ -996,7 +996,7 @@
 											name="smoke"
 											id="smoke_5" 
 											value="ครึ่งซองขึ้นไปแต่ไม่เกินหนึ่งซองต่อวัน (half to one pack per day)" 
-											alt="ครึ่งซองขึ้นไปแต่ไม่เกินหนึ่งซองต่อวัน (half to one pack per day)">
+											placeholder="ครึ่งซองขึ้นไปแต่ไม่เกินหนึ่งซองต่อวัน (half to one pack per day)">
 											น้อยกว่าครึ่งซองต่อวัน (less than half pack per day)
 									</label>
 								</div>
@@ -1004,7 +1004,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" name="smoke_detail" id="smoke_detail_5" alt="ระบุ">
+								<input type="text" class="form-control input_data" name="smoke_detail" id="smoke_detail_5" placeholder="น้อยกว่าครึ่งซองต่อวัน (less than half pack per day)">
 							</div>
 						</td>
 					</tr>
@@ -1019,7 +1019,7 @@
 											name="smoke"
 											id="smoke_101" 
 											value="อื่นๆ (other)" 
-											alt="อื่นๆ (other)">
+											placeholder="อื่นๆ (other)">
 											อื่นๆ (other)
 									</label>
 								</div>
@@ -1027,7 +1027,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" name="smoke_detail" id="smoke_detail_101" alt="ระบุ">
+								<input type="text" class="form-control input_data" name="smoke_detail" id="smoke_detail_101" placeholder="อื่นๆ (other)">
 							</div>
 						</td>
 					</tr>
@@ -1057,7 +1057,7 @@
 											name="family"
 											id="family_1" 
 											value="ปฏิเสธ (no)" 
-											alt="ปฏิเสธ (no)">
+											placeholder="ปฏิเสธ (no)">
 											ปฏิเสธ (no)
 									</label>
 								</div>
@@ -1065,7 +1065,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" name="mens_detail" id="family_detail_1" alt="ระบุ">
+								<input type="text" class="form-control input_data" name="mens_detail" id="family_detail_1" placeholder="ปฏิเสธ (no)">
 							</div>
 						</td>
 					</tr>
@@ -1080,7 +1080,7 @@
 											name="family"
 											id="family_2" 
 											value="มี (yes)" 
-											alt="มี (yes)">
+											placeholder="มี (yes)">
 											มี (yes)
 									</label>
 								</div>
@@ -1088,7 +1088,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" name="mens_detail" id="family_detail_2" alt="ระบุ">
+								<input type="text" class="form-control input_data" name="mens_detail" id="family_detail_2" placeholder="มี (yes)">
 							</div>
 						</td>
 					</tr>
@@ -1118,7 +1118,7 @@
 											name="emotion"
 											id="emotion_1" 
 											value="ปฏิเสธ (no)" 
-											alt="ปฏิเสธ (no)">
+											placeholder="ปฏิเสธ (no)">
 											ปฏิเสธ (no)
 									</label>
 								</div>
@@ -1126,7 +1126,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" name="emotion_detail" id="emotion_detail_1" alt="ระบุ">
+								<input type="text" class="form-control input_data" name="emotion_detail" id="emotion_detail_1" placeholder="ปฏิเสธ (no)">
 							</div>
 						</td>
 					</tr>
@@ -1140,7 +1140,7 @@
 											name="emotion"
 											id="emotion_2" 
 											value="มี (yes)" 
-											alt="มี (yes)">
+											placeholder="มี (yes)">
 											มี (yes)
 									</label>
 								</div>
@@ -1148,7 +1148,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" name="emotion_detail" id="emotion_detail_2" alt="ระบุ">
+								<input type="text" class="form-control input_data" name="emotion_detail" id="emotion_detail_2" placeholder="มี (yes)">
 							</div>
 						</td>
 					</tr>

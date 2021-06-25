@@ -105,5 +105,44 @@
 		// print_r($lab_result->input_lab_tab);
 		echo json_encode($lab_result->input_lab_tab);
 	}
+
+	function serviceUploadFiles($checkup_id, $tab_id){
+		$final_files_data = array();
+        // Faking upload calls to $_FILE
+        if(!empty($_FILES['upl_files']['name']) && count(array_filter($_FILES['upl_files']['name'])) > 0){ 
+            
+            $filesCount = count(array_filter($_FILES['upl_files']['name'])); 
+            for($i = 0; $i < $filesCount; $i++){ 
+
+                $_FILES['userfile']['name']     = $_FILES['upl_files']['name'][$i];
+                $_FILES['userfile']['type']     = $_FILES['upl_files']['type'][$i];
+                $_FILES['userfile']['tmp_name'] = $_FILES['upl_files']['tmp_name'][$i];
+                $_FILES['userfile']['error']    = $_FILES['upl_files']['error'][$i];
+                $_FILES['userfile']['size']     = $_FILES['upl_files']['size'][$i];
+
+                
+                // $config['file_name'] = $user_file['name'];
+                $config['upload_path']   = './uploads/'; 
+                $config['allowed_types'] = 'gif|jpg|png|doc|docx|xls|xlsx|ppt|pptx|pdf|txt|csv'; 
+                $config['max_size']      = 256000; 
+                $config['upload_path'] = './uploads/';
+                // $config['max_width'] = '4096';
+                // $config['max_height'] = '4096';
+                
+                
+                $this->upload->initialize($config);
+                if (!$this->upload->do_upload()){
+                    $error = array('error' => $this->upload->display_errors());
+                    //$this->load->view('upload_form', $error);
+                }else{
+                    $final_files_data[] = $this->upload->data();
+                    // Continue processing the uploaded data
+                    
+                }
+            }
+        }
+        $result = $this->Record->addFiles($checkup_id, $tab_id, $final_files_data);
+		echo $result;
+	}
  }
  ?>

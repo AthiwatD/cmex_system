@@ -12,15 +12,15 @@ class MY_Controller extends CI_Controller {
         //Initialization code that affects all controllers
         
         $this->load->library('session');
-        $this->load->helper('cookie');
-        $this->load->helper('url');
+        // $this->load->helper('cookie');
+        // $this->load->helper('url');
 
-        $cookie_name = "user_link";
-        $cookie_value = current_url();
-        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+        // $cookie_name = "user_link";
+        // $cookie_value = current_url();
+        // setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
 
         if($this->check_isvalidated()){
-            $this->load->library('user_agent');
+            // $this->load->library('user_agent');
             $this->load->library('Breadcrumb');
             
             $this->load->helper('form');

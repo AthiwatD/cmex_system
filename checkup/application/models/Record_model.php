@@ -176,4 +176,33 @@ class Record_model extends CI_Model {
 
         return $result;
 	}
+
+	function addFiles($checkup_id, $tab_id, $final_files_data){
+		$result = 0;
+		if(!empty($final_files_data)){
+			
+			$create_by = $this->session->username;
+			date_default_timezone_set('Asia/Bangkok');
+			$create_time = date('Y-m-d H:i:s', time());
+
+            foreach ($final_files_data as $file){ 
+                if($file["file_name"] != ""){
+                    $doc_file = base_url() . "uploads/" . $file["file_name"];
+                }
+                $data = array(
+                    'file_name' => $file["file_name"],
+                    'file_path' => $doc_file,
+                    'checkup_id' => $checkup_id,
+                    'tab_id' => $tab_id,
+					'create_by' => $create_by,
+					'create_time' => $create_time,
+					'deleted' => 0,
+                );
+                $result = $this->db->insert('chkup_file', $data);
+            }
+        }                    
+        return $result;
+	}
+
+	
 }

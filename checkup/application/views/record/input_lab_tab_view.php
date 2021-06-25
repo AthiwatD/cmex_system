@@ -29,23 +29,35 @@
 									<?php
 										if(!empty($labs[$i]->low_result)){
 									?>
-											<label class="radio-inline btn btn-warning"><input type="radio" id="lab_<?php echo $i; ?>_low" class="input_data" name="lab_<?php echo $i; ?>" onclick="load_lab_meaning('<?php echo $labs[$i]->lab_meaning_id; ?>','low','lab_<?php echo $i; ?>_result')">ต่ำ</label>
+											<label class="radio-inline btn btn-warning">
+												<input type="radio" id="lab_<?php echo $i; ?>_low" class="input_data" name="lab_<?php echo $i; ?>" 
+													value="ต่ำ (Low)" placeholder="<?php echo $labs[$i]->lab_name; ?>: ต่ำ (Low)"
+													onclick="load_lab_meaning('<?php echo $labs[$i]->lab_meaning_id; ?>','low','lab_<?php echo $i; ?>_result')">ต่ำ</label>
 									<?php
 										}
 									?>
 
-										<label class="radio-inline btn btn-success"><input type="radio" id="lab_<?php echo $i; ?>_normal" class="input_data" name="lab_<?php echo $i; ?>" onclick="load_lab_meaning('<?php echo $labs[$i]->lab_meaning_id; ?>','normal','lab_<?php echo $i; ?>_result')" checked>ปกติ</label>
+										<label class="radio-inline btn btn-success">
+											<input type="radio" id="lab_<?php echo $i; ?>_normal" class="input_data" name="lab_<?php echo $i; ?>" 
+												value="ปกติ (Normal)" placeholder="<?php echo $labs[$i]->lab_name; ?>: ปกติ (Normal)"
+												onclick="load_lab_meaning('<?php echo $labs[$i]->lab_meaning_id; ?>','normal','lab_<?php echo $i; ?>_result')" checked>ปกติ</label>
 									<?php
 										if(!empty($labs[$i]->abnormal_result)){
 									?>
-											<label class="radio-inline btn btn-danger"><input type="radio" id="lab_<?php echo $i; ?>_abnormal" class="input_data"  name="lab_<?php echo $i; ?>" onclick="load_lab_meaning('<?php echo $labs[$i]->lab_meaning_id; ?>','abnormal','lab_<?php echo $i; ?>_result')">ผิดปกติ</label>
+											<label class="radio-inline btn btn-danger">
+												<input type="radio" id="lab_<?php echo $i; ?>_abnormal" class="input_data"  name="lab_<?php echo $i; ?>" 
+													value="ผิดปกติ (Abnormal)" placeholder="<?php echo $labs[$i]->lab_name; ?>: ผิดปกติ (Abnormal)"
+													onclick="load_lab_meaning('<?php echo $labs[$i]->lab_meaning_id; ?>','abnormal','lab_<?php echo $i; ?>_result')">ผิดปกติ</label>
 									<?php
 										}
 									?>
 									<?php
 										if(!empty($labs[$i]->high_result)){
 									?>
-											<label class="radio-inline btn btn-warning"><input type="radio" id="lab_<?php echo $i; ?>_high" class="input_data" name="lab_<?php echo $i; ?>" onclick="load_lab_meaning('<?php echo $labs[$i]->lab_meaning_id; ?>','high','lab_<?php echo $i; ?>_result')">สูง</label>
+											<label class="radio-inline btn btn-warning">
+												<input type="radio" id="lab_<?php echo $i; ?>_high" class="input_data" name="lab_<?php echo $i; ?>" 
+													value="สูง (High)" placeholder="<?php echo $labs[$i]->lab_name; ?>: สูง (High)" 
+													onclick="load_lab_meaning('<?php echo $labs[$i]->lab_meaning_id; ?>','high','lab_<?php echo $i; ?>_result')">สูง</label>
 									<?php
 										}
 									?>

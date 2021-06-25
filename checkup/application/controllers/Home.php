@@ -13,7 +13,7 @@
     function index(){
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');     
         $this->data['breadcrumb'] = $this->breadcrumb->output();
-        $this->data['head_title'] = "ระบบยืนยันรายงานการประชุม";
+        $this->data['head_title'] = "โปรแกรมตรวจสุขภาพ";
 
         $this->loadData();
         $this->loadViewWithScript(array('home_view'), array());    

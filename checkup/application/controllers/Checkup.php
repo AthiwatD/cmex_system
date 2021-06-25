@@ -11,12 +11,12 @@
         $this->load->model('Checkup_model','Checkup');
 		$this->load->model('Package_model','Package');
 		$this->load->model('Location_model','Location');
-        $this->load->model('File_model','File');
+        // $this->load->model('File_model','File');
 
-        $config['upload_path']   = './uploads/'; 
-        $config['allowed_types'] = 'gif|jpg|jpeg|png|doc|docx|xls|xlsx|ppt|pptx|pdf|txt|csv'; 
-        $config['max_size']      = 256000; 
-        $this->load->library('upload', $config);
+        // $config['upload_path']   = './uploads/'; 
+        // $config['allowed_types'] = 'gif|jpg|jpeg|png|doc|docx|xls|xlsx|ppt|pptx|pdf|txt|csv'; 
+        // $config['max_size']      = 256000; 
+        // $this->load->library('upload', $config);
 
     }
     

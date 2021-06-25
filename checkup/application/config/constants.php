@@ -88,3 +88,4 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 define ("AUTHENTICATIONS", serialize (array ("ไม่มี", "token before", "token after", "location_before"))); 
 define ("SATISFY_CATEGORIES", serialize (array ("ไม่มี", "N", "NDetail", "P", "PDetail", "Doctor", "Nurse", "all", "return"))); 
 define ("CATEGORIES", serialize (array ("ไม่มี", "สิ่งแวดล้อมในการบริการ", "พฤติกรรมบริการ", "ระบบบริการ", "ภาพรวม"))); 
+define("PROJECT_NAME","ระบบตรวจสุขภาพ");
