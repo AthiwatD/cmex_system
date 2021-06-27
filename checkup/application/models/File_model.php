@@ -6,42 +6,46 @@ class File_model extends CI_Model{
         parent::__construct();
     }
 
-    function getMeetingFiles($meeting_id){
-        $sql = "SELECT * 
-                FROM met_file f
-                WHERE f.meeting_id = '" . $meeting_id . "'
-                AND f.meeting_person_id = '0'";
+    function getFiles($checkup_id){
+        $sql = "SELECT *
+                FROM chkup_file f
+                WHERE f.checkup_id = '" . $checkup_id . "'
+                AND f.deleted != 1";
         $result = $this->db->query($sql)->result();
-        
         return $result;
     }
 
-    function getMeetingPersonFiles($meeting_id, $meeting_person_id){
-        $sql = "SELECT * 
-                FROM met_file f
-                WHERE f.meeting_id = '" . $meeting_id . "'
-                AND f.meeting_person_id = '" . $meeting_person_id . "'";
-        $result = $this->db->query($sql)->result();
+    function addFile($file_name, $file_path, $checkup_id, $tab_id){
+        date_default_timezone_set('Asia/Bangkok');
+        $document_datetime = date('Y-m-d H:i:s', time());
+        $create_by = $this->session->username;
+        $create_time = $document_datetime;
+        $data = array(
+            'file_name' => $file_name,
+            'file_path' => $file_path,
+            'checkup_id' => $checkup_id,
+            'tab_id' => $tab_id,
+            'create_by' => $create_by,
+            'create_time' => $create_time,
+            'deleted' => 0,
+        );
         
-        return $result;
+        $result = $this->db->insert('chkup_file', $data);
+        if($result){
+            $file_id = $this->db->insert_id();
+            return $file_id;
+        }else{
+            return 0;
+        }
     }
-
-    function getMeetingPersonsFiles($meeting_id, $meeting_person_id){
-        $sql = "SELECT * 
-                FROM met_file f
-                JOIN met_meeting_person mp ON mp.meeting_person_id = f.meeting_person_id
-                WHERE f.meeting_id = '" . $meeting_id . "'";
-                
-        $result = $this->db->query($sql)->result();
-        
-        return $result;
-    }
-
 
     function deleteFile($file_id){
+        $data = array(
+            'deleted' => 1,
+        );
         $this->db->where('file_id', $file_id);
-        //$result = $this->db->update('form', $data);
-        $result = $this->db->delete("met_file");
+        $result = $this->db->update('chkup_file', $data);
+        // $result = $this->db->delete("met_file");
         return $result;
     }
 }

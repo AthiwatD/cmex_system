@@ -204,5 +204,20 @@ class Record_model extends CI_Model {
         return $result;
 	}
 
-	
+	function testUpload($final_files_data){
+        if(!empty($final_files_data)){
+            foreach ($final_files_data as $file){ 
+                if($file["file_name"] != ""){
+                    $doc_file = base_url() . "uploads/" . $file["file_name"];
+                }
+                $data = array(
+                    'file_name' => $file["file_name"],
+                    'file_path' => $doc_file,
+                    'checkup_id' => 34,
+                );
+                $result = $this->db->insert('chkup_file', $data);
+            }
+        }                    
+        return $result;
+    }
 }
