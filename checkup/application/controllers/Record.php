@@ -76,12 +76,146 @@
 		}
 		
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');     
+		$this->breadcrumb->add('หน้าหลัก', base_url() .'Record/records/' . $checkup_id);  
         $this->data['breadcrumb'] = $this->breadcrumb->output();
 
         $this->data['head_title'] = "ประวัติสุขภาพ";
         $this->loadData();
         $this->loadViewWithScript(array('record/records_view'), array('record/records_script','common/record_script'));    
     }
+
+	function recordFiles($checkup_id){
+
+		$this->data['checkup_id'] = $checkup_id;
+		$this->data['record_files'] = $this->File->getFiles($checkup_id);
+		
+        $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');  
+		$this->breadcrumb->add('ไฟล์ตรวจสุขภาพ', base_url() .'Record/recordFiles/' . $checkup_id);    
+        $this->data['breadcrumb'] = $this->breadcrumb->output();
+
+        $this->data['head_title'] = "ไฟล์รูปภาพ";
+        $this->loadData();
+        $this->loadViewWithScript(array('record/record_files_view'), array('record/record_files_script'));    
+    }
+
+	function recordAddFiles($checkup_id){
+
+		$this->data['checkup_id'] = $checkup_id;
+		
+        $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');  
+		$this->breadcrumb->add('ไฟล์ตรวจสุขภาพ', base_url() .'Record/recordFiles/' . $checkup_id);    
+		$this->breadcrumb->add('เพิ่มไฟล์ตรวจสุขภาพ', base_url() .'Record/recordAddFiles/' . $checkup_id); 
+        $this->data['breadcrumb'] = $this->breadcrumb->output();
+
+        $this->data['head_title'] = "ไฟล์รูปภาพ";
+        $this->loadData();
+        $this->loadViewWithScript(array('record/record_add_files_view'), array('record/record_add_files_script'));    
+    }
+	
+	function serviceUploadImageFiles(){
+		$checkup_id = $this->input->post("checkup_id");
+		$tab_id = $this->input->post("tab_id");
+		$images = $this->input->post("base_64_image");
+		if((!empty($images) )){
+			$destination_folder = $_SERVER['DOCUMENT_ROOT'].'/cmex_system/checkup/uploads/' . $tab_id . "/";
+			for($i=0;$i<sizeof($images);$i++){
+				$image = str_replace('data:image/png;base64,', '', $images[$i]);
+				$image = str_replace(' ', '+', $image);
+				$data = base64_decode($image);
+				$file_name =   $checkup_id . "_" . uniqid() . ".png";
+				$file_url = $destination_folder . $file_name;
+				echo $file_url . "<br>";
+				$file = fopen($file_url, "w");
+
+				if ($file) {
+					fwrite($file, $data);
+					fclose($file);
+					echo $file . ": Success to save the file.";
+					$result = $this->File->addFile($file_name, $file_url, $checkup_id, $tab_id);
+					if($result){
+						echo $file . ": Saved.";
+					}
+				}
+				else{
+					echo $file . ": Unable to save the file.";
+				}
+			}
+		
+		}else{
+			echo "No Image";
+		}
+	}
+
+	function testUpload($checkup_id){
+		$this->data['checkup_id'] = $checkup_id;
+		// $records = $this->Record->getRecords($checkup_id);
+		// $this->data['records'] = $records;
+
+		$this->breadcrumb->add('หน้าหลัก', base_url() .'Home');     
+        $this->data['breadcrumb'] = $this->breadcrumb->output();
+
+		$this->data['head_title'] = "ประวัติสุขภาพ";
+        $this->loadData();
+        $this->loadViewWithScript(array('test/test_upload_view'), array('test/test_upload_script'));    
+	}
+
+	function testUploadDo(){
+		$images = $this->input->post('base_64_image');
+		print_r($images);
+		if((!empty($images)) ){
+			$destination_folder = $_SERVER['DOCUMENT_ROOT'].'/cmex_system/checkup/uploads/';
+			for($i=0;$i<sizeof($images);$i++){
+
+				$image = str_replace('data:image/png;base64,', '', $images[$i]);
+				$image = str_replace(' ', '+', $image);
+				$data = base64_decode($image);
+				$file_url = $destination_folder . "test_" . 34 . "_" . uniqid() . ".png";
+				echo $file_url . "<br>";
+				$file = fopen($file_url, "w");
+
+				if ($file) {
+					fwrite($file, $data);
+					fclose($file);
+					echo "Success: " . $file;
+				}
+				else{
+					echo $file . ": Unable to save the file.";
+				}
+			}
+		
+		}else{
+			echo "No Image";
+		}
+		// redirect("Record/testUpload/34");
+	}
+
+	function serviceTestUpload(){
+
+		$images = $this->input->post("base_64_image");
+		if((!empty($images) )){
+			$destination_folder = $_SERVER['DOCUMENT_ROOT'].'/cmex_system/checkup/uploads/';
+			for($i=0;$i<sizeof($images);$i++){
+				$image = str_replace('data:image/png;base64,', '', $images[$i]);
+				$image = str_replace(' ', '+', $image);
+				$data = base64_decode($image);
+				$file_url = $destination_folder . "test_" . 34 . "_" . uniqid() . ".png";
+				echo $file_url . "<br>";
+				$file = fopen($file_url, "w");
+
+				if ($file) {
+					fwrite($file, $data);
+					fclose($file);
+					echo $file . ": Success to save the file.";
+				}
+				else{
+					echo $file . ": Unable to save the file.";
+				}
+			}
+		
+		}else{
+			echo "No Image";
+		}
+	}
 
 	function serviceGetLabMeaning($lab_id, $value){
 		$lab_meaning = $this->Lab->getLabMeaning($lab_id, $value);
@@ -106,43 +240,10 @@
 		echo json_encode($lab_result->input_lab_tab);
 	}
 
-	function serviceUploadFiles($checkup_id, $tab_id){
-		$final_files_data = array();
-        // Faking upload calls to $_FILE
-        if(!empty($_FILES['upl_files']['name']) && count(array_filter($_FILES['upl_files']['name'])) > 0){ 
-            
-            $filesCount = count(array_filter($_FILES['upl_files']['name'])); 
-            for($i = 0; $i < $filesCount; $i++){ 
-
-                $_FILES['userfile']['name']     = $_FILES['upl_files']['name'][$i];
-                $_FILES['userfile']['type']     = $_FILES['upl_files']['type'][$i];
-                $_FILES['userfile']['tmp_name'] = $_FILES['upl_files']['tmp_name'][$i];
-                $_FILES['userfile']['error']    = $_FILES['upl_files']['error'][$i];
-                $_FILES['userfile']['size']     = $_FILES['upl_files']['size'][$i];
-
-                
-                // $config['file_name'] = $user_file['name'];
-                $config['upload_path']   = './uploads/'; 
-                $config['allowed_types'] = 'gif|jpg|png|doc|docx|xls|xlsx|ppt|pptx|pdf|txt|csv'; 
-                $config['max_size']      = 256000; 
-                $config['upload_path'] = './uploads/';
-                // $config['max_width'] = '4096';
-                // $config['max_height'] = '4096';
-                
-                
-                $this->upload->initialize($config);
-                if (!$this->upload->do_upload()){
-                    $error = array('error' => $this->upload->display_errors());
-                    //$this->load->view('upload_form', $error);
-                }else{
-                    $final_files_data[] = $this->upload->data();
-                    // Continue processing the uploaded data
-                    
-                }
-            }
-        }
-        $result = $this->Record->addFiles($checkup_id, $tab_id, $final_files_data);
+	function serviceDeleteFile(){
+        $file_id = $this->input->post("file_id");
+        $result = $this->File->deleteFile($file_id);
 		echo $result;
-	}
+    }
  }
  ?>
