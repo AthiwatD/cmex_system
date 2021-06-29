@@ -1,0 +1,420 @@
+ $tbl = '<br><br>
+                <table>
+                <tr><th><h2>สมัครตำแหน่ง: </h2></th><th><h2> ' . $apply->position_name .'</h2></th><th rowspan="2" align="right"><img src="' . $apply->file_pic . '" height="100"></th></tr>
+                <tr><th><h2>สังกัดหน่วยงาน: </h2></th><th><h3> ' . $apply->ward_code . ' </h3></th></tr>
+                <tr><th><h2>เงินเดือนที่ต้องการ: </h2></th><th><h2> ' . $apply->salary . ' </h2></th></tr>
+                </table>';
+        $pdf->writeHTML($tbl, true, false, false, false, '');
+
+        // Image method signature:
+        // Image($file, $x='', $y='', $w=0, $h=0, $type='', $link='', $align='', $resize=false, $dpi=300, $palign='', $ismask=false, $imgmask=false, $border=0, $fitbox=false, $hidden=false, $fitonpage=false)
+        //$pdf->Image($apply->file_pic, 15, 140, 100, 100, 'JPG', '', '', true, 150, '', false, false, 1, false, false, false);
+
+
+
+
+
+
+        $tbl = "<h2>ประวัติส่วนตัว</h2>";
+        $pdf->writeHTML($tbl, true, false, false, false, '');
+
+        $from = new DateTime($apply->birth_date);
+        $to   = new DateTime('today');
+        $age = $from->diff($to)->y;
+        $tbl = '
+        <table border="1" cellspacing="0" cellpadding="1" >
+        <tr><th align="right">ชื่อ - สกุล (ภาษาไทย): </th><th colspan="3"> '. $apply->prefix_th . ' ' . $apply->fname_th . ' ' . $apply->lname_th . '</th></tr>
+        <tr><th align="right">ชื่อ - สกุล (English): </th><th colspan="3"> ' . $apply->prefix_en . ' ' . $apply->fname_en . ' ' . $apply->lname_en . '</th></tr>
+        <tr><th align="right">เพศ: </th><th> ' . $apply->sex . '</th><th align="right"> ' . 'หมู่เลือด: </th><th> ' . $apply->blood_group . '</th></tr>
+        <tr><th align="right">วัน เดือน ปี เกิด: </th><th> ' . $birth_date_thai . '</th><th align="right"> อายุ : </th><th> ' . $age . ' ปี </th></tr>
+        <tr><th align="right">สัญชาติ: </th><th> ' . $apply->nationality . '</th><th align="right">' . 'เชื้อชาติ: </th><th> ' . $apply->race . '</th></tr>
+        <tr><th align="right">ศาสนา: </th><th colspan="3"> ' . $apply->religion . '</th></tr>
+        <tr><th align="right">ส่วนสูง: </th><th> ' . $apply->height . '</th><th align="right">' . 'น้ำหนัก: </th><th> ' . $apply->weight . '</th></tr>
+        <tr><th align="right">สถานที่เกิด: </th><th colspan="3"> ' . $apply->birth_place . '</th></tr>
+        <tr><th align="right">เบอร์โทรศัพท์ที่ติดต่อได้: </th><th colspan="3"> ' . $apply->contact_number . '</th></tr>
+        <tr><th align="right">อีเมลล์: </th><th colspan="3"> ' . $apply->contact_email . '</th></tr>
+        <tr><th align="right">ที่อยู่ตามทะเบียนบ้าน: </th><th colspan="3"> ' . $apply->permanent_address . '</th></tr>
+        <tr><th align="right">ที่อยู่ปัจจุบันที่ติดต่อได้สะดวก: </th><th colspan="3"> ' . $apply->present_address . '</th></tr>
+        <tr><th align="right">บัตรประชาชนเลขที่: </th><th colspan="3"> ' . $apply->id_card_no . '</th></tr>
+        <tr><th align="right">ออกให้ ณ อำเภอ/เขต: </th><th> ' . $apply->id_card_issued_at . '</th><th align="right">จังหวัด: </th><th > ' . $apply->id_card_issued_province . '</th></tr>
+        <tr><th align="right">วันที่ออกบัตร: </th><th> ' . $apply->id_card_issued_date . '</th><th align="right">บัตรหมดอายุ: </th><th> ' . $apply->id_card_expire_date . '</th></tr>
+        <tr><th align="right">บัตรประจำตัวผู้เสียภาษีเลขที่: </th><th> ' . $apply->tax_id_card_no . '</th><th align="right">บัตรประกันสังคมเลขที่: </th><th> ' . $apply->social_security_card_no . '</th></tr>
+        <tr><th align="right">สถานะทางทหาร: </th><th colspan="3"> ' . $apply->martial_status . ' ' . $apply->martial_status_other .'</th></tr>
+        <tr><th align="right">สถานะความเป็นอยู่: </th><th> ' . $apply->living_status . ' ' . $apply->living_status_other . '</th><th align="right">สถานะทางครอบครัว: </th><th> ' . $apply->family_status . '</th></tr>
+        <tr><th align="right">สถานะการสมรส: </th><th> ' . $apply->married_status . '</th><th align="right">ชื่อคู่สมรส: </th><th> ' . $apply->couple_name . '</th></tr>
+        <tr><th align="right">คู่สมรสมีเงินได้หรือไม่: </th><th> ' . $apply->couple_has_income . '</th><th align="right">อาชีพ: </th><th> ' . $apply->couple_job . '</th></tr>
+        <tr><th align="right">สถานที่ทำงาน: </th><th colspan="3"> ' . $apply->couple_job_address . '</th></tr>
+        <tr><th align="right">จำนวนบุตร: </th><th colspan="3"> ' . $apply->children_no . '</th></tr>
+        <tr><th align="right">จำนวนบุตรที่กำลังศึกษา: </th><th> ' . $apply->children_in_school . '</th><th align="right">จำนวนบุตรอายุเกิน 21 ปี: </th><th> ' . $apply->children_over_21 . '</th></tr>
+
+        </table>
+        ';
+
+        $pdf->writeHTML($tbl, true, false, false, false, '');
+        // ---------------------------------------------------------
+        $pdf->AddPage();
+
+        $tbl = "<br>";
+        $pdf->writeHTML($tbl, true, false, false, false, '');
+
+
+
+
+        $tbl = '<h2>ประวัติการศึกษา</h2>
+                <table border="1" cellspacing="0" cellpadding="1" width="100%">
+                        <thead>
+                            <tr>
+                                <th width="120" rowspan="2" align="center">ระดับการศึกษา</th>
+                                <th width="150" rowspan="2" align="center">สถาบันการศึกษา</th>
+                                <th width="200" rowspan="2" align="center">วุฒิการศึกษา/สาขาวิชาที่ศึกษา</th>
+                                <th width="100" colspan="2" align="center">ปีการศึกษา</th>
+                                <th width="70" rowspan="2" align="center">เกรดเฉลี่ย</th>
+                            </tr>
+
+                            <tr>
+                                <th align="center" width="50">จาก</th>
+                                <th align="center" width="50">ถึง</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+         ';
+        foreach($educations as $education){
+            if($education->institution_name != ""){
+                $tbl .= '
+                    <tr>
+                        <th width="120"> ' . $education->edu_level . '</th>
+                        <th width="150"> ' . $education->institution_name . '</th>
+                        <th width="200"> ' . $education->major . '</th>
+                        <th width="50" align="center"> ' . $education->edu_from . '</th>
+                        <th width="50" align="center"> ' . $education->edu_to . '</th>
+                        <th width="70" align="center"> ' . $education->gpa . '</th>
+                    </tr>
+                        ';
+            }
+        }
+
+        $tbl .= '
+              </tbody>
+              </table>';
+        $pdf->writeHTML($tbl, true, false, false, false, '');
+
+
+                $tbl = '<h2>ประวัติการทำงาน</h2>
+                <table border="1" cellspacing="0" cellpadding="1" width="100%">
+                    <thead>
+                        <tr>
+                            <th width="120" rowspan="2" align="center">สถานที่ทำงาน</th>
+                            <th width="100" colspan="2" align="center">ระยะเวลา</th>
+                            <th width="120" rowspan="2" align="center">ตำแหน่งงาน</th>
+                            <th width="120" rowspan="2" align="center">ลักษณะงาน</th>
+                            <th width="70" rowspan="2" align="center">ค่าจ้าง</th>
+                            <th width="110" rowspan="2" align="center">เหตุที่ออก</th>
+                        </tr>
+
+                        <tr>
+                            <th width="50" align="center">เริ่ม</th>
+                            <th width="50" align="center">ถึง</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                ';
+
+        foreach($history_jobs as $history_job){
+            $tbl .= '
+                <tr>
+                    <th width="120"> ' . $history_job->history_job_company . '</th>
+                    <th width="50"> ' . $history_job->history_job_from . '</th>
+                    <th width="50"> ' . $history_job->history_job_to . '</th>
+                    <th width="120" align="center"> ' . $history_job->history_job_position . '</th>
+                    <th width="120" align="center"> ' . $history_job->history_job_description . '</th>
+                    <th width="70" align="center"> ' . $history_job->history_job_salary . '</th>
+                    <th width="110" align="center"> ' . $history_job->history_job_reason . '</th>
+                </tr>
+                    ';
+        }
+
+        $tbl .= '
+              </tbody>
+              </table>';
+        $pdf->writeHTML($tbl, true, false, false, false, '');
+        if($apply->ex_job != null){
+        $tbl = '<h2>ปัจจุบันประกอบอาชีพ</h2>
+                  <h2>ทำงาน</h2>
+                  <table border="1" cellspacing="0" cellpadding="1" >
+                    <tr><th align="right">อาชีพ: </th><th> '. $apply->ex_job .'</th><th align="right">ตำแหน่ง: </th><th> '. $apply->ex_position .'</th></tr>
+                    <tr><th align="right">สถานที่ทำงาน: </th><th> '. $apply->ex_office .'</th><th align="right">เงินเดือนสุดท้าย: </th><th> '. $apply->ex_salary .'</th></tr>
+                    <tr><th align="right">วันที่เข้าทำงาน: </th><th> '. $apply->ex_startjobdate .'</th><th align="right">โทรศัพท์: </th><th> '. $apply->ex_phone .'</th></tr>
+                  </table>
+              ';
+        }else{
+        $tbl = '<h2>ปัจจุบันประกอบอาชีพ</h2>
+                  <h2>ว่างงาน</h2>
+                    <table border="1" cellspacing="0" cellpadding="1" >
+                      <tr><th align="right">ว่างงานระยะเวลา: </th><th> '. $apply->unemploy_time .'</th><th align="right">สาเหตุการว่างงาน: </th><th> '. $apply->unemploy_cause .'</th></tr>
+                    </table>
+              ';
+          }
+        $pdf->writeHTML($tbl, true, false, false, false, '');
+
+        $tbl = '<h2>ผลงานทางวิชาการ</h2>
+                    <table border="1" cellspacing="0" cellpadding="1" >
+                        <thead>
+                            <tr>
+                                <th width="160" align="center">วิจัย</th>
+                                <th width="160" align="center">เอกสารประกอบการสอนหนังสือตำรา</th>
+                                <th width="160" align="center">บทความ</th>
+                                <th width="160" align="center">ผลงานสิ่งประดิษฐ์</th>
+                            </tr>
+                        </thead>
+                        <tbody>';
+        foreach($academics as $academic){
+            $tbl .= '
+                <tr>
+                    <th width="160"> ' . $academic->academic_research . '</th>
+                    <th width="160"> ' . $academic->academic_document . '</th>
+                    <th width="160"> ' . $academic->academic_article . '</th>
+                    <th width="160"> ' . $academic->academic_invention . '</th>
+                </tr>
+                    ';
+        }
+
+        $tbl .= '
+              </tbody>
+              </table>';
+
+        $pdf->writeHTML($tbl, true, false, false, false, '');
+
+        //หน้า 3
+        $pdf->AddPage();
+
+        $tbl = "<br>";
+        $pdf->writeHTML($tbl, true, false, false, false, '');
+        $tbl = '<h2>ประวัติการฝึกอบรม</h2>
+                    <table border="1" cellspacing="0" cellpadding="1" >
+                        <thead>
+                            <tr>
+                                <th width="220" align="center">ชื่อหลักสูตร</th>
+                                <th width="220" align="center">สถาบันที่จัด</th>
+                                <th width="190" align="center">ระยะเวลาที่อบรม</th>
+                            </tr>
+                        </thead>
+                        <tbody>';
+        foreach($history_trainings as $history_training){
+            $tbl .= '
+                <tr>
+                    <th width="220"> ' . $history_training->history_training_course . '</th>
+                    <th width="220"> ' . $history_training->history_training_institute . '</th>
+                    <th width="190"> ' . $history_training->history_training_time . '</th>
+                </tr>
+                    ';
+        }
+        $tbl .= '
+              </tbody>
+              </table>';
+        $pdf->writeHTML($tbl, true, false, false, false, '');  
+
+        $tbl = '<h2>ภาษา</h2>
+                    <table border="1" cellspacing="0" cellpadding="1" >
+                        <thead>
+                            <tr>
+                                <th width="220" align="center">ภาษา</th>
+                                <th width="100" align="center">การเข้าใจ</th>
+                                <th width="100" align="center">การพูด</th>
+                                <th width="100" align="center">การอ่าน</th>
+                                <th width="100" align="center">การเขียน</th>
+                            </tr>
+                        </thead>
+                        <tbody>';
+        foreach($languages as $language){
+            $tbl .= '
+                <tr>
+                    <th width="220"> ' . $language->language . '</th>
+                    <th width="100" align="center"> ' . $language->language_understanding . '</th>
+                    <th width="100" align="center"> ' . $language->language_speaking . '</th>
+                    <th width="100" align="center"> ' . $language->language_reading . '</th>
+                    <th width="100" align="center"> ' . $language->language_writing . '</th>
+                </tr>
+                    ';
+        }
+        $tbl .= '
+              </tbody>
+              </table>';
+        $pdf->writeHTML($tbl, true, false, false, false, '');
+
+        $tbl = '
+                <table border="1" cellspacing="0" cellpadding="1" >
+                <tr><th align="right">การใช้คอมพิวเตอร์: </th><th colspan="3"> ' .  $apply->computer_skill . ' ' . $apply->computer_skill_detail . '</th></tr>
+                <tr><th align="right">การใช้เครื่องใช้สำนักงาน: </th><th colspan="3"> ' .  $apply->office_equipment . '</th></tr>
+                <tr><th align="right">ขับรถยนต์: </th><th> ' .  $apply->driving . '</th><th align="right"> ใบขับขี่เลขที่: </th><th> ' . $apply->driving_license_no . '</th></tr>
+                <tr><th align="right">ในตำแหน่งงานที่ต้องการมีการค้ำประกัน: </th><th colspan="3"> ' .  $apply->quarantor . '</th></tr>
+                <tr><th align="right">ทำงานเป็นกะหมุนเวียนกันไป: </th><th> ' .  $apply->work_shift . '</th><th align="right"> สามารถเปลี่ยนแปลงหน้าที่ได้ตามความเหมาะสม: </th><th> ' . $apply->rotate_position . '</th></tr>
+
+                <tr><th align="right">สถานะ บิดา: </th><th colspan="3"> ' . $apply->father_status . '</th></tr>
+                <tr><th align="right">ชื่อ - สกุล บิดา: </th><th colspan="3"> ' . $apply->father_name . '</th></tr>
+                <tr><th align="right">เลขบัตรประชาชน บิดา: </th><th colspan="3"> ' . $apply->father_id_card_no . '</th></tr>
+                <tr><th align="right">อายุ บิดา: </th><th colspan="3"> ' . $apply->father_age . '</th></tr>
+                <tr><th align="right">อาชีพ บิดา: </th><th colspan="3"> ' . $apply->father_job . '</th></tr>
+                <tr><th align="right">สถานะ มารดา: </th><th colspan="3"> ' . $apply->mother_status . '</th></tr>
+                <tr><th align="right">ชื่อ - สกุล มารดา: </th><th colspan="3"> ' . $apply->mother_name . '</th></tr>
+                <tr><th align="right">เลขบัตรประชาชน มารดา: </th><th colspan="3"> ' . $apply->mother_id_card_no . '</th></tr>
+                <tr><th align="right">อายุ มารดา: </th><th colspan="3"> ' . $apply->mother_age . '</th></tr>
+                <tr><th align="right">อาชีพ มารดา: </th><th colspan="3"> ' . $apply->mother_job . '</th></tr>
+                <tr><th>มีพี่น้องรวม(ผู้สมัคร): ' . $apply->sibling . ' คน</th><th> ชาย: ' . $apply->sibling_men . ' คน</th><th> หญิง: ' . $apply->sibling_women . ' คน</th><th> เป็นบุตรคนที่: ' . $apply->sibling_order .  '</th></tr>
+                <tr><th align="right">บุคคลในคณะแพทยศาสตร์ ที่ท่านรู้จักคุ้นเคยชื่อ: </th><th colspan="3"> ' . $apply->friend_in_company_name . '</th></tr>
+                <tr><th align="right">ความสัมพันธ์: </th><th colspan="3"> ' . $apply->friend_in_company_relation . '</th></tr>
+
+                <tr><th align="right">กรณีฉุกเฉินบุคคลที่ติดต่อได้: </th><th colspan="3"> ' . $apply->emergency_person_relation . '</th></tr>
+                <tr><th align="right">เกี่ยวข้องกับผู้สมัคร: </th><th colspan="3"> ' . $apply->emergency_person_address . '</th></tr>
+                <tr><th align="right">ที่อยู่: </th><th colspan="3"> ' . $apply->emergency_person_address . '</th></tr>
+                <tr><th align="right">โทรศัพท์: </th><th colspan="3"> ' . $apply->emergency_person_tel . '</th></tr>
+
+                <tr><th align="right">ทราบข่าวการรับสมัครจาก: </th><th colspan="3"> ' . $apply->job_information_from . '</th></tr>
+                <tr><th align="right">ท่านสามารถเริ่มงานกับศูนย์ได้ในวันที่: </th><th colspan="3"> ' . $apply->start_work_date . '</th></tr>
+
+                </table>
+                ';
+                //<tr><th align="right">กู้ กยศ. / กรอ.: </th><th> ' .  $apply->loan_status . '</th><th align="right"> จำนวนหนี้ค้างชำระ (บาท): </th><th> ' . $apply->loan_money . '</th></tr>
+        $pdf->writeHTML($tbl, true, false, false, false, '');
+
+        $pdf->AddPage();
+        //หน้าข้อมูลอื่นๆ
+        if($apply->breakdiscipline_status=="ไม่เคย"){
+
+          $tbl = '<h2>ข้อมูลอื่นๆ</h2>
+                  <p>เคยถูกกล่าวหาว่ากระทำผิดเกี่ยวกับการทำงานหรือเคยถูกลงโทษทางวินัยตามกฎหมายว่าด้วยระเบียบข้าราชการหรือตามกฎระเบียบข้อบังคับของต้นสังกัด</p> <br> ->'.$apply->breakdiscipline_status;
+        }
+        else{
+          $tbl = '<h2>ข้อมูลอื่นๆ</h2>
+                  <p>เคยถูกกล่าวหาว่ากระทำผิดเกี่ยวกับการทำงานหรือเคยถูกลงโทษทางวินัยตามกฎหมายว่าด้วยระเบียบข้าราชการหรือตามกฎระเบียบข้อบังคับของต้นสังกัด</p> <br> ->'.$apply->breakdiscipline_status .' '. $apply->breakdiscipline_detail;
+        }
+
+        if($apply->lawsuit_status=="ไม่เคย"){
+          $tbl .= '<p>เคยถูกกล่าวหาฟ้องหรือถูกฟ้องคดี</p> <br> ->'.$apply->lawsuit_status;
+        }
+        else {
+          $tbl .= '<p>เคยถูกกล่าวหาฟ้องหรือถูกฟ้องคดี</p> <br> ->'.$apply->lawsuit_status . ' ' .$apply->lawsuit_detail;
+        }
+
+        if($apply->narcotic_status=="ไม่เคย"){
+          $tbl .= '<p>เคยเสพยาเสพติดหรือใช้สารเสพติด</p> <br> ->'.$apply->narcotic_status;
+        }
+        else{
+          $tbl .= '<p>เคยเสพยาเสพติดหรือใช้สารเสพติด</p> <br> ->'.$apply->narcotic_status
+                  .'<br><p>ปัจจุบันพ้นจากสถานภาพการใช้สารเสพติดเมื่อ</p> '.$apply->narcotic_date
+                  .'<br><p>อยู่ระหว่างการตรวจรักษาเพื่อบำบัดการใช้สารเสพติด ณ โรงพยาบาล </p>'.$apply->narcotic_hospital;
+
+        }
+        $tbl .='<p> ข้าพเจ้าขอรับรองว่าข้อความที่ระบุไว้ในใบสมัครนี้เป็นความจริงและครบถ้วนข้าพเจ้าทราบดีว่าหากระบุข้อความที่บิดเบือนจากความเป็นจริงจะเป็นสาเหตุให้ถูกตัดสิทธิจากการเป็นพนักงานและ/หรือถูกปลดออกจากงานทันทีโดยไม่ได้รับเงินชดเชย</p>
+                ';
+
+        $pdf->writeHTML($tbl, true, false, false, false, '');
+
+        $sign1 = 'ลงชื่อ  _________________________________  ผู้สมัคร';
+        $sign2 = 'ลงชื่อ _________________________________ ผู้รับสมัคร';
+        $sign3 = 'ยื่นใบสมัครวันที่ '.$apply->apply_date;
+        $pdf->SetXY(80, 240);
+        $pdf->Cell(0, 0, $sign1, 0, $ln=0, 'C', 0, '', 0, false, 'B', 'B');
+        $pdf->SetXY(80, 250);
+        $pdf->Cell(0, 0, $sign2, 0, $ln=0, 'C', 0, '', 0, false, 'B', 'B');
+        $pdf->SetXY(80, 260);
+        $pdf->Cell(0, 0, $sign3, 0, $ln=0, 'C', 0, '', 0, false, 'B', 'B');
+
+        $pdf->AddPage();
+        // หน้า กยศ.
+        $sign1='เขียนที่ ศูนย์ความเป็นเลิศทางการแพทย์';
+        $sign2='วันที่ '.$apply->apply_date;
+        $sign3='ลงชื่อ ________________________';
+        $sign4= '( '.$apply->prefix_th .' '.$apply->fname_th.' '.$apply->lname_th.' )';
+
+        $pdf->SetXY(100, 40);
+        $pdf->Cell(0, 0, $sign1, 0, $ln=0, 'C', 0, '', 0, false, 'B', 'B');
+        $pdf->SetXY(40, 50);
+        $pdf->Cell(0, 0, $sign2, 0, $ln=0, 'C', 0, '', 0, false, 'B', 'B');
+
+        $pdf->SetXY(15,55);
+        $newDate = date("d/m/Y", strtotime($apply->birth_date));
+        $tbl = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ชื่อ-นามสกุล <u>'.$apply->prefix_th .' '.$apply->fname_th.' '.$apply->lname_th.'</u> เลขบัตรประชาชน <u>'.$apply->id_card_no.'</u> วัน/เดือน/ปีเกิด <u>'.$newDate.'</u> อายุ <u>'.$age.'</u> ปี '.
+              ' ที่อยู่ปัจจุบัน <u>'.$apply->present_address.'</u> เบอร์โทร <u>'.$apply->contact_number.'</u> สมัครงานตำแหน่ง <u>'.$apply->position_name.'</u> ชื่อบริษัท/หน่วยงาน(นายจ้าง) <u> ศูนย์ความเป็นเลิศทางการแพทย์ คณะแพทยศาสตร์ มหาวิทยาลัยเชียงใหม่ </u>
+              <br>1.ข้าพเจ้าขอแจ้งสถานภาพการเป็นผู้กู้ยืมเงินของกองทุนให้กู้ยืมเพื่อการศึกษา (กยศ.)';
+        if($apply->loan_status == "กู้"){
+          $tbl .='<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; เป็นผู้กู้ยืมเงิน(กยศ./กรอ.) ปัจจุบันคงเหลือภาระหนี้ประมาณ <u>'.$apply->loan_money.'</u> บาท';
+        }else{
+          $tbl .='<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ไม่ได้เป็นผู้กู้ยืมเงิน';
+        }
+        $tbl .='<br>2.ข้าพเจ้ายืนยอมให้นายจ้างหักเงินเดือนของข้าพเจ้าได้ตามที่ กยศ. แจ้งมายังนายจ้างเพื่อชำระเงินกู้ยืมคืนตาม <br>จำนวนที่ กยศ.แจ้งให้ทราบ
+                <br>3.ข้าพเจ้ายินยอมให้ กยศ.เข้าถึงข้อมูลส่วนบุคคลของข้าพเจ้าที่อยู่ในความครอบครองของนายจ้างได้และ ยินยอมให้นายจ้างเปิดเผยข้อมูลดังกล่าว
+                <br>4.หากตรวจสอบพบว่าข้อมูลที่ข้าพเจ้าแจ้งสถานภาพเป็นเท็จให้ถือว่าข้าพเจ้าปฏิบัติผิดระเบียบข้อบังคับ พนักงานถือเป็นความผิดวินัยร้ายแรงและยินยอมให้นายจ้างไล่ออกโดยไม่ได้รับเงินชดเชยและค่าเสียหายใดๆ ทั้งสิ้น
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ข้าพเจ้าขอรับรองความถูกต้องของข้อมูลและคำยืนยันดังกล่าวข้างต้น';
+        $pdf->writeHTML($tbl, true, false, false, false, '');
+        $pdf->SetXY(100, 240);
+        $pdf->Cell(0, 0, $sign3, 0, $ln=0, 'C', 0, '', 0, false, 'B', 'B');
+        $pdf->SetXY(100, 250);
+        $pdf->Cell(0, 0, $sign4, 0, $ln=0, 'C', 0, '', 0, false, 'B', 'B');
+
+        // หน้า บัตรประชาชน
+        if($apply->file_id_card != ""){
+            $pdf->AddPage();
+            $tbl = '<img src="' . $apply->file_id_card . '" width="700">';
+            $pdf->writeHTML($tbl, true, false, false, false, '');
+        }
+
+        // หน้า ทะเบียนบ้าน
+        if($apply->file_home != ""){
+            $pdf->AddPage();
+            $tbl = '<img src="' . $apply->file_home . '" width="700">';
+            $pdf->writeHTML($tbl, true, false, false, false, '');
+        }
+        //$pdf->mergeFile($apply->file_med_cert);
+
+
+        // หน้า ใบปริญญา
+        if($apply->file_grad_cert != ""){
+            $pdf->AddPage();
+            $tbl = '<img src="' . $apply->file_grad_cert . '" width="700">';
+            $pdf->writeHTML($tbl, true, false, false, false, '');
+        }
+
+        // หน้า transcript
+        if($apply->file_transcript != ""){
+            $pdf->AddPage();
+            $tbl = '<img src="' . $apply->file_transcript . '" width="700">';
+            $pdf->writeHTML($tbl, true, false, false, false, '');
+        }
+
+        // หน้า ผ่านทหาร
+        if($apply->file_martial != ""){
+            $pdf->AddPage();
+            $tbl = '<img src="' . $apply->file_martial . '" width="700">';
+            $pdf->writeHTML($tbl, true, false, false, false, '');
+        }
+
+        // หน้า ใบรับรองแพทย์
+        if($apply->file_med_cert != ""){
+            $pdf->AddPage();
+            $tbl = '<img src="' . $apply->file_med_cert . '" width="700">';
+            $pdf->writeHTML($tbl, true, false, false, false, '');
+        }
+
+        // หน้า ใบเปลี่ยนชื่อ
+        if($apply->file_name_change != ""){
+            $pdf->AddPage();
+            $tbl = '<img src="' . $apply->file_name_change . '" width="700">';
+            $pdf->writeHTML($tbl, true, false, false, false, '');
+        }
+
+        // หน้า ใบทะเบียนสมรส
+        if($apply->file_marriage_cert != ""){
+            $pdf->AddPage();
+            $tbl = '<img src="' . $apply->file_marriage_cert . '" width="700">';
+            $pdf->writeHTML($tbl, true, false, false, false, '');
+        }
+
+        // หน้า ใบประกอบโรคศิลป์
+        if($apply->file_professional_cert != ""){
+            $pdf->AddPage();
+            $tbl = '<img src="' . $apply->file_professional_cert . '" width="700">';
+            $pdf->writeHTML($tbl, true, false, false, false, '');
+        }
+
+        //Close and output PDF document
+        $pdf->Output('example_003.pdf', 'I');
