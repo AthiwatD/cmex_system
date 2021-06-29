@@ -11,6 +11,9 @@
         $this->load->model('Checkup_model','Checkup');
 		$this->load->model('Package_model','Package');
 		$this->load->model('Location_model','Location');
+
+		$this->load->library('CheckupPdf','Pdf');
+
         // $this->load->model('File_model','File');
 
         // $config['upload_path']   = './uploads/'; 
@@ -146,6 +149,58 @@
             $this->checkups(); 
         }
     }
+
+	function exportCheckupDo($checkup_id){
+
+		$checkup = $this->Checkup->getCheckup($checkup_id);
+
+		$pdf = new CheckupPdf(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
+		$pdf->setCheckupData($checkup);
+        // set document information
+        // $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('ศูนย์ความเป็นเลิศทางการแพทย์ คณะแพทยศาสตร์ มหาวิทยาลัยเชียงใหม่');
+        $pdf->SetTitle('รายงานผลการตรวจสุขภาพ');
+        $pdf->SetSubject('รายงานผลการตรวจสุขภาพ');
+        $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+
+        // set default header data
+        $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
+
+        // set header and footer fonts
+        $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+        $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+
+        // set default monospaced font
+        $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+
+        // set margins
+        $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+        $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+        // set auto page breaks
+        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+        // set image scale factor
+        $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+
+		$image_file = base_url() . '../common/assets/images/cmex_header_doc.jpg';
+
+		//  Header ---------------------------------------------------------
+        // $image_file = K_PATH_IMAGES.'logo_example.jpg';
+        $pdf->Image($image_file, 10, 10, 15, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
+        // Set font
+        $pdf->SetFont('helvetica', 'B', 20);
+        // Title
+        $pdf->Cell(0, 15, '<< TCPDF Example 003 >>', 0, false, 'C', 0, '', 0, false, 'M', 'M');
+
+		$pdf->SetFont("thsarabunpsk", 'B', 16, '', false);
+        // add a page
+        $pdf->AddPage();
+
+		$pdf->Output('Checkup_' . $checkup->hn . '_' . $checkup->checkup_date . '.pdf', 'I');
+	}
 
  }
  ?>

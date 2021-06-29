@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 require_once dirname(__FILE__) . '/tcpdf/tcpdf.php';
 
-class Pdf extends TCPDF//TCPDF
+class Pdf extends TcPdf//TCPDF
 { 
     //public $fpdi;
     function __construct() 
@@ -9,13 +9,6 @@ class Pdf extends TCPDF//TCPDF
         parent::__construct(); 
         //$fpdi = new FPDI();
     }
-    
-    /*
-    public function mergeFile($filename){
-        $this.setSourceFile($filename);
-        $this.useTemplate($this->importPage(1));
-    }
-    */
     
     public function Header() {
         // Logo

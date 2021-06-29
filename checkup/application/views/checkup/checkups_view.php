@@ -46,7 +46,7 @@
                         echo "<a href='" . base_url() . "Record/recordFiles/" . $checkup->checkup_id . "' class='btn btn-primary btn-sm'><i class='fas fa-folder'></i> Upload รูป</a> ";
                         echo "<a href='" . base_url() . "Checkup/updateCheckup/" . $checkup->checkup_id . "' class='btn btn-warning btn-sm'><i class='fas fa-pencil-alt'></i> แก้ไข</a> ";
                         echo "<a href='" . base_url() . "Checkup/deleteCheckupDo/" . $checkup->checkup_id . "' class='btn btn-danger btn-sm' onclick='return confirm(\"คุณต้องการ ลบ?\")'><i class='fas fa-trash'></i> ลบ</a>";
-						
+						echo "<a href='" . base_url() . "Checkup/exportCheckupDo/" . $checkup->checkup_id . "' class='btn btn-success btn-sm' target='_blank'><i class='fas fa-download'></i> ออกรายงาน</a>";
                         echo "</td>";
                         echo "</tr>";
                     }
