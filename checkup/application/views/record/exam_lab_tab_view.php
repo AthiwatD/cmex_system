@@ -4,16 +4,7 @@
 		<h3 style="margin-top: 10px">ผลการตรวจทางห้องปฏิบัติการ (Laboratory Result)</h3>
 
 		<div class="form-group">
-			
-			<label class="label-control" for="upl_files"> ไฟล์เอกสาร *</label><br>
-			<!-- <div class='preview'>
-				<img src="" id="exam_lab_file_preview" width="100" height="100">
-			</div> -->
-			<div class="form-inline">
-				<input type="file" name="exam_lab_upl_files[]" id="exam_lab_upl_files"  class="inputFile form-control" 
-								accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps" multiple />
-				<button type="button" class="btn btn-success form-control" value="Upload" id="button_exam_lab_upload" onclick="upload_files('<?php echo $checkup_id; ?>', 'exam_lab_tab')>Upload</button>
-			</div>
+		
 			
 			<!-- <?php
 				if($method == "update"){
@@ -49,7 +40,7 @@
 			?> -->
 		</div>
 
-		<button type="button" class="form-control btn btn-info" onclick="load_lab_result()">ข้อมูลการแปลผล Lab</button>
+		<!-- <button type="button" class="form-control btn btn-info" onclick="load_lab_result()">ข้อมูลการแปลผล Lab</button> -->
 		<div class="mt-4">
 			
 			<div class="form-group form-inline " style="display: block;">

@@ -8,10 +8,19 @@
         parent::__construct();
 
         $this->load->helper('../../common/helpers/thai_date');
+		$this->load->helper('medical_history');
+		$this->load->helper('vital_signs');
+		$this->load->helper('exam_result');
+		$this->load->helper('lab_result');
+		$this->load->helper('exam_lab_result');
+		$this->load->helper('exam_xray_result');
+		$this->load->helper('exam_ekg_result');
+		$this->load->helper('suggest');
         $this->load->model('Checkup_model','Checkup');
 		$this->load->model('Package_model','Package');
 		$this->load->model('Location_model','Location');
-
+		$this->load->model('Record_model','Record');
+		$this->load->model('File_model','File');
 		$this->load->library('CheckupPdf','Pdf');
 
         // $this->load->model('File_model','File');
@@ -153,6 +162,8 @@
 	function exportCheckupDo($checkup_id){
 
 		$checkup = $this->Checkup->getCheckup($checkup_id);
+		$records = $this->Record->getRecords($checkup_id);
+		$record_files = $this->File->getFiles($checkup_id);
 
 		$pdf = new CheckupPdf(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
@@ -185,19 +196,39 @@
         // set image scale factor
         $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 
-		$image_file = base_url() . '../common/assets/images/cmex_header_doc.jpg';
-
-		//  Header ---------------------------------------------------------
-        // $image_file = K_PATH_IMAGES.'logo_example.jpg';
-        $pdf->Image($image_file, 10, 10, 15, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
-        // Set font
-        $pdf->SetFont('helvetica', 'B', 20);
-        // Title
-        $pdf->Cell(0, 15, '<< TCPDF Example 003 >>', 0, false, 'C', 0, '', 0, false, 'M', 'M');
-
 		$pdf->SetFont("thsarabunpsk", 'B', 16, '', false);
         // add a page
         $pdf->AddPage();
+		$txt = getMedicalHistory($checkup, json_decode($records[0]->history_tab));
+        $pdf->writeHTML($txt, true, false, false, false, '');
+
+		$pdf->AddPage();
+		$txt = getVitalSigns($checkup, json_decode($records[0]->exam_tab));
+		$pdf->writeHTML($txt, true, false, false, false, '');
+
+		$pdf->AddPage();
+		$txt = getExamResult($checkup, json_decode($records[0]->exam_result_tab));
+		$pdf->writeHTML($txt, true, false, false, false, '');
+
+		$pdf->AddPage();
+		$txt = getLabResults($checkup, json_decode($records[0]->input_lab_tab), $record_files);
+		$pdf->writeHTML($txt, true, false, false, false, '');
+
+		$pdf->AddPage();
+		$txt = getExamLabResult($checkup, json_decode($records[0]->exam_lab_tab));
+		$pdf->writeHTML($txt, true, false, false, false, '');
+
+		$pdf->AddPage();
+		$txt = getExamXrayResult($checkup, json_decode($records[0]->exam_xray_tab), $record_files);
+		$pdf->writeHTML($txt, true, false, false, false, '');
+
+		$pdf->AddPage();
+		$txt = getExamEkgResult($checkup, json_decode($records[0]->exam_ekg_tab), $record_files);
+		$pdf->writeHTML($txt, true, false, false, false, '');
+		
+		$pdf->AddPage();
+		$txt = getSuggest($checkup, json_decode($records[0]->suggest_tab));
+		$pdf->writeHTML($txt, true, false, false, false, '');
 
 		$pdf->Output('Checkup_' . $checkup->hn . '_' . $checkup->checkup_date . '.pdf', 'I');
 	}

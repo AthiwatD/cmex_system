@@ -16,7 +16,7 @@
 							น้ำหนัก (กิโลกรัม)
 						</td>
 						<td style=" vertical-align: middle; border-top: 0px solid #dee2e6;">
-							<input type="number" class="form-control input_data" id="exam_1" alt="น้ำหนัก (กิโลกรัม)">
+							<input type="number" class="form-control input_data" id="exam_1" alt="น้ำหนัก (กิโลกรัม)" placeholder="น้ำหนัก (กิโลกรัม)">
 						</td>
 					</tr>
 
@@ -26,7 +26,7 @@
 							ส่วนสูง (เซนติเมตร)
 						</td>
 						<td style="vertical-align: middle; border-top: 0px solid #dee2e6;">
-							<input type="number" class="form-control input_data" id="exam_2" alt="ส่วนสูง (เซนติเมตร)">
+							<input type="number" class="form-control input_data" id="exam_2" alt="ส่วนสูง (เซนติเมตร)" placeholder="ส่วนสูง (เซนติเมตร)">
 						</td>
 					</tr>
 
@@ -36,7 +36,7 @@
 							ความดันโลหิต (มิลลิเมตร/ปรอท) : บน
 						</td>
 						<td style="vertical-align: middle; border-top: 0px solid #dee2e6;">
-							<input type="number" class="form-control input_data" id="exam_3" alt="ความดันโลหิต (มิลลิเมตร/ปรอท) : บน">
+							<input type="number" class="form-control input_data" id="exam_3" alt="ความดันโลหิต (มิลลิเมตร/ปรอท) : บน"  placeholder="ความดันโลหิต (มิลลิเมตร/ปรอท) : บน">
 						</td>
 					</tr>
 
@@ -46,7 +46,7 @@
 							ความดันโลหิต (มิลลิเมตร/ปรอท) : ล่าง
 						</td>
 						<td style="vertical-align: middle; border-top: 0px solid #dee2e6;">
-							<input type="number" class="form-control input_data" id="exam_4" alt="ความดันโลหิต (มิลลิเมตร/ปรอท) : ล่าง">
+							<input type="number" class="form-control input_data" id="exam_4" alt="ความดันโลหิต (มิลลิเมตร/ปรอท) : ล่าง"  placeholder="ความดันโลหิต (มิลลิเมตร/ปรอท) : ล่าง">
 						</td>
 					</tr>
 
@@ -56,7 +56,7 @@
 							ชีพจร (ครั้ง/นาที)
 						</td>
 						<td style="vertical-align: middle; border-top: 0px solid #dee2e6;">
-							<input type="number" class="form-control input_data" id="exam_5" alt="ชีพจร (ครั้ง/นาที)">
+							<input type="number" class="form-control input_data" id="exam_5" alt="ชีพจร (ครั้ง/นาที)"  placeholder="ชีพจร (ครั้ง/นาที)" >
 						</td>
 					</tr>
 
@@ -66,7 +66,7 @@
 							อัตราการหายใจ (ครั้ง/นาที)
 						</td>
 						<td style="vertical-align: middle; border-top: 0px solid #dee2e6;">
-							<input type="number" class="form-control input_data" id="exam_6" alt="อัตราการหายใจ (ครั้ง/นาที)">
+							<input type="number" class="form-control input_data" id="exam_6" alt="อัตราการหายใจ (ครั้ง/นาที)"  placeholder="อัตราการหายใจ (ครั้ง/นาที)">
 						</td>
 					</tr>
 
@@ -76,7 +76,7 @@
 							อุณหภูมิ (องศาเซลเซียส)
 						</td>
 						<td style="vertical-align: middle; border-top: 0px solid #dee2e6;">
-							<input type="number" class="form-control input_data" id="exam_7" alt="อุณหภูมิ (องศาเซลเซียส)">
+							<input type="number" class="form-control input_data" id="exam_7" alt="อุณหภูมิ (องศาเซลเซียส)"  placeholder="อุณหภูมิ (องศาเซลเซียส)">
 						</td>
 					</tr>
 

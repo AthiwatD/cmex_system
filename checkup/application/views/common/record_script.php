@@ -10,6 +10,7 @@
 			obj[i]["id"] = input_arr[i].id;
             obj[i]["tag"] = input_arr[i].tagName;
 			obj[i]["type"] = input_arr[i].type;
+			obj[i]["alt"] = input_arr[i].alt;
             obj[i]["placeholder"] = input_arr[i].placeholder;
 			obj[i]["value"] = input_arr[i].value;
 			if (input_arr[i].tagName == "TEXTAREA") {

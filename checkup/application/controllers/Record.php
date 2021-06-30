@@ -90,6 +90,7 @@
 		$this->data['record_files'] = $this->File->getFiles($checkup_id);
 		
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');  
+		$this->breadcrumb->add('การตรวจสุขภาพ',   base_url().'Checkup/checkups');   
 		$this->breadcrumb->add('ไฟล์ตรวจสุขภาพ', base_url() .'Record/recordFiles/' . $checkup_id);    
         $this->data['breadcrumb'] = $this->breadcrumb->output();
 

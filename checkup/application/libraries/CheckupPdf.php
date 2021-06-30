@@ -26,7 +26,7 @@ class CheckupPdf extends TCPDF//TCPDF
         // Logo
         $image_file = base_url() . '../common/assets/images/cmex_header_doc.jpg';//K_PATH_IMAGES.'logo_example.jpg';
         //Image( $file, $x = '', $y = '', $w = 0, $h = 0, $type = '', $link = '', $align = '', $resize = false, $dpi = 300, $palign = '', $ismask = false, $imgmask = false, $border = 0, $fitbox = false, $hidden = false, $fitonpage = false, $alt = false, $altimgs = array() )
-        $this->Image($image_file, 10, 5, 60, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
+        $this->Image($image_file, 10, 5, 50, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
         // Set font
         //echo base_url('assets/fonts/THSarabun.ttf') . "<br>";
         $fontname = TCPDF_FONTS::addTTFfont(base_url('assets/fonts/thai/THSarabun.ttf'), 'TrueTypeUnicode', '', 96);
@@ -38,10 +38,10 @@ class CheckupPdf extends TCPDF//TCPDF
         //$this->SetFont('courier', 'B', 20);
         // Title
 		$this->Ln(3);
-		$this->SetFont("thsarabunpsk", 'B', 20, '', false);
-        $this->Cell(0, 15, 'รายงานผลการตรวจสุขภาพ', 0, false, 'C', 0, '', 0, false, 'M', 'M');
-        $this->Ln(10);
 		$this->SetFont("thsarabunpsk", 'B', 16, '', false);
+        $this->Cell(0, 15, 'รายงานผลการตรวจสุขภาพ', 0, false, 'C', 0, '', 0, false, 'M', 'M');
+        $this->Ln(5);
+		$this->SetFont("thsarabunpsk", 'B', 14, '', false);
         $this->Cell(0, 15, 'HEALTH CHECK UP REPORT', 0, false, 'C', 0, '', 0, false, 'M', 'M');
 		$this->Cell(0, 15, 'วันที่ตรวจ/Date: ' . $this->checkup->checkup_date, 0, false, 'R', 0, '', 0, false, 'M', 'T');
 
