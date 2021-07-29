@@ -38,6 +38,26 @@ sleep_lab/application/logs/*
 !sleep_lab/application/config/config.php
 !sleep_lab/application/config/database.php
 
+bookonline/application/cache/*
+bookonline/application/logs/*
+!bookonline/application/config/config.php
+!bookonline/application/config/database.php
+
+recruit/application/cache/*
+recruit/application/logs/*
+!recruit/application/config/config.php
+!recruit/application/config/database.php
+
+repass/application/cache/*
+repass/application/logs/*
+!repass/application/config/config.php
+!repass/application/config/database.php
+
+hrcost/application/cache/*
+hrcost/application/logs/*
+!hrcost/application/config/config.php
+!hrcost/application/config/database.php
+
 composer.lock
 
 user_guide_src/build/*
