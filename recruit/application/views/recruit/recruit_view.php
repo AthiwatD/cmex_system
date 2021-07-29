@@ -46,7 +46,8 @@
 				<!-- <div class="form-group"> -->
         	 		<div class="col-sm-12">
     	 				<div class="row mb-12">
-				            <label for="publish_name" class="col-sm-2 col-form-label text-al-r">ชื่อประกาศรับสมัคร</label>
+    	 					<!-- <label for="publish_name" class="col-sm-2 col-form-label text-al-r">ชื่อประกาศรับสมัคร</label> -->
+				            <label for="publish_name" class="col-sm-2 col-form-label text-al-r">ชื่อประกาศ</label>
 				            <div class="col-sm-9">
 				                <?php if(!empty($recruitHd->publish_name)) echo "<p style=' color:#0400fff0; margin-top:10px;'>".$recruitHd->publish_name."</p>"; ?>	
 				            </div>
@@ -178,14 +179,20 @@
 						<div class="row">
 				 			<div class="col-sm-6">
 				 				<div class="row mb-6">
-						            <label for="position_amount" class="col-sm-3 col-form-label text-al-r">หมายเหตุ</label>
-						            <div class="col-sm-9">
-						               <?php if(!empty($recruitHd->publish_remark)) echo "<p style=' color:#0400fff0; margin-top:10px;'>".$recruitHd->publish_remark."</p>"; ?>
-						            </div>
-						        </div>
+			            <label for="position_amount" class="col-sm-3 col-form-label text-al-r">หมายเหตุ</label>
+			            <div class="col-sm-9">
+			               <?php if(!empty($recruitHd->publish_remark)) echo "<p style=' color:#0400fff0; margin-top:10px;'>".$recruitHd->publish_remark."</p>"; ?>
+			            </div>
+						    </div>
 				 			</div>
-				 			<div class="col-sm-6"><div class="row mb-6">
-				 			</div></div>
+				 			<div class="col-sm-6">
+				 				<div class="row mb-6">
+				 					<label for="position_amount" class="col-sm-3 col-form-label text-al-r">จำนวนผู้เข้าชม</label>
+			            <div class="col-sm-9">
+			               <?php if(!empty($recruitHd->viewed)) echo "<p style=' color:#0400fff0; margin-top:10px;'>".$recruitHd->viewed."</p>"; ?>
+			            </div>
+				 				</div>
+				 			</div>
 			 			</div>
 					</div>
 				<!-- </div> -->
@@ -373,38 +380,39 @@
 	        	 			</div>
         	 			</div>
         	 		</div>
-				<!-- </div> -->
+							<!-- </div> -->
+							
               <?php } 
               	if($recruitHd->exam1_status=="Y" || $recruitHd->exam2_status=="Y" || $recruitHd->exam3_status=="Y") echo "<hr>"; ?>
                 <!-- <div class="form-group"> -->
-                    <label class="label-control" for="upl_files">เอกสารประกาศ</label>
-                    <div class="form-group pl30_pr30">
-                        <table id="table_files" class="table table-flush table-striped table-bordered table-hover col-12">
-                            <thead>
-                                <tr>
-                                    <th>ชื่อเอกสาร</th>
-                                    <th>วันที่ประกาศ</th>
-                                    <th style="width:110px;">จัดการ</th>
-                                </tr>
-                            </thead>
-                            <tbody><?php
-                                for($i=0;$i<count(array_filter($recruitDt));$i++){
-                                	$patchfile= base_url()."uploads/".$recruitFile[$i]->file_name;
-                                	// $exp_create_date=explode(" ",$recruitDt[$i]->create_date);
-                                	// echo $system;
-                                	?>
-                                    <tr>
-                                        <td><?php echo $recruitDt[$i]->publish_dt_name; ?></td>
-                                        <td><?php 
-                                        	if($system=="frontend")echo convert_std_format_thai_datetime_frontend_one($recruitDt[$i]->start_date);
-                                        	else echo convert_std_format_thai_datetime_two($recruitDt[$i]->start_date);
-                                        	?></td>
-                                        <td><a href="<?php echo $patchfile; ?>" class="btn btn-info btn-sm" target="_blank"><i class='fas fa-folder'></i></a></td>
-                                    </tr> <?php
-                            	} ?>
-                            </tbody>
-                        </table>
-                    <div>
+                  <label class="label-control" for="upl_files">เอกสารประกาศ</label>
+                  <div class="form-group pl30_pr30">
+                      <table id="table_files" class="table table-flush table-striped table-bordered table-hover col-12">
+                          <thead>
+                              <tr>
+                                  <th>ชื่อเอกสาร</th>
+                                  <th>วันที่ประกาศ</th>
+                                  <th style="width:110px;">เอกสาร</th>
+                              </tr>
+                          </thead>
+                          <tbody><?php
+                              for($i=0;$i<count(array_filter($recruitDt));$i++){
+                              	$patchfile= base_url()."uploads/".$recruitFile[$i]->file_name;
+                              	// $exp_create_date=explode(" ",$recruitDt[$i]->create_date);
+                              	// echo $system;
+                              	?>
+                                  <tr>
+                                      <td><a href="<?php echo $patchfile; ?>" class="" target="_blank"><?php echo $recruitDt[$i]->publish_dt_name; ?></a></td>
+                                      <td><?php 
+                                      	if($system=="frontend")echo convert_std_format_thai_datetime_frontend_one($recruitDt[$i]->start_date);
+                                      	else echo convert_std_format_thai_datetime_two($recruitDt[$i]->start_date);
+                                      	?></td>
+                                      <td><a href="<?php echo $patchfile; ?>" class="btn btn-info btn-sm" target="_blank"><i class='fas fa-folder'></i></a></td>
+                                  </tr> <?php
+                          	} ?>
+                          </tbody>
+                      </table>
+                  <div>
                 <!-- </div> -->
 
 	        <div class="card-footer" style="text-align:right; float:right;">

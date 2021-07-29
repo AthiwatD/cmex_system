@@ -1,0 +1,232 @@
+
+/*[ton][19/04/2564][start std css]*/
+.td_data_center{ text-align: center; }
+
+.btn_item_delete {
+    width: 24px;
+    height: 24px;
+    opacity: 1;
+    z-index: 100;
+}
+
+.combo { position: relative; }
+.combo .trigger { position: absolute; right: 5px; top: 7px }
+.div_item{ margin-bottom: 10px; }
+
+.div_choice{
+    border-style: ridge;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.btn_choice_delete {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    opacity: 1;
+    z-index: 100;
+    right: -12px;
+    top: -12px;
+}
+
+canvas .chart_guage{
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.autocomplete .width100p{ width:100%; } /*[ton][05/04/2564][add constants]*/
+
+div .add_publish_dt{
+    text-align: right;
+    padding-bottom:5px;
+}
+
+p .publishDtError{
+    font-weight: bold;
+    font-size:16px;
+}
+/*[ton][19/04/2564][end std css]*/
+
+p .publish_hd_status{
+    color:green;
+    margin-top:8px;
+}
+
+table {
+    width: 100%;
+    /*table-layout: fixed;*/ /*[ton][23/04/2564][comment fixed out > fix case size table media screen 1600 and 1920]*/
+}
+
+
+/*[ton][03/05/2564][add css form view detail]*/
+@media (min-width: 768px) {
+    div.view_detail {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    div.view_detail {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    div.view_detail {
+        /*[Athiwat][24/06/2564][edit width view deetail]*/
+        /*width: 1200px;*/
+        width: 900px;
+    }
+}
+
+@media (min-width: 768px) {
+    div.form_recruit {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    div.form_recruit {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    div.form_recruit {
+        width: 1200px;
+    }
+}
+
+.form-check-input{
+    width:20px !important;
+    height:20px !important;
+}
+
+.m_t5_l10{
+    margin:5px 0 0 10px;
+}
+
+.text-al-l{
+    text-align:left;
+}
+
+.text-al-r{
+    text-align:right;
+}
+
+.text-al-c{
+    text-align:center;
+}
+
+.ml5{
+    margin-left:5px !important;
+}
+
+.pl50_pr50{
+    padding:0 50px 0 50px;
+}
+
+.pl30_pr30{
+    padding:0 30px 0 30px;
+}
+
+.m_t5_l30{
+    margin:5px 0 0 30px;
+}
+
+/*[Athiwat][24/06/2564][add tooltip]*/
+.tooltip_m {
+  position: relative;
+  display: inline-block;
+  /*border-bottom: 1px dotted black;*/
+}
+
+.tooltip_m .tooltiptext {
+  top: -13px;
+  right: 110%;
+  visibility: hidden;
+  width: 275px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 7px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip_m:hover .tooltiptext {
+  visibility: visible;
+}
+
+span.tooltiptext{ font-size:14px; }
+.nmb{ margin-bottom:0px !important; }
+.npb{ padding-bottom:0px !important; }
+
+.fontb{ font-weight: bold; }
+
+/*[Athiwat][30/06/2564][add css btn glowing]*/
+.br10{ border-radius: 10px; }
+.notread{
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    -webkit-animation: glowing 1500ms infinite;
+    -moz-animation: glowing 1500ms infinite;
+    -o-animation: glowing 1500ms infinite;
+    animation: glowing 1500ms infinite;
+}
+
+@-webkit-keyframes glowing {
+    0% { background-color: #00b7ff; -webkit-box-shadow: 0 0 3px #00ffea; }
+    50% { background-color: #00b7ff; -webkit-box-shadow: 0 0 40px #00ffea; }
+    100% { background-color: #00b7ff; -webkit-box-shadow: 0 0 3px #00ffea; }
+}
+
+@-moz-keyframes glowing {
+    0% { background-color: #00b7ff; -moz-box-shadow: 0 0 3px #00ffea; }
+    50% { background-color: #00b7ff; -moz-box-shadow: 0 0 40px #00ffea; }
+    100% { background-color: #00b7ff; -moz-box-shadow: 0 0 3px #00ffea; }
+}
+
+@-o-keyframes glowing {
+    0% { background-color: #00b7ff; box-shadow: 0 0 3px #00ffea; }
+    50% { background-color: #00b7ff; box-shadow: 0 0 40px #00ffea; }
+    100% { background-color: #00b7ff; box-shadow: 0 0 3px #00ffea; }
+}
+
+@keyframes glowing {
+    0% { background-color: #00b7ff; box-shadow: 0 0 3px #00ffea; }
+    50% { background-color: #00b7ff; box-shadow: 0 0 40px #00ffea; }
+    100% { background-color: #00b7ff; box-shadow: 0 0 3px #00ffea; }
+}
+
+/*[Athiwat][30/06/2564][add tooltip for not read]*/
+.tooltip_nr {
+  position: relative;
+  display: inline-block;
+  /*border-bottom: 1px dotted black;*/
+}
+
+.tooltip_nr .tooltiptext {
+  top: -13px;
+  right: 110%;
+  visibility: hidden;
+  width: 275px;
+  background-color: #00b7ff;
+  color: #fff;
+  text-align: center;
+  border-radius: 7px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip_nr:hover .tooltiptext {
+  visibility: visible;
+}

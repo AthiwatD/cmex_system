@@ -1,7 +1,11 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-/* Author: Jorge Torres
- * Description: Login controller class
- */
+<?php
+/*====================================================================================================== 
+    Create by  : Athiwat Duliganon
+    Create Date: 01/07/2564
+    Description: Modify to add active users.
+======================================================================================================*/
+if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
 class Login extends CI_Controller{
     
     function __construct(){
@@ -16,38 +20,21 @@ class Login extends CI_Controller{
     }
     
     public function index($msg = NULL){
-        if(isset($_COOKIE["user_link"])) {
-            $data['user_link'] = $_COOKIE["user_link"];
-        }
-        else{
-            $data['user_link'] = "";
-        }
+        if(isset($_COOKIE["user_link"])) $data['user_link'] = $_COOKIE["user_link"];
+        else $data['user_link'] = "";
         
         $data['msg'] = $msg;
         $this->load->view('login_view', $data);
     }
     
     public function process(){
-        // Load the model
-        //$this->load->view("welcome_message");
-        //$this->load->model('Login_model');
         $user_link = $this->security->xss_clean($this->input->post('user_link'));
-
-        // Validate the user can login
         $result = $this->Login->validate();
-        // Now we verify the result
+        
         if(!$result){
-            //echo "Not Pass";
-            //redirect('Login');
-            //$this->load->view("login_view");
-            // If user did not validate, then show them login page again
             $msg = '<font color=red>Invalid username and/or password.</font><br />';
             $this->index($msg);
         }else{
-            //$this->load->view("welcome_message");
-            // If user did validate, 
-            // Send them to members area
-            //echo "Passed";
             if(!empty($user_link)){
                 setcookie("user_link", "", time() - 3600);
                 redirect($user_link);

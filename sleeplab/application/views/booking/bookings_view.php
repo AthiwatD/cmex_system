@@ -195,6 +195,15 @@
           <!-- /.col -->
         </div>
         <!-- /.row -->
+		<div class="form-group form-inline">
+			<a href="<?php echo base_url(); ?>Booking/deleteOldAvailableBookingDo">
+				<button type="button" class="btn btn-warning" onclick='return confirm("คุณต้องการลบ Available ย้อนหลัง ใช่ หรือ ไม่")'>ลบ Available ย้อนหลัง</button>
+			</a>
+			<a href="<?php echo base_url(); ?>Booking/deleteNoDataBookingDo">
+				<button type="button" class="btn btn-info" onclick='return confirm("คุณต้องการลบรายการคนไข้ที่ไม่มีข้อมูล ใช่ หรือ ไม่")'>ลบ คนไข้ที่ไม่มีข้อมูล</button>
+			</a>
+		</div>
+		
         <div class="row">
             <div class="col-12">
                 <h4>คนไข้ที่ยังไม่ได้นัดนอนโรงพยาบาล</h4>
@@ -205,6 +214,7 @@
                             <th>ชื่อ-สกุล</th>
                             <th>hn</th>
                             <th>โทร</th>
+                            <th>แพทย์</th> <!-- [Athiwat][27/07/2564][add search name doctor] -->
                         </tr>
                     </thead>
                     <tbody>

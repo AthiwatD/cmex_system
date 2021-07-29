@@ -2,29 +2,50 @@
 <div class="content-wrapper" <?php if($system=="frontend") echo "style='margin-left:0px !important'"; ?> >
   <?php //echo "system : ".$system; ?>
   <?php //echo "method : ".$method; ?>
+  <?php //echo "iframe : ".$iframe; ?>
+  <?php //echo "user_link : ".$user_link; ?>
+  <?php //echo "base_rul : ".base_url(); ?>
     <!--  Content Header (Page header) -->
-    <div class="content-header">
+    <?php if(isset($iframe)){ ?>
+      <div class="content-header" style="padding: 0px .0rem !important">
+    <?php }else{ ?>
+      <div class="content-header">
+    <?php } ?>
+    
       <div class="container-fluid">
-        <div class="row mb-2"><br><br>
+        <div class="row mb-2">
+          <?php if(!isset($iframe) || (!$iframe)){ ?>
+                <br><br>
+          <?php } ?>
+
           <div class="col-12">
             <div class="row">
               <div class="col-6"><h1 class="m-0 text-dark"><?php echo $head_title; ?></h1></div>
               <div class="col-6" style="text-align: right;">
                 <?php if($system=="frontend"){ ?>
                   <?php if($method=="view"){ ?>
-                  <a href="<?php echo base_url(); ?>Login"> <span class="badge badge-pill badge-info"><i class="nav-icon fas fa-user"></i> Login</span></a>
-                  <!-- <button type="button" class="btn btn-primary btn-sm"><i class="nav-icon fas fa-user"></i> Login</button> -->
-                <?php }} ?>
+                    <?php if(!isset($iframe) || (!$iframe)){ ?>
+                        <a href="<?php echo base_url(); ?>Login"> <span class="badge badge-pill badge-info"><i class="nav-icon fas fa-user"></i> Login</span></a>
+                        <!-- <button type="button" class="btn btn-primary btn-sm"><i class="nav-icon fas fa-user"></i> Login</button> -->
+                    <?php } ?>
+                  <?php } ?>
+                <?php } ?>
               </div>
             </div>
-          </div><br><br><!-- /.col -->
-          <div class="col-12">
-            <?php echo $breadcrumb; ?>
-            <!--<ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
-            </ol>-->
-          </div><!-- /.col -->
+          </div> <!-- /.col -->
+
+          <?php if(!empty($breadcrumb)){ ?>
+            <br><br>
+            <div class="col-12">
+              <?php echo $breadcrumb; ?>
+              <!--<ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Dashboard v1</li>
+              </ol>-->
+            </div><!-- /.col -->
+          <?php } ?>
+          
+
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>

@@ -13,9 +13,9 @@
         $this->load->model('Board_model','Board');
         $this->load->model('File_model','File');
 
-        $config['upload_path']   = './uploads/'; 
-        $config['allowed_types'] = 'gif|jpg|jpeg|png|doc|docx|xls|xlsx|ppt|pptx|pdf|txt|csv'; 
-        $config['max_size']      = 256000; 
+        $config['upload_path']   = './uploads/';
+        $config['allowed_types'] = 'gif|jpg|jpeg|png|doc|docx|xls|xlsx|ppt|pptx|pdf|txt|csv';
+        $config['max_size']      = 256000;
         $this->load->library('upload', $config);
 
     }
@@ -89,7 +89,7 @@
 
         $this->data['head_title'] = "รายละเอียดผู้เข้าร่วมประชุม";
         $this->loadData();
-        $this->loadViewWithScript(array('meeting/meeting_person_detail_view'), array());    
+        $this->loadViewWithScript(array('meeting/meeting_person_detail_view'), array());
     }
 
     function addMeeting(){   

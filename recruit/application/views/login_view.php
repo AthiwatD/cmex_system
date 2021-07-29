@@ -7,6 +7,7 @@
 
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="<?php echo base_url(); ?>../common/assets/images/favicon.ico">
   
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/fontawesome-free/css/all.min.css">
@@ -54,20 +55,30 @@
           <div class="col-12">
             <button type="submit" class="btn btn-primary btn-block">เข้าสู่ระบบ</button>
           </div>
-          <div class="col-12" id="div_msg"><?php echo $msg; ?></div>
-          <!-- /.col -->
+          <div class="col-12" id="div_msg">
+            <?php echo $msg; ?>
+            <!-- [ton][01/07/2564][add session status] -->
+            <?php 
+              $failure=$this->session->userdata('failure');
+              $msg_failure="<font color=red>{$failure}</font><br />";
+              if($failure!=""){
+                echo $msg_failure;
+                $this->session->sess_destroy();
+              } 
+            ?>    
+          </div>
         </div>
       </form>
-    </div>
-    <!-- /.login-card-body -->
+      <?php $this->session->set_flashdata('failure',''); ?> <!-- [ton][01/07/2564][add clear session status] -->
+    </div>    
   </div>
 </div>
-<!-- /.login-box -->
+
 
 <!-- jQuery -->
 <script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="<?php echo base_url(); ?>assets./plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>assets/dist/js/adminlte.min.js"></script>
 

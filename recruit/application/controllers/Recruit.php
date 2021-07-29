@@ -19,10 +19,42 @@
 	        $this->load->library('upload', $config);
 		}
 
-		function index($publish_id=null){
-			if((!isset($this->session->validated)) || (!$this->session->validated)) $this->recruits_front(); 	//[ton][23/04/2564][add frontend recruit]
-			else if($publish_id==null) $this->recruits(); 														//[ton][23/04/2564][add blackend recruit]
-			else $this->updateRecruit($publish_id); 															//[ton][22/04/2564][add else to updateRecruit]
+		//[Athiwat][01/07/2564][add funcion check permission active users]
+		public function check_userPermission(){
+			$permission_status=false;
+			$activeUsers=unserialize(ACTIVE_USERS);
+			foreach($activeUsers as $user){
+					if($user==$this->session->numot) $permission_status=true;
+			}
+        	return $permission_status;
+    	}
+
+		function index($publish_id=null,$iframe=true){
+			if((!isset($this->session->validated)) || (!$this->session->validated)){	//[ton][23/04/2564][add frontend recruit]
+				if($iframe) $this->recruit_iframe_front(); 								//[ton][13/05/2564][add iframe frontend recruit]
+			 	else $this->recruits_front();
+			}else if($publish_id==null){ 												//[ton][23/04/2564][add blackend recruit]
+				if($this->check_userPermission()){ 										//[Athiwat][01/07/2564][add check active users]
+					$this->recruits();
+				}else{
+					$this->session->set_flashdata('failure','User account cannot access system.');
+					$direct_link=base_url()."Login";
+					redirect($direct_link);
+				}				 															
+			}else $this->updateRecruit($publish_id); 									//[ton][22/04/2564][add else to updateRecruit]
+		}
+
+		//[ton][13/05/2564][add iframe view]
+		function recruit_iframe_front(){
+			$this->data['system']= "frontend";
+			$this->data['iframe']= true;
+			$this->data['method']="view";
+            $this->data['breadcrumb'] = $this->breadcrumb->output();
+            $this->data['recruits']=$this->RecruitModel->getRecruitHds();
+            $this->data['head_title'] = "";
+
+            $this->loadData();
+            $this->front_loadViewWithScript(array('recruit/recruits_iframe_view'),array());
 		}
 
 		// [ton][24/04/2564][Add control Frontend Recruit]
@@ -110,7 +142,17 @@
 			if(!empty($_FILES["publish_dt_file"]["name"]) && count(array_filter($_FILES["publish_dt_file"]["name"]))>0){
 				// echo "C > updateRecruitProcess > !empty file : ".$publish_hd_id." and numot : ".$numot."<br>";
 				for($i=0;$i<count(array_filter($_FILES["publish_dt_file"]["name"]));$i++){
-					$_FILES['files']['name']		=$_FILES['publish_dt_file']['name'][$i];
+					// [Athiwat][01/07/2564][add process substring filename]
+					if(strlen($_FILES['publish_dt_file']['name'][$i])>SUBSTR_MAXIMUM){
+						$maxfile 	=strlen($_FILES['publish_dt_file']['name'][$i]);
+	                    $type 		=strlen($_FILES['publish_dt_file']['name'][$i])-SUBSTR_FILETYPE;
+	                    $typefile 	=substr($_FILES['publish_dt_file']['name'][$i],$type,$maxfile);
+	                    $name		=substr($_FILES['publish_dt_file']['name'][$i],SUBSTR_MINIMUM,$type);
+	                    $filename   =mb_substr(substr($name,SUBSTR_MINIMUM,SUBSTR_MAXIMUM),SUBSTR_MINIMUM,mb_strlen(substr($name,SUBSTR_MINIMUM,SUBSTR_MAXIMUM))-1,CHA_UTF8 );
+	                    $filename   =$filename."".$typefile;
+						$_FILES['files']['name']=$filename;
+					}else $_FILES['files']['name']	=$_FILES['publish_dt_file']['name'][$i];
+
 					$_FILES['files']['tmp_name']	=$_FILES['publish_dt_file']['tmp_name'][$i];
 					$_FILES['files']['type']		=$_FILES['publish_dt_file']['type'][$i];
 					$_FILES['files']['size']		=$_FILES['publish_dt_file']['size'][$i];
@@ -119,7 +161,7 @@
 					$config['upload_path']   = './uploads/';
 	                $config['allowed_types'] = 'gif|jpg|png|doc|docx|xls|xlsx|ppt|pptx|pdf|txt|csv';
 	                $config['max_size']      = 256000; 
-	                $config['upload_path'] 	 = './uploads/';
+	                // $config['upload_path'] 	 = './uploads/'; [Athiwat][22/06/2564][add comment]
 	                $config['max_width'] 	 = '4096';
 	                $config['max_height'] 	 = '4096';
 					
@@ -293,7 +335,17 @@
 				$formArrayFiles=array();
 				//[setting files][dt]
 				for($i=0;$i<count(array_filter($_FILES["publish_dt_file"]["name"]));$i++){
-					$_FILES['files']['name']		=$_FILES['publish_dt_file']['name'][$i];
+					// [Athiwat][01/07/2564][add process substring filename]
+					if(strlen($_FILES['publish_dt_file']['name'][$i])>SUBSTR_MAXIMUM){
+						$maxfile 	=strlen($_FILES['publish_dt_file']['name'][$i]);
+	                    $type 		=strlen($_FILES['publish_dt_file']['name'][$i])-SUBSTR_FILETYPE;
+	                    $typefile 	=substr($_FILES['publish_dt_file']['name'][$i],$type,$maxfile);
+	                    $name		=substr($_FILES['publish_dt_file']['name'][$i],SUBSTR_MINIMUM,$type);
+	                    $filename   =mb_substr(substr($name,SUBSTR_MINIMUM,SUBSTR_MAXIMUM),SUBSTR_MINIMUM,mb_strlen(substr($name,SUBSTR_MINIMUM,SUBSTR_MAXIMUM))-1,CHA_UTF8 );
+	                    $filename   =$filename."".$typefile;
+						$_FILES['files']['name']=$filename;
+					}else $_FILES['files']['name']	=$_FILES['publish_dt_file']['name'][$i];
+
 					$_FILES['files']['tmp_name']	=$_FILES['publish_dt_file']['tmp_name'][$i];
 					$_FILES['files']['type']		=$_FILES['publish_dt_file']['type'][$i];
 					$_FILES['files']['size']		=$_FILES['publish_dt_file']['size'][$i];

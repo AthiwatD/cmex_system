@@ -1,0 +1,40 @@
+<?php
+
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
+/* Author: Jorge Torres
+ * Description: Login model class
+ */
+
+class Login_model extends CI_Model {
+
+    function __construct() {
+        parent::__construct();
+        $this->load->helper('cookie');
+    }
+
+    public function validate() {
+        $username = $this->security->xss_clean($this->input->post('username'));
+        $password = $this->security->xss_clean($this->input->post('password'));
+
+        $sql = "SELECT u.NUM_OT,w.New_Heading,ps.position_name,p.Fname,p.Lname
+                FROM tb_nuser u JOIN tb_person p ON u.NUM_OT = p.NUM_OT
+                                JOIN tb_position ps ON u.PP = ps.position_code
+                                JOIN tb_nward w ON u.ward_code = w.ward_code
+                WHERE u.NUM_OT = '" . $username . "'
+                AND u.Upass = '" . $password . "' ";
+
+        $row = $this->db->query($sql)->row();
+        if ($row) {
+            $_SESSION['validated'] = true;
+            $_SESSION['numot']=$row->NUM_OT;
+            $_SESSION['username'] = $username;
+            $_SESSION['organization'] = $row->New_Heading;
+            $_SESSION["position_name"] = $row->position_name;
+            $_SESSION['name'] = $row->Fname . " " . $row->Lname;
+            return true;
+        }else return false;
+    }
+
+}
+?>

@@ -13,10 +13,9 @@
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image" style="padding-left: 0px;">
           <?php
-            $img_file_path = base_url() . '../common/assets/images/person_img.png';
-            if (remote_file_exists('http://excellent.med.cmu.ac.th/employee/images/person/'.$session_username.'.png')) {
-              $img_file_path = 'http://excellent.med.cmu.ac.th/employee/images/person/'.$session_username.'.png';
-            }
+            // [Athiwat][02/07/2564][add file_exists()]
+            if(file_exists(PATH_IMG_EMP.$session_username.'.png')) $img_file_path = URL_IMG_EMP.$session_username.'.png';
+            else $img_file_path = base_url().PATH_IMG_PERSON;
           ?>
           <img src="<?php echo $img_file_path; ?>" class="img-circle elevation-2" alt="User Image" style="margin-top: 10px;">
         </div>

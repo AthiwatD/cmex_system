@@ -135,6 +135,32 @@ class Booking extends MY_Controller {
         $this->loadViewWithScript(array('booking/booking_success_view'), array());      
     }
 
+	function deleteOldAvailableBookingDo(){
+        $result = $this->Booking->deleteOldAvailableBooking();
+        $this->data['error'] = $this->db->error(); 
+        
+        $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
+        $this->breadcrumb->add('รายการนัดหมาย',   base_url().'Booking/bookings');      
+        $this->data['breadcrumb'] = $this->breadcrumb->output();
+
+        $this->data['head_title'] = "รายการนัดหมาย";
+        $this->loadData();
+        $this->loadViewWithScript(array('booking/booking_success_view'), array());      
+    }
+
+	function deleteNoDataBookingDo(){
+		$result = $this->Booking->deleteNoDataBooking();
+        $this->data['error'] = $this->db->error(); 
+        
+        $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
+        $this->breadcrumb->add('รายการนัดหมาย',   base_url().'Booking/bookings');      
+        $this->data['breadcrumb'] = $this->breadcrumb->output();
+
+        $this->data['head_title'] = "รายการนัดหมาย";
+        $this->loadData();
+        $this->loadViewWithScript(array('booking/booking_success_view'), array());      
+	}
+
     function getBookingService($booking_id){
         $booked = $this->Booking->getBooking($booking_id);
         echo json_encode($booked);

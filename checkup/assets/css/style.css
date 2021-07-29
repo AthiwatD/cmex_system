@@ -1,0 +1,94 @@
+section.approve{
+    font-family: 'TH SarabunPSK';
+}
+
+.td_data_center{
+    text-align: center;
+    
+}
+
+.btn_item_delete {
+    width: 24px;
+    height: 24px;
+    opacity: 1;
+    z-index: 100;
+}
+
+.combo { position: relative; }
+.combo .trigger { position: absolute; right: 5px; top: 7px }
+
+.div_item{
+    margin-bottom: 10px;
+}
+
+.div_choice{
+    border-style: ridge;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.btn_choice_delete {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    opacity: 1;
+    z-index: 100;
+    right: -12px;
+    top: -12px;
+}
+
+.evaluation_header{
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  /*input[type=checkbox]*/
+
+.big-checkbox {
+    /* Double-sized Checkboxes */
+    width: 30px;
+    height: 30px;
+    margin-left: 0px;
+    border: 1px solid #1e5180;
+}
+
+.big-checkbox-label {
+    margin-left: 0px;
+    padding-top: 10px;
+}
+
+.div-checkbox {
+    margin-bottom: 10px;
+}
+
+.sidenav{
+    width: 400px;
+}
+
+.show_block{
+    display: block;
+}
+
+.show_none{
+    display: none;
+}
+
+/* Textarea Full width */
+.full-width
+{
+  width:100%;
+}
+.textarea-wrapper
+{
+  border:0px solid #999999;
+  margin:5px 0;
+  padding:3px;
+}
+
+.textarea_white_space {
+	white-space: pre;
+}
