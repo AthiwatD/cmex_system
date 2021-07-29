@@ -38,8 +38,6 @@ sleep_lab/application/logs/*
 !sleep_lab/application/config/config.php
 !sleep_lab/application/config/database.php
 
-
-
 composer.lock
 
 user_guide_src/build/*
