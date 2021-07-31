@@ -26,6 +26,14 @@
 	let stu_department=[false,"กรุณาเลือกรายการ แผนก","department[]"];
 	let stu_position=[false,"กรุณาเลือกรายการ ตำแหน่ง","position[]"];
 
+	// [Athiwat][31/07/2564][add arrTB_CHKB]
+	const arrTB_CHKB=[ ["sly_salary","salary_period[]"],
+					   ["sly_salary_fee","salary_fee[]"],
+					   ["sly_ot","ot_period[]"],
+					   ["sev_center","center[]"],
+					   ["tb_department","department[]"],
+					   ["sev_position","position[]"] ];
+
 	// [ton][23/04/2564][add script backtoindex for recruit view]
 	<?php 
 		echo 'var base_url="'.base_url().'";';
@@ -167,7 +175,7 @@
 
 		var $this = $(e);
 		var span = $this.children();
-		let shc_menu = 7;
+		let shc_menu = 9;
 		let tmp = 0;
 		
 		for(let i = 0;i<shc_menu;i++){
@@ -184,20 +192,76 @@
 		}
 
 		// ---------------------------- this process
+		// df_center : id from onclick function.
+		// k : index in table sev_center.
+		// ----------------------------
+
 		df_center=id;
+		console.log("df_center :"+df_center);
 		for(let [k,v] of Object.entries(ckb_center)){
 			if(k==0 && df_center ==1){ ckb_center.eq(k).prop('checked',true); }
 			else if(k==2 && df_center ==3){ ckb_center.eq(k).prop('checked',true); }
 			else if(k==3 && df_center ==4){ ckb_center.eq(k).prop('checked',true); }
 			else if(k==5 && df_center ==6){ ckb_center.eq(k).prop('checked',true); }
-			else if(k==4 && df_center ==5){ ckb_center.eq(k).prop('checked',true); }
 			else if(k==6 && df_center ==7){ ckb_center.eq(k).prop('checked',true); }
 			else if(k==10 && df_center ==11){ ckb_center.eq(k).prop('checked',true); }
+			// [Athiwat][31/07/2564][add new]
+			else if(k==7 && df_center ==5){ ckb_center.eq(k).prop('checked',true); }
+			else if(k==4 && df_center ==8){ ckb_center.eq(k).prop('checked',true); }
+			else if(k==1 && df_center ==2){ ckb_center.eq(k).prop('checked',true); }
 			else{ ckb_center.eq(k).prop('checked',false); }
 		}
 		checkedNullBtnAll("department[]");
 		checkedNullBtnAll("position[]");
-		// console.log("center id : "+df_center);
+	}
+
+	function clearForm(e){
+		var $this=$(e);
+		checkedNullBtnAll("salary_period[]");
+		checkedNullBtnAll("salary_fee[]");
+		checkedNullBtnAll("ot_period[]");
+		checkedNullBtnAll("center[]");
+		checkedNullBtnAll("department[]");
+		checkedNullBtnAll("position[]");
+	}
+
+	function setFormMenu(e,hdid,url="Hrcost/setFormMenu/"){
+		var $this=$(e);
+		var url_c= base_url+url+hdid;
+		$.ajax({
+			dataType:"JSON",
+			type:"POST",
+			data:{hdid:hdid},
+			url:url_c,
+			success:function(res){
+			// |--------------------------------------------------------------------------
+			// | 1.Clear all checkbox.
+			// | 2.Get Obj checkbox main 6 menu.
+			// | 3.Loop set value to checkbox wite javascript.
+			// |--------------------------------------------------------------------------
+				if(res["status_GetData"]){
+					var checkbox;
+					clearForm(); 																// ------- 1.Clear checkbox.
+					for(let i=0;i<res["resultDT"].length;i++){
+						for(let j=0;j<arrTB_CHKB.length;j++){
+							if(arrTB_CHKB[j][0]==res["resultDT"][i]["table_name"]){
+								checkbox = $('input[name="'+arrTB_CHKB[j][1]+'"]'); 			// ------- 2.Get Obj checkbox main 6 menu.
+							 	for(let [k,v] of Object.entries(checkbox)){						// ------- 3.Loop set value to checkbox wite javascript.
+									if(checkbox.eq(k).val()==(res["resultDT"][i]["value_id"])){
+										checkbox.eq(k).prop('checked',true);
+									}
+								}
+							}
+						}
+					}
+				}else{
+					swal({title:"ไม่มีข้อมูลนี้ !",text:"กรุณาตรวจสอบใหม่อีกครั้ง",type:"warning",timer:9500});
+					setTimeout(function(){document.location.reload(true)},6500);
+				}
+			},error:function(xhr,textSatus,errorThrown,res){
+				alert("Get form_setFormMenu(hrcost)\nStatus: "+textSatus+"\nError: "+errorThrown+"\nFunction: form_setFormMenu(hrcost)");
+			}
+		});
 	}
 
 	// var arrCHKB=["salary_period[]","salary_fee[]","ot_period[]","center[]","department[]","position[]"];
@@ -239,14 +303,18 @@
 			}
 		}
 		// ------------------------------------------------- 4.Set Center.
+
 		for(let [k,v] of Object.entries(ckb_center)){
 			if(k==0 && df_center ==1) ckb_center.eq(k).prop('checked',true);
-			else if(k==2 && df_center ==3) ckb_center.eq(k).prop('checked',true);
-			else if(k==3 && df_center ==4) ckb_center.eq(k).prop('checked',true);
-			else if(k==4 && df_center ==5) ckb_center.eq(k).prop('checked',true);
-			else if(k==5 && df_center ==6) ckb_center.eq(k).prop('checked',true);
-			else if(k==6 && df_center ==7) ckb_center.eq(k).prop('checked',true);
-			else if(k==10 && df_center ==11) ckb_center.eq(k).prop('checked',true);
+			else if(k==2 && df_center ==3){ ckb_center.eq(k).prop('checked',true); }
+			else if(k==3 && df_center ==4){ ckb_center.eq(k).prop('checked',true); }
+			else if(k==5 && df_center ==6){ ckb_center.eq(k).prop('checked',true); }
+			else if(k==6 && df_center ==7){ ckb_center.eq(k).prop('checked',true); }
+			else if(k==10 && df_center ==11){ ckb_center.eq(k).prop('checked',true); }
+			// [Athiwat][31/07/2564][add new]
+			else if(k==7 && df_center ==5){ ckb_center.eq(k).prop('checked',true); }
+			else if(k==4 && df_center ==8){ ckb_center.eq(k).prop('checked',true); }
+			else if(k==1 && df_center ==2){ ckb_center.eq(k).prop('checked',true); }
 			else ckb_center.eq(k).prop('checked',false);
 		}
 		// ------------------------------------------------- 5.Set Department.

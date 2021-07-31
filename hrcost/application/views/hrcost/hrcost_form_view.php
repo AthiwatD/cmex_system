@@ -53,25 +53,23 @@
 
 			    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
 			      <div class="card-body">
-			      <!-- <script>console.log(arrCenter0);</script> -->
-		       	<?php
-				       //---------------------------------- view
-		       			//print_r(unserialize(DEPARTMENTS_CMEX));
-		       			// if(is_array(DEPARTMENTS_CMEX)) echo "Array";
-		       			// if(is_obejct(DEPARTMENTS_CMEX)) echo "Object";
-				       /*
-				       foreach(DEPARTMENTS_CMEX as $i=>$v){
-				       	echo "i : ".$i." , rownum : ".$v[0]." ,id : ".$v[1]." ,val : ".$v[2]."</br>";
-				       }
-							 */
-			       	$mod=6;
-			       	foreach(unserialize(DEPARTMENTS_CMEX) as $inx=>$v){
-			       		if($inx==0) echo '<div class="row pb5">';
-			       		if($inx==$mod){ echo '<div class="row pb5">'; $mod+=6; } ?>
-			        	<div class="col-2 col-sm-2"><a href="#" onclick="setCheckBox(this,<?php echo $v[0]; ?>,<?php echo $v[1]; ?>);"><span class="badge badge-pill badge-primary"><?php echo $v[2]; ?></span></a></div>
-			        	<?php
-			          if($inx==($mod-1)){echo '</div>';}
-			       	}
+		       	<?php //---------------------------------- view
+		       		// print_r($CmexMenus);
+		       		// echo count($CmexMenus);
+		       		if(count($CmexMenus)>0){
+		       			$mod=6;
+				       	for($inx=0;$inx<count($CmexMenus);$inx++){
+				       		if($inx==0) echo '<div class="row pb5">';
+				       		if($inx==$mod){ echo '<div class="row pb5">'; $mod+=6; } ?>
+				        	<div class="col-2 col-sm-2">
+				        		<a href="#" onclick="setFormMenu(this,<?php echo $CmexMenus[$inx]->menuhd_id; ?>);">
+				        			<span class="badge badge-pill badge-primary"><?php echo $CmexMenus[$inx]->menuhd_name; ?></span>
+				        		</a>
+				        	</div><?php
+				          if($inx==($mod-1)){echo '</div>';}
+				          else if($inx == (count($CmexMenus)-1)) {echo '</div>';}
+				       	}
+		       		}
 			      ?>
 			      </div>
 			    </div>
@@ -88,14 +86,20 @@
 				    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
 				      <div class="card-body">
 				      	<?php
-					      	$mod=6;
-					       	foreach(unserialize(DEPARTMENTS_GMC) as $inx=>$v){
-					       		if($inx==0) echo '<div class="row pb5">';
-					       		if($inx==$mod){ echo '<div class="row pb5">'; $mod+=6; } ?>
-					        	<div class="col-2 col-sm-2"><a href="#" onclick="setCheckBox(this,<?php echo $v[0]; ?>,<?php echo $v[1]; ?>);"><span class="badge badge-pill badge-primary"><?php echo $v[2]; ?></span></a></div>
-					        	<?php
-					          if($inx==($mod-1)){echo '</div>';}
-					       	}
+				       		if(count($GmcMenus)>0){
+				       			$mod=6;
+						       	for($inx=0;$inx<count($GmcMenus);$inx++){
+						       		if($inx==0) echo '<div class="row pb5">';
+						       		if($inx==$mod){ echo '<div class="row pb5">'; $mod+=6; } ?>
+						        	<div class="col-2 col-sm-2">
+						        		<a href="#" onclick="setFormMenu(this,<?php echo $GmcMenus[$inx]->menuhd_id; ?>);">
+						        			<span class="badge badge-pill badge-primary"><?php echo $GmcMenus[$inx]->menuhd_name; ?></span>
+						        		</a>
+						        	</div><?php
+						          if($inx==($mod-1)){echo '</div>';}
+						          else if($inx == (count($GmcMenus)-1)) {echo '</div>';}
+						       	}
+				       		}
 					      ?>
 				      </div>
 				    </div>
@@ -112,44 +116,90 @@
 				    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
 				      <div class="card-body">
 				      	<?php
-					      	$mod=6;
-					       	foreach(unserialize(DEPARTMENTS_TTCM) as $inx=>$v){
-					       		if($inx==0) echo '<div class="row pb5">';
-					       		if($inx==$mod){ echo '<div class="row pb5">'; $mod+=6; } ?>
-					        	<div class="col-2 col-sm-2"><a href="#" onclick="setCheckBox(this,<?php echo $v[0]; ?>,<?php echo $v[1]; ?>);"><span class="badge badge-pill badge-primary"><?php echo $v[2]; ?></span></a></div>
-					        	<?php
-					          if($inx==($mod-1)){echo '</div>';}
-					       	}
+				       		if(count($TtcmMenus)>0){
+				       			$mod=6;
+						       	for($inx=0;$inx<count($TtcmMenus);$inx++){
+						       		if($inx==0) echo '<div class="row pb5">';
+						       		if($inx==$mod){ echo '<div class="row pb5">'; $mod+=6; } ?>
+						        	<div class="col-2 col-sm-2">
+						        		<a href="#" onclick="setFormMenu(this,<?php echo $TtcmMenus[$inx]->menuhd_id; ?>);">
+						        			<span class="badge badge-pill badge-primary"><?php echo $TtcmMenus[$inx]->menuhd_name; ?></span>
+						        		</a>
+						        	</div><?php
+						          if($inx==($mod-1)){echo '</div>';}
+						          else if($inx == (count($TtcmMenus)-1)) {echo '</div>';}
+						       	}
+				       		}
 					      ?>
-				        
 				      </div>
 				    </div>
 				  </div>
-				  <!-- card four -->
+
+				  <!-- card nine -->
+			    <!-- view array -->
+				  <!-- <script>console.log(arrCenter1);  console.log(arrCenter1[1]);</script> -->
 				  <div>
-				    <div class="card-header" id="headingFour" style="padding:0px !important;">
+				    <div class="card-header" id="headingNine" style="padding:0px !important;">
 				      <h5 class="mb-0">
-				        <button class="btn btn-link collapsed" onclick="setCenter(this,arrCenter4[1],4);" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-				          <span class="badge badge-pill badge-dark shc_menu4"><b>เมนูลัดศูนย์เลเซอร์ต้อกระจกเชียงใหม่</b></span>
+				        <button class="btn btn-link collapsed" onclick="setCenter(this,arrCenter1[1],9);" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+				          <span class="badge badge-pill badge-dark shc_menu9"><b>เมนูลัดศูนย์วิเคราะห์สุขภาพการนอนหลับ</b></span>
 				        </button>
 				      </h5>
 				    </div>
-				    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+				    <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordion">
 				      <div class="card-body">
 				      	<?php
-					      	$mod=6;
-					       	foreach(unserialize(DEPARTMENT_LASIK) as $inx=>$v){
-					       		if($inx==0) echo '<div class="row pb5">';
-					       		if($inx==$mod){ echo '<div class="row pb5">'; $mod+=6; } ?>
-					        	<div class="col-2 col-sm-2"><a href="#" onclick="setCheckBox(this,<?php echo $v[0]; ?>,<?php echo $v[1]; ?>);"><span class="badge badge-pill badge-primary"><?php echo $v[2]; ?></span></a></div>
-					        	<?php
-					          if($inx==($mod-1)){echo '</div>';}
-					       	}
+				       		if(count($SdcMenus)>0){
+				       			$mod=6;
+						       	for($inx=0;$inx<count($SdcMenus);$inx++){
+						       		if($inx==0) echo '<div class="row pb5">';
+						       		if($inx==$mod){ echo '<div class="row pb5">'; $mod+=6; } ?>
+						        	<div class="col-2 col-sm-2">
+						        		<a href="#" onclick="setFormMenu(this,<?php echo $SdcMenus[$inx]->menuhd_id; ?>);">
+						        			<span class="badge badge-pill badge-primary"><?php echo $SdcMenus[$inx]->menuhd_name; ?></span>
+						        		</a>
+						        	</div><?php
+						          if($inx==($mod-1)){echo '</div>';}
+						          else if($inx == (count($SdcMenus)-1)) {echo '</div>';}
+						       	}
+				       		}
 					      ?>
-				        
 				      </div>
 				    </div>
 			    </div>
+
+			    <!-- card eight -->
+				  <!-- <script>console.log(arrCenter7);  console.log(arrCenter7[1]);</script> -->
+				  <div>
+				    <div class="card-header" id="headingEight" style="padding:0px !important;">
+				      <h5 class="mb-0">
+				        <button class="btn btn-link collapsed" onclick="setCenter(this,arrCenter7[1],8);" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+				          <span class="badge badge-pill badge-dark shc_menu8"><b>เมนูลัดศูนย์เลสิค</b></span>
+				        </button>
+				      </h5>
+				    </div>
+				    <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
+				      <div class="card-body">
+					      <?php
+					      if(count($LasMenus)>0){
+				       			$mod=6;
+						       	for($inx=0;$inx<count($LasMenus);$inx++){
+						       		if($inx==0) echo '<div class="row pb5">';
+						       		if($inx==$mod){ echo '<div class="row pb5">'; $mod+=6; } ?>
+						        	<div class="col-2 col-sm-2">
+						        		<a href="#" onclick="setFormMenu(this,<?php echo $LasMenus[$inx]->menuhd_id; ?>);">
+						        			<span class="badge badge-pill badge-primary"><?php echo $LasMenus[$inx]->menuhd_name; ?></span>
+						        		</a>
+						        	</div><?php
+						          if($inx==($mod-1)){echo '</div>';}
+						          else if($inx == (count($LasMenus)-1)) {echo '</div>';}
+						       	}
+				       		}
+					      ?>
+				      </div>
+				    </div>
+			    </div>
+				  
 			    <!-- card five -->
 			    <div>
 				    <div class="card-header" id="headingFive" style="padding:0px !important;">
@@ -162,18 +212,27 @@
 				    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
 				      <div class="card-body">
 				      	<?php
-					      	$mod=6;
-					       	foreach(unserialize(DEPARTMENT_WH) as $inx=>$v){
-					       		if($inx==0) echo '<div class="row pb5">';
-					       		if($inx==$mod){ echo '<div class="row pb5">'; $mod+=6; } ?>
-					        	<div class="col-2 col-sm-2"><a href="#" onclick="setCheckBox(this,<?php echo $v[0]; ?>,<?php echo $v[1]; ?>);"><span class="badge badge-pill badge-primary"><?php echo $v[2]; ?></span></a></div>
-					        	<?php
-					          if($inx==($mod-1)){echo '</div>';}
-					       	}
+				       		if(count($WhMenus)>0){
+				       			$mod=6;
+						       	for($inx=0;$inx<count($WhMenus);$inx++){
+						       		if($inx==0) echo '<div class="row pb5">';
+						       		if($inx==$mod){ echo '<div class="row pb5">'; $mod+=6; } ?>
+						        	<div class="col-2 col-sm-2">
+						        		<a href="#" onclick="setFormMenu(this,<?php echo $WhMenus[$inx]->menuhd_id; ?>);">
+						        			<span class="badge badge-pill badge-primary"><?php echo $WhMenus[$inx]->menuhd_name; ?></span>
+						        		</a>
+						        	</div><?php
+						          if($inx==($mod-1)){echo '</div>';}
+						          else if($inx == (count($WhMenus)-1)) {echo '</div>';}
+						       	}
+				       		}
 					      ?>
 				      </div>
 				    </div>
 				  </div>
+
+				  
+
 				  <!-- card six -->
 			    <div>
 				    <div class="card-header" id="headingSix" style="padding:0px !important;">
@@ -186,14 +245,20 @@
 				    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
 				      <div class="card-body">
 				      	<?php
-					      	$mod=6;
-					       	foreach(unserialize(DEPARTMENT_PCT) as $inx=>$v){
-					       		if($inx==0) echo '<div class="row pb5">';
-					       		if($inx==$mod){ echo '<div class="row pb5">'; $mod+=6; } ?>
-					        	<div class="col-2 col-sm-2"><a href="#" onclick="setCheckBox(this,<?php echo $v[0]; ?>,<?php echo $v[1]; ?>);"><span class="badge badge-pill badge-primary"><?php echo $v[2]; ?></span></a></div>
-					        	<?php
-					          if($inx==($mod-1)){echo '</div>';}
-					       	}
+				       		if(count($PccMenus)>0){
+				       			$mod=6;
+						       	for($inx=0;$inx<count($PccMenus);$inx++){
+						       		if($inx==0) echo '<div class="row pb5">';
+						       		if($inx==$mod){ echo '<div class="row pb5">'; $mod+=6; } ?>
+						        	<div class="col-2 col-sm-2">
+						        		<a href="#" onclick="setFormMenu(this,<?php echo $PccMenus[$inx]->menuhd_id; ?>);">
+						        			<span class="badge badge-pill badge-primary"><?php echo $PccMenus[$inx]->menuhd_name; ?></span>
+						        		</a>
+						        	</div><?php
+						          if($inx==($mod-1)){echo '</div>';}
+						          else if($inx == (count($PccMenus)-1)) {echo '</div>';}
+						       	}
+				       		}
 					      ?>
 				      </div>
 				    </div>
@@ -210,18 +275,61 @@
 				    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
 				      <div class="card-body">
 				      	<?php
-					      	$mod=6;
-					       	foreach(unserialize(DEPARTMENT_BABY) as $inx=>$v){
-					       		if($inx==0) echo '<div class="row pb5">';
-					       		if($inx==$mod){ echo '<div class="row pb5">'; $mod+=6; } ?>
-					        	<div class="col-2 col-sm-2"><a href="#" onclick="setCheckBox(this,<?php echo $v[0]; ?>,<?php echo $v[1]; ?>);"><span class="badge badge-pill badge-primary"><?php echo $v[2]; ?></span></a></div>
-					        	<?php
-					          if($inx==($mod-1)){echo '</div>';}
-					       	}
+				       		if(count($CfcMenus)>0){
+				       			$mod=6;
+						       	for($inx=0;$inx<count($CfcMenus);$inx++){
+						       		if($inx==0) echo '<div class="row pb5">';
+						       		if($inx==$mod){ echo '<div class="row pb5">'; $mod+=6; } ?>
+						        	<div class="col-2 col-sm-2">
+						        		<a href="#" onclick="setFormMenu(this,<?php echo $CfcMenus[$inx]->menuhd_id; ?>);">
+						        			<span class="badge badge-pill badge-primary"><?php echo $CfcMenus[$inx]->menuhd_name; ?></span>
+						        		</a>
+						        	</div><?php
+						          if($inx==($mod-1)){echo '</div>';}
+						          else if($inx == (count($CfcMenus)-1)) {echo '</div>';}
+						       	}
+				       		}
 					      ?>
 				      </div>
 				    </div>
 				  </div>
+				  
+
+			    <!-- <script>console.log(arrCenter4);  console.log(arrCenter4[1]);</script> -->
+			    <!-- card four -->
+				  <div>
+				    <div class="card-header" id="headingFour" style="padding:0px !important;">
+				      <h5 class="mb-0">
+				        <button class="btn btn-link collapsed" onclick="setCenter(this,arrCenter4[1],4);" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+				          <span class="badge badge-pill badge-dark shc_menu4"><b>เมนูลัดศูนย์เลเซอร์ต้อกระจกเชียงใหม่</b></span>
+				        </button>
+				      </h5>
+				    </div>
+				    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+				      <div class="card-body">
+				      	<?php
+				       		if(count($ClcsMenus)>0){
+				       			$mod=6;
+						       	for($inx=0;$inx<count($ClcsMenus);$inx++){
+						       		if($inx==0) echo '<div class="row pb5">';
+						       		if($inx==$mod){ echo '<div class="row pb5">'; $mod+=6; } ?>
+						        	<div class="col-2 col-sm-2">
+						        		<a href="#" onclick="setFormMenu(this,<?php echo $ClcsMenus[$inx]->menuhd_id; ?>);">
+						        			<span class="badge badge-pill badge-primary"><?php echo $ClcsMenus[$inx]->menuhd_name; ?></span>
+						        		</a>
+						        	</div><?php
+						          if($inx==($mod-1)){echo '</div>';}
+						          else if($inx == (count($ClcsMenus)-1)) {echo '</div>';}
+						       	}
+				       		}
+					      ?>
+				      </div>
+				    </div>
+			    </div>
+
+			    
+
+			    
 
 				</div>
 				

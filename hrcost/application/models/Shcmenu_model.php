@@ -5,13 +5,44 @@
 			parent::__contruct();
 		}
 
+		public function getMenuHDs($center){
+			$sql="SELECT * from hrc_shortcut_menuhd where deleted = 0 and center_id =".$center;
+			$result=$this->db->query($sql)->result();
+			return $result;
+		}
+
+		public function getLocations(){
+			$sql="SELECT ward_code,ward_name1 from tb_location1";
+			$result=$this->db->query($sql)->result();
+			return $result;
+		}
+
+		public function deleteMenuHD($tb,$hdid,$formArray){
+			$sqlWhere="menuhd_id=".$hdid;
+			$this->db->update($tb,$formArray,$sqlWhere);
+			return true;
+		}
+
+		public function getMenuDT($hdid){
+			$sql="SELECT * from hrc_shortcut_menudt WHERE menuhd_id =".$hdid;
+			$result=$this->db->query($sql)->result();
+			return $result;
+		}
+
+		public function getMenuHD($hdid){
+			$sql="SELECT * from hrc_shortcut_menuhd WHERE deleted = 0 and menuhd_id =".$hdid;
+			$query=$this->db->query($sql);
+			$row=$query->num_rows();
+			if($row>0) return $this->db->query($sql)->row(); else return false;
+		}
+
 		public function insertMenuDT($formDT,$tb="hrc_shortcut_menudt"){
 			$this->db->insert($tb,$formDT);
 			return true;
 		}
 
 		public function getShcmenuHDs(){
-			$sql="SELECT * from hrc_shortcut_menuhd order by menuhd_id DESC";
+			$sql="SELECT * from hrc_shortcut_menuhd where deleted = 0 order by menuhd_id DESC";
 			$result = $this->db->query($sql)->result();
 			return $result;
 		}

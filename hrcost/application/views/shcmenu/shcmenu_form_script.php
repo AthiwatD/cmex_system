@@ -11,11 +11,18 @@
 
 <script>
 	// [Athwiat][16/07/2564][Set CMEx Defuat.]
-	var df_center=1;
-	var arrCHKB=["salary_period[]","salary_fee[]","ot_period[]","center[]","department[]","position[]"];
-	var icon_close="<i class='fa fa-times'></i>";
-	var checkStu=false;
+	const arrCHKB=["salary_period[]","salary_fee[]","ot_period[]","center[]","department[]","position[]"];
+	const arrTB_CHKB=[ ["sly_salary","salary_period[]"],
+					   ["sly_salary_fee","salary_fee[]"],
+					   ["sly_ot","ot_period[]"],
+					   ["sev_center","center[]"],
+					   ["tb_department","department[]"],
+					   ["sev_position","position[]"] ];
+	const icon_close="<i class='fa fa-times'></i>";
 
+	var checkStu=false;
+	var df_center=1;
+	
 	let stu_salary_period=[false,"กรุณาเลือกรายการ ช่วงเวลาเงินเดือน","salary_period[]"];
 	let stu_salary_fee=[false,"กรุณาเลือกรายการ รายละเอียดเงินเดือน","salary_fee[]"];
 	let stu_ot_period=[false,"กรุณาเลือกรายการ ช่วงเวลา OT","ot_period[]"];
@@ -33,9 +40,6 @@
 		e.preventDefault();
 		var $this=$(e);
 		if(checkNull(checkStu,arrCHKB)){
-			// ----------------------------------- view Var
-			// console.log("argee if checknull.");
-			// console.log(shrotcutMenu_base_url);
 			$.ajax({
 				type:"POST",
 				dataType:"json",
@@ -248,6 +252,7 @@
 		checkedNullBtnAll("position[]");
 	}
 
+	
 	function setFormMenu(e,hdid,url="Shcmenu/setFormMenu/"){
 		var $this=$(e);
 		var url_c= base_url+url+hdid;
@@ -257,16 +262,82 @@
 			data:{hdid:hdid},
 			url:url_c,
 			success:function(res){
-				if(res["stuGetData"]){
-					//set value reaction to form.
-				}else{
-					//response error.
+			// |--------------------------------------------------------------------------
+			// | 1.Clear all checkbox.
+			// | 2.Set shrotcut menu name.
+			// | 3.Set center of menu.
+			// | 4.Get Obj checkbox main 6 menu.
+			// | 5.Loop set value to checkbox wite javascript.
+			// |--------------------------------------------------------------------------
+				if(res["status_GetData"]){
+					var checkbox;
+					clearForm(); 									// ------- 1.Clear checkbox.
+					$("#menu_name").val(res["menuhd_name"]); 					// ------- 2.Set shrotcut menu name.
+					$("#menucenter").val(res["center_id"]).change();				// ------- 3.Set center of menu.
+					for(let i=0;i<res["resultDT"].length;i++){
+						for(let j=0;j<arrTB_CHKB.length;j++){
+							if(arrTB_CHKB[j][0]==res["resultDT"][i]["table_name"]){
+							//console.log(res["resultDT"][i]["table_name"]+" -> "+res["resultDT"][i]["value_id"]);   //[*][value of database.]
+								checkbox = $('input[name="'+arrTB_CHKB[j][1]+'"]'); 			// ------- 4.Get Obj checkbox main 6 menu.
+							 	for(let [k,v] of Object.entries(checkbox)){				// ------- 5.Loop set value to checkbox wite javascript.
+							 		
+							 		// [Athiwat][30/07/2564][Fix Wrong direction -> can't use menudt_id]
+									// if(k==((res["resultDT"][i]["menudt_id"])-1)){
+										// if(res["resultDT"][i]["table_name"]=="sly_salary"){
+											// var tmp = $('input[name="'+arrTB_CHKB[j][1]+'"]').val();
+											// console.log(res["resultDT"][i]["table_name"]+" ,tmp : "+$('input[name="'+arrTB_CHKB[j][1]+'"]').val());
+										// }
+									// }
+
+									// [Athiwat][30/07/2564][Change to use value_id]
+									if(checkbox.eq(k).val()==(res["resultDT"][i]["value_id"])){
+										checkbox.eq(k).prop('checked',true);
+									}
+								}
+							}
+						}
+					}
+				}else{ //Note : response error (Have not menu hd.)
+					swal({title:"ไม่มีข้อมูลนี้ !",text:"กรุณาตรวจสอบใหม่อีกครั้ง",type:"warning",timer:9500});
+					setTimeout(function(){document.location.reload(true)},6500);
 				}
 			},error:function(xhr,textSatus,errorThrown,res){
 				alert("Get form_setFormMenu\nStatus: "+textSatus+"\nError: "+errorThrown+"\nFunction: form_setFormMenu");
 			}
 
 		});
+	}
+
+	function deleteMenu(url_del){
+		swal({ title: "คุณจะลบข้อมูลหรือไม่ ?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "ใช่, ลบข้อมูล !",
+                cancelButtonText: "ยกเลิก",
+                closeOnConfirm: false,
+                closeOnCancel: false,
+                timer: 9500
+        },function(isConfirm){
+        	if(isConfirm){
+	                $.ajax({type:"POST",
+				url:url_del,
+				dataType:'json',
+				cache:false,
+				contentType:false,
+				processData:false,
+				success:function(response){
+					console.log("success : "+response);
+					if(response["delete_status"]){
+						swal({title: 'ลบข้อมูลเรียบร้อยแล้ว !',text: 'คลิกปุ่ม OK เพื่อกลับสู่หน้าหลัก',type: 'success',timer: 9500});
+						setTimeout(function(){document.location.reload(true)},4500);
+					}
+				},error: function (xhr, textStatus, errorThrown,response){
+		        		alert("deleteMenu\nStatus: " + textStatus + '\nError: ' + errorThrown + '\nFunction: deleteMenu');
+				}
+			});
+        	}else{swal("ยกเลิก", "ยกเลิก การลบเรียบร้อย !", "success", 9500);}
+        });
 	}
 
 </script>

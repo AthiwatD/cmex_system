@@ -20,7 +20,7 @@
              if(file_exists(PATH_IMG_EMP.$session_username.'.png')) $img_file_path = URL_IMG_EMP.$session_username.'.png';
              else $img_file_path = base_url().PATH_IMG_PERSON;
           ?>
-          <img src="<?php echo $img_file_path; ?>" class="img-circle elevation-2" alt="User Image" style="margin-top: 10px;">
+          <img src="<?php echo $img_file_path; ?>" class="img-circle elevation-2" alt="User Image" style="margin-top: 0px;">
         </div>
         <div class="info">
           <a href="#" class="d-block">

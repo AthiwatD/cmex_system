@@ -13,6 +13,7 @@
     		parent::__construct();
     		date_default_timezone_set('Asia/Bangkok');
 			$this->load->model('Hrcost_model','HrcostModel');
+			$this->load->model('Shcmenu_model','ShcmenuModel');
 			
 			$config['max_size']      = 256000;
             $config['max_width'] 	 = '4096';
@@ -21,6 +22,27 @@
             $config['allowed_types'] = 'gif|jpg|png|doc|docx|xls|xlsx|ppt|pptx|pdf|txt|csv';
             
 	        $this->load->library('upload', $config);
+		}
+
+		public function setFormMenu($hdid){
+			// |--------------------------------------------------------------------------
+			// | 1.receive hdid.
+			// | 2.select menuhd_name.
+			// | 3.select table_name from hrc_shortcut_menudt group by table_name where hdid.
+			// | 4.return data[] group by table_name.
+			// |--------------------------------------------------------------------------
+			$resultHD=$this->ShcmenuModel->getMenuHD($hdid);
+			$response["menuhd_name"]=$resultHD->menuhd_name;
+			$response["center_id"]=$resultHD->center_id;
+			if(!empty($response["menuhd_name"])){
+				$response["resultDT"]=$this->ShcmenuModel->getMenuDT($resultHD->menuhd_id);
+				$response["status_GetData"]=true;
+			}else{
+				$response["status_GetData_desc"]="Have not menu hd.";
+				$response["status_GetData"]=false;
+
+			}
+			echo json_encode($response);
 		}
 
 		//[Athiwat][29/06/2564][add funcion check permission active users]
@@ -62,6 +84,19 @@
 			$this->data['Centers']=$this->HrcostModel->getCenters();
 			$this->data['Positions']=$this->HrcostModel->getPositions();
 			$this->data['Departments']=$this->HrcostModel->getDepartments();
+
+			//[Athiwat][30/07/2564][Shortcust menu][fix center to function getMenuHDs]
+			$this->data['LasMenus']=$this->ShcmenuModel->getMenuHDs(5);
+			$this->data['CmexMenus']=$this->ShcmenuModel->getMenuHDs(1);
+			$this->data['GmcMenus']=$this->ShcmenuModel->getMenuHDs(3);
+			$this->data['TtcmMenus']=$this->ShcmenuModel->getMenuHDs(6);
+			$this->data['ClcsMenus']=$this->ShcmenuModel->getMenuHDs(8);
+			$this->data['WhMenus']=$this->ShcmenuModel->getMenuHDs(7);
+			$this->data['PccMenus']=$this->ShcmenuModel->getMenuHDs(4);
+			$this->data['CfcMenus']=$this->ShcmenuModel->getMenuHDs(11);
+			$this->data['SdcMenus']=$this->ShcmenuModel->getMenuHDs(2);
+
+			
 
 			$this->data['error']=$this->db->error();
 			$this->loadData();
