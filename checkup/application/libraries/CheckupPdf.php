@@ -24,9 +24,10 @@ class CheckupPdf extends TCPDF//TCPDF
 
     public function Header() {
         // Logo
-        $image_file = base_url() . '../common/assets/images/cmex_header_doc.jpg';//K_PATH_IMAGES.'logo_example.jpg';
+        //$image_file = base_url() . '../common/assets/images/cmex_header_doc.jpg';//K_PATH_IMAGES.'logo_example.jpg';
+		$image_file = '/var/www/html/cmex_system/common/assets/images/cmex_header_doc.jpg';
         //Image( $file, $x = '', $y = '', $w = 0, $h = 0, $type = '', $link = '', $align = '', $resize = false, $dpi = 300, $palign = '', $ismask = false, $imgmask = false, $border = 0, $fitbox = false, $hidden = false, $fitonpage = false, $alt = false, $altimgs = array() )
-        $this->Image($image_file, 10, 5, 50, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
+        $this->Image($image_file, 10, 5, 50, '', 'jpg', '', 'T', $resize = true, $dpi = 72, '', false, false, 0, false, false, false);
         // Set font
         //echo base_url('assets/fonts/THSarabun.ttf') . "<br>";
         $fontname = TCPDF_FONTS::addTTFfont(base_url('assets/fonts/thai/THSarabun.ttf'), 'TrueTypeUnicode', '', 96);
@@ -62,7 +63,7 @@ class CheckupPdf extends TCPDF//TCPDF
 		$this->Ln(6);
 		$this->Cell(0, 15, $this->checkup->location_name_show_en, 0, false, 'C', 0, '', 0, false, 'M', 'M');
         // Page number
-        $this->Cell(0, 10, 'Page '.$this->getAliasNumPage().'/'.$this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
+        // $this->Cell(0, 10, 'Page '.$this->getAliasNumPage().'/'.$this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
     }
 }
 /*Author:Tutsway.com */

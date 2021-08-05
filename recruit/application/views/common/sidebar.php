@@ -14,7 +14,7 @@
         <div class="image" style="padding-left: 0px;">
           <?php
             $img_file_path = base_url() . '../common/assets/images/person_img.png';
-            if (remote_file_exists('http://excellent.med.cmu.ac.th/employee/images/person/'.$session_username.'.png')) {
+            if (file_exists('../../employee/images/person/'.$session_username.'.png')) {
               $img_file_path = 'http://excellent.med.cmu.ac.th/employee/images/person/'.$session_username.'.png';
             }
           ?>

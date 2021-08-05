@@ -2,6 +2,11 @@
 	<div class="card card-body row col-12" style="margin-left:0px; margin-right: 0px;">
 		<h3 style="margin-top: 10px">กรอกผล Labs</h3>
 		<div class="mt-4">
+			<div class="">
+				<button type="button" class="form-control btn btn-success" onclick="save_tab_data('input_lab_tab')">บันทึก</button>
+			</div>
+		</div>
+		<div class="mt-4">
 			<table class="table">
 				<thead>
 					<tr>

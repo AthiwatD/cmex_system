@@ -13,7 +13,8 @@
 		$txt .= '<p align="center">';
 		for($i=0;$i<sizeof($record_files);$i++){
 			if($record_files[$i]->tab_id == "ekg"){
-				$txt .= '<img src="' . base_url() . 'uploads/ekg/' . $record_files[$i]->file_name . '" ><br>';
+				// $txt .= '<img src="' . base_url() . 'uploads/ekg/' . $record_files[$i]->file_name . '" ><br>';
+				$txt .= '<img src="' . $record_files[$i]->file_path . '" ><br>';
 			}
 		}
 		$txt .= '</p>';

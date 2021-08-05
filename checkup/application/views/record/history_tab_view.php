@@ -2,6 +2,11 @@
 	<div class="card card-body row col-12" style="margin-left:0px; margin-right: 0px;">
 		<h3 style="margin-top: 10px">โรคประจำตัว (Current medical problem)</h3>
 		<div class="mt-4">
+			<div class="">
+				<button type="button" class="form-control btn btn-success" onclick="save_tab_data('history_tab')">บันทึก</button>
+			</div>
+		</div>
+		<div class="mt-4">
 			<!-- <input type="hidden" class="input_data" name="checkup_id" id="history_tab" value="<?php echo $checkup_id; ?>"> -->
 			<table class="table">
 				<thead>
@@ -11,6 +16,28 @@
 					</tr>
 				</thead>
 				<tbody>
+					<!-- 21 -->
+					<tr>
+						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
+							<div class="form-group form-inline">
+								<div class="form-check div-checkbox" >
+									<label class="form-control-label form-check-label big-checkbox-label" >
+										<input type="checkbox" class="form-check-input big-checkbox input_data" 
+											id="history_problem_21" 
+											value="ปฏิเสธ (no)" 
+											placeholder="ปฏิเสธ (no)">
+											ปฏิเสธ (no)
+									</label>
+								</div>
+							</div>
+						</td>
+						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
+							<div class="form-group div-text" style="margin-bottom: 0rem;">
+								<input type="text" class="form-control input_data" id="history_problem_detail_21" placeholder="ปฏิเสธ (no)">
+							</div>
+						</td>
+					</tr>
+
 					<!-- 1 -->
 					<tr>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
@@ -32,7 +59,6 @@
 							</div>
 						</td>
 					</tr>
-					
 					<!-- 2 -->
 					<tr>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
@@ -451,14 +477,16 @@
 						</td>
 					</tr>
 
-					<!-- 101 -->
+					
+
+					<!-- 22 -->
 					<tr>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group form-inline">
 								<div class="form-check div-checkbox" >
 									<label class="form-control-label form-check-label big-checkbox-label" >
 										<input type="checkbox" class="form-check-input big-checkbox input_data" 
-										id="history_problem_101" 
+										id="history_problem_22" 
 										value="อื่นๆ" 
 										placeholder="อื่นๆ">
 										อื่นๆ
@@ -468,7 +496,7 @@
 						</td>
 						<td style="padding: 0px; vertical-align: middle; border-top: 0px solid #dee2e6;">
 							<div class="form-group div-text" style="margin-bottom: 0rem;">
-								<input type="text" class="form-control input_data" id="history_problem_detail_101" placeholder="อื่นๆ">
+								<input type="text" class="form-control input_data" id="history_problem_detail_22" placeholder="อื่นๆ">
 							</div>
 						</td>
 					</tr>

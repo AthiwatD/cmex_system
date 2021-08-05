@@ -13,7 +13,9 @@
 		$txt .= '<p align="center">';
 		for($i=0;$i<sizeof($record_files);$i++){
 			if($record_files[$i]->tab_id == "xray"){
-				$txt .= '<img src="' . base_url() . 'uploads/xray/38_60dc2ce16e1f7.png">'; // . $record_files[$i]->file_name . '" ><br>';
+				// $txt .= base_url() . 'uploads/xray/' . $record_files[$i]->file_name . "<br>";
+				// $txt .= '<img src="' . base_url() . 'uploads/xray/' . $record_files[$i]->file_name . '" ><br>';
+				$txt .= '<img src="' . $record_files[$i]->file_path . '" ><br>';
 			}
 		}
 		$txt .= '</p>';

@@ -30,6 +30,7 @@
 		$this->data['labs'] = $this->Lab->getLabs();
 		$records = $this->Record->getRecords($checkup_id);
 		$this->data['records'] = $records;
+		$this->data['record_files'] = $this->File->getFiles($checkup_id);
 		// print_r($records);
 
 		$this->data['history_tab'] = "[]";
@@ -123,7 +124,19 @@
 				$image = str_replace('data:image/png;base64,', '', $images[$i]);
 				$image = str_replace(' ', '+', $image);
 				$data = base64_decode($image);
-				$file_name =   $checkup_id . "_" . uniqid() . ".png";
+
+				$source_img = imagecreatefromstring($data);
+
+				$rotated_img = imagerotate($source_img, 90, 0); 
+
+				$file_name=   $checkup_id . "_" . uniqid() . ".png";
+
+				$imageSave = imagejpeg($rotated_img, $file_name, 10);
+
+				imagedestroy($source_img);
+
+
+				// $file_name =   $checkup_id . "_" . uniqid() . ".png";
 				$file_url = $destination_folder . $file_name;
 				echo $file_url . "<br>";
 				$file = fopen($file_url, "w");
@@ -131,6 +144,7 @@
 				if ($file) {
 					fwrite($file, $data);
 					fclose($file);
+					chmod($file_url, 0777); 
 					echo $file . ": Success to save the file.";
 					$result = $this->File->addFile($file_name, $file_url, $checkup_id, $tab_id);
 					if($result){
@@ -170,7 +184,7 @@
 				$image = str_replace('data:image/png;base64,', '', $images[$i]);
 				$image = str_replace(' ', '+', $image);
 				$data = base64_decode($image);
-				$file_url = $destination_folder . "test_" . 34 . "_" . uniqid() . ".png";
+				$file_url = $destination_folder . "test_" . 34 . "_" . uniqid() . ".PNG";
 				echo $file_url . "<br>";
 				$file = fopen($file_url, "w");
 

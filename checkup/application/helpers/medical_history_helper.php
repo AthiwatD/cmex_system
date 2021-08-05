@@ -37,7 +37,9 @@
 		$count = 1;
 		$num_show = 1;
 		for($i=0;$i<sizeof($datas);$i+=2){
-			if($datas[$i]->id == "history_problem_" . $count ){
+			$arr = explode("_", $datas[$i]->id);
+
+			if(($arr[0] == "history") && ($arr[1] == "problem")){ // $datas[$i]->id == "history_problem_" . $count ){
 
 				if(($datas[$i]->checked == "true")){
 					$txt .= '<tr>';
@@ -138,7 +140,7 @@
 		$count = 1;
 		$num_show = 1;
 		for($i=0;$i<sizeof($datas);$i+=2){
-			if($datas[$i]->id == "operation_" . $count ){
+			if($datas[$i]->id == "mens_" . $count ){
 
 				if(($datas[$i]->checked == "true")){
 					$txt .= '<tr>';
@@ -170,7 +172,7 @@
 		$count = 1;
 		$num_show = 1;
 		for($i=0;$i<sizeof($datas);$i+=2){
-			if($datas[$i]->id == "operation_" . $count ){
+			if($datas[$i]->id == "alcohol_" . $count ){
 
 				if(($datas[$i]->checked == "true")){
 					$txt .= '<tr>';

@@ -58,6 +58,7 @@
             dataType: 'TEXT',
             success: function(response){
                 console.log(response);
+				alert("Saved Succelful");
             },
             error: function (xhr, textStatus, errorThrown) {
                 alert("Status: " + textStatus + '\nError: ' + errorThrown + '\nFunction: save_tab_data');

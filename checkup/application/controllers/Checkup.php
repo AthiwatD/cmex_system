@@ -7,12 +7,12 @@
     public function __construct(){
         parent::__construct();
 
-        $this->load->helper('../../common/helpers/thai_date');
+        // $this->load->helper('../../common/helpers/thai_date');
 		$this->load->helper('medical_history');
 		$this->load->helper('vital_signs');
 		$this->load->helper('exam_result');
 		$this->load->helper('lab_result');
-		$this->load->helper('exam_lab_result');
+		$this->load->helper('exam_lab_result_2');
 		$this->load->helper('exam_xray_result');
 		$this->load->helper('exam_ekg_result');
 		$this->load->helper('suggest');
@@ -163,75 +163,94 @@
 
 		$checkup = $this->Checkup->getCheckup($checkup_id);
 		$records = $this->Record->getRecords($checkup_id);
-		$record_files = $this->File->getFiles($checkup_id);
 
-		$pdf = new CheckupPdf(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+		if(!empty($records)){
+			$record_files = $this->File->getFiles($checkup_id);
 
-		$pdf->setCheckupData($checkup);
-        // set document information
-        // $pdf->SetCreator(PDF_CREATOR);
-        $pdf->SetAuthor('ศูนย์ความเป็นเลิศทางการแพทย์ คณะแพทยศาสตร์ มหาวิทยาลัยเชียงใหม่');
-        $pdf->SetTitle('รายงานผลการตรวจสุขภาพ');
-        $pdf->SetSubject('รายงานผลการตรวจสุขภาพ');
-        $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+			$pdf = new CheckupPdf(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
-        // set default header data
-        $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
+			$pdf->setCheckupData($checkup);
+			// set document information
+			// $pdf->SetCreator(PDF_CREATOR);
+			$pdf->SetAuthor('ศูนย์ความเป็นเลิศทางการแพทย์ คณะแพทยศาสตร์ มหาวิทยาลัยเชียงใหม่');
+			$pdf->SetTitle('รายงานผลการตรวจสุขภาพ');
+			$pdf->SetSubject('รายงานผลการตรวจสุขภาพ');
+			$pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
-        // set header and footer fonts
-        $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
-        $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+			// set default header data
+			$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
 
-        // set default monospaced font
-        $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+			// set header and footer fonts
+			$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+			$pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 
-        // set margins
-        $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
-        $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
-        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+			// set default monospaced font
+			$pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
-        // set auto page breaks
-        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+			// set margins
+			$pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+			$pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+			$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 
-        // set image scale factor
-        $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+			// set auto page breaks
+			$pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
 
-		$pdf->SetFont("thsarabunpsk", 'B', 16, '', false);
-        // add a page
-        $pdf->AddPage();
-		$txt = getMedicalHistory($checkup, json_decode($records[0]->history_tab));
-        $pdf->writeHTML($txt, true, false, false, false, '');
+			// set image scale factor
+			$pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 
-		$pdf->AddPage();
-		$txt = getVitalSigns($checkup, json_decode($records[0]->exam_tab));
-		$pdf->writeHTML($txt, true, false, false, false, '');
+			$pdf->SetFont("thsarabunpsk", 'B', 16, '', false);
+			
+			// add a page
+			
+			$pdf->AddPage();
+			$txt = getMedicalHistory($checkup, json_decode($records[0]->history_tab));
+			$pdf->writeHTML($txt, true, false, false, false, '');
 
-		$pdf->AddPage();
-		$txt = getExamResult($checkup, json_decode($records[0]->exam_result_tab));
-		$pdf->writeHTML($txt, true, false, false, false, '');
+			$pdf->AddPage();
+			$txt = getVitalSigns($checkup, json_decode($records[0]->exam_tab));
+			$pdf->writeHTML($txt, true, false, false, false, '');
 
-		$pdf->AddPage();
-		$txt = getLabResults($checkup, json_decode($records[0]->input_lab_tab), $record_files);
-		$pdf->writeHTML($txt, true, false, false, false, '');
+			$pdf->AddPage();
+			$txt = getExamResult($checkup, json_decode($records[0]->exam_result_tab));
+			$pdf->writeHTML($txt, true, false, false, false, '');
 
-		$pdf->AddPage();
-		$txt = getExamLabResult($checkup, json_decode($records[0]->exam_lab_tab));
-		$pdf->writeHTML($txt, true, false, false, false, '');
+			$pdf->AddPage();
+			$txt = getLabResults($checkup, json_decode($records[0]->input_lab_tab), $record_files);
+			$pdf->writeHTML($txt, true, false, false, false, '');
 
-		$pdf->AddPage();
-		$txt = getExamXrayResult($checkup, json_decode($records[0]->exam_xray_tab), $record_files);
-		$pdf->writeHTML($txt, true, false, false, false, '');
+			$pdf->AddPage();
+			$txt = getExamLabResult2($checkup, json_decode($records[0]->exam_lab_tab), $record_files);
+			$pdf->writeHTML($txt, true, false, false, false, '');
 
-		$pdf->AddPage();
-		$txt = getExamEkgResult($checkup, json_decode($records[0]->exam_ekg_tab), $record_files);
-		$pdf->writeHTML($txt, true, false, false, false, '');
-		
-		$pdf->AddPage();
-		$txt = getSuggest($checkup, json_decode($records[0]->suggest_tab));
-		$pdf->writeHTML($txt, true, false, false, false, '');
+			$pdf->AddPage();
+			$txt = getExamXrayResult($checkup, json_decode($records[0]->exam_xray_tab), $record_files);
+			$pdf->writeHTML($txt, true, false, false, false, '');
 
-		$pdf->Output('Checkup_' . $checkup->hn . '_' . $checkup->checkup_date . '.pdf', 'I');
+			$pdf->AddPage();
+			$txt = getExamEkgResult($checkup, json_decode($records[0]->exam_ekg_tab), $record_files);
+			$pdf->writeHTML($txt, true, false, false, false, '');
+			
+			$pdf->AddPage();
+			$txt = getSuggest($checkup, json_decode($records[0]->suggest_tab));
+			$pdf->writeHTML($txt, true, false, false, false, '');
+
+			$pdf->Output('Checkup_' . $checkup->hn . '_' . $checkup->checkup_date . '.pdf', 'I');
+		}
+		else{
+			echo "ยังไม่มีข้อมูล";
+		}
 	}
 
+	function testLab($checkup_id){
+		$checkup = $this->Checkup->getCheckup($checkup_id);
+		$records = $this->Record->getRecords($checkup_id);
+
+		if(!empty($records)){
+			$record_files = $this->File->getFiles($checkup_id);
+			$txt = $records[0]->exam_lab_tab . "<br>";
+			$txt .= getExamLabResult2($checkup, json_decode($records[0]->exam_lab_tab), $record_files);
+			echo $txt;
+		}
+	}
  }
  ?>
