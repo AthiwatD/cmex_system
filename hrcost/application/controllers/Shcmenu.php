@@ -62,10 +62,21 @@
 				
 				if(isset($_POST["salary_period"]) && !empty($_POST["salary_period"])){ $formDT["salary_period"]=$_POST["salary_period"]; $response["salary_period"]=$_POST["salary_period"];}
 				if(isset($_POST["salary_fee"]) && !empty($_POST["salary_fee"])){ $formDT["salary_fee"]=$_POST["salary_fee"]; $response["salary_fee"]=$_POST["salary_fee"];}
+
+				// [Athiwat][09/08/2564][access query ot and center]
 				if(isset($_POST["ot_period"]) && !empty($_POST["ot_period"])){ $formDT["ot_period"]=$_POST["ot_period"]; $response["ot_period"]=$_POST["ot_period"];}
 				if(isset($_POST["center"]) && !empty($_POST["center"])){ $formDT["center"]=$_POST["center"]; $response["center"]=$_POST["center"];}
 				if(isset($_POST["department"]) && !empty($_POST["department"])){ $formDT["department"]=$_POST["department"]; $response["department"]=$_POST["department"];}
 				if(isset($_POST["position"]) && !empty($_POST["position"])){ $formDT["position"]=$_POST["position"]; $response["position"]=$_POST["position"];}
+				
+				// [Athiwat][09/08/2564][add latest Sly and Ot Period.]
+					// if(isset($_POST["statusLatestSly"]) && $_POST["statusLatestSly"]) $response["statusLatestSly"]=$_POST["statusLatestSly"];
+					// if(isset($_POST["statusLatestOt"]) && $_POST["statusLatestOt"]) $response["statusLatestOt"]=$_POST["statusLatestOt"];
+				$response["statusLatestSly"]=(isset($_POST["statusLatestSly"]) && $_POST["statusLatestSly"])? $_POST["statusLatestSly"]:"false";
+				$response["statusLatestOt"]=(isset($_POST["statusLatestOt"]) && $_POST["statusLatestOt"])?  $_POST["statusLatestOt"]:"false";
+
+				// |--------------------------------------------------------------------------
+				// | Method Process.
 				// |--------------------------------------------------------------------------
 				// | 1.insert hd.(new process)
 				// | 2.get maxid hd.
@@ -76,7 +87,6 @@
 				// | 7.create view with value avg,sum,count,MAX,MIN.
 				// |--------------------------------------------------------------------------
 
-				
 				$response["result_insert_hd"]=$this->ShcmenuModel->insertMenuHD($formHD); // ----- 1.insert hd.(new process)
 				if($response["result_insert_hd"]){
 					// ----- 2.get maxid hd.
@@ -88,82 +98,99 @@
 					$response["result_insert_dt"]=true;
 					$response["count_sp"]=count($formDT["salary_period"]);
 					$response["count_sf"]=count($formDT["salary_fee"]);
-					$response["count_otp"]=count($formDT["ot_period"]);
-					$response["count_c"]=count($formDT["center"]);
 					$response["count_d"]=(isset($_POST["department"]) && !empty($_POST["department"]))? count($formDT["department"]) : 0 ;
 					$response["count_p"]=(isset($_POST["position"]) && !empty($_POST["position"]))? count($formDT["position"]) : 0 ;
 
-					$count=($response["count_sp"]+$response["count_sf"]+$response["count_otp"]+$response["count_c"]);
+					// [Athiwat][09/08/2564][access query ot and center && add comment]
+						// $response["count_otp"]=count($formDT["ot_period"]);
+						// $response["count_c"]=count($formDT["center"]);
+					$response["count_otp"]=(isset($_POST["ot_period"]) && !empty($_POST["ot_period"]))? count($formDT["ot_period"]) : 0 ;
+					$response["count_c"]=(isset($_POST["center"]) && !empty($_POST["center"]))? count($formDT["center"]) : 0 ;
+
+					$count=($response["count_sp"]+$response["count_sf"]);
 					if(isset($_POST["department"]) && !empty($_POST["department"])) $count+=$response["count_d"];
 					if(isset($_POST["position"]) && !empty($_POST["position"])) $count+=$response["count_p"];
 
-					// ----- 4.loop insert dt with maxid.
+					// [Athiwat][09/08/2564][access query ot and center]
+					if(isset($_POST["ot_period"]) && !empty($_POST["ot_period"])) $count+=$response["count_otp"];
+					if(isset($_POST["center"]) && !empty($_POST["center"])) $count+=$response["count_c"];
+
+					// |--------------------------------------------------------------------------
+					// | 4.loop insert dt with maxid.
+					// |--------------------------------------------------------------------------
 					// ----- 4.1 salary_period
 					$tb_name="sly_salary";
 					$process_stu=true;
 					$status_count_sp=true;
 					for($i=0;$i<$response["count_sp"];$i++){
+						// [Athiwat][09/08/2564][modify code for latest status]
+						if($response["statusLatestSly"]=="true" && $i==0) $tmpValueID=$i;
+						else $tmpValueID=$formDT["salary_period"][$i];
 						$Data=array("menudt_id"=>($i+1),
-									 "menuhd_id"=>$response["maxhdid"],
-									 "table_name"=>$tb_name,
-									 "value_id"=>$formDT["salary_period"][$i]);
+									"menuhd_id"=>$response["maxhdid"],
+									"table_name"=>$tb_name,
+									"value_id"=>$tmpValueID);
 						$process_stu=$this->ShcmenuModel->insertMenuDT($Data);
 						$status_count_sp=($process_stu)?true:false;
 					}
-					// ----- view -----
-					// $response["Data"][$i]=$Data;
-					// $response["test_value"]=$formDT["salary_period"][0];
 
 					// ----- 4.2 sly_salary_fee
 					$tb_name="sly_salary_fee";
 					$process_stu=true;
 					$status_count_sf=true;
 					for($i=0;$i<$response["count_sf"];$i++){
-					  $Data=array("menudt_id"=>($i+1),
-					        "menuhd_id"=>$response["maxhdid"],
-					        "table_name"=>$tb_name,
-					        "value_id"=>$formDT["salary_fee"][$i]);
-					  $process_stu=$this->ShcmenuModel->insertMenuDT($Data);
-					  $status_count_sf=($process_stu)?true:false;
+						$Data=array("menudt_id"=>($i+1),
+					        		"menuhd_id"=>$response["maxhdid"],
+					        		"table_name"=>$tb_name,
+					        		"value_id"=>$formDT["salary_fee"][$i]);
+						$process_stu=$this->ShcmenuModel->insertMenuDT($Data);
+						$status_count_sf=($process_stu)?true:false;
 					}
 
-					// ----- 4.3 sly_ot
-					$tb_name="sly_ot";
-					$process_stu=true;
+					// ----- 4.3 sly_ot 
 					$status_count_otp=true;
-					for($i=0;$i<$response["count_otp"];$i++){
-					  $Data=array("menudt_id"=>($i+1),
-					        "menuhd_id"=>$response["maxhdid"],
-					        "table_name"=>$tb_name,
-					        "value_id"=>$formDT["ot_period"][$i]);
-					  $process_stu=$this->ShcmenuModel->insertMenuDT($Data);
-					  $status_count_otp=($process_stu)?true:false;
+					if($response["count_otp"]>0){ // [Athiwat][09/08/2564][access query ot and center]
+						$tb_name="sly_ot";
+						$process_stu=true;
+						for($i=0;$i<$response["count_otp"];$i++){
+							// [Athiwat][09/08/2564][modify code for latest status]
+							if($response["statusLatestOt"]=="true" && $i==0) $tmpValueID=$i; 
+							else $tmpValueID=$formDT["ot_period"][$i];
+							$Data=array("menudt_id"=>($i+1),
+						        		"menuhd_id"=>$response["maxhdid"],
+						        		"table_name"=>$tb_name,
+						        		"value_id"=>$tmpValueID);
+							$process_stu=$this->ShcmenuModel->insertMenuDT($Data);
+							$status_count_otp=($process_stu)?true:false;
+						}
 					}
 
 					// ----- 4.4 sev_center
-					$tb_name="sev_center";
-					$process_stu=true;
 					$status_count_c=true;
-					for($i=0;$i<$response["count_c"];$i++){
-					  $Data=array("menudt_id"=>($i+1),
-					        "menuhd_id"=>$response["maxhdid"],
-					        "table_name"=>$tb_name,
-					        "value_id"=>$formDT["center"][$i]);
-					  $process_stu=$this->ShcmenuModel->insertMenuDT($Data);
-					  $status_count_c=($process_stu)?true:false;
+					if($response["count_c"]>0){ // [Athiwat][09/08/2564][access query ot and center]
+						$tb_name="sev_center";
+						$process_stu=true;
+						for($i=0;$i<$response["count_c"];$i++){
+							$Data=array("menudt_id"=>($i+1),
+						        		"menuhd_id"=>$response["maxhdid"],
+										"table_name"=>$tb_name,
+										"value_id"=>$formDT["center"][$i]);
+							$process_stu=$this->ShcmenuModel->insertMenuDT($Data);
+							$status_count_c=($process_stu)?true:false;
+						}
 					}
-
+					
 					// ----- 4.5 tb_department
 					$status_count_d=true;
 					if($response["count_d"]>0){
 					  $tb_name="tb_department";
 					  $process_stu=true;
 					  for($i=0;$i<$response["count_d"];$i++){
-					    $Data=array("menudt_id"=>($i+1),
-					          "menuhd_id"=>$response["maxhdid"],
-					          "table_name"=>$tb_name,
-					          "value_id"=>$formDT["department"][$i]);
-					    $process_stu=$this->ShcmenuModel->insertMenuDT($Data);
+							$Data=array("menudt_id"=>($i+1),
+					          			"menuhd_id"=>$response["maxhdid"],
+					          			"table_name"=>$tb_name,
+					          			"value_id"=>$formDT["department"][$i]);
+						$process_stu=$this->ShcmenuModel->insertMenuDT($Data);
 					    $status_count_d=($process_stu)?true:false;
 					  }
 					}
@@ -174,14 +201,15 @@
 					  $tb_name="sev_position";
 					  $process_stu=true;
 					  for($i=0;$i<$response["count_p"];$i++){
-					    $Data=array("menudt_id"=>($i+1),
-					          "menuhd_id"=>$response["maxhdid"],
-					          "table_name"=>$tb_name,
-					          "value_id"=>$formDT["position"][$i]);
-					    $process_stu=$this->ShcmenuModel->insertMenuDT($Data);
+						$Data=array("menudt_id"=>($i+1),
+					          		"menuhd_id"=>$response["maxhdid"],
+					          		"table_name"=>$tb_name,
+					          		"value_id"=>$formDT["position"][$i]);
+						$process_stu=$this->ShcmenuModel->insertMenuDT($Data);
 					    $status_count_p=($process_stu)?true:false;
 					  }
 					}
+					// |--------------------------------------------------------------------------
 				}
 			}
 
@@ -192,6 +220,8 @@
 		}
 
 		public function setFormMenu($hdid){
+			// |--------------------------------------------------------------------------
+			// | Method Process.
 			// |--------------------------------------------------------------------------
 			// | 1.receive hdid.
 			// | 2.select menuhd_name.

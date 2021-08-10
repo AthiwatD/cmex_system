@@ -20,8 +20,11 @@
 					   ["sev_position","position[]"] ];
 	const icon_close="<i class='fa fa-times'></i>";
 
+	// [Athiwat][09/08/2564][Set Global variables]
 	var checkStu=false;
 	var df_center=1;
+	var statusLatestSly=false;
+	var statusLatestOt=false;
 	
 	let stu_salary_period=[false,"กรุณาเลือกรายการ ช่วงเวลาเงินเดือน","salary_period[]"];
 	let stu_salary_fee=[false,"กรุณาเลือกรายการ รายละเอียดเงินเดือน","salary_fee[]"];
@@ -35,15 +38,73 @@
 		echo 'var base_url="'.base_url().'";';
 		echo 'var shrotcutMenu_base_url="'.base_url().'Shcmenu/index/back";';  // [Athiwat][27/07/2564][add var shrotcutMenu_base_url]
 	?>
+
+	// [Athiwat][09/08/2564][add method checkBtnLatest]
+	function checkBtnLatest(name){
+		var ckb = $('input[name="'+name+'"]');
+		//|--------------------------------------------------------------------------------------------------
+		//| process latest
+		//|--------------------------------------------------------------------------------------------------
+		//| 1.check latest && !latest
+		//| 2.set checkbox
+		//| 3.set status latest sly and ot
+		//| 4.set value = 0
+		//| 5.insert db
+		//| 6.set check value = 0 > checkbox = latest in callback formView
+		//|--------------------------------------------------------------------------------------------------
+		if(name=="salary_period[]"){
+	    	if(!statusLatestSly){
+				for(let[k,v] of Object.entries(ckb)){
+			    	if(k==0) ckb.eq(k).prop('checked',true);
+			    	else ckb.eq(k).prop('checked',false);
+			    }
+			    statusLatestSly=true;
+				$("span.btnSlyLatest").removeClass("badge-primary");
+				$("span.btnSlyLatest").addClass("badge-success");
+			}else{
+				for(let[k,v] of Object.entries(ckb)){
+			    	ckb.eq(k).prop('checked',false);
+			    }
+			    statusLatestSly=false;
+				$("span.btnSlyLatest").removeClass("badge-success");
+				$("span.btnSlyLatest").addClass("badge-primary");
+			}
+	    }
+	    if(name=="ot_period[]"){
+	    	if(!statusLatestOt){
+	    		for(let[k,v] of Object.entries(ckb)){
+			    	if(k==0) ckb.eq(k).prop('checked',true);
+			    	else ckb.eq(k).prop('checked',false);
+			    }
+			    statusLatestOt=true;
+				$("span.btnOtLatest").removeClass("badge-primary");
+				$("span.btnOtLatest").addClass("badge-success");
+			}else{
+				for(let[k,v] of Object.entries(ckb)){
+			    	ckb.eq(k).prop('checked',false);
+			    }
+			    statusLatestOt=false;
+				$("span.btnOtLatest").removeClass("badge-success");
+				$("span.btnOtLatest").addClass("badge-primary");
+			}
+	    }
+		
+	}
 		
 	$("#form_manage_shcmenu").on("submit",function(e){
 		e.preventDefault();
 		var $this=$(e);
 		if(checkNull(checkStu,arrCHKB)){
+			var formData=new FormData(this); // [Athiwat][09/08/2564][add var formData]
+			
+			// [Athiwat][09/08/2564][add latest Sly and Ot Period.]
+			if(statusLatestSly){ formData.append("statusLatestSly",statusLatestSly); }
+			if(statusLatestOt){ formData.append("statusLatestOt",statusLatestOt); }
+
 			$.ajax({
 				type:"POST",
 				dataType:"json",
-				data:new FormData(this),
+				data:formData,
 				url: base_url+"Shcmenu/addeShcmenuProcess",
 				contentType:false,
 				processData:false,
@@ -60,6 +121,7 @@
 				}
 			});
 		}
+		
 		
 	});
 
@@ -98,22 +160,26 @@
 			$(".menunameError").html(icon_close+stu_salary_fee[1]).addClass("msgerr");
 			$(".menuname_Error").removeClass("hide");
 			setResultZero(5);
-		}else if(!stu_ot_period[0]){
-			$(".menunameError").html(icon_close+stu_ot_period[1]).addClass("msgerr");
-			$(".menuname_Error").removeClass("hide");
-			setResultZero(5);
-		}else if(!stu_center[0]){
-			$(".menunameError").html(icon_close+stu_center[1]).addClass("msgerr");
-			$(".menuname_Error").removeClass("hide");
-			setResultZero(5);
+		
+		// [Athiwat][09/08/2564][access query ot and center]
+		// }else if(!stu_ot_period[0]){
+		// 	$(".menunameError").html(icon_close+stu_ot_period[1]).addClass("msgerr");
+		// 	$(".menuname_Error").removeClass("hide");
+		// 	setResultZero(5);
+		// }else if(!stu_center[0]){
+		// 	$(".menunameError").html(icon_close+stu_center[1]).addClass("msgerr");
+		// 	$(".menuname_Error").removeClass("hide");
+		// 	setResultZero(5);
+
 		}else{
 			checkStu=true;
 			$(".menunameError").html("").removeClass("msgerr");
 			$(".menuname_Error").addClass("hide");
 			stu_salary_period[0]=checkStu;
 			stu_salary_fee[0]=checkStu;
-			stu_ot_period[0]=checkStu;
-			stu_center[0]=checkStu;
+			// [Athiwat][09/08/2564][access query ot and center]
+			// stu_ot_period[0]=checkStu;
+			// stu_center[0]=checkStu;
 		}
 		return checkStu;
 	}
@@ -184,13 +250,15 @@
 	}
 
 	function setCheckBox(e,row,id){
-		// --------------------------------------------------------------------------------------------------
-		// 1.set period id = lastest.
-		// 2.set otid = lastest.
-		// 3.set all fee.
-		// 4.set center id = center id was defined.
-		// 5.set department id = department id was defined.
-		// 6.set null position.
+		// |--------------------------------------------------------------------------------------------------
+		// | Funtion Process.
+		// |--------------------------------------------------------------------------------------------------
+		// | 1.set period id = lastest.
+		// | 2.set otid = lastest.
+		// | 3.set all fee.
+		// | 4.set center id = center id was defined.
+		// | 5.set department id = department id was defined.
+		// | 6.set null position.
 		// --------------------------------------------------------------------------------------------------
 		var $this=$(e);
 		var ckb_salary_period = $('input[name="'+arrCHKB[0]+'"]');
@@ -262,41 +330,36 @@
 			data:{hdid:hdid},
 			url:url_c,
 			success:function(res){
-			// |--------------------------------------------------------------------------
-			// | 1.Clear all checkbox.
-			// | 2.Set shrotcut menu name.
-			// | 3.Set center of menu.
-			// | 4.Get Obj checkbox main 6 menu.
-			// | 5.Loop set value to checkbox wite javascript.
-			// |--------------------------------------------------------------------------
+				// |--------------------------------------------------------------------------
+				// | Funtion Process.
+				// |--------------------------------------------------------------------------
+				// | 1.Clear all checkbox.
+				// | 2.Set shrotcut menu name.
+				// | 3.Set center of menu.
+				// | 4.Get Obj checkbox main 6 menu.
+				// | 5.Loop set value to checkbox wite javascript.
+				// |--------------------------------------------------------------------------
 				if(res["status_GetData"]){
 					var checkbox;
-					clearForm(); 									// ------- 1.Clear checkbox.
-					$("#menu_name").val(res["menuhd_name"]); 					// ------- 2.Set shrotcut menu name.
-					$("#menucenter").val(res["center_id"]).change();				// ------- 3.Set center of menu.
+					clearForm(); 																// ------- 1.Clear checkbox.
+					$("#menu_name").val(res["menuhd_name"]); 									// ------- 2.Set shrotcut menu name.
+					$("#menucenter").val(res["center_id"]).change();							// ------- 3.Set center of menu.
+
 					for(let i=0;i<res["resultDT"].length;i++){
 						for(let j=0;j<arrTB_CHKB.length;j++){
 							if(arrTB_CHKB[j][0]==res["resultDT"][i]["table_name"]){
-							//console.log(res["resultDT"][i]["table_name"]+" -> "+res["resultDT"][i]["value_id"]);   //[*][value of database.]
-								checkbox = $('input[name="'+arrTB_CHKB[j][1]+'"]'); 			// ------- 4.Get Obj checkbox main 6 menu.
-							 	for(let [k,v] of Object.entries(checkbox)){				// ------- 5.Loop set value to checkbox wite javascript.
-							 		
-							 		// [Athiwat][30/07/2564][Fix Wrong direction -> can't use menudt_id]
-									// if(k==((res["resultDT"][i]["menudt_id"])-1)){
-										// if(res["resultDT"][i]["table_name"]=="sly_salary"){
-											// var tmp = $('input[name="'+arrTB_CHKB[j][1]+'"]').val();
-											// console.log(res["resultDT"][i]["table_name"]+" ,tmp : "+$('input[name="'+arrTB_CHKB[j][1]+'"]').val());
-										// }
-									// }
-
-									// [Athiwat][30/07/2564][Change to use value_id]
-									if(checkbox.eq(k).val()==(res["resultDT"][i]["value_id"])){
+								checkbox = $('input[name="'+arrTB_CHKB[j][1]+'"]'); 					// ------- 4.Get Obj checkbox main 6 menu.
+							 	for(let [k,v] of Object.entries(checkbox)){								// ------- 5.Loop set value to checkbox wite javascript.									
+									if(k==0 && res["resultDT"][i]["value_id"]==0){ 					  	// [Athiwat][10/08/2564][add set latest period to form]
+										checkbox.eq(k).prop('checked',true);
+									}else if(checkbox.eq(k).val()==(res["resultDT"][i]["value_id"])){ 	// [Athiwat][30/07/2564][Change to use value_id]
 										checkbox.eq(k).prop('checked',true);
 									}
 								}
 							}
 						}
 					}
+
 				}else{ //Note : response error (Have not menu hd.)
 					swal({title:"ไม่มีข้อมูลนี้ !",text:"กรุณาตรวจสอบใหม่อีกครั้ง",type:"warning",timer:9500});
 					setTimeout(function(){document.location.reload(true)},6500);

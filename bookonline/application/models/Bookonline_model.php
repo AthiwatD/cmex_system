@@ -16,7 +16,7 @@
 		}
 
 		//[Athiwat][25/06/2564][have : true && not have : false]
-		public function checkBookonlineViewed($hdid,$numot){ 
+		public function checkBookonlineViewed($hdid,$numot){
 			$sql="SELECT publish_viewed_id FROM bko_publish_viewed WHERE publish_hd_id='{$hdid}' AND num_ot='{$numot}'";
 			$query=$this->db->query($sql);
 			$numrow=$query->num_rows();
@@ -84,7 +84,7 @@
 		}
 
 		public function getBookonlineHds(){
-			$sql="SELECT * FROM bko_publish_hd WHERE deleted=0 ORDER BY publish_pin_status,publish_status,publish_datetime,publish_hd_id DESC";
+			$sql="SELECT * FROM bko_publish_hd WHERE deleted=0 ORDER BY publish_pin_status DESC,publish_status DESC,publish_hd_id DESC,publish_datetime DESC";
 			$result = $this->db->query($sql)->result();
 			return $result;
 		}

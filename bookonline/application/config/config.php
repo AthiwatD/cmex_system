@@ -23,8 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-//$config['base_url'] = 'http://excellent.med.cmu.ac.th/cmex_system/bookonline'; //[web server]
- $config['base_url'] = 'http://localhost:8888/cmex_system/bookonline'; //[web localhost]
+//$config['base_url'] = 'https://excellent.med.cmu.ac.th/cmex_system/bookonline'; //[web server]
+$config['base_url'] = 'http://localhost:8888/cmex_system/bookonline'; //[web localhost]
 /*
 |--------------------------------------------------------------------------
 | Index File

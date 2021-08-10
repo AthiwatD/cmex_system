@@ -70,7 +70,6 @@
     <!-- End right zone-->
   	</div>
 
-
     <div class="row">
     	<!-- Start left zone-->
       <div class="col-lg-12">
@@ -84,15 +83,35 @@
 					<!-- End head content-->
 
           <div class="card-body" style="padding: 10px !important;">
-						<div class="form-group">
-						
-						<input type="hidden" id="hidden_numot" name="hidden_numot" value="<?php echo $session_username; ?>">
-						
-						<div class="row">
-							<div class="col-sm-4 npl npr"><div class="row"><h5 style="">ช่วงเวลา เงินเดือน</h5><a href='#' onclick='checkBtnAll("salary_period[]");' class="m3"><span class="badge badge-pill badge-primary"><i class='fa fa-check'></i> ทั้งหมด</span></a></div></div>
-							<div class="col-sm-4 npl npr"><div class="row"><h5 style="">รายละเอียดเงินเดือน</h5><a href='#' onclick='checkBtnAll("salary_fee[]");' class="m3"><span class="badge badge-pill badge-primary"><i class='fa fa-check'></i> ทั้งหมด</span></a></div></div>
-							<div class="col-sm-4 npl npr"><div class="row"><h5 style="">ช่วงเวลา OT</h5><a href='#' onclick='checkBtnAll("ot_period[]");' class="m3"><span class="badge badge-pill badge-primary"><i class='fa fa-check'></i> ทั้งหมด</span></a></div></div>
+					<div class="form-group">
+					<input type="hidden" id="hidden_numot" name="hidden_numot" value="<?php echo $session_username; ?>">
+					<div class="row">
+						<div class="col-sm-4 npl npr">
+							<div class="row">
+								<h5 style="">ช่วงเวลา เงินเดือน</h5>
+								<a href='javascript:void(0)' onclick='checkBtnAll("salary_period[]");' class="m3">
+									<span class="badge badge-pill badge-primary"><i class='fa fa-check'></i> ทั้งหมด</span>
+								</a>
+								<a href='javascript:void(0)' onclick='checkBtnLatest("salary_period[]");' class="m3">
+									<span class="badge badge-pill badge-primary btnSlyLatest"><i class='fa fa-check'></i> ล่าสุด</span>
+								</a>
+							</div>
 						</div>
+
+						<div class="col-sm-4 npl npr"><div class="row"><h5 style="">รายละเอียดเงินเดือน</h5><a href='javascript:void(0)' onclick='checkBtnAll("salary_fee[]");' class="m3"><span class="badge badge-pill badge-primary"><i class='fa fa-check'></i> ทั้งหมด</span></a></div></div>
+
+						<div class="col-sm-4 npl npr">
+							<div class="row">
+								<h5 style="">ช่วงเวลา OT</h5>
+								<a href='javascript:void(0)' onclick='checkBtnAll("ot_period[]");' class="m3">
+									<span class="badge badge-pill badge-primary"><i class='fa fa-check'></i> ทั้งหมด</span>
+								</a>
+								<a href='javascript:void(0)' onclick='checkBtnLatest("ot_period[]");' class="m3">
+									<span class="badge badge-pill badge-primary btnOtLatest"><i class='fa fa-check'></i> ล่าสุด</span>
+								</a>
+							</div>
+						</div>
+					</div>
 
 			    	<div class="row">
 			    	<!-- col one -->
@@ -152,9 +171,9 @@
 			    <div class="col-sm-12"><hr></div>
 			    
 		    	<div class="row">
-						<div class="col-sm-4 npl npr"><div class="row"><h5 style="">หน่วยงาน</h5><a href='#' onclick='checkBtnAll("center[]");' class="m3"><span class="badge badge-pill badge-primary"><i class='fa fa-check'></i> ทั้งหมด</span></a></div></div>
-						<div class="col-sm-4 npl npr"><div class="row"><h5 style="">แผนก</h5><a href='#' onclick='checkBtnAll("department[]");' class="m3"><span class="badge badge-pill badge-primary"><i class='fa fa-check'></i> ทั้งหมด</span></a></div></div>
-						<div class="col-sm-4 npl npr"><div class="row"><h5 style="">ตำแหน่ง</h5><a href='#' onclick='checkBtnAll("position[]");' class="m3"><span class="badge badge-pill badge-primary"><i class='fa fa-check'></i> ทั้งหมด</span></a></div></div>
+						<div class="col-sm-4 npl npr"><div class="row"><h5 style="">หน่วยงาน</h5><a href='javascript:void(0)' onclick='checkBtnAll("center[]");' class="m3"><span class="badge badge-pill badge-primary"><i class='fa fa-check'></i> ทั้งหมด</span></a></div></div>
+						<div class="col-sm-4 npl npr"><div class="row"><h5 style="">แผนก</h5><a href='javascript:void(0)' onclick='checkBtnAll("department[]");' class="m3"><span class="badge badge-pill badge-primary"><i class='fa fa-check'></i> ทั้งหมด</span></a></div></div>
+						<div class="col-sm-4 npl npr"><div class="row"><h5 style="">ตำแหน่ง</h5><a href='javascript:void(0)' onclick='checkBtnAll("position[]");' class="m3"><span class="badge badge-pill badge-primary"><i class='fa fa-check'></i> ทั้งหมด</span></a></div></div>
 					</div>
 					
 					<div class="row">

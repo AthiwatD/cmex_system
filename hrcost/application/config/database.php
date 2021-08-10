@@ -72,7 +72,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 //[web server]
-/*$active_group = 'default';
+/*
+$active_group = 'default';
 $query_builder = TRUE;
 $db['default']['db_debug'] = TRUE;
 $db['default'] = array(
@@ -96,7 +97,8 @@ $db['default'] = array(
 	'stricton' => FALSE,
 	'failover' => array(),
 	'save_queries' => TRUE
-);*/
+);
+*/
 
 //[web localhost] 
 $active_group = 'default';

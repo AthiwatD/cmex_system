@@ -10,9 +10,10 @@
 <script src="<?php echo base_url(); ?>assets/plugins/fullcalendar-bootstrap/main.min.js"></script>
 
 <script>
-	// [Athwiat][16/07/2564][declare center]
-	// Set CMEx Defuat.
+	// [Athwiat][16/07/2564][Set Global variables][Set CMEx Defuat]
 	var df_center=1;
+	var statusLatestSly=false;
+	var statusLatestOt=false;
 	
 	/*salary_period[] salary_fee[] ot_period[] center[] department[] position[]*/
 	var arrCHKB=["salary_period[]","salary_fee[]","ot_period[]","center[]","department[]","position[]"];
@@ -38,6 +39,22 @@
 	<?php 
 		echo 'var base_url="'.base_url().'";';
 	?>
+
+	//[Athiwat][10/08/2564][clear form result cost]
+	function clearFormResult(classname,count=5,val=0.00){
+		for(let i=0;i<count;i++){
+			$("."+classname+i).html(val);
+		}
+	}
+	
+	//[Athiwat][10/08/2564][loop set value]
+	function setFormResult(result,classname){
+		let count=0;
+		for(let [key, value] of Object.entries(result)){
+			$(classname+count).html(value);
+			count+=1;
+		}
+	}
 	
 	$("#form_hrcost").on("submit",function(e){
 		e.preventDefault();
@@ -52,15 +69,18 @@
 				processData:false,
 				cache:false,
 				success:function(res){
-					if(res["process_sly_status"] && res["process_ot_status"]){
-						let count=0; let countot=0;
-						for(let [key, value] of Object.entries(res['result_sly'])){
-							$(".resulthr"+count).html(value);
-							count+=1;
+					//[Athiwat][06/08/2564][access query ot and center]
+						// if(res["process_sly_status"] && res["process_ot_status"]){
+					if(res["process_sly_status"]){
+						//[Athiwat][10/08/2564][clear form result cost]
+						clearFormResult("resulthr");
+						clearFormResult("resultot");
+						//[Athiwat][10/08/2564][loop set value]
+						if(res["process_sly_status"]){
+							setFormResult(res['result_sly'],".resulthr");
 						}
-						for(let [key,val] of Object.entries(res['result_ot'])){
-							$(".resultot"+countot).html(val);
-							countot+=1;
+						if(res["process_ot_status"]){
+							setFormResult(res['result_ot'],".resultot");
 						}
 						$("form").prev().removeClass("hide");
 					}
@@ -107,31 +127,37 @@
 			$(".costhrError").html(icon_close+stu_salary_fee[1]).addClass("msgerr");
 			$(".costhr_error").removeClass("hide");
 			setResultZero(5);
-		}else if(!stu_ot_period[0]){
-			$(".costhrError").html(icon_close+stu_ot_period[1]).addClass("msgerr");
-			$(".costhr_error").removeClass("hide");
-			setResultZero(5);
-		}else if(!stu_center[0]){
-			$(".costhrError").html(icon_close+stu_center[1]).addClass("msgerr");
-			$(".costhr_error").removeClass("hide");
-			setResultZero(5);
-		// [Athiwat][17/05/2564][access query department and position]
-			// }else if(!stu_department[0]){
-			// 	$(".costhrError").html(icon_close+stu_department[1]).addClass("msgerr");
-			// 	$(".costhr_error").removeClass("hide");
-			// 	setResultZero(5);
-			// }else if(!stu_position[0]){
-			// 	$(".costhrError").html(icon_close+stu_position[1]).addClass("msgerr");
-			// 	$(".costhr_error").removeClass("hide");
-			// 	setResultZero(5);
+
+			// [Athiwat][06/08/2564][access query ot and center]
+				// }else if(!stu_ot_period[0]){
+				// 	$(".costhrError").html(icon_close+stu_ot_period[1]).addClass("msgerr");
+				// 	$(".costhr_error").removeClass("hide");
+				// 	setResultZero(5);
+				// }else if(!stu_center[0]){
+				// 	$(".costhrError").html(icon_close+stu_center[1]).addClass("msgerr");
+				// 	$(".costhr_error").removeClass("hide");
+				// 	setResultZero(5);
+
+				// [Athiwat][17/05/2564][access query department and position]
+				// }else if(!stu_department[0]){
+				// 	$(".costhrError").html(icon_close+stu_department[1]).addClass("msgerr");
+				// 	$(".costhr_error").removeClass("hide");
+				// 	setResultZero(5);
+				// }else if(!stu_position[0]){
+				// 	$(".costhrError").html(icon_close+stu_position[1]).addClass("msgerr");
+				// 	$(".costhr_error").removeClass("hide");
+				// 	setResultZero(5);
+
 		}else{
 			checkStu=true;
 			$(".costhrError").html("").removeClass("msgerr");
 			$(".costhr_error").addClass("hide");
 			stu_salary_period[0]=checkStu;
 			stu_salary_fee[0]=checkStu;
-			stu_ot_period[0]=checkStu;
-			stu_center[0]=checkStu;
+
+			// [Athiwat][06/08/2564][access query ot and center]
+			// stu_ot_period[0]=checkStu;
+			// stu_center[0]=checkStu;
 		}
 		return checkStu;
 	}
@@ -143,19 +169,26 @@
 			if(len_checked<=0){
 				if(arrCHKB[i]=="salary_period[]") stu_salary_period[0]=false;
 				else if(arrCHKB[i]=="salary_fee[]") stu_salary_fee[0]=false;
-				else if(arrCHKB[i]=="ot_period[]") stu_ot_period[0]=false;
-				else if(arrCHKB[i]=="center[]") stu_center[0]=false;
+
+				// [Athiwat][06/08/2564][access query ot and center]
+				// else if(arrCHKB[i]=="ot_period[]") stu_ot_period[0]=false;
+				// else if(arrCHKB[i]=="center[]") stu_center[0]=false;
+
 				// [Athiwat][17/05/2564][access query department and position]
-					// else if(arrCHKB[i]=="department[]") stu_department[0]=false;
-					// else if(arrCHKB[i]=="position[]") stu_position[0]=false;
+				// else if(arrCHKB[i]=="department[]") stu_department[0]=false;
+				// else if(arrCHKB[i]=="position[]") stu_position[0]=false;
+
 			}else{
 				if(arrCHKB[i]=="salary_period[]") stu_salary_period[0]=true;
 				else if(arrCHKB[i]=="salary_fee[]") stu_salary_fee[0]=true;
-				else if(arrCHKB[i]=="ot_period[]") stu_ot_period[0]=true;
-				else if(arrCHKB[i]=="center[]") stu_center[0]=true;
+
+				// [Athiwat][06/08/2564][access query ot and center]
+				// else if(arrCHKB[i]=="ot_period[]") stu_ot_period[0]=true;
+				// else if(arrCHKB[i]=="center[]") stu_center[0]=true;
+
 				// [Athiwat][17/05/2564][access query department and position]
-					// else if(arrCHKB[i]=="department[]") stu_department[0]=true;
-					// else if(arrCHKB[i]=="position[]") stu_position[0]=true;
+				// else if(arrCHKB[i]=="department[]") stu_department[0]=true;
+				// else if(arrCHKB[i]=="position[]") stu_position[0]=true;
 			}
 		}
 	}
@@ -172,7 +205,6 @@
 
 	function setCenter(e,id,row){
 		var ckb_center = $('input[name="'+arrCHKB[3]+'"]');
-
 		var $this = $(e);
 		var span = $this.children();
 		let shc_menu = 9;
@@ -197,7 +229,7 @@
 		// ----------------------------
 
 		df_center=id;
-		console.log("df_center :"+df_center);
+		// console.log("df_center :"+df_center);
 		for(let [k,v] of Object.entries(ckb_center)){
 			if(k==0 && df_center ==1){ ckb_center.eq(k).prop('checked',true); }
 			else if(k==2 && df_center ==3){ ckb_center.eq(k).prop('checked',true); }
@@ -241,13 +273,19 @@
 			// |--------------------------------------------------------------------------
 				if(res["status_GetData"]){
 					var checkbox;
-					clearForm(); 																// ------- 1.Clear checkbox.
+					clearBtnLatest();																		// [Athiwat][10/08/2564][add clearBtnLatest]
+					clearForm(); 																		// ------- 1.Clear checkbox.
 					for(let i=0;i<res["resultDT"].length;i++){
 						for(let j=0;j<arrTB_CHKB.length;j++){
 							if(arrTB_CHKB[j][0]==res["resultDT"][i]["table_name"]){
-								checkbox = $('input[name="'+arrTB_CHKB[j][1]+'"]'); 			// ------- 2.Get Obj checkbox main 6 menu.
-							 	for(let [k,v] of Object.entries(checkbox)){						// ------- 3.Loop set value to checkbox wite javascript.
-									if(checkbox.eq(k).val()==(res["resultDT"][i]["value_id"])){
+								checkbox = $('input[name="'+arrTB_CHKB[j][1]+'"]'); 					// ------- 2.Get Obj checkbox main 6 menu.
+							 	for(let [k,v] of Object.entries(checkbox)){								// ------- 3.Loop set value to checkbox wite javascript.
+							 		// [Athiwat][10/08/2564][add set latest period to form]
+									if(k==0 && res["resultDT"][i]["value_id"]==0){
+										if(res["resultDT"][i]["table_name"]=="sly_salary" && res["resultDT"][i]["value_id"]==0){ checkBtnLatest(arrTB_CHKB[j][1]); }
+										if(res["resultDT"][i]["table_name"]=="sly_ot" && res["resultDT"][i]["value_id"]==0){ checkBtnLatest(arrTB_CHKB[j][1]); }
+										checkbox.eq(k).prop('checked',true);
+									}else if(checkbox.eq(k).val()==(res["resultDT"][i]["value_id"])){ 	// [Athiwat][30/07/2564][Change to use value_id]
 										checkbox.eq(k).prop('checked',true);
 									}
 								}
@@ -325,6 +363,66 @@
 		}
 		// ------------------------------------------------- 6.set null position.
 		checkedNullBtnAll("position[]");
+	}
+
+	function checkBtnLatest(name){
+		// --------------------------------------------------------------------------------------------------
+		//process latest
+		// --------------------------------------------------------------------------------------------------
+		//1.check latest && !latest
+		//2.set checkbox
+		//3.set status latest sly and ot
+		//4.set value = 0
+		//5.insert db
+		//6.set check value = 0 > checkbox = latest in callback formView
+		// --------------------------------------------------------------------------------------------------
+
+		var ckb = $('input[name="'+name+'"]');
+
+		if(name=="salary_period[]"){
+	    	if(!statusLatestSly){
+				for(let[k,v] of Object.entries(ckb)){
+			    	if(k==0) ckb.eq(k).prop('checked',true);
+			    	else ckb.eq(k).prop('checked',false);
+			    }
+			    statusLatestSly=true;
+				$("span.btnSlyLatest").removeClass("badge-primary");
+				$("span.btnSlyLatest").addClass("badge-success");
+			}else{
+				for(let[k,v] of Object.entries(ckb)){
+			    	ckb.eq(k).prop('checked',false);
+			    }
+			    statusLatestSly=false;
+				$("span.btnSlyLatest").removeClass("badge-success");
+				$("span.btnSlyLatest").addClass("badge-primary");
+			}
+	    }
+
+	    if(name=="ot_period[]"){
+	    	if(!statusLatestOt){
+	    		for(let[k,v] of Object.entries(ckb)){
+			    	if(k==0) ckb.eq(k).prop('checked',true);
+			    	else ckb.eq(k).prop('checked',false);
+			    }
+			    statusLatestOt=true;
+				$("span.btnOtLatest").removeClass("badge-primary");
+				$("span.btnOtLatest").addClass("badge-success");
+			}else{
+				for(let[k,v] of Object.entries(ckb)){
+			    	ckb.eq(k).prop('checked',false);
+			    }
+			    statusLatestOt=false;
+				$("span.btnOtLatest").removeClass("badge-success");
+				$("span.btnOtLatest").addClass("badge-primary");
+			}
+	    }
+	}
+
+	function clearBtnLatest(){
+		$("span.btnSlyLatest").removeClass("badge-success");
+		$("span.btnSlyLatest").addClass("badge-primary");
+		$("span.btnOtLatest").removeClass("badge-success");
+		$("span.btnOtLatest").addClass("badge-primary");
 	}
 
 </script>

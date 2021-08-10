@@ -11,7 +11,7 @@
         <?php } ?>
     </div>
     <div class="card-body">
-        <table class="table table-bordered table-striped my_table_data_desc table-hover">
+        <table class="table table-bordered table-striped my_table_data table-hover">
             <thead>
                 <tr>
                     <th style="min-width:40px;">ลำดับ</th>

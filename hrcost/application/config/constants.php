@@ -132,13 +132,13 @@ define("IS_PATHINDEX","Hrcost/index/");
 
 //[Athiwat][19/07/2564][add constant salary fee.]
 define("SLY_FREE",serialize(array("salary"=>"เงินเดือน",
-					    "experience_fee"=>"ค่าประสบการณ์",
-					    "license_fee"=>"ค่าใบประกอบวิชาชีพ",
-					    "risk_fee"=>"ค่าความเสี่ยง",
-					    "work_load_fee"=>"ค่าภาระงาน",
-					    "position_fee"=>"ค่าตำแหน่ง",
-					    "certificate_fee"=>"ค่าใบประกาศนียบัตร",
-					    "tok_berk_fee"=>"เงินตกเบิก") ));
+							      "experience_fee"=>"ค่าประสบการณ์",
+							      "license_fee"=>"ค่าใบประกอบวิชาชีพ",
+							      "risk_fee"=>"ค่าความเสี่ยง",
+							      "work_load_fee"=>"ค่าภาระงาน",
+							      "position_fee"=>"ค่าตำแหน่ง",
+							      "certificate_fee"=>"ค่าใบประกาศนียบัตร",
+							      "tok_berk_fee"=>"เงินตกเบิก") ));
 
 //[Athiwat][16/07/2564][Add btn group constant department.]
 define("DEPARTMENTS_CMEX",serialize(array(
