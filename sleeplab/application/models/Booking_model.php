@@ -97,6 +97,7 @@ class Booking_model extends CI_Model {
             $operation_room = trim($this->security->xss_clean($this->input->post('operation_room')));
             $appointment_from = $this->security->xss_clean($this->input->post('appointment_from'));
             $channel = $this->security->xss_clean($this->input->post('channel'));
+			$right_to_treatment = $this->security->xss_clean($this->input->post('right_to_treatment'));
             $note = $this->security->xss_clean($this->input->post('note'));
             $two_staff = $this->security->xss_clean($this->input->post('two_staff'));
 
@@ -118,6 +119,7 @@ class Booking_model extends CI_Model {
                     'operation_room' => $operation_room,
                     'appointment_from' => $appointment_from,
                     'channel' => $channel,
+					'right_to_treatment' => $right_to_treatment,
                     'note' => $note,
                     'two_staff' => $two_staff,
                     'changed' => 0,
@@ -135,6 +137,7 @@ class Booking_model extends CI_Model {
                     'test_type' => $test_type,
                     'appointment_from' => $appointment_from,
                     'channel' => $channel,
+					'right_to_treatment' => $right_to_treatment,
                     'note' => $note,
                     'two_staff' => $two_staff,
                     'changed' => 0,
@@ -190,6 +193,7 @@ class Booking_model extends CI_Model {
             $operation_room = trim($this->security->xss_clean($this->input->post('operation_room')));
             $appointment_from = $this->security->xss_clean($this->input->post('appointment_from'));
             $channel = $this->security->xss_clean($this->input->post('channel'));
+			$right_to_treatment = $this->security->xss_clean($this->input->post('right_to_treatment'));
             $note = $this->security->xss_clean($this->input->post('note'));
             $two_staff = $this->security->xss_clean($this->input->post('two_staff'));
 
@@ -210,6 +214,7 @@ class Booking_model extends CI_Model {
                     'operation_room' => $operation_room,
                     'appointment_from' => $appointment_from,
                     'channel' => $channel,
+					'right_to_treatment' => $right_to_treatment,
                     'note' => $note,
                     'two_staff' => $two_staff,
                     'update_by' => $username,
@@ -225,6 +230,7 @@ class Booking_model extends CI_Model {
                     'test_type' => $test_type,
                     'appointment_from' => $appointment_from,
                     'channel' => $channel,
+					'right_to_treatment' => $right_to_treatment,
                     'note' => $note,
                     'two_staff' => $two_staff,
                     'update_by' => $username,

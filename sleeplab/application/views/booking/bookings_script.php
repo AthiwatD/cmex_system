@@ -30,6 +30,7 @@
         echo 'var appointment_froms = ', js_array($appointment_froms), ';';
         echo 'var change_reasons = ', js_array($change_reasons), ';';
         echo 'var channels = ', js_array($channels), ';';
+				echo 'var right_to_treatments = ', js_array($right_to_treatments), ';';
         echo 'var symtoms = ', js_array($symtoms), ';';
 
     ?>
@@ -39,7 +40,7 @@
         // autocomplete(document.getElementById("txt_operation_room"), operation_rooms);
         autocomplete(document.getElementById("txt_appointment_from"), appointment_froms);
         autocomplete(document.getElementById("txt_channel"), channels);
-
+				autocomplete(document.getElementById("txt_right_to_treatment"), right_to_treatments);
         // autocomplete(document.getElementById("txt_test_type"), test_types);
         
         // autocomplete(document.getElementById("txt_change_reason"), change_reasons);
@@ -83,6 +84,7 @@
           $("#sel_operation_room").val("<?php echo $searching->operation_room; ?>");
           $("#txt_appointment_from").val("<?php echo $searching->appointment_from; ?>");
           $("#txt_channel").val("<?php echo $searching->channel; ?>");
+					$("#txt_right_to_treatment").val("<?php echo $searching->right_to_treatment; ?>");
           $("#txt_note").val("<?php echo $searching->note; ?>");
           $("#chk_two_staff").val("<?php echo $searching->two_staff; ?>");
           <?php
@@ -169,6 +171,7 @@
         $("#sel_operation_room").val("");
         $("#txt_appointment_from").val("");
         $("#txt_channel").val("");
+				$("#txt_right_to_treatment").val("");
         $("#txt_note").val("");
         $("#chk_two_staff").prop('checked', false);
     }
@@ -204,6 +207,7 @@
                 $("#sel_operation_room").val(obj.operation_room);
                 $("#txt_appointment_from").val(obj.appointment_from);
                 $("#txt_channel").val(obj.channel);
+								$("#txt_right_to_treatment").val(obj.right_to_treatment);
                 $("#txt_note").val(obj.note);
                 if(obj.two_staff == true){
                   $("#chk_two_staff").prop('checked', true);

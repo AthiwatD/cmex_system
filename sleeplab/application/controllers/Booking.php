@@ -35,6 +35,7 @@ class Booking extends MY_Controller {
         $appointment_froms = unserialize (APPOINTMENT_FROMS);
         $change_reasons = unserialize (CHANGE_REASONS);
         $channels = unserialize (CHANNELS);
+		$right_to_treatments = unserialize (RIGHT_TO_TREATMENTS);
         $symtoms = unserialize (SYMTOMS);
 
         $this->data['doctors'] = $doctors;
@@ -44,6 +45,7 @@ class Booking extends MY_Controller {
         $this->data['appointment_froms'] = $appointment_froms;
         $this->data['change_reasons'] = $change_reasons;
         $this->data['channels'] = $channels;
+		$this->data['right_to_treatments'] = $right_to_treatments;
         $this->data['symtoms'] = $symtoms;
 
         $this->data['head_title'] = "รายการนัดหมาย";

@@ -155,6 +155,14 @@
                                     </div>
                                 </td>
                             </tr>
+							<tr>
+                                <td><label>สิทธิการรักษา</label></td>
+                                <td>
+                                    <div class="autocomplete">
+                                        <input type="text" class="form-control" id="txt_right_to_treatment" name="right_to_treatment" placeholder="สิทธิการรักษา">
+                                    </div>
+                                </td>
+                            </tr>
                             <tr>
                                 <td><label>หมายเหตุ</label></td>
                                 <td>
@@ -214,6 +222,7 @@
                             <th>ชื่อ-สกุล</th>
                             <th>hn</th>
                             <th>โทร</th>
+							<th>แพทย์</th> <!-- [Athiwat][27/07/2564][add search name doctor] -->
                         </tr>
                     </thead>
                     <tbody>
@@ -225,6 +234,7 @@
                                     <td><a href="#" onclick="getBookingService(<?php echo $nbooking->booking_id; ?>)"><?php echo $nbooking->fname . " " . $nbooking->lname; ?></a></td>
                                     <td><a href="#" onclick="getBookingService(<?php echo $nbooking->booking_id; ?>)"><?php echo $nbooking->hn; ?></a></td>
                                     <td><a href="#" onclick="getBookingService(<?php echo $nbooking->booking_id; ?>)"><?php echo $nbooking->tel_1; ?></a></td>
+									<td><a href="#" onclick="getBookingService(<?php echo $nbooking->booking_id; ?>)"><?php echo $nbooking->doctor; ?></a></td> <!-- [Athiwat][27/07/2564][add search name doctor] -->
                                 </tr>
                         <?php
                             }
