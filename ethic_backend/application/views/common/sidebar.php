@@ -58,15 +58,15 @@
           </li>
           
           <li class="nav-item has-treeview">
-            <a href="<?php echo base_url(); ?>EvaluatePerson" class="nav-link">
+            <a href="<?php echo base_url(); ?>EvaluaterPerson" class="nav-link">
             <i class="nav-icon fas fa-users"></i>
               <p>
-                พนักงานทำแบบประเมิน
+                ตั้งค่าผู้ประเมิณ
               </p>
             </a>
           </li>
 
-          <li class="nav-item has-treeview">
+          <!-- <li class="nav-item has-treeview">
             <a href="<?php echo base_url(); ?>Evaluation" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
@@ -142,7 +142,7 @@
                 ชุดคำตอบ
               </p>
             </a>
-          </li>
+          </li> -->
 
           <li class="nav-item has-treeview">
             <a href="<?php echo base_url(); ?>Home/do_logout" class="nav-link">

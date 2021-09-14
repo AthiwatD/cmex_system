@@ -58,7 +58,19 @@
         <div class="evaluation-group">
             <div class="evaluation-body">
                 <h4 class="evaluation-section"><i class="ft-user"></i> ผู้ทำแบบประเมิน</h4>
-
+				<div class="form-group" >
+					<select class="form-control" id="evaluater_id" name="evaluater_id">
+						<?php 
+							for($i=0;$i<sizeof($persons);$i++){
+						?>
+								<option value="<?php echo $persons[$i]->person_id; ?>">
+									<?php echo $persons[$i]->person_id . " " . $persons[$i]->person_fname . " " . $persons[$i]->person_lname . " " . $persons[$i]->position_name . " " . $persons[$i]->center_name; ?>
+								</option>
+						<?php        
+							}
+						?>
+					</select>
+				</div>
                 <div class="form-group" >
                     <div class="row">
                         <button type="button" class="btn btn-success" onclick="select_list_all()">เลือกทั้งหมด</button>
@@ -68,7 +80,7 @@
                         <button type="button" class="btn btn-info" onclick="select_list(50)">50</button>
                         <button type="button" class="btn btn-info" onclick="select_list(100)">100</button>
                     </div>
-                    <br><button type="button" class="btn btn-primary form-control" onclick="update_evaluate_persons()">บันทึก</button>
+                    <br><button type="button" class="btn btn-primary form-control" onclick="update_evaluater_persons()">บันทึก</button>
                     <br><br>
                     
                     <div class="col-12 row">
@@ -86,17 +98,17 @@
                             <tbody>
                                 <?php 
                                     $count = 0;
-                                    for($i=0;$i<sizeof($persons);$i++){
+                                    for($i=0;$i<sizeof($evaluate_persons);$i++){
                                         $count++;
                                 ?>
                                         <tr>
-                                            <input type="hidden" class="form-control" name="person_id" value="<?php echo $persons[$i]->person_id; ?>" >
+                                            <input type="hidden" class="form-control" name="person_id" value="<?php echo $evaluate_persons[$i]->person_id; ?>" >
                                             <td><input type="checkbox" class="form-control" name="table_check" ></td>
                                             <td><?php echo $count; ?></td>
-                                            <td><?php echo $persons[$i]->person_id; ?></td>
-                                            <td ><?php echo $persons[$i]->person_fname . " " . $persons[$i]->person_lname; ?></td>
-                                            <td ><?php echo $persons[$i]->position_name; ?></td>
-                                            <td ><?php echo $persons[$i]->center_name; ?></td>
+                                            <td><?php echo $evaluate_persons[$i]->person_id; ?></td>
+                                            <td ><?php echo $evaluate_persons[$i]->person_fname . " " . $evaluate_persons[$i]->person_lname; ?></td>
+                                            <td ><?php echo $evaluate_persons[$i]->position_name; ?></td>
+                                            <td ><?php echo $evaluate_persons[$i]->center_name; ?></td>
                                         </tr>
                                 <?php        
                                     }
@@ -104,7 +116,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <br><button type="button" class="btn btn-primary form-control" onclick="update_evaluate_persons()">บันทึก</button><br>
+                    <br><button type="button" class="btn btn-primary form-control" onclick="update_evaluater_persons()">บันทึก</button><br>
                 </div>
             </div>
         </div>

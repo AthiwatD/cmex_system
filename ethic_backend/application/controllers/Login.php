@@ -16,6 +16,7 @@ class Login extends CI_Controller{
     
     public function index($msg = NULL){
         $data['msg'] = $msg;
+		$data["head_title"] = "ระบบประเมิณจริยธรรมพยาบาล";
         $this->load->view('login_view', $data);
     }
     

@@ -65,29 +65,29 @@
                                     <th>ลำดับ</th>
                                     <th>รหัสพนักงาน</th>
                                     <th>ชื่อ</th>
-                                    <th>ตำแหน่ง</th>
+                                    <th>ผู้ประเมิณ</th>
                                     <th>สถานะ</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php 
                                     $count = 0;
-                                    if(!empty($evaluate_persons)){
-                                        foreach($evaluate_persons as $evaluate_person){
+                                    if(!empty($evaluater_persons)){
+                                        foreach($evaluater_persons as $evaluater_person){
                                             $count++;
                                 ?>
                                             <tr>
                                                 <td><?php echo $count; ?></td>
-                                                <td><?php echo $evaluate_person->person_id; ?></td>
-                                                <td ><?php echo $evaluate_person->person_fname . " " . $evaluate_person->person_lname; ?></td>
-                                                <td ><?php echo $evaluate_person->position_name; ?></td>
+                                                <td><?php echo $evaluater_person->person_id; ?></td>
+                                                <td ><?php echo $evaluater_person->person_fname . " " . $evaluater_person->person_lname; ?></td>
+                                                <td ><?php echo $evaluater_person->evaluater_fname . " " . $evaluater_person->evaluater_lname; ?></td>
                                                 <td ><?php 
-                                                    if(empty($evaluate_person->answer_id)){
-                                                        echo "<span class='text-danger'>ยังไม่ได้ประเมิน</span>"; 
-                                                    }
-                                                    else{
-                                                        echo "<span class='text-success'>ประเมิณแล้ว</span>"; 
-                                                    }
+                                                    // if(empty($evaluate_person->answer_id)){
+                                                    //     echo "<span class='text-danger'>ยังไม่ได้ประเมิน</span>"; 
+                                                    // }
+                                                    // else{
+                                                    //     echo "<span class='text-success'>ประเมิณแล้ว</span>"; 
+                                                    // }
 
                                                         ?></td>
                                             </tr>
