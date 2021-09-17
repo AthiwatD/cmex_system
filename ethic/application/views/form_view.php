@@ -14,11 +14,37 @@
                     <input type="hidden" name="person_id" value="<?php echo $person_id; ?>">
 
                     <div class="evaluation_header">
-                        <h2 class="form-section"><?php echo $evaluation[0]->evaluation_name; ?></h2><br>
-                        <h4 class="form-section"><?php echo $evaluation[0]->evaluation_by; ?></h4>
+                        <h3 class="form-section"><?php echo $evaluation[0]->evaluation_name; ?></h3><br>
+                        <!-- <h4 class="form-section"><?php echo $evaluation[0]->evaluation_by; ?></h4> -->
+
 
                     </div>
-                    <br><br>
+					<div class="evaluation_person_detail">
+						<center>
+							<table class="">
+								<tr>
+									<td  align="center"><img src="http://excellent.med.cmu.ac.th/employee/images/person/<?php echo $person_id; ?>.png" width="150px"></td>
+									
+								</tr>
+								<tr>
+									<td align="center">ชื่อ: <?php echo $person->person_fname . " " . $person->person_lname; ?></td>
+								</tr>
+								<tr>
+									<td align="center">ตำแหน่ง: <?php echo $person->position_name; ?></td>
+								</tr>
+								<tr>
+									<td align="center">ศูนย์: <?php echo $person->center_name; ?></td>
+								</tr>
+							</table>
+						</center>
+						<!-- <h3 class="form-section">ชื่อ: <?php echo $person->person_fname . " " . $person->person_lname; ?></h3><br>
+						<h4 class="form-section">ตำแหน่ง: <?php echo $person->position_name; ?></h4><br>
+						<h4 class="form-section">ศูนย์: <?php echo $person->center_name; ?></h4><br>
+						<img src="http://excellent.med.cmu.ac.th/employee/images/person/<?php echo $person_id; ?>.png" width="150px"> -->
+                        
+                    </div>
+					<br><br>
+                    <!-- <br><br>
                     <div class="evaluation-form-detail">
                         <h4 class="form-section">รายละเอียด</h4>
                         <?php
@@ -54,7 +80,7 @@
                                 }
                             }
                         ?>
-                    </div>
+                    </div> -->
                         
                     <div class="evaluation-form-question">
                         <?php

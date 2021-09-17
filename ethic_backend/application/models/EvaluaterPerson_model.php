@@ -6,6 +6,21 @@ class EvaluaterPerson_model extends CI_Model {
         parent::__construct();
     }
 
+	function getEvaluates() {
+
+        $sql = "SELECT *
+                    FROM ethc_evaluater_person ep
+					JOIN qstn_evaluation e ON ep.evaluation_id = e.evaluation_id
+					GROUP BY ep.evaluation_id
+                    ORDER BY ep.evaluation_id DESC
+					";
+                    
+                    
+        $result = $this->db->query($sql)->result();
+
+        return $result;
+    }
+
     function getEvaluaterPersons() {
 
         $sql = "SELECT *
@@ -21,17 +36,20 @@ class EvaluaterPerson_model extends CI_Model {
     function getEvaluatersPersons($evaluation_id) {
 
         $sql = "SELECT ep.evaluation_id, p1.person_id as 'evaluater_id', p1.person_fname as 'evaluater_fname', p1.person_lname as evaluater_lname,
-						p2.person_id, p2.person_fname, p2.person_lname
+						p2.person_id, p2.person_fname, p2.person_lname, a.answer_id as 'status'
                     FROM ethc_evaluater_person ep		
 					JOIN sev_person p1 ON ep.evaluater_id = p1.person_id
 					JOIN sev_person p2 ON ep.person_id = p2.person_id
-                    WHERE ep.evaluation_id = '" . $evaluation_id . "'";
+					LEFT OUTER JOIN ethc_answer a ON ep.evaluation_id = a.evaluation_id AND ep.evaluater_id = a.evaluater_id AND ep.person_id = a.person_id
+                    WHERE ep.evaluation_id = '" . $evaluation_id . "'
+					GROUP BY ep.evaluation_id, ep.evaluater_id, ep.person_id";
                     
                     
         $result = $this->db->query($sql)->result();
 
         return $result;
     }
+
 
 	function updateEvaluaterPersons(){
 

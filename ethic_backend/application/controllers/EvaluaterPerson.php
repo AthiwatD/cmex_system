@@ -32,6 +32,7 @@ class EvaluaterPerson extends MY_Controller{
 		$this->data['evaluation_id'] = $evaluation_id;
         $this->data['evaluation'] = $this->Evaluation->getEvaluation($evaluation_id);
         $this->data['evaluater_persons'] = $this->EvaluaterPerson->getEvaluatersPersons($evaluation_id);
+		$this->data['evaluate_link'] = "http://excellent.med.cmu.ac.th/cmex_system/ethic/";
         $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');
         $this->breadcrumb->add('รายการแบบประเมิน',   base_url().'EvaluatePerson/selectEvaluation');           
         $this->breadcrumb->add('รายการผู้ทำแบบประเมิน',   base_url().'EvaluatePerson/evaluaterPersons/' . $evaluation_id );      

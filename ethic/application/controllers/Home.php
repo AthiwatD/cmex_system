@@ -9,6 +9,7 @@
         $this->load->model('EvaluaterPerson_model','EvaluaterPerson');
         $this->load->model('Evaluation_model','Evaluation');
         $this->load->model('Answer_model','Answer');
+		$this->load->model('Person_model','Person');
     }
     
     function index($evaluation_id = NULL){
@@ -40,6 +41,7 @@
             $this->data['evaluation_id'] = $evaluation_id;
             $this->data['evaluater_id'] = $evaluater_id;
             $this->data['person_id'] = $person_id;
+			$this->data['person'] = $this->Person->getPerson($person_id);
             $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');    
             $this->breadcrumb->add('แบบประเมิน',   base_url().'Home/form/' . $evaluation_id);  
             $this->data['breadcrumb'] = $this->breadcrumb->output();

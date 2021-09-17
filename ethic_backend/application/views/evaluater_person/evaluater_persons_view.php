@@ -50,6 +50,15 @@
                         <?php echo $evaluation->person_fname . " " . $evaluation->person_lname; ?>
                     </div>
                 </div>
+
+				<div class="evaluation-group row" id="div_doc_hour">
+                    <label class="col-md-3 label-control" for="document_name">QR Code</label>
+                    <div class="col-md-9">
+                    <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=<?php echo $evaluate_link; ?>&choe=UTF-8" title="Link to Google.com" />
+                    </div>
+                </div>
+
+
             </div>
         </div>
         <br><br>
@@ -81,15 +90,14 @@
                                                 <td><?php echo $evaluater_person->person_id; ?></td>
                                                 <td ><?php echo $evaluater_person->person_fname . " " . $evaluater_person->person_lname; ?></td>
                                                 <td ><?php echo $evaluater_person->evaluater_fname . " " . $evaluater_person->evaluater_lname; ?></td>
-                                                <td ><?php 
-                                                    // if(empty($evaluate_person->answer_id)){
-                                                    //     echo "<span class='text-danger'>ยังไม่ได้ประเมิน</span>"; 
-                                                    // }
-                                                    // else{
-                                                    //     echo "<span class='text-success'>ประเมิณแล้ว</span>"; 
-                                                    // }
+												<?php
+													if(!empty($evaluater_person->status)){
+														echo "<td>ประเมิณแล้ว</td>";
+													}else{
+														echo "<td>ยังไม่ได้ประเมิณ</td>";
+													}
+												?>
 
-                                                        ?></td>
                                             </tr>
                                 <?php        
                                         }

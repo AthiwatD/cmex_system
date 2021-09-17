@@ -42,10 +42,11 @@ class Answer_model extends CI_Model {
         for($i=0;$i<sizeof($form_detail_id);$i++){
             $data = array(
                 'form_detail_answer' => $form_detail_answer[$i],
-                'evaluation_id' => $answers[0][0],
+                'evaluation_id' => $evaluation_id,
                 'form_id' => $answers[0][1],
                 'form_detail_id' => $form_detail_id[$i],
-                'person_id' => $answers[0][9],
+                'evaluater_id' => $evaluater_id,
+                'person_id' => $person_id,
             );
             $result = $this->db->insert('ethc_form_detail_answer', $data);
         }
@@ -53,9 +54,10 @@ class Answer_model extends CI_Model {
         // Suggestion
         $data = array(
             'suggestion_detail' => $suggestion_detial,
-            'evaluation_id' => $answers[0][0],
+			'evaluation_id' => $evaluation_id,
             'form_id' => $answers[0][1],
-            'person_id' => $answers[0][9],
+            'evaluater_id' => $evaluater_id,
+            'person_id' => $person_id,
         );
         $result = $this->db->insert('ethc_suggestion', $data);
 
