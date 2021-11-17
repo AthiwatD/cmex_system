@@ -26,8 +26,9 @@
                         // echo "<td>" . $evaluation->date_end . "</td>";
                         // echo "<td>" . $evaluation->person_fname . " " . $evaluation->person_lname . "</td>";
                         echo "<td width='250'>";
-						echo "<a href='" . base_url() . "Report/reportPointPersons/" . $evaluation->evaluation_id . "' class='btn btn-primary btn-sm'><i class='fas fa-folder'></i>คะแนน</a> ";
-                        echo "<a href='" . base_url() . "Report/report/" . $evaluation->evaluation_id . "' class='btn btn-primary btn-sm'><i class='fas fa-folder'></i>กราฟ</a> ";
+						echo "<a href='" . base_url() . "Report/report_average/" . $evaluation->evaluation_id . "' class='btn btn-primary btn-sm'><i class=''></i>คะแนนเฉลี่ย</a> ";
+						echo "<a href='" . base_url() . "Report/report_head/" . $evaluation->evaluation_id . "' class='btn btn-primary btn-sm'><i class=''></i>คะแนนจากหัวหน้า</a> ";
+                        echo "<a href='" . base_url() . "Report/report_self/" . $evaluation->evaluation_id . "' class='btn btn-primary btn-sm'><i class=''></i>ประเมิณตัวเอง</a> ";
                         echo "<a href='" . base_url() . "Report/summary/" . $evaluation->evaluation_id . "' class='btn btn-warning btn-sm'><i class='fas fa-pencil-alt'></i>Summary</a> ";
                         echo "</td>";
                         echo "</tr>";

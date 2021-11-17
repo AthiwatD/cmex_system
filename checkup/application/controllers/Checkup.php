@@ -232,6 +232,7 @@
 			
 			$pdf->AddPage();
 			$txt = getSuggest($checkup, json_decode($records[0]->suggest_tab));
+			// $txt = $records[0]->suggest_tab;
 			$pdf->writeHTML($txt, true, false, false, false, '');
 
 			$pdf->Output('Checkup_' . $checkup->hn . '_' . $checkup->checkup_date . '.pdf', 'I');

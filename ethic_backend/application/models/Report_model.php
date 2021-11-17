@@ -46,6 +46,19 @@ class Report_model extends CI_Model {
         return $result;
     }
 
+	function report_by_center($evaluation_id){
+		$sql = "SELECT a.evaluation_id, a.form_id, a.category_id, a.question_group_id, a.question_id, c.center_name, c.center_abbre, 
+						SUM(a.choice_point) as 'sum_point', COUNT(a.person_id) as 'evaluate_person_count', AVG(a.choice_point) as 'average_point' 
+				FROM qstn_answer a 
+				JOIN sev_person p ON a.person_id = p.person_id 
+				JOIN sev_center c ON p.center_id = c.center_id 
+				WHERE a.evaluation_id = '" . $evaluation_id . "' 
+				GROUP BY c.center_id";
+        $result = $this->db->query($sql)->result();
+        //echo  json_encode($result);
+        return $result;
+	}
+
     function report_category($evaluation_id){
         $sql = "SELECT s.evaluation_id, e.evaluation_name, e.evaluation_by,
                     s.form_id, f.form_name,
@@ -196,11 +209,11 @@ class Report_model extends CI_Model {
         
 
 
-		////////
+		////////////////////////////////////////////////////////////////////
 		//
 		//	ETHIC ADDED
 		//
-		////////
+		////////////////////////////////////////////////////////////////////
 		$this->db->where('evaluation_id', $evaluation_id);
         $result = $this->db->delete("ethc_summary");
 
@@ -237,53 +250,19 @@ class Report_model extends CI_Model {
             JOIN qstn_choice c ON cg.choice_group_id = c.choice_group_id
             WHERE s.evaluation_id = '" . $evaluation_id . "'
             GROUP BY s.summary_id";
-        $result3 = $this->db->query($sql3)->result();
+        $result_to_summary = $this->db->query($sql3)->result();
 
-        foreach($result3 as $row3){
-            $data3 = array(
-                'min_choice_point' => $row3->min_choice_point,
-                'max_choice_point' => $row3->max_choice_point,
-                'average_percent' => $row3->average_percent
+        foreach($result_to_summary as $row_to_summary){
+            $data_to_summary = array(
+                'min_choice_point' => $row_to_summary->min_choice_point,
+                'max_choice_point' => $row_to_summary->max_choice_point,
+                'average_percent' => $row_to_summary->average_percent
             );
-            $this->db->where('summary_id', $row3->summary_id);
-            $result4 = $this->db->update('ethc_summary', $data3);
+            $this->db->where('summary_id', $row_to_summary->summary_id);
+            $result4 = $this->db->update('ethc_summary', $data_to_summary);
         }
 
 
-		////////
-		//
-		//	Summary point
-		//
-		////////
-
-		$sql = "SELECT qa.person_id,
-						SUM(qa.choice_point) as 'person_point',
-						sp.center_id
-            FROM qstn_answer qa
-			JOIN sev_person sp ON qa.person_id = sp.person_id
-            WHERE qa.evaluation_id = '" . $evaluation_id . "'
-            GROUP BY qa.evaluation_id, qa.person_id";
-        $result5 = $this->db->query($sql)->result();
-
-		$sql = "SELECT ea.evaluater_id, ea.person_id,
-						SUM(ea.choice_point) as 'evaluater_point',
-						sp.center_id
-            FROM ethc_answer ea
-			JOIN sev_person sp ON ea.person_id = sp.person_id
-            WHERE ea.evaluation_id = '" . $evaluation_id . "'
-            GROUP BY ea.evaluation_id, ea.evaluater_id, ea.person_id";
-        $result6 = $this->db->query($sql)->result();
-
-        foreach($result3 as $row3){
-            $data3 = array(
-                'min_choice_point' => $row3->min_choice_point,
-                'max_choice_point' => $row3->max_choice_point,
-                'average_percent' => $row3->average_percent
-            );
-            $this->db->where('summary_id', $row3->summary_id);
-            $result4 = $this->db->update('ethc_summary', $data3);
-        }
-
-        return $result2;
+		return $result2;
     }
 }

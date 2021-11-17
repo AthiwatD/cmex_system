@@ -32,7 +32,179 @@ class Report extends MY_Controller {
         $this->loadViewWithScript(array('report/reports_view'), array());      
     }
 
-    function report($evaluation_id){
+	function reportPointPersons($evaluation_id){
+		$this->data['error'] = $this->db->error(); 
+        $this->data['evaluations'] = $this->EvaluaterPerson->getEvaluates();
+		
+        $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
+        $this->breadcrumb->add('รายการแบบประเมิน',   base_url().'Report/reports');      
+        $this->data['breadcrumb'] = $this->breadcrumb->output();
+
+        $this->data['head_title'] = "รายการแบบประเมิน";
+        $this->loadData();
+        $this->loadViewWithScript(array('report/reports_view'), array());  
+	}
+
+
+	/////////////////////////////////////////////////////////////////
+	//
+	//		รายงานประเมิณโดยตัวเอง
+	//
+	/////////////////////////////////////////////////////////////////
+    function report_self($evaluation_id){
+        $init_height = 200;
+        $row_height = 50;
+        $this->data['error'] = $this->db->error(); 
+        $this->data['evaluation_id'] = $evaluation_id;
+        $this->data['evaluation'] = $this->Evaluation->getEvaluation($evaluation_id);
+
+        $this->data['scoreCriterias'] = $this->ScoreCriteria->getScoreCriterias();
+
+        $evaluate_person_summary = $this->EvaluatePerson->getEvaluatePersonSummary($evaluation_id);
+        $this->data['person_count'] = $evaluate_person_summary->person_count;
+        $this->data['person_evaluate_count'] = $evaluate_person_summary->person_evaluate_count;
+        $this->data['report_person_evaluate'] = round(($evaluate_person_summary->person_evaluate_count * 100) / $evaluate_person_summary->person_count,2);
+
+        $report_form = $this->Report->report_form($evaluation_id);
+        $this->data['report_form'] = $report_form;
+        $this->data['report_form_value'] = round($report_form[0]->average_point,2);
+        $this->data['report_form_min_point'] = round($report_form[0]->min_point,2);
+        $this->data['report_form_max_point'] = round($report_form[0]->max_point,2);
+        // $this->data['report_form_min'] =  round(($report_form[0]->average_point * 100) / 5,2);
+        // $this->data['report_form_max'] =  round(($report_form[0]->average_point * 100) / 5,2);
+        // $this->data['report_form_color'] =  round(($report_form[0]->average_point * 100) / 5,2);
+
+
+
+        $report_form_detail = $this->Report->report_form_detail($evaluation_id);
+
+        $report_form_detail_label = array();
+        $report_form_detail_answer = array();
+        $report_form_detail_count = array();
+        $i=0;
+        $j=0;
+        foreach($report_form_detail as $index => $rpt_fd){
+            if($index==0){
+                $i=0;
+                array_push($report_form_detail_label, $rpt_fd->form_detail_name);
+                $report_form_detail_answer[$i] = array();
+                $report_form_detail_count[$i] = array();
+            }
+            if($report_form_detail_label[$i] != $rpt_fd->form_detail_name){
+                $i++;
+                array_push($report_form_detail_label, $rpt_fd->form_detail_name);
+                $report_form_detail_answer[$i] = array();
+                $report_form_detail_count[$i] = array();
+            }
+            array_push($report_form_detail_answer[$i], $rpt_fd->form_detail_answer);
+            array_push($report_form_detail_count[$i], $rpt_fd->count_detail_answer);
+        }
+        $this->data['report_form_detail_label'] = $report_form_detail_label;
+        $this->data['report_form_detail_answer'] = $report_form_detail_answer;
+        $this->data['report_form_detail_count'] = $report_form_detail_count;
+
+
+
+		// คะแนนเฉลี่ย by Center
+		$report_by_center = $this->Report->report_by_center($evaluation_id);
+        $this->data['report_by_center'] = $report_by_center;
+        $report_category_label = array();
+        $report_category_data = array();
+        $report_category_max_point = array();
+        foreach($report_by_center as $index => $rpt_cen){
+            array_push($report_category_label, $rpt_cat->category_number . "." . $rpt_cat->category_name);
+            array_push($report_category_data, round($rpt_cat->average_point,2));
+            array_push($report_category_max_point, round($rpt_cat->max_point,2));
+        }
+        $this->data['report_category_label'] = $report_category_label;
+        $this->data['report_category_data'] = $report_category_data;
+        $this->data['report_category_max_point'] = $report_category_max_point;
+        $this->data['category_chart_height'] = $init_height + (sizeof($report_category_data) * $row_height);
+
+
+
+
+		// คะแนนเฉลี่ย by Categories
+        $report_category = $this->Report->report_category($evaluation_id);
+        $this->data['report_category'] = $report_category;
+        $report_category_label = array();
+        $report_category_data = array();
+        $report_category_max_point = array();
+        foreach($report_category as $index => $rpt_cat){
+            array_push($report_category_label, $rpt_cat->category_number . "." . $rpt_cat->category_name);
+            array_push($report_category_data, round($rpt_cat->average_point,2));
+            array_push($report_category_max_point, round($rpt_cat->max_point,2));
+        }
+        $this->data['report_category_label'] = $report_category_label;
+        $this->data['report_category_data'] = $report_category_data;
+        $this->data['report_category_max_point'] = $report_category_max_point;
+        $this->data['category_chart_height'] = $init_height + (sizeof($report_category_data) * $row_height);
+
+
+
+
+        $report_question_group = $this->Report->report_question_group($evaluation_id);
+        $this->data['report_question_group'] = $report_question_group;
+        $report_question_group_label = array();
+        $report_question_group_data = array();
+        foreach($report_question_group as $index => $rpt_qg){
+            array_push($report_question_group_label, $rpt_qg->question_group_number . "." . $rpt_qg->question_group_name);
+            array_push($report_question_group_data, round(($rpt_qg->average_point*100)/$rpt_qg->max_choice_point,2));
+        }
+        $this->data['report_question_group_label'] = $report_question_group_label;
+        $this->data['report_question_group_data'] = $report_question_group_data;
+        $this->data['question_group_chart_height'] = $init_height + (sizeof($report_question_group_data) * $row_height);
+
+
+        $report_question = $this->Report->report_question($evaluation_id);
+        $this->data['report_question'] = $report_question;
+        $report_question_label = array();
+        $report_question_data = array();
+        $question_chart_height = array();
+        $i=0;
+        //$j=0;
+        $old_group = 0;
+        foreach($report_question as $index => $rpt_q){
+            if($index == 0){
+                $old_group = $rpt_q->question_group_id;
+                $report_question_label[$i] = array();
+                $report_question_data[$i] = array();
+            }
+            if($rpt_q->question_group_id != $old_group){
+                $question_chart_height[$i]  = $init_height + (sizeof($report_question_data[$i]) * $row_height);
+                $i++;
+                //$j=0;
+                $old_group = $rpt_q->question_group_id;
+                $report_question_label[$i] = array();
+                $report_question_data[$i] = array();
+            }
+            array_push($report_question_label[$i], $rpt_q->question_group_number . "." . $rpt_q->question_number . " " . $rpt_q->question_name);
+            array_push($report_question_data[$i], round(($rpt_q->average_point*100)/$rpt_q->max_choice_point,2));
+        }
+        $question_chart_height[$i]  = $init_height + (sizeof($report_question_data[$i]) * $row_height);
+        $this->data['report_question_label'] = $report_question_label;
+        $this->data['report_question_data'] = $report_question_data;
+        $this->data['question_chart_height'] = $question_chart_height;
+
+
+        $this->data['report_suggestion'] = $this->Report->report_suggestion($evaluation_id);
+
+        $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');      
+        $this->breadcrumb->add('รายการแบบประเมิน',   base_url().'Report/reports');  
+        $this->breadcrumb->add('รายงานแบบประเมิน',   base_url().'Report/report/' . $evaluation_id);      
+        $this->data['breadcrumb'] = $this->breadcrumb->output();
+
+        $this->data['head_title'] = "รายงานแบบประเมิน";
+        $this->loadData();
+        $this->loadViewWithScript(array('report/report_view'), array('report/report_script'));      
+    }
+
+	/////////////////////////////////////////////////////////////////
+	//
+	//		รายงานประเมิณโดยหัวหน้า
+	//
+	/////////////////////////////////////////////////////////////////
+	function report_head($evaluation_id){
         $init_height = 200;
         $row_height = 50;
         $this->data['error'] = $this->db->error(); 
