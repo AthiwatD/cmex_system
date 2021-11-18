@@ -181,6 +181,14 @@ $(function () {
 
 
     <?php
+
+		$report_by_center_label = json_encode($report_by_center_label);
+		echo "var center_label = ". $report_by_center_label . ";\n";
+		$report_by_center_data = json_encode($report_by_center_data);
+		echo "var center_data = ". $report_by_center_data . ";\n";
+		$report_by_center_max_point = json_encode($report_by_center_max_point);
+		echo "var center_max_point = ". $report_by_center_max_point . ";\n";
+
         $report_category_label = json_encode($report_category_label);
         echo "var category_label = ". $report_category_label . ";\n";
         $report_category_data = json_encode($report_category_data);
@@ -188,6 +196,27 @@ $(function () {
         $report_category_max_point = json_encode($report_category_max_point);
         echo "var category_max_point = ". $report_category_max_point . ";\n";
     ?>
+
+	var centerChartData = {
+        
+        labels  : center_label, // Criteria(category name, question group name. question name)
+        datasets: [
+            {
+                label               : 'คะแนนเฉลี่ย',
+                backgroundColor     : 'rgba(146,224,208,0.4)',
+                borderWidth         : 1,
+                borderColor         : 'rgba(33,175,144,1.0)',
+                pointRadius          : false,
+                pointColor          : '#21af90',
+                pointStrokeColor    : 'rgba(102,212,189,0.6)',
+                pointHighlightFill  : '#fff',
+                pointHighlightStroke: 'rgba(102,212,189,0.6)',
+                data                : center_data,
+            },
+
+        ]
+    }
+
     var categoryChartData = {
         
         labels  : category_label, // Criteria(category name, question group name. question name)
@@ -207,6 +236,8 @@ $(function () {
 
         ]
     }
+
+	setup_chart($("#center_chart"), centerChartData, center_max_point);
     setup_chart($("#category_chart"), categoryChartData, category_max_point);
 
     <?php

@@ -101,6 +101,27 @@
             <!-- /.card -->
 
 
+			<!-- Center BAR CHART -->
+            <div class="card card-default">
+                <div class="card-header">
+                    <h3 class="card-title">Center</h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                    </div>
+
+                </div>
+                <div class="card-body">
+                    <div class="chart">
+                        <canvas id="center_chart" name="center_chart" style="min-height: <?php echo $center_chart_height; ?>px; max-width: 100%;"></canvas>
+                    </div>
+                </div>
+            </div>
+            <!-- BAR CHART -->
+
+
             <!-- Category BAR CHART -->
             <div class="card card-default">
                 <div class="card-header">
@@ -118,7 +139,7 @@
                         <canvas id="category_chart" name="category_chart" style="min-height: <?php echo $category_chart_height; ?>px; max-width: 100%;"></canvas>
                     </div>
                 </div>
-                <!-- /.card-body -->
+               
             </div>
             <!-- BAR CHART -->
 

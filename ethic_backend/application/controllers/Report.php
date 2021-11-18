@@ -108,18 +108,21 @@ class Report extends MY_Controller {
 		// คะแนนเฉลี่ย by Center
 		$report_by_center = $this->Report->report_by_center($evaluation_id);
         $this->data['report_by_center'] = $report_by_center;
-        $report_category_label = array();
-        $report_category_data = array();
-        $report_category_max_point = array();
+        $report_by_center_label = array();
+        $report_by_center_data = array();
+        $report_by_center_max_point = array();
         foreach($report_by_center as $index => $rpt_cen){
-            array_push($report_category_label, $rpt_cat->category_number . "." . $rpt_cat->category_name);
-            array_push($report_category_data, round($rpt_cat->average_point,2));
-            array_push($report_category_max_point, round($rpt_cat->max_point,2));
+            // array_push($report_by_center_label, $rpt_cen->center_abbre . "." . $rpt_cen->center_name);
+			array_push($report_by_center_label, $rpt_cen->center_name);
+            array_push($report_by_center_data, round($rpt_cen->average_point,2));
+            // array_push($report_by_center_max_point, round($rpt_cen->max_point,2));
+			
+			array_push($report_by_center_max_point, round($report_form[0]->max_point,2));
         }
-        $this->data['report_category_label'] = $report_category_label;
-        $this->data['report_category_data'] = $report_category_data;
-        $this->data['report_category_max_point'] = $report_category_max_point;
-        $this->data['category_chart_height'] = $init_height + (sizeof($report_category_data) * $row_height);
+        $this->data['report_by_center_label'] = $report_by_center_label;
+        $this->data['report_by_center_data'] = $report_by_center_data;
+        $this->data['report_by_center_max_point'] = $report_by_center_max_point;
+        $this->data['center_chart_height'] = $init_height + (sizeof($report_by_center_data) * $row_height);
 
 
 
