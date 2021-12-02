@@ -79,6 +79,36 @@
           </li>
 
         
+					<li class="nav-item has-treeview">
+            <a href="<?php echo base_url(); ?>Checkup" class="nav-link">
+            <i class="nav-icon fas fa-users"></i>
+              <p>
+                ย้อนหลัง
+								<i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+						<ul class="nav nav-treeview ">
+						<li class="nav-item">
+                <a href="<?php echo base_url(); ?>Checkup/oldCheckups" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>ทั้งหมด</p>
+                </a>
+              </li>
+              <!-- <li class="nav-item">
+                <a href="<?php echo base_url(); ?>Checkup/oldCheckupsLocation/1" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>CMEx</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url(); ?>Checkup/oldCheckupsLocation/2" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>GMC</p>
+                </a>
+              </li> -->
+						</ul>
+          </li>
+
           <li class="nav-item has-treeview">
             <a href="<?php echo base_url(); ?>Home/do_logout" class="nav-link">
             <i class="nav-icon fas fa-users"></i>

@@ -64,6 +64,16 @@
 													</div>
 											</div>
 										
+											<div class="form-group form-inline">
+												<input type="checkbox" class="form-control" id="input_new_patient" name="new_patient" value="1" style="width: 35px;"> 
+												<label for="input_claim"> คนไข้ลงทะเบียนใหม่</label>
+											</div>
+
+											<div class="form-group form-inline">
+												<input type="checkbox" class="form-control" id="input_not_print" name="not_print" value="1" style="width: 35px;"> 
+												<label for="input_claim"> ไม่ต้องพิมพ์บัตรคิว</label>
+											</div>
+
 										</div>		<!-- end div col-6 -->				
 										
 										<div class="col-6" style="padding:10px;">
@@ -105,7 +115,7 @@
 																<div class="custom-control custom-switch">
 																	<input type="checkbox" class="custom-control-input" 
 																	 			id="input_document_<?php echo $count; ?>" name="document_name_show" value="<?php echo $document->document_name_show; ?>"
-																	>
+																 	>
 																	<label class="custom-control-label" for="input_document_<?php echo $count; ?>"><?php echo $document->document_name; ?></label>
 																</div>
 														<?php

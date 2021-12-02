@@ -24,7 +24,7 @@
             var points = JSON.stringify(ourObj);
             console.log(points);
             $.ajax({
-                url:'http://hosweb.med.cmu.ac.th/s-api/main.php',
+                url:'https://hosweb.med.cmu.ac.th/s-api/main.php',
                 method: 'POST',
                 body: points,
                 data:  points,

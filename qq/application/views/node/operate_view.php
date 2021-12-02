@@ -68,9 +68,9 @@
 							<span class="float-right">
 								<button type="button" class="btn btn-success btn-sm" onclick="getWaitingHn()"><i class="fa fa-sync"></i></button>				
 
-								<a href="<?php echo base_url() . "Registration/registered/" . $site_id; ?>" target="_blank">
+								<!-- <a href="<?php echo base_url() . "Registration/registered/" . $site_id; ?>" target="_blank">
 									<button class="btn btn-warning btn-sm" type="button"><i class="fa fa-sync"></i></button>
-								</a>
+								</a> -->
 								&nbsp;
 							</span>
 										
@@ -107,9 +107,9 @@
 						<h3 class="card-title">เรียกแล้ว</h3>
 						<span class="float-right">
 							<button type="button" class="btn btn-success btn-sm" onclick="listRegisteredLimit()"><i class="fa fa-sync"></i></button>				
-							<a href="<?php echo base_url() . "Registration/registered/" . $site_id; ?>" target="_blank">
+							<!-- <a href="<?php echo base_url() . "Registration/registered/" . $site_id; ?>" target="_blank">
 								<button class="btn btn-warning btn-sm" type="button"><i class="fa fa-sync"></i></button>
-							</a>
+							</a> -->
 							&nbsp;
 						</span>
 					</div>
@@ -147,9 +147,9 @@
 						<span class="float-right">
 							<button type="button" class="btn btn-success btn-sm" onclick="listRegisteredLimit()"><i class="fa fa-sync"></i></button>				
 
-							<a href="<?php echo base_url() . "Registration/registered/" . $site_id; ?>" target="_blank">
+							<!-- <a href="<?php echo base_url() . "Registration/registered/" . $site_id; ?>" target="_blank">
 								<button class="btn btn-warning btn-sm" type="button"><i class="fa fa-sync"></i></button>
-							</a>
+							</a> -->
 							&nbsp;
 						</span>
 					</div>

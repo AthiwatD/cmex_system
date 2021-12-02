@@ -642,3 +642,201 @@ INFO - 2021-11-18 03:15:42 --> File loaded: D:\xampp\htdocs\cmex_system\ethic_ba
 INFO - 2021-11-18 03:15:42 --> File loaded: D:\xampp\htdocs\cmex_system\ethic_backend\application\views\common/end.php
 INFO - 2021-11-18 03:15:42 --> Final output sent to browser
 DEBUG - 2021-11-18 03:15:42 --> Total execution time: 0.0824
+INFO - 2021-11-18 10:09:44 --> Config Class Initialized
+INFO - 2021-11-18 10:09:44 --> Hooks Class Initialized
+DEBUG - 2021-11-18 10:09:44 --> UTF-8 Support Enabled
+INFO - 2021-11-18 10:09:44 --> Utf8 Class Initialized
+INFO - 2021-11-18 10:09:44 --> URI Class Initialized
+INFO - 2021-11-18 10:09:44 --> Router Class Initialized
+INFO - 2021-11-18 10:09:44 --> Output Class Initialized
+INFO - 2021-11-18 10:09:44 --> Security Class Initialized
+DEBUG - 2021-11-18 10:09:44 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-11-18 10:09:44 --> Input Class Initialized
+INFO - 2021-11-18 10:09:44 --> Language Class Initialized
+INFO - 2021-11-18 10:09:44 --> Loader Class Initialized
+INFO - 2021-11-18 10:09:44 --> Helper loaded: html_helper
+INFO - 2021-11-18 10:09:44 --> Helper loaded: url_helper
+INFO - 2021-11-18 10:09:44 --> Helper loaded: form_helper
+INFO - 2021-11-18 10:09:44 --> Helper loaded: file_helper
+DEBUG - 2021-11-18 10:09:44 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-11-18 10:09:44 --> Session: Class initialized using 'files' driver.
+INFO - 2021-11-18 10:09:44 --> Database Driver Class Initialized
+DEBUG - 2021-11-18 10:09:44 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-11-18 10:09:44 --> Form Validation Class Initialized
+INFO - 2021-11-18 10:09:44 --> Controller Class Initialized
+DEBUG - 2021-11-18 10:09:44 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-11-18 10:09:44 --> Config Class Initialized
+INFO - 2021-11-18 10:09:44 --> Hooks Class Initialized
+DEBUG - 2021-11-18 10:09:44 --> UTF-8 Support Enabled
+INFO - 2021-11-18 10:09:44 --> Utf8 Class Initialized
+INFO - 2021-11-18 10:09:44 --> URI Class Initialized
+INFO - 2021-11-18 10:09:44 --> Router Class Initialized
+INFO - 2021-11-18 10:09:44 --> Output Class Initialized
+INFO - 2021-11-18 10:09:44 --> Security Class Initialized
+DEBUG - 2021-11-18 10:09:44 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-11-18 10:09:44 --> Input Class Initialized
+INFO - 2021-11-18 10:09:44 --> Language Class Initialized
+INFO - 2021-11-18 10:09:44 --> Loader Class Initialized
+INFO - 2021-11-18 10:09:44 --> Helper loaded: html_helper
+INFO - 2021-11-18 10:09:44 --> Helper loaded: url_helper
+INFO - 2021-11-18 10:09:44 --> Helper loaded: form_helper
+INFO - 2021-11-18 10:09:44 --> Helper loaded: file_helper
+DEBUG - 2021-11-18 10:09:44 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-11-18 10:09:44 --> Session: Class initialized using 'files' driver.
+INFO - 2021-11-18 10:09:44 --> Database Driver Class Initialized
+DEBUG - 2021-11-18 10:09:44 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-11-18 10:09:44 --> Form Validation Class Initialized
+INFO - 2021-11-18 10:09:44 --> Controller Class Initialized
+DEBUG - 2021-11-18 10:09:44 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-11-18 10:09:44 --> Helper loaded: inflector_helper
+INFO - 2021-11-18 10:09:44 --> Helper loaded: cookie_helper
+INFO - 2021-11-18 10:09:44 --> Model "Login_model" initialized
+INFO - 2021-11-18 10:09:44 --> File loaded: D:\xampp\htdocs\cmex_system\ethic_backend\application\views\login_view.php
+INFO - 2021-11-18 10:09:44 --> Final output sent to browser
+DEBUG - 2021-11-18 10:09:44 --> Total execution time: 0.0845
+INFO - 2021-11-18 10:09:59 --> Config Class Initialized
+INFO - 2021-11-18 10:09:59 --> Hooks Class Initialized
+DEBUG - 2021-11-18 10:09:59 --> UTF-8 Support Enabled
+INFO - 2021-11-18 10:09:59 --> Utf8 Class Initialized
+INFO - 2021-11-18 10:09:59 --> URI Class Initialized
+INFO - 2021-11-18 10:09:59 --> Router Class Initialized
+INFO - 2021-11-18 10:09:59 --> Output Class Initialized
+INFO - 2021-11-18 10:09:59 --> Security Class Initialized
+DEBUG - 2021-11-18 10:09:59 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-11-18 10:09:59 --> Input Class Initialized
+INFO - 2021-11-18 10:09:59 --> Language Class Initialized
+INFO - 2021-11-18 10:09:59 --> Loader Class Initialized
+INFO - 2021-11-18 10:09:59 --> Helper loaded: html_helper
+INFO - 2021-11-18 10:09:59 --> Helper loaded: url_helper
+INFO - 2021-11-18 10:09:59 --> Helper loaded: form_helper
+INFO - 2021-11-18 10:09:59 --> Helper loaded: file_helper
+DEBUG - 2021-11-18 10:09:59 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-11-18 10:09:59 --> Session: Class initialized using 'files' driver.
+INFO - 2021-11-18 10:09:59 --> Database Driver Class Initialized
+DEBUG - 2021-11-18 10:09:59 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-11-18 10:09:59 --> Form Validation Class Initialized
+INFO - 2021-11-18 10:09:59 --> Controller Class Initialized
+DEBUG - 2021-11-18 10:09:59 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-11-18 10:09:59 --> Helper loaded: inflector_helper
+INFO - 2021-11-18 10:09:59 --> Helper loaded: cookie_helper
+INFO - 2021-11-18 10:09:59 --> Model "Login_model" initialized
+INFO - 2021-11-18 10:09:59 --> Config Class Initialized
+INFO - 2021-11-18 10:09:59 --> Hooks Class Initialized
+DEBUG - 2021-11-18 10:09:59 --> UTF-8 Support Enabled
+INFO - 2021-11-18 10:09:59 --> Utf8 Class Initialized
+INFO - 2021-11-18 10:09:59 --> URI Class Initialized
+INFO - 2021-11-18 10:09:59 --> Router Class Initialized
+INFO - 2021-11-18 10:09:59 --> Output Class Initialized
+INFO - 2021-11-18 10:09:59 --> Security Class Initialized
+DEBUG - 2021-11-18 10:09:59 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-11-18 10:09:59 --> Input Class Initialized
+INFO - 2021-11-18 10:09:59 --> Language Class Initialized
+INFO - 2021-11-18 10:09:59 --> Loader Class Initialized
+INFO - 2021-11-18 10:09:59 --> Helper loaded: html_helper
+INFO - 2021-11-18 10:09:59 --> Helper loaded: url_helper
+INFO - 2021-11-18 10:09:59 --> Helper loaded: form_helper
+INFO - 2021-11-18 10:09:59 --> Helper loaded: file_helper
+DEBUG - 2021-11-18 10:09:59 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-11-18 10:09:59 --> Session: Class initialized using 'files' driver.
+INFO - 2021-11-18 10:09:59 --> Database Driver Class Initialized
+DEBUG - 2021-11-18 10:09:59 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-11-18 10:09:59 --> Form Validation Class Initialized
+INFO - 2021-11-18 10:09:59 --> Controller Class Initialized
+DEBUG - 2021-11-18 10:09:59 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-11-18 10:09:59 --> Helper loaded: cookie_helper
+INFO - 2021-11-18 10:09:59 --> Helper loaded: ../../common/helpers/thai_date_helper
+INFO - 2021-11-18 10:09:59 --> Helper loaded: ../../common/helpers/remote_file_exists_helper
+INFO - 2021-11-18 10:09:59 --> File loaded: D:\xampp\htdocs\cmex_system\ethic_backend\application\views\common/header.php
+INFO - 2021-11-18 10:09:59 --> File loaded: D:\xampp\htdocs\cmex_system\ethic_backend\application\views\common/navbar.php
+INFO - 2021-11-18 10:09:59 --> File loaded: D:\xampp\htdocs\cmex_system\ethic_backend\application\views\common/sidebar.php
+INFO - 2021-11-18 10:09:59 --> File loaded: D:\xampp\htdocs\cmex_system\ethic_backend\application\views\common/main_head.php
+INFO - 2021-11-18 10:09:59 --> File loaded: D:\xampp\htdocs\cmex_system\ethic_backend\application\views\home_view.php
+INFO - 2021-11-18 10:09:59 --> File loaded: D:\xampp\htdocs\cmex_system\ethic_backend\application\views\common/footer.php
+INFO - 2021-11-18 10:09:59 --> File loaded: D:\xampp\htdocs\cmex_system\ethic_backend\application\views\common/end.php
+INFO - 2021-11-18 10:09:59 --> Final output sent to browser
+DEBUG - 2021-11-18 10:09:59 --> Total execution time: 0.1592
+INFO - 2021-11-18 10:33:54 --> Config Class Initialized
+INFO - 2021-11-18 10:33:54 --> Hooks Class Initialized
+DEBUG - 2021-11-18 10:33:54 --> UTF-8 Support Enabled
+INFO - 2021-11-18 10:33:54 --> Utf8 Class Initialized
+INFO - 2021-11-18 10:33:54 --> URI Class Initialized
+INFO - 2021-11-18 10:33:54 --> Router Class Initialized
+INFO - 2021-11-18 10:33:54 --> Output Class Initialized
+INFO - 2021-11-18 10:33:54 --> Security Class Initialized
+DEBUG - 2021-11-18 10:33:54 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-11-18 10:33:54 --> Input Class Initialized
+INFO - 2021-11-18 10:33:54 --> Language Class Initialized
+INFO - 2021-11-18 10:33:54 --> Loader Class Initialized
+INFO - 2021-11-18 10:33:54 --> Helper loaded: html_helper
+INFO - 2021-11-18 10:33:54 --> Helper loaded: url_helper
+INFO - 2021-11-18 10:33:54 --> Helper loaded: form_helper
+INFO - 2021-11-18 10:33:54 --> Helper loaded: file_helper
+DEBUG - 2021-11-18 10:33:54 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-11-18 10:33:54 --> Session: Class initialized using 'files' driver.
+INFO - 2021-11-18 10:33:54 --> Database Driver Class Initialized
+DEBUG - 2021-11-18 10:33:54 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-11-18 10:33:54 --> Form Validation Class Initialized
+INFO - 2021-11-18 10:33:54 --> Controller Class Initialized
+DEBUG - 2021-11-18 10:33:54 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-11-18 10:33:54 --> Helper loaded: cookie_helper
+INFO - 2021-11-18 10:33:54 --> Helper loaded: ../../common/helpers/thai_date_helper
+INFO - 2021-11-18 10:33:54 --> Helper loaded: ../../common/helpers/remote_file_exists_helper
+INFO - 2021-11-18 10:33:54 --> Model "Report_model" initialized
+INFO - 2021-11-18 10:33:54 --> Model "Evaluation_model" initialized
+INFO - 2021-11-18 10:33:54 --> Model "Form_model" initialized
+INFO - 2021-11-18 10:33:54 --> Model "FormDetail_model" initialized
+INFO - 2021-11-18 10:33:54 --> Model "EvaluatePerson_model" initialized
+INFO - 2021-11-18 10:33:54 --> Model "EvaluaterPerson_model" initialized
+INFO - 2021-11-18 10:33:54 --> Model "ScoreCriteria_model" initialized
+INFO - 2021-11-18 10:33:54 --> File loaded: D:\xampp\htdocs\cmex_system\ethic_backend\application\views\common/header.php
+INFO - 2021-11-18 10:33:54 --> File loaded: D:\xampp\htdocs\cmex_system\ethic_backend\application\views\common/navbar.php
+INFO - 2021-11-18 10:33:54 --> File loaded: D:\xampp\htdocs\cmex_system\ethic_backend\application\views\common/sidebar.php
+INFO - 2021-11-18 10:33:54 --> File loaded: D:\xampp\htdocs\cmex_system\ethic_backend\application\views\common/main_head.php
+INFO - 2021-11-18 10:33:54 --> File loaded: D:\xampp\htdocs\cmex_system\ethic_backend\application\views\report/reports_view.php
+INFO - 2021-11-18 10:33:54 --> File loaded: D:\xampp\htdocs\cmex_system\ethic_backend\application\views\common/footer.php
+INFO - 2021-11-18 10:33:54 --> File loaded: D:\xampp\htdocs\cmex_system\ethic_backend\application\views\common/end.php
+INFO - 2021-11-18 10:33:54 --> Final output sent to browser
+DEBUG - 2021-11-18 10:33:54 --> Total execution time: 0.2154
+INFO - 2021-11-18 10:33:57 --> Config Class Initialized
+INFO - 2021-11-18 10:33:57 --> Hooks Class Initialized
+DEBUG - 2021-11-18 10:33:57 --> UTF-8 Support Enabled
+INFO - 2021-11-18 10:33:57 --> Utf8 Class Initialized
+INFO - 2021-11-18 10:33:57 --> URI Class Initialized
+INFO - 2021-11-18 10:33:57 --> Router Class Initialized
+INFO - 2021-11-18 10:33:57 --> Output Class Initialized
+INFO - 2021-11-18 10:33:57 --> Security Class Initialized
+DEBUG - 2021-11-18 10:33:57 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-11-18 10:33:57 --> Input Class Initialized
+INFO - 2021-11-18 10:33:57 --> Language Class Initialized
+INFO - 2021-11-18 10:33:57 --> Loader Class Initialized
+INFO - 2021-11-18 10:33:57 --> Helper loaded: html_helper
+INFO - 2021-11-18 10:33:57 --> Helper loaded: url_helper
+INFO - 2021-11-18 10:33:57 --> Helper loaded: form_helper
+INFO - 2021-11-18 10:33:57 --> Helper loaded: file_helper
+DEBUG - 2021-11-18 10:33:57 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-11-18 10:33:57 --> Session: Class initialized using 'files' driver.
+INFO - 2021-11-18 10:33:57 --> Database Driver Class Initialized
+DEBUG - 2021-11-18 10:33:57 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-11-18 10:33:57 --> Form Validation Class Initialized
+INFO - 2021-11-18 10:33:57 --> Controller Class Initialized
+DEBUG - 2021-11-18 10:33:57 --> Session class already loaded. Second attempt ignored.
+INFO - 2021-11-18 10:33:57 --> Helper loaded: cookie_helper
+INFO - 2021-11-18 10:33:57 --> Helper loaded: ../../common/helpers/thai_date_helper
+INFO - 2021-11-18 10:33:57 --> Helper loaded: ../../common/helpers/remote_file_exists_helper
+INFO - 2021-11-18 10:33:57 --> Model "Report_model" initialized
+INFO - 2021-11-18 10:33:57 --> Model "Evaluation_model" initialized
+INFO - 2021-11-18 10:33:57 --> Model "Form_model" initialized
+INFO - 2021-11-18 10:33:57 --> Model "FormDetail_model" initialized
+INFO - 2021-11-18 10:33:57 --> Model "EvaluatePerson_model" initialized
+INFO - 2021-11-18 10:33:57 --> Model "EvaluaterPerson_model" initialized
+INFO - 2021-11-18 10:33:57 --> Model "ScoreCriteria_model" initialized
+INFO - 2021-11-18 10:33:57 --> File loaded: D:\xampp\htdocs\cmex_system\ethic_backend\application\views\common/header.php
+INFO - 2021-11-18 10:33:57 --> File loaded: D:\xampp\htdocs\cmex_system\ethic_backend\application\views\common/navbar.php
+INFO - 2021-11-18 10:33:57 --> File loaded: D:\xampp\htdocs\cmex_system\ethic_backend\application\views\common/sidebar.php
+INFO - 2021-11-18 10:33:57 --> File loaded: D:\xampp\htdocs\cmex_system\ethic_backend\application\views\common/main_head.php
+INFO - 2021-11-18 10:33:57 --> File loaded: D:\xampp\htdocs\cmex_system\ethic_backend\application\views\report/report_view.php
+INFO - 2021-11-18 10:33:57 --> File loaded: D:\xampp\htdocs\cmex_system\ethic_backend\application\views\common/footer.php
+INFO - 2021-11-18 10:33:57 --> File loaded: D:\xampp\htdocs\cmex_system\ethic_backend\application\views\report/report_script.php
+INFO - 2021-11-18 10:33:57 --> File loaded: D:\xampp\htdocs\cmex_system\ethic_backend\application\views\common/end.php
+INFO - 2021-11-18 10:33:57 --> Final output sent to browser
+DEBUG - 2021-11-18 10:33:57 --> Total execution time: 0.2548

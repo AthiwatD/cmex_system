@@ -1,11 +1,14 @@
 <script>
 
-	setInterval(getWaitingHn(), <?php echo INTERVAL_TIME_NODE; ?>);
-	$("#div_popup_information").fadeOut(0);
+	$( document ).ready(function() {
+		setInterval(getWaitingHn, <?php echo INTERVAL_TIME_NODE; ?>);
+		$("#div_popup_information").fadeOut(0);
+	});
+	
 
 	function getWaitingHn(){
 		
-		
+		// console.log("getWaitingHn");
 		var ourObj = {};
 
 		ourObj['site_id'] = <?php echo $department->site_id; ?>;
@@ -22,6 +25,7 @@
 			},
 			body: {
 				ready: 'ready',
+
 			},
 			data: points,
 			contentType: "application/json; charset=utf-8",
@@ -169,13 +173,17 @@
 
 		var ourObj = {};
 
+		ourObj['site_id'] = <?php echo $department->site_id; ?>;
+		// ourObj['department_id'] = <?php echo $department->department_id; ?>;
+		ourObj['channel_id'] = <?php echo $channel_id; ?>;
+
 		ourObj['waiting_id'] = $("#input_waiting_id").val();
 		ourObj['register_id'] = $("#input_register_id").val();
 		ourObj['register_type'] = $("#input_register_type").val();
 		ourObj['register_number'] = $("#input_register_number").val();
 		ourObj['register_hn'] = $("#input_register_hn").val();
-		ourObj['site_id'] = <?php echo $site->site_id; ?>;
-		ourObj['channel_id'] = <?php echo $channel_id; ?>;
+		// ourObj['site_id'] = <?php echo $site->site_id; ?>;
+		// ourObj['channel_id'] = <?php echo $channel_id; ?>;
 		ourObj['register'] = $("#input_register").val();
 		ourObj['send_by_department_id'] = <?php echo $department->department_id; ?>;
 		ourObj['receive_by_department_id'] = document.getElementById("select_receive_by_department_id").value;

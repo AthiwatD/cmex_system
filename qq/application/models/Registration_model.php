@@ -46,6 +46,8 @@ class Registration_model extends CI_Model{
 				$path_id = $points->path_id;
 				$staff = $points->staff;
 				$telephone = $points->telephone;
+				$new_patient = $points->new_patient;
+				$not_print = $points->not_print;
 
 				//////////////////////////////////////////
 				//
@@ -161,6 +163,8 @@ class Registration_model extends CI_Model{
 					'location_name_shows' => $location_names,
 					'staff' => $staff,
 					'telephone' => $telephone,
+					'new_patient' => $new_patient,
+					'not_print' => $not_print,
 
 				);
 				$result = $this->db->insert('qq_register', $data_register); 

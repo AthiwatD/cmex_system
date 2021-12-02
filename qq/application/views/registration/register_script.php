@@ -122,6 +122,8 @@
 		patient_arr["staff"] = $("#input_staff").val();
 		patient_arr["site_id"] = <?php echo $site_id; ?>;
 		patient_arr["telephone"] = $("#input_tel_old").val();
+		patient_arr["new_patient"] = $("#input_new_patient").prop("checked");
+		patient_arr["not_print"] = $("#input_not_print").prop("checked");
 		patient_arr["documents"] = {};
 		var count = 0;
 		var document_name_show = document.getElementsByName("document_name_show");
@@ -160,7 +162,10 @@
 					console.log(response);
 					// alert("ลงทะเบียนสำเร็จ dddd");
 					listRegisteredLimit();
-					print_queue_json(response);
+					if($("#input_not_print").prop("checked") == false){
+						print_queue_json(response);
+					}
+					clearForm();
 				},
 				error: function (xhr, textStatus, errorThrown) {
 					//console.error(xhr, textStatus, errorThrown);
@@ -172,6 +177,39 @@
 		}
 
 
+	}
+
+	function clearForm(){
+		var patient_arr = {};
+		$("#input_register_hn").val("");
+		$("#input_patient_name").val("");
+		// patient_arr["register_type"] = $("#select_register_type").children("option:selected").val();
+		$("#select_register_path").children("option:selected").val();
+		$("#input_claim").val("");
+		$("#input_staff").val("");
+		$("#input_tel_old").val("");
+
+		$("#input_new_patient").prop("checked", false);
+		$("#input_not_print").prop("checked", false);
+
+		$("#lbl_patient_name").html("");
+		$("#lbl_sex").html("");
+		$("#lbl_birth_date").html("");
+		$("#lbl_age").html("");
+		$("#lbl_tel_old").html("");
+		$("#lbl_allergic").html("");
+
+		var count = 0;
+		var document_name_show = document.getElementsByName("document_name_show");
+
+		for(var i=0;i<document_name_show.length;i++){
+			if(document_name_show[i].checked){
+				patient_arr["documents"][count] = document_name_show[i].value;
+				count++;
+			}
+		}
+		$("#input_register_hn").focus();
+		return patient_arr;
 	}
 
 	function listRegisteredLimit(){

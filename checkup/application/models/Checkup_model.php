@@ -21,6 +21,20 @@ class Checkup_model extends CI_Model {
         return $result;
     }
 
+	function getOldCheckupsDate($date){
+		$sql = "SELECT c.checkup_id, c.pid, c.txn, c.hn, c.title_name, c.first_name, c.last_name,c.sex, c.birthdate, 
+						c.age, c.tel, p.package_name, l.location_abbre, l.location_name, c.checkup_date
+				FROM chkup_checkup c
+				JOIN chkup_package p ON c.package_id = p.package_id
+				JOIN chkup_location l ON c.location_id = l.location_id
+				WHERE c.checkup_date < '" . $date . "'
+				AND c.deleted = 0
+				ORDER BY c.checkup_date ASC";
+        
+        $result = $this->db->query($sql)->result();
+        return $result;
+	}
+
 	function getCheckupsLocationDate($location_id, $date){
 		$sql = "SELECT c.checkup_id, c.pid, c.txn, c.hn, c.title_name, c.first_name, c.last_name,c.sex, c.birthdate, 
 						c.age, c.tel, p.package_name, l.location_abbre, l.location_name, c.checkup_date

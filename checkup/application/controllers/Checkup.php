@@ -53,7 +53,24 @@
         $this->loadViewWithScript(array('checkup/checkups_view'), array());    
     }
 
-	
+	function oldCheckups($checkup_date = NULL){
+		if($checkup_date == NULL){
+        	$this->data['checkups'] = $this->Checkup->getOldCheckupsDate(date("Y-m-d", time()));
+		}
+		else{
+			$this->data['checkups'] = $this->Checkup->getCheckupsDate($checkup_date);
+		}
+
+        $this->breadcrumb->add('หน้าหลัก', base_url() .'Home');     
+        $this->breadcrumb->add('การตรวจสุขภาพย้อนหลัง',   base_url().'Checkup/oldCheckups/'. $checkup_date);  
+        $this->data['breadcrumb'] = $this->breadcrumb->output();
+
+        $this->data['head_title'] = "การตรวจสุขภาพ";
+        $this->loadData();
+        $this->loadViewWithScript(array('checkup/checkups_view'), array());    
+    }
+
+
     function checkupsLocation($location_id, $checkup_date = NULL){
 		if($checkup_date == NULL){
         	$this->data['checkups'] = $this->Checkup->getCheckupsLocationDate($location_id, date("Y-m-d", time()));

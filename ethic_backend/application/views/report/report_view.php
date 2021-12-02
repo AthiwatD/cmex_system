@@ -216,6 +216,18 @@
                                 }
                             }
                         ?>
+
+						<?php
+							if(!empty($report_head_suggestion)){
+                            	for($i=0;$i<sizeof($report_head_suggestion);$i++){ 
+                                	if(!empty($report_head_suggestion[$i]->suggestion_detail)){
+                        ?>
+                                   	 	<li><?php echo $report_head_suggestion[$i]->suggestion_detail; ?></li>
+                        <?php
+                               	 	}
+                            	}
+							}
+                        ?>
                     </ul>
                 </div>
                 <!-- /.card-body -->

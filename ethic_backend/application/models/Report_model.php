@@ -59,6 +59,19 @@ class Report_model extends CI_Model {
         return $result;
 	}
 
+	function report_head_by_center($evaluation_id){
+		$sql = "SELECT a.evaluation_id, a.form_id, a.category_id, a.question_group_id, a.question_id, c.center_name, c.center_abbre, 
+						SUM(a.choice_point) as 'sum_point', COUNT(a.person_id) as 'evaluate_person_count', AVG(a.choice_point) as 'average_point' 
+				FROM ethc_answer a 
+				JOIN sev_person p ON a.person_id = p.person_id 
+				JOIN sev_center c ON p.center_id = c.center_id 
+				WHERE a.evaluation_id = '" . $evaluation_id . "' 
+				GROUP BY c.center_id";
+        $result = $this->db->query($sql)->result();
+        //echo  json_encode($result);
+        return $result;
+	}
+
     function report_category($evaluation_id){
         $sql = "SELECT s.evaluation_id, e.evaluation_name, e.evaluation_by,
                     s.form_id, f.form_name,
@@ -69,6 +82,26 @@ class Report_model extends CI_Model {
                     MIN(s.min_choice_point) as 'min_point',
                     MAX(s.max_choice_point) as 'max_point'
                 FROM qstn_summary s
+                JOIN qstn_evaluation e ON s.evaluation_id = e.evaluation_id
+                JOIN qstn_form f ON s.form_id = f.form_id
+                JOIN qstn_category ct ON s.category_id = ct.category_id
+                WHERE s.evaluation_id = '" . $evaluation_id . "'
+                GROUP BY ct.category_id";
+        $result = $this->db->query($sql)->result();
+        //echo  json_encode($result);
+        return $result;
+    }
+
+	function report_head_category($evaluation_id){
+        $sql = "SELECT s.evaluation_id, e.evaluation_name, e.evaluation_by,
+                    s.form_id, f.form_name,
+                    s.category_id, ct.category_number, ct.category_name,
+                    SUM(s.sum_point) as 'sum_point', 
+                    s.evaluate_person_count, 
+                    AVG(s.average_point) as 'average_point',
+                    MIN(s.min_choice_point) as 'min_point',
+                    MAX(s.max_choice_point) as 'max_point'
+                FROM ethc_summary s
                 JOIN qstn_evaluation e ON s.evaluation_id = e.evaluation_id
                 JOIN qstn_form f ON s.form_id = f.form_id
                 JOIN qstn_category ct ON s.category_id = ct.category_id
@@ -91,6 +124,29 @@ class Report_model extends CI_Model {
                     s.max_choice_point,
                     AVG(s.average_point)*100/s.max_choice_point as 'average_percent'
                 FROM qstn_summary s
+                JOIN qstn_evaluation e ON s.evaluation_id = e.evaluation_id
+                JOIN qstn_form f ON s.form_id = f.form_id
+                JOIN qstn_category ct ON s.category_id = ct.category_id
+                JOIN qstn_question_group qg ON s.question_group_id = qg.question_group_id
+                WHERE s.evaluation_id = '" . $evaluation_id . "'
+                GROUP BY qg.question_group_id";
+        $result = $this->db->query($sql)->result();
+        //echo  json_encode($result);
+        return $result;
+    }
+
+	function report_head_question_group($evaluation_id){
+        $sql = "SELECT s.evaluation_id, e.evaluation_name, e.evaluation_by,
+                    s.form_id, f.form_name,
+                    s.category_id, ct.category_number, ct.category_name,
+                    s.question_group_id, qg.question_group_number, qg.question_group_name,
+                    SUM(s.sum_point) as 'sum_point', 
+                    s.evaluate_person_count, 
+                    AVG(s.average_point) as 'average_point',
+                    s.min_choice_point,
+                    s.max_choice_point,
+                    AVG(s.average_point)*100/s.max_choice_point as 'average_percent'
+                FROM ethc_summary s
                 JOIN qstn_evaluation e ON s.evaluation_id = e.evaluation_id
                 JOIN qstn_form f ON s.form_id = f.form_id
                 JOIN qstn_category ct ON s.category_id = ct.category_id
@@ -126,9 +182,42 @@ class Report_model extends CI_Model {
         return $result;
     }
 
+	function report_head_question($evaluation_id){
+        $sql = "SELECT s.evaluation_id, e.evaluation_name, e.evaluation_by,
+                    s.form_id, f.form_name,
+                    s.category_id, ct.category_number, ct.category_name,
+                    s.question_group_id, qg.question_group_number, qg.question_group_name,
+                    s.question_id, q.question_number, q.question_name,
+                    s.sum_point as 'sum_point', 
+                    s.evaluate_person_count, 
+                    s.average_point,
+                    s.min_choice_point,
+                    s.max_choice_point,
+                    s.average_percent
+                FROM ethc_summary s
+                JOIN qstn_evaluation e ON s.evaluation_id = e.evaluation_id
+                JOIN qstn_form f ON s.form_id = f.form_id
+                JOIN qstn_category ct ON s.category_id = ct.category_id
+                JOIN qstn_question_group qg ON s.question_group_id = qg.question_group_id
+                JOIN qstn_question q ON s.question_id = q.question_id
+                WHERE s.evaluation_id = '" . $evaluation_id . "'";
+        $result = $this->db->query($sql)->result();
+        //echo  json_encode($result);
+        return $result;
+    }
+
     function report_suggestion($evaluation_id){
         $sql = "SELECT s.suggestion_detail
                 FROM qstn_suggestion s
+                WHERE s.evaluation_id = '" . $evaluation_id . "'";
+        $result = $this->db->query($sql)->result();
+        //echo  json_encode($result);
+        return $result;
+    }
+
+	function report_head_suggestion($evaluation_id){
+        $sql = "SELECT s.suggestion_detail
+                FROM ethc_suggestion s
                 WHERE s.evaluation_id = '" . $evaluation_id . "'";
         $result = $this->db->query($sql)->result();
         //echo  json_encode($result);
